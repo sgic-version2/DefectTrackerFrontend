@@ -18,7 +18,6 @@ export default function Container({ textAlign, collapsed }) {
   // };
   const useStyles = {
     root: {
-      position:'static',
       marginTop: '5%',
       marginLeft: `${!collapsed ? '250px' : '100px'}`,
       background: '#fafafa',
@@ -26,6 +25,7 @@ export default function Container({ textAlign, collapsed }) {
       height: '100vh',
       zIndex: -1000,
       transition: 'left,0.5s',
+      overflow: 'auto',
     },
     gridContainer: {
       overflowY: 'auto',
@@ -34,6 +34,7 @@ export default function Container({ textAlign, collapsed }) {
       marginLeft: `${collapsed ? '2%' : '-10%'}`,
       transition: 'marginLeft,0.5s',
       overflow: 'auto !important',
+      marginBottom:'10%'
 
     }
   };
