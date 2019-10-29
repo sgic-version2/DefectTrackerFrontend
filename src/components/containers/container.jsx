@@ -6,28 +6,42 @@ import ProjectAllocation from '../../screens/project/ProjectAllocation';
 // container has property 
 //'textAlight' - left, right, center, justified
 
-export default function container({ textAlign, collapsed }) {
+export default function Container({ textAlign, collapsed }) {
+  // const [open, setOpen] = useState(true);
+
+  // const handleOpen = () => {
+  //   setOpen(true);
+  // };
+
+  // const handleClose = () => {
+  //   setOpen(false);
+  // };
   const useStyles = {
     root: {
+      position:'static',
       marginTop: '5%',
       marginLeft: `${!collapsed ? '250px' : '100px'}`,
       background: '#fafafa',
       width: '100%',
-      height: 'auto',
+      height: '100vh',
       zIndex: -1000,
       transition: 'left,0.5s',
     },
     gridContainer: {
       overflowY: 'auto',
     },
-    subContainer:{
-      marginLeft:'2%'
+    subContainer: {
+      marginLeft: `${collapsed ? '2%' : '-10%'}`,
+      transition: 'marginLeft,0.5s',
+      overflow: 'auto !important',
+
     }
   };
+
   return (
     <div style={useStyles.root}>
       <Grid direction="row" container justify="center" alignItems={textAlign ? textAlign : "center"} style={useStyles.gridContainer} spacing={4}>
-        <Grid item xs={12} style={useStyles.subContainer}>
+        <Grid item xs={collapsed ? 12 : 10} style={useStyles.subContainer}>
           <ProjectAllocation />
         </Grid>
       </Grid>
