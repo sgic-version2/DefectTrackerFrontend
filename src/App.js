@@ -4,6 +4,12 @@ import Container from './components/containers/container';
 import AppBar from './components/topBar/appBar';
 import 'antd/dist/antd.css';
 import SideBar from './components/sideBar/SideBar';
+import Doughtnut from './components/charts/doughNut';
+import Radar  from './components/charts/radar';
+import LineChart  from './components/charts/line';
+import BarChart from './components/charts/bar';
+import DeveloperDashboard from './screens/dashboards/developerDashboard';
+import AllSetting from './screens/settings/settings';
 const InitialmarginSize = 80
 const ExpandmarginSize = 250
 class App extends Component {
@@ -54,6 +60,9 @@ class App extends Component {
         <AppBar position='static' backgroundColor='fff' iconFontColor='0f96ab' marginSize={this.state.marginSize} appBarExpandIcon={this.handleExpanedButton} collapsed={this.state.buttonClicked} />
         <SideBar collapsed={this.state.open} onMouseEnterSideBar={this.handleExpaned} display={this.state.display} sideBarColor='1e2129' />
         <Container textAlign="center" collapsed={this.state.open} />
+
+
+
       </Fragment>
     );
   }
