@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'semantic-ui-react';
 import { Grid } from '@material-ui/core';
+import Model from '../model/submitModel'
 import ProjectAllocation from '../../screens/project/ProjectAllocation';
 import { Switch, Route } from 'react-router-dom'
 import EditRole from '../../screens/project/EditRole';
+import AddEmployee from './../../screens/CompanyAdministaration/AddEmployee';
+import DefectType from '../../screens/CommonConfiguration/DefectType';
+// import DoughnutChartDemo from '../../screens/ProductAdministration/DoughNut'
 // container using material Ui
 // container has property 
 //'textAlight' - left, right, center, justified
 
 export default function Container({ textAlign, collapsed }) {
-  // const [open, setOpen] = useState(true);
+  // const [open, setOpen] = useState(false);
 
   // const handleOpen = () => {
   //   setOpen(true);
@@ -24,7 +28,7 @@ export default function Container({ textAlign, collapsed }) {
       marginLeft: `${!collapsed ? '250px' : '100px'}`,
       background: '#fafafa',
       width: '100%',
-      height: '100vh',
+      height: 'auto',
       zIndex: -1000,
       transition: 'left,0.5s',
       overflow: 'auto',
@@ -50,6 +54,7 @@ export default function Container({ textAlign, collapsed }) {
             <Route path="/projectAllocation" component={ProjectAllocation} />
           </Switch>
         </Grid>
+
       </Grid>
     </div>
   )

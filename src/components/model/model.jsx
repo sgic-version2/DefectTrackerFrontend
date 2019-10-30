@@ -1,6 +1,6 @@
 import React from 'react'
-import { Modal } from 'antd'
 
+<<<<<<< HEAD
 const model = ({ form, open, handleClose, width, title }) => {
   return (
     <div>
@@ -14,6 +14,12 @@ const model = ({ form, open, handleClose, width, title }) => {
       >
         {form}
       </Modal>
+=======
+const model = () => {
+  return (
+    <div>
+      
+>>>>>>> thulasiga
     </div>
   )
 }
