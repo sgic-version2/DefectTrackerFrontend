@@ -3,10 +3,8 @@ import { Segment } from 'semantic-ui-react'
 import { Grid } from '@material-ui/core'
 import AllocationButton from './AllocationButton'
 import BreadCrumbs from '../../../components/breadCrumbs/breadCrumbs'
-import Table from '../../../components/tables/table'
 import ProjectPerformance from './projectPerformance'
 import ProjectRemainingTime from '../../../projectRemainingTime'
-import BreadCrumbs from '../../components/breadCrumbs/breadCrumbs'
 import Table from '../../components/tables/table'
 import { Button } from 'semantic-ui-react';
 
