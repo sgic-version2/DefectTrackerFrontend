@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { Transfer, Table, Tag } from 'antd';
 import difference from 'lodash/difference';
 import { Button } from 'semantic-ui-react';
-import Model from '../../components/model/model'
+import Model from '../../../components/model/model'
+import EditRole from './EditRole';
 
 
 var originTargetKeys;
@@ -30,63 +31,63 @@ export default class RoleAllocation extends Component {
 
   render() {
     // Customize Table Transfer
-const TableTransfer = ({ leftColumns, rightColumns, ...restProps }) => (
-  <Transfer {...restProps} showSelectAll={false}>
-    {({
-      direction,
-      filteredItems,
-      onItemSelectAll,
-      onItemSelect,
-      selectedKeys: listSelectedKeys,
-      disabled: listDisabled,
-    }) => {
-      const columns = direction === 'left' ? leftColumns : rightColumns;
+    const TableTransfer = ({ leftColumns, rightColumns, ...restProps }) => (
+      <Transfer {...restProps} showSelectAll={false}>
+        {({
+          direction,
+          filteredItems,
+          onItemSelectAll,
+          onItemSelect,
+          selectedKeys: listSelectedKeys,
+          disabled: listDisabled,
+        }) => {
+          const columns = direction === 'left' ? leftColumns : rightColumns;
 
-      const rowSelection = {
-        getCheckboxProps: item => ({ disabled: listDisabled || item.disabled }),
-        onSelectAll(selected, selectedRows) {
-          const treeSelectedKeys = selectedRows
-            .filter(item => !item.disabled)
-            .map(({ key }) => key);
-          const diffKeys = selected
-            ? difference(treeSelectedKeys, listSelectedKeys)
-            : difference(listSelectedKeys, treeSelectedKeys);
-          onItemSelectAll(diffKeys, selected);
-        },
-        onSelect({ key }, selected) {
-          onItemSelect(key, selected);
-        },
-        selectedRowKeys: listSelectedKeys,
-      };
-
-      return (
-        <Table
-          rowSelection={rowSelection}
-          columns={columns}
-          dataSource={filteredItems}
-          size="small"
-          style={{ pointerEvents: listDisabled ? 'none' : null }}
-          onRow={({ key, disabled: itemDisabled }) => ({
-            onClick: () => {
-              if (itemDisabled || listDisabled) return;
-              onItemSelect(key, !listSelectedKeys.includes(key));
+          const rowSelection = {
+            getCheckboxProps: item => ({ disabled: listDisabled || item.disabled }),
+            onSelectAll(selected, selectedRows) {
+              const treeSelectedKeys = selectedRows
+                .filter(item => !item.disabled)
+                .map(({ key }) => key);
+              const diffKeys = selected
+                ? difference(treeSelectedKeys, listSelectedKeys)
+                : difference(listSelectedKeys, treeSelectedKeys);
+              onItemSelectAll(diffKeys, selected);
             },
-          })}
-        />
-      );
-    }}
-  </Transfer>
-);
+            onSelect({ key }, selected) {
+              onItemSelect(key, selected);
+            },
+            selectedRowKeys: listSelectedKeys,
+          };
 
-const mockTags = ['SE', 'QAE', 'TL', 'ASE'];
-const mockData = [];
-const role = ['JSE', 'QAL', 'TL', 'SE']
-const color = ['blue', 'green', 'orange', 'red']
+          return (
+            <Table
+              rowSelection={rowSelection}
+              columns={columns}
+              dataSource={filteredItems}
+              size="small"
+              style={{ pointerEvents: listDisabled ? 'none' : null }}
+              onRow={({ key, disabled: itemDisabled }) => ({
+                onClick: () => {
+                  if (itemDisabled || listDisabled) return;
+                  onItemSelect(key, !listSelectedKeys.includes(key));
+                },
+              })}
+            />
+          );
+        }}
+      </Transfer>
+    );
 
- originTargetKeys = mockData.filter(item => +item.key % 3 > 1).map(item => item.key);
+    const mockTags = ['SE', 'QAE', 'TL', 'ASE'];
+    const mockData = [];
+    const role = ['JSE', 'QAL', 'TL', 'SE']
+    const color = ['blue', 'green', 'orange', 'red']
+
+    originTargetKeys = mockData.filter(item => +item.key % 3 > 1).map(item => item.key);
 
 
-    const { targetKeys, disabled, showSearch,open } = this.state;
+    const { targetKeys, disabled, showSearch, open } = this.state;
     for (let i = 0; i < 20; i++) {
       mockData.push({
         key: i.toString(),
@@ -116,7 +117,7 @@ const color = ['blue', 'green', 'orange', 'red']
         dataIndex: 'designation',
         title: 'Designation',
       },
-    
+
     ];
     const rightTableColumns = [
       {
@@ -154,7 +155,7 @@ const color = ['blue', 'green', 'orange', 'red']
           leftColumns={leftTableColumns}
           rightColumns={rightTableColumns}
         />
-        <Model open={open} handleOpen={this.handleOpen} handleClose={this.handleClose} width={90} form={<RoleAllocation/>} title='Edit Role'/>
+        <Model open={open} handleOpen={this.handleOpen} handleClose={this.handleClose} width={30} form={<EditRole />} title='Edit Role' />
       </div>
     );
   }
