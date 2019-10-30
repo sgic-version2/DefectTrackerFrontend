@@ -9,7 +9,7 @@ const SubmitModel = ({ form, open, handleOpen, handleClose, width, title }) => {
     return (
         <div>
             <Modal
-                width={`${width?width:'50'}%`}
+                width={`${width ? width : '50'}%`}
                 centered
                 visible={open}
                 title={title}
