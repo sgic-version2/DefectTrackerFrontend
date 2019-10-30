@@ -2,6 +2,8 @@ import React from 'react';
 import 'semantic-ui-react';
 import { Grid } from '@material-ui/core';
 import ProjectAllocation from '../../screens/project/ProjectAllocation';
+import { Switch, Route } from 'react-router-dom'
+import EditRole from '../../screens/project/EditRole';
 // container using material Ui
 // container has property 
 //'textAlight' - left, right, center, justified
@@ -34,7 +36,7 @@ export default function Container({ textAlign, collapsed }) {
       marginLeft: `${collapsed ? '2%' : '-10%'}`,
       transition: 'marginLeft,0.5s',
       overflow: 'auto !important',
-      marginBottom:'10%'
+      marginBottom: '10%'
 
     }
   };
@@ -43,7 +45,10 @@ export default function Container({ textAlign, collapsed }) {
     <div style={useStyles.root}>
       <Grid direction="row" container justify="center" alignItems={textAlign ? textAlign : "center"} style={useStyles.gridContainer} spacing={4}>
         <Grid item xs={collapsed ? 12 : 10} style={useStyles.subContainer}>
-          <ProjectAllocation />
+          <Switch>
+            <Route exact path="/" component={EditRole} />
+            <Route path="/projectAllocation" component={ProjectAllocation} />
+          </Switch>
         </Grid>
       </Grid>
     </div>
