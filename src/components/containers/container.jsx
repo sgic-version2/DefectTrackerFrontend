@@ -5,7 +5,6 @@ import Model from '../model/submitModel'
 import ProjectAllocation from '../../screens/project/ProjectAllocation';
 import AddEmployee from './../../screens/CompanyAdministaration/AddEmployee';
 import DefectType from '../../screens/CommonConfiguration/DefectType';
-// import DoughnutChartDemo from '../../screens/ProductAdministration/DoughNut'
 // container using material Ui
 // container has property 
 //'textAlight' - left, right, center, justified
@@ -47,7 +46,6 @@ export default function Container({ textAlign, collapsed }) {
           {/* <Model open={open} handleClose={handleClose} handleOpen={handleOpen} form={<ProjectAllocation/>} /> */}
         <AddEmployee/>
         {/* <DefectType/> */}
-        {/* <DoughnutChartDemo/> */}
         </Grid>
 
       </Grid>
