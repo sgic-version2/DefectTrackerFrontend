@@ -4,6 +4,7 @@ import { Grid } from '@material-ui/core';
 import ProjectAllocation from '../../screens/project/allocation/ProjectAllocation';
 import { Switch, Route } from 'react-router-dom'
 import EditRole from '../../screens/project/allocation/EditRole';
+import AddEmployee from './../../screens/CompanyAdministaration/AddEmployee';
 // container using material Ui
 // container has property 
 //'textAlight' - left, right, center, justified
@@ -48,6 +49,7 @@ export default function Container({ textAlign, collapsed }) {
           <Switch>
             <Route exact path="/" component={EditRole} />
             <Route path="/projectAllocation" component={ProjectAllocation} />
+            <Route path= "/companyAdministration" component = {AddEmployee}/>>
           </Switch>
         </Grid>
       </Grid>
