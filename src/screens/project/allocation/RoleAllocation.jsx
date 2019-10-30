@@ -2,7 +2,11 @@ import React, { Component } from 'react'
 import { Transfer, Table, Tag } from 'antd';
 import difference from 'lodash/difference';
 import { Button } from 'semantic-ui-react';
+<<<<<<< HEAD:src/screens/project/RoleAllocation.jsx
 import Model from '../../components/model/model'
+=======
+import Model from '../../../components/model/model'
+>>>>>>> jathurshan:src/screens/project/allocation/RoleAllocation.jsx
 import EditRole from './EditRole';
 
 

@@ -1,9 +1,15 @@
 import React from 'react';
 import 'semantic-ui-react';
 import { Grid } from '@material-ui/core';
+<<<<<<< HEAD
 import ProjectAllocation from '../../screens/project/ProjectAllocation';
 import { Switch, Route } from 'react-router-dom'
 import EditRole from '../../screens/project/EditRole';
+=======
+import ProjectAllocation from '../../screens/project/allocation/ProjectAllocation';
+import { Switch, Route } from 'react-router-dom'
+import EditRole from '../../screens/project/allocation/EditRole';
+>>>>>>> jathurshan
 // container using material Ui
 // container has property 
 //'textAlight' - left, right, center, justified
