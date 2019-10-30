@@ -43,7 +43,7 @@ function renderTitle(title) {
         <span>
             {title}
             <a
-                style={{ float: 'right' }}
+                style={{ float: 'left' }}
                 href="https://www.google.com/search?q=antd"
                 target="_blank"
                 rel="noopener noreferrer"

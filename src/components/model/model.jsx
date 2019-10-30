@@ -1,5 +1,4 @@
 import React from 'react'
-import { Modal } from 'antd'
 
 const model = ({ form, open, handleClose, width, title }) => {
   return (
