@@ -1,6 +1,5 @@
 import React from 'react'
 import { Button } from 'semantic-ui-react'
-<<<<<<< HEAD
 import Model from '../../components/model/submitModel'
 import RoleAllocation from './RoleAllocation'
 import Deallocation from './Deallocation'
@@ -40,15 +39,6 @@ const AllocationButton = () => {
             <Button primary>Module Allocation</Button>
             <Model open={open.open} handleOpen={handleOpen} handleClose={handleClose} width={90} form={<RoleAllocation />} title='Roll Allocation' />
             <Model open={open.value} handleOpen={handleOpenDeallocation} handleClose={handleCloseDeallocation} width={90} form={<Deallocation />} title='Deallocation' />
-=======
-
-const AllocationButton = () => {
-    return (
-        <div>
-            <Button  color="primary">Roll Allocation</Button>
-            <Button color="red">Deallocation</Button>
-            <Button primary>Module Allocation</Button>
->>>>>>> thulasiga
         </div>
     )
 }
