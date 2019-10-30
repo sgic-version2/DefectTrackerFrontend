@@ -1,10 +1,5 @@
 import React from 'react'
-<<<<<<< HEAD
 import { Modal } from 'antd';
-=======
-import { Modal } from 'antd'
-
->>>>>>> 315d362f2b38a29e8faecf505821cd8a6d8c2520
 const model = ({ form, open, handleClose, width, title }) => {
   return (
     <div>
