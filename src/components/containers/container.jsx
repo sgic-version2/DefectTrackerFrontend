@@ -53,7 +53,8 @@ export default function Container({ textAlign, collapsed }) {
           <Switch>
             <Route exact path="/" component={EditRole} />
             <Route path="/projectAllocation" component={ProjectAllocation} />
-            <Route path= "/companyAdministration" component = {AddEmployee}/>>
+            <Route path= "/companyAdministration" component = {AddEmployee}/>
+            <Route path= "/companyCompany" component = {CompanyDetails}/>
           </Switch>
         </Grid>
       </Grid>
