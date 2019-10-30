@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Menu, Icon, Avatar } from 'antd';
 import { Typography } from '@material-ui/core';
-import { Link } from 'react-router-dom'
 
 // sideBar Menu Object 
 const sideBarContent = [{
@@ -242,11 +241,7 @@ class SideBar extends Component {
                                                         {
                                                             submenuContent.subcontent.map((subContents, indexSub) => {
                                                                 return (
-                                                                    <Menu.Item key={`sub${subIndex}join${indexSub}`}>
-                                                                        <Link to={subContents.url}>
-                                                                            {subContents.name}
-                                                                        </Link>
-                                                                    </Menu.Item>
+                                                                    <Menu.Item key={`sub${subIndex}join${indexSub}`}>{subContents.name}</Menu.Item>
                                                                 )
                                                             })
                                                         }
@@ -254,11 +249,7 @@ class SideBar extends Component {
                                                 )
                                             } else {
                                                 return (
-                                                    <Menu.Item key={`oneSubModule${index}join${subIndex}`}>
-                                                        <Link to={submenuContent.url}>
-                                                            {submenuContent.name}
-                                                        </Link>
-                                                    </Menu.Item>
+                                                    <Menu.Item key={`oneSubModule${index}join${subIndex}`}>{submenuContent.name}</Menu.Item>
                                                 )
                                             }
                                         })}
@@ -266,11 +257,9 @@ class SideBar extends Component {
                                 )
                             } else {
                                 return (
-                                    <Menu.Item key={`without${index}`} >
-                                        <Link to={content.url} >
-                                            <Icon type={content.icon} />
-                                            <span>{content.name}</span>
-                                        </Link>
+                                    <Menu.Item key={`without${index}`}>
+                                        <Icon type={content.icon} />
+                                        <span>{content.name}</span>
                                     </Menu.Item>
                                 )
                             }
