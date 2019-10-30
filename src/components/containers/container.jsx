@@ -5,6 +5,7 @@ import Model from '../model/submitModel'
 import ProjectAllocation from '../../screens/project/ProjectAllocation';
 import AddEmployee from './../../screens/CompanyAdministaration/AddEmployee';
 import DefectType from '../../screens/CommonConfiguration/DefectType';
+// import { ReactDOM } from 'react-dom';
 // container using material Ui
 // container has property 
 //'textAlight' - left, right, center, justified
@@ -46,6 +47,8 @@ export default function Container({ textAlign, collapsed }) {
           {/* <Model open={open} handleClose={handleClose} handleOpen={handleOpen} form={<ProjectAllocation/>} /> */}
         <AddEmployee/>
         {/* <DefectType/> */}
+      
+      
         </Grid>
 
       </Grid>
