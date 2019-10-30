@@ -1,4 +1,4 @@
-#Container{
+  #Container{
   margin-top: 54px;
 }
 .ant-table-thead > tr > th .ant-table-header-column .ant-table-column-sorters::before{
@@ -20,11 +20,7 @@
 }
 .ant-table-tbody > tr > td{
   text-align: center !important;
-<<<<<<< HEAD
 }
 /* body{
   overflow-y: scroll;
 } */
-=======
-}
->>>>>>> thulasiga
