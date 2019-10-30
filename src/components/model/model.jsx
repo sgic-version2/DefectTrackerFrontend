@@ -1,48 +1,20 @@
-
-import React,{Component} from 'react'
-import { Modal, Button } from 'antd';
-
-class model extends Component {
-  state = { visible: false };
-
-  showModal = () => {
-    this.setState({
-      visible: true,
-    });
-  };
-
-  handleOk = e => {
-    console.log(e);
-    this.setState({
-      visible: false,
-    });
-  };
-
-  handleCancel = e => {
-    console.log(e);
-    this.setState({
-      visible: false,
-    });
-  };
-
-  render() {
-    return (
-      <div>
-        <Button type="primary" onClick={this.showModal}>
-          Open Modal
-        </Button>
-        <Modal
-          title="Basic Modal"
-          visible={this.state.visible}
-          onOk={this.handleOk}
-          onCancel={this.handleCancel}
-        >
-         
-        </Modal>
-      </div>
-    );
-  }
-
+import React from 'react'
+import { Modal } from 'antd';
+const model = ({ form, open, handleClose, width, title }) => {
+  return (
+    <div>
+      <Modal
+        width={`${width ? width : '20'}%`}
+        centered
+        visible={open}
+        title={title}
+        onOk={handleClose}
+        onCancel={handleClose}
+      >
+        {form}
+      </Modal>
+    </div>
+  )
 }
 
 export default model

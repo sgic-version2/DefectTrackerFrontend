@@ -3,6 +3,10 @@ import 'semantic-ui-react';
 import { Grid } from '@material-ui/core';
 import CompanyDetails from '../../screens/company/CompanyDetails';
 
+import ProjectAllocation from '../../screens/project/allocation/ProjectAllocation';
+import { Switch, Route } from 'react-router-dom'
+import EditRole from '../../screens/project/allocation/EditRole';
+import AddEmployee from './../../screens/CompanyAdministaration/AddEmployee';
 // container using material Ui
 // container has property 
 //'textAlight' - left, right, center, justified
@@ -26,7 +30,7 @@ export default function Container({ textAlign, collapsed }) {
       height: 'auto',
       zIndex: -1000,
       transition: 'left,0.5s',
-      overflow: 'scroll',
+      overflow: 'auto',
     },
     gridContainer: {
       overflowY: 'auto',
@@ -34,6 +38,8 @@ export default function Container({ textAlign, collapsed }) {
     subContainer: {
       marginLeft: `${collapsed ? '2%' : '-10%'}`,
       transition: 'marginLeft,0.5s',
+      overflow: 'auto !important',
+      marginBottom: '10%'
 
     }
   };
@@ -44,9 +50,12 @@ export default function Container({ textAlign, collapsed }) {
        
        
         <Grid item xs={collapsed ? 12 : 10} style={useStyles.subContainer}>
-         
-        <CompanyDetails/>
-      </Grid>
+          <Switch>
+            <Route exact path="/" component={EditRole} />
+            <Route path="/projectAllocation" component={ProjectAllocation} />
+            <Route path= "/companyAdministration" component = {AddEmployee}/>>
+          </Switch>
+        </Grid>
       </Grid>
     </div>
   )

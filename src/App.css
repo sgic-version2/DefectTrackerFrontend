@@ -22,3 +22,6 @@
 .ant-table-tbody > tr > td{
   text-align: center !important;
 }
+/* body{
+  overflow-y: scroll;
+} */
