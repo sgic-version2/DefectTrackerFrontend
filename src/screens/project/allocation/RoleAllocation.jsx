@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Transfer, Table, Tag } from 'antd';
 import difference from 'lodash/difference';
 import { Button } from 'semantic-ui-react';
-import Model from '../../components/model/model'
+import Model from '../../../components/model/model'
 import EditRole from './EditRole';
 
 

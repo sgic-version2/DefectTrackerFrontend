@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Transfer, Table, Tag } from 'antd';
 import difference from 'lodash/difference';
-import Model from '../../components/model/model'
-import EditRole from './EditRole';
+import Model from '../../../components/model/model'
+import EditRole from '../allocation/EditRole';
 
 
 var originTargetKeys;
