@@ -1,16 +1,17 @@
 import React from 'react';
 import 'semantic-ui-react';
 import { Grid } from '@material-ui/core';
-
-// import ProjectAllocation from '../../screens/project/ProjectAllocation';
 import Dashboard from '../../screens/Dashboard/Dashboard';
 import Amodule from '../../screens/Dashboard/Dashboard';
 
-import ProjectAllocation from '../../screens/project/ProjectAllocation';
 import { Switch, Route } from 'react-router-dom'
-import EditRole from '../../screens/project/EditRole';
-import Loginform from '../../screens/Dashboard/Login';
 
+import CompanyDetails from '../../screens/company/CompanyDetails';
+
+import ProjectAllocation from '../../screens/project/allocation/ProjectAllocation';
+import { Switch, Route } from 'react-router-dom'
+import EditRole from '../../screens/project/allocation/EditRole';
+import AddEmployee from './../../screens/CompanyAdministaration/AddEmployee';
 // container using material Ui
 // container has property 
 //'textAlight' - left, right, center, justified
@@ -31,7 +32,7 @@ export default function Container({ textAlign, collapsed }) {
       marginLeft: `${!collapsed ? '250px' : '100px'}`,
       background: '#fafafa',
       width: '100%',
-      height: '100vh',
+      height: 'auto',
       zIndex: -1000,
       transition: 'left,0.5s',
       overflow: 'auto',
@@ -51,6 +52,8 @@ export default function Container({ textAlign, collapsed }) {
   return (
     <div style={useStyles.root}>
       <Grid direction="row" container justify="center" alignItems={textAlign ? textAlign : "center"} style={useStyles.gridContainer} spacing={4}>
+       
+       
         <Grid item xs={collapsed ? 12 : 10} style={useStyles.subContainer}>
 
           {/* <ProjectAllocation /> */}
@@ -58,10 +61,12 @@ export default function Container({ textAlign, collapsed }) {
           {/* <Amodule/> */}
           {/* <Loginform/> */}
 
-          {/* <Switch>
+          <Switch>
             <Route exact path="/" component={EditRole} />
             <Route path="/projectAllocation" component={ProjectAllocation} />
-          </Switch> */}
+            <Route path= "/companyAdministration" component = {AddEmployee}/>
+            <Route path= "/companyCompany" component = {CompanyDetails}/>
+          </Switch>
 
         </Grid>
       </Grid>
