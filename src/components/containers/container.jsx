@@ -8,6 +8,7 @@ import ProjectAllocation from '../../screens/project/allocation/ProjectAllocatio
 import { Switch, Route } from 'react-router-dom'
 import EditRole from '../../screens/project/allocation/EditRole';
 import AddEmployee from './../../screens/CompanyAdministaration/AddEmployee';
+import ViewDefect from '../../screens/Defect/viewDefect';
 // container using material Ui
 // container has property 
 //'textAlight' - left, right, center, justified
@@ -52,7 +53,7 @@ export default function Container({ textAlign, collapsed }) {
 
           <Switch>
             <Route exact path="/" component={EditRole} />
-            <Route path="/defect" component={Dashboard}/>
+            <Route path="/defectDashboard" component={Dashboard}/>
             <Route path="/projectAllocation" component={ProjectAllocation} />
             <Route path= "/companyAdministration" component = {AddEmployee}/>
             <Route path= "/companyCompany" component = {CompanyDetails}/>
