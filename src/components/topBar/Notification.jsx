@@ -1,15 +1,9 @@
-import { Popover, Button } from 'antd';
+
 import React, { Component } from 'react';
 import {
-    Layout,
-    Icon,
-    Badge,
-    Row,
-    Col,
-    Menu,
+    
     Avatar,
-    Dropdown,
-    Input,
+    
     Tag,
     Divider,
 } from 'antd';
@@ -17,7 +11,7 @@ import { Link } from 'react-router-dom'
 
 
 
-const buttonWidth = 70;
+
 class Notification extends Component {
     render() {
         return (
