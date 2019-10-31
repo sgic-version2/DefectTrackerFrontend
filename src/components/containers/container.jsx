@@ -3,11 +3,7 @@ import 'semantic-ui-react';
 import { Grid } from '@material-ui/core';
 import Dashboard from '../../screens/Dashboard/Dashboard';
 import Amodule from '../../screens/Dashboard/Dashboard';
-
-import { Switch, Route } from 'react-router-dom'
-
 import CompanyDetails from '../../screens/company/CompanyDetails';
-
 import ProjectAllocation from '../../screens/project/allocation/ProjectAllocation';
 import { Switch, Route } from 'react-router-dom'
 import EditRole from '../../screens/project/allocation/EditRole';
@@ -55,14 +51,9 @@ export default function Container({ textAlign, collapsed }) {
        
        
         <Grid item xs={collapsed ? 12 : 10} style={useStyles.subContainer}>
-
-          {/* <ProjectAllocation /> */}
-          <Dashboard/>
-          {/* <Amodule/> */}
-          {/* <Loginform/> */}
-
           <Switch>
             <Route exact path="/" component={EditRole} />
+            <Route path="/defect" component={Dashboard}/>
             <Route path="/projectAllocation" component={ProjectAllocation} />
             <Route path= "/companyAdministration" component = {AddEmployee}/>
             <Route path= "/companyCompany" component = {CompanyDetails}/>
