@@ -9,7 +9,7 @@ import { Switch, Route } from 'react-router-dom'
 import EditRole from '../../screens/project/allocation/EditRole';
 import AddEmployee from './../../screens/CompanyAdministaration/AddEmployee';
 import ViewDefect from '../../screens/Defect/viewDefect';
-import AuditTable from '../../screens/Settings/Troubleshoot and Support/Audit Log/Audit_table'
+import AuditTable from '../../screens/Settings/Troubleshoot and Support/Audit Log/Audit_table/Audit_table'
 // container using material Ui
 // container has property 
 //'textAlight' - left, right, center, justified
