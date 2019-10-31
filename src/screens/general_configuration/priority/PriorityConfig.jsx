@@ -7,7 +7,6 @@ import Table from '../../../components/tables/table'
 import { Button } from 'semantic-ui-react';
 import { Icon } from 'semantic-ui-react';
 import { Popconfirm, message } from 'antd';
-import AllocationButton from './../../project/AllocationButton';
 import EditPriority from './EditPriority'
 
 
