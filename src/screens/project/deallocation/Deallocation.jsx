@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Transfer, Table, Tag } from 'antd';
 import difference from 'lodash/difference';
-import Model from '../../components/model/model'
-import EditRole from './EditRole';
+import Model from '../../../components/model/model'
+import EditRole from '../allocation/EditRole';
 
 
 var originTargetKeys;
@@ -89,7 +89,7 @@ export default class Deallocation extends Component {
             mockData.push({
                 key: i.toString(),
                 employeeID: `EMP${i + 1}`,
-                fullname: `Employee${i + 1}`,
+                member: `Member${i + 1}`,
                 role: <Tag color={color[i % 4]}>{role[i % 4]}</Tag>,
             });
         }

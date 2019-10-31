@@ -1,9 +1,9 @@
 import React from 'react';
 import 'semantic-ui-react';
 import { Grid } from '@material-ui/core';
-import ProjectAllocation from '../../screens/project/ProjectAllocation';
+import ProjectAllocation from '../../screens/project/allocation/ProjectAllocation';
 import { Switch, Route } from 'react-router-dom'
-import EditRole from '../../screens/project/EditRole';
+import EditRole from '../../screens/project/allocation/EditRole';
 // container using material Ui
 // container has property 
 //'textAlight' - left, right, center, justified
@@ -27,7 +27,7 @@ export default function Container({ textAlign, collapsed }) {
       height: '100vh',
       zIndex: -1000,
       transition: 'left,0.5s',
-      overflow: 'auto',
+      overflowX: 'auto',
     },
     gridContainer: {
       overflowY: 'auto',

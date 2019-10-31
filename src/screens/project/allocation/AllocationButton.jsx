@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { Button } from 'semantic-ui-react'
-import Model from '../../components/model/submitModel'
+import Model from '../../../components/model/submitModel'
 import RoleAllocation from './RoleAllocation'
-import Deallocation from './Deallocation'
+import Deallocation from '../deallocation/Deallocation'
+
 
 const AllocationButton = () => {
     const [open, setOpen] = useState({
@@ -37,8 +38,9 @@ const AllocationButton = () => {
             <Button color="primary" onClick={handleOpen}>Roll Allocation</Button>
             <Button color="red" onClick={handleOpenDeallocation}>Deallocation</Button>
             <Button primary>Module Allocation</Button>
-            <Model open={open.open} handleOpen={handleOpen} handleClose={handleClose} width={90} form={<RoleAllocation />} title='Roll Allocation' />
+            <Model open={open.open} handleOpen={handleOpen} handleClose={handleClose} width={90} form={<RoleAllocation />} title='Role Allocation' />
             <Model open={open.value} handleOpen={handleOpenDeallocation} handleClose={handleCloseDeallocation} width={90} form={<Deallocation />} title='Deallocation' />
+
         </div>
     )
 }
