@@ -125,8 +125,9 @@ class Audit_table extends Component {
             <Segment>
                  <BreadCrumbs /> 
               <CustomizedMenus/>
+              <Date/>
                 <Export/>
-               <Date/>
+              
                 <Table column={columns} data={data}/>
             </Segment>
         </Grid>
