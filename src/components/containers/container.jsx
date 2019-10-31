@@ -28,7 +28,7 @@ export default function Container({ textAlign, collapsed }) {
       marginLeft: `${!collapsed ? '250px' : '100px'}`,
       background: '#fafafa',
       width: '100%',
-      height: 'auto',
+      height: '100vh',
       zIndex: -1000,
       transition: 'left,0.5s',
       overflow: 'auto',
