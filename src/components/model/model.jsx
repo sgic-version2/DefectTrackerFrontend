@@ -1,7 +1,6 @@
 import React from 'react'
-import { Modal } from 'antd'
-
-const model = ({ form, open, handleOpen, handleClose, width, title }) => {
+import { Modal } from 'antd';
+const model = ({ form, open, handleClose, width, title }) => {
   return (
     <div>
       <Modal
@@ -9,7 +8,7 @@ const model = ({ form, open, handleOpen, handleClose, width, title }) => {
         centered
         visible={open}
         title={title}
-        onOk={handleOpen}
+        onOk={handleClose}
         onCancel={handleClose}
       >
         {form}
