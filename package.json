@@ -5,11 +5,13 @@
   "dependencies": {
     "@material-ui/core": "^4.5.1",
     "@material-ui/icons": "^4.5.1",
-    "antd": "^3.24.2",
-    "material-table": "^1.52.0",
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2",
+    "antd": "^3.24.3",
+    "material-table": "^1.53.0",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-excel-renderer": "^1.1.0",
     "react-scripts": "3.2.0",
+    "semantic-ui": "^2.4.2",
     "semantic-ui-react": "^0.88.1"
   },
   "scripts": {

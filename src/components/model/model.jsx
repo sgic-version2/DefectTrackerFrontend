@@ -9,7 +9,7 @@ const model = ({ form, open, handleOpen, handleClose, width, title }) => {
         centered
         visible={open}
         title={title}
-        onOk={handleOpen}
+        onOk={handleClose}
         onCancel={handleClose}
       >
         {form}
