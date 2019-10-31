@@ -51,6 +51,7 @@ export default function Container({ textAlign, collapsed }) {
        
        
         <Grid item xs={collapsed ? 12 : 10} style={useStyles.subContainer}>
+
           <Switch>
             <Route exact path="/" component={EditRole} />
             <Route path="/defect" component={Dashboard}/>
