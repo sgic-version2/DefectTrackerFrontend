@@ -76,7 +76,7 @@ const data = [
       associateQA: 25
    },
    {
-      key: '1',
+      key: '2',
       projectName: 'Defect System',
       softwareEngineer: 32,
       associateSoftwareEngineer: 60,
@@ -86,7 +86,7 @@ const data = [
       associateQA: 25
    },
    {
-      key: '1',
+      key: '3',
       projectName: 'HRM System',
       softwareEngineer: 32,
       associateSoftwareEngineer: 60,

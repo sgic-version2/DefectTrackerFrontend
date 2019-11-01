@@ -90,7 +90,7 @@ export default class Deallocation extends Component {
                 key: i.toString(),
                 employeeID: `EMP${i + 1}`,
                 member: `Member${i + 1}`,
-                role: <Tag color={color[i % 4]}>{role[i % 4]}</Tag>,
+                role: <Tag key={i} color={color[i % 4]}>{role[i % 4]}</Tag>,
             });
         }
         const leftTableColumns = [
