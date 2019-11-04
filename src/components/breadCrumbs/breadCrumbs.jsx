@@ -30,9 +30,9 @@ export default function IconBreadcrumbs() {
   return (
     <Paper elevation={0} className={classes.root}>
       <Breadcrumbs aria-label="breadcrumb">
-        <Link color="inherit" href="/" className={classes.link}>
+        <Link color="inherit" href="/"  className={classes.link}>
           <HomeIcon className={classes.icon} />
-          Home
+          Material-UI
         </Link>
         <Link
           color="inherit"
@@ -40,11 +40,11 @@ export default function IconBreadcrumbs() {
           className={classes.link}
         >
           <WhatshotIcon className={classes.icon} />
-          Company
+          Core
         </Link>
         <Typography color="textPrimary" className={classes.link}>
           <GrainIcon className={classes.icon} />
-          Employee
+          Breadcrumb
         </Typography>
       </Breadcrumbs>
     </Paper>
