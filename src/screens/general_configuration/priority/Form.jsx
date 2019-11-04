@@ -51,11 +51,6 @@ class Form extends React.Component {
             <div onClick={this.handleClose} />
             {displayColorPicker && <ChromePicker onChange={this.handleColor} />}
           </div>
-
-
-
-
-
           {/* </form> */}
         </div>
       </div>
