@@ -2,8 +2,7 @@ import React, { Fragment } from 'react'
 import AppBar from '@material-ui/core/AppBar';
 import { Toolbar, Typography } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
-import { Icon, Button, Divider, Avatar, Badge, Popover } from 'antd';
-import Notification from './Notification';
+import { Icon, Button, Divider, Avatar, Badge } from 'antd';
 
 
 /* App bar using Material-ui 
@@ -28,13 +27,11 @@ const appBar = ({ position, color, backgroundColor, iconFontColor, marginSize, a
                     <IconButton style={{ marginLeft: '70%' }}>
                         <Avatar size={30} src="http://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg" style={{ color: `#${iconFontColor ? iconFontColor : '048691'}` }} />
                     </IconButton>
-                    <Popover placement="bottomRight"  content={<Notification/>} trigger="click">
-                        <IconButton>
-                            <Badge count={5}>
-                                <Avatar size={30} icon="alert" style={{ color: `#${iconFontColor ? iconFontColor : '048691'}` }} />
-                            </Badge>
-                        </IconButton>
-                    </Popover>
+                    <IconButton>
+                        <Badge count={5}>
+                            <Avatar size={30} icon="alert" style={{ color: `#${iconFontColor ? iconFontColor : '048691'}` }} />
+                        </Badge>
+                    </IconButton>
                     <Divider type="vertical" style={{ height: '50px' }} />
                     <IconButton>
                         <Badge count={5}>

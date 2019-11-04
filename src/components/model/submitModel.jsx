@@ -1,7 +1,11 @@
 import React from 'react'
 import { Modal, Button } from 'antd';
 
+
 const SubmitModel = ({ form, open, handleOpen, handleClose, width, title }) => {
+    //use state 
+
+
     return (
         <div>
             <Modal
@@ -16,11 +20,10 @@ const SubmitModel = ({ form, open, handleOpen, handleClose, width, title }) => {
                         Return
             </Button>,
                     <Button key="submit" type="primary" onClick={handleClose}>
-                        Save
+                        Submit
             </Button>,
                 ]}
             >
-
                 {form}
             </Modal>
         </div>
