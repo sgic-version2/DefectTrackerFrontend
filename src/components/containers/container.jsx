@@ -2,7 +2,6 @@ import React from 'react';
 import 'semantic-ui-react';
 import { Grid } from '@material-ui/core';
 import Dashboard from '../../screens/Dashboard/Dashboard';
-import Amodule from '../../screens/Dashboard/Dashboard';
 import CompanyDetails from '../../screens/company/CompanyDetails';
 import ProjectAllocation from '../../screens/project/allocation/ProjectAllocation';
 import { Switch, Route } from 'react-router-dom'
@@ -16,15 +15,7 @@ import PriorityConfig from '../../screens/general_configuration/priority/Priorit
 //'textAlight' - left, right, center, justified
 
 export default function Container({ textAlign, collapsed }) {
-  // const [open, setOpen] = useState(true);
 
-  // const handleOpen = () => {
-  //   setOpen(true);
-  // };
-
-  // const handleClose = () => {
-  //   setOpen(false);
-  // };
   const useStyles = {
     root: {
       marginTop: '5%',
@@ -55,13 +46,13 @@ export default function Container({ textAlign, collapsed }) {
 
           <Switch>
             <Route exact path="/" component={EditRole} />
-            <Route path="/defectDashboard" component={Dashboard}/>
+            <Route path="/defectDashboard" component={Dashboard} />
             <Route path="/projectAllocation" component={ProjectAllocation} />
-            <Route path= "/companyAdministration" component = {AddEmployee}/>
-            <Route path= "/companyCompany" component = {CompanyDetails}/>
-            <Route path= "/defect" component = {ViewDefect} />
-            <Route path= "/auditLog" component = {AuditTable}/>
-            <Route path= "/priority" component = {PriorityConfig}/>
+            <Route path="/companyAdministration" component={AddEmployee} />
+            <Route path="/companyCompany" component={CompanyDetails} />
+            <Route path="/defect" component={ViewDefect} />
+            <Route path="/auditLog" component={AuditTable} />
+            <Route path="/priority" component={PriorityConfig} />
           </Switch>
 
         </Grid>

@@ -1,52 +1,28 @@
-
-
-
-
 import React from 'react'
-import { Modal, Button } from 'antd';
-import {
-    
-    Icon,
-    Form,
-    Input,
-    Radio,
-    DatePicker
-  } from "antd";
-  import { InputNumber } from "antd";
-  import moment from "moment";
-  import { Row, Col } from "antd";
-//   import "./company.css";
-  const dateFormatList = ["DD/MM/YYYY", "DD/MM/YY"];
+import { Modal, Button, Row, Col } from 'antd';
+//dropdown for Lisence period s Function
 
-  const { TextArea } = Input;
-  //dropdown for Lisence period s Function
-  function onChange(value) {
-    console.log("changed", value);
-  }
-
-const MoreDetails = ({ form, open, handleOpen1, handleClose1, width, title }) => {
-    //use state 
-
-
-    return (
-        <div>
-            <Modal
-                width={`${width?width:'50'}%`}
-                visible={open}
-                title={title}
-                onOk={handleOpen1}
-                onCancel={handleClose1}
-                footer={[
-                    <Button key="back" type="primary" onClick={handleClose1}>
-                        Return
+const MoreDetails = ({ open, handleOpen1, handleClose1, width, title }) => {
+  //use state 
+  return (
+    <div>
+      <Modal
+        width={`${width ? width : '50'}%`}
+        visible={open}
+        title={title}
+        onOk={handleOpen1}
+        onCancel={handleClose1}
+        footer={[
+          <Button key="back" type="primary" onClick={handleClose1}>
+            Return
             </Button>,
-            //         <Button key="submit" type="primary" onClick={handleClose1}>
-            //             Save
-            // </Button>,
-                ]}
-            >
-                <form>
-                <Row>
+          //         <Button key="submit" type="primary" onClick={handleClose1}>
+          //             Save
+          // </Button>,
+        ]}
+      >
+        <form>
+          <Row>
             <Col span={9} style={{ padding: '5px' }}>
               <p>
                 <b>Registration Id</b>
@@ -117,7 +93,7 @@ const MoreDetails = ({ form, open, handleOpen1, handleClose1, width, title }) =>
               <p>
                 <b>:</b>
               </p>
-              
+
             </Col>
             <Col span={14} style={{ padding: '5px' }}>
               <p>SGIC-001</p>
@@ -128,13 +104,13 @@ const MoreDetails = ({ form, open, handleOpen1, handleClose1, width, title }) =>
               <p>Gold</p>
               <p>25.10.2019</p>
               <p>25.01.2020</p>
-              <p>jhonk@gmail.com</p> 
+              <p>jhonk@gmail.com</p>
               <p>ohn Keells Holdings PLC is the largest conglomerate in Sri Lanka, focused on seven industry sectors, offering the best opportunities for investment and ...</p>
             </Col>
           </Row>
-          </form>
-        </Modal>
-        </div>
-    )
+        </form>
+      </Modal>
+    </div>
+  )
 }
 export default MoreDetails

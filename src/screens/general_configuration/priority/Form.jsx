@@ -1,20 +1,14 @@
-import React, { useState } from 'react';
-import { Button } from 'semantic-ui-react';
+import React from 'react';
 import './Form.css'
 import { ChromePicker } from 'react-color' //color picker
-
-
-
-
-
 class Form extends React.Component {
   state = {
     displayColorPicker: false,
-    selectedColor:null
+    selectedColor: null
   };
 
-  handleColor=(e)=>{
-    this.setState({ selectedColor: e.hex  });
+  handleColor = (e) => {
+    this.setState({ selectedColor: e.hex });
     console.log(e.hex)
   }
 
@@ -28,35 +22,10 @@ class Form extends React.Component {
 
   render() {
 
-    const {selectedColor, displayColorPicker} = this.state;
-
-
-    const popover = {
-      position: 'absolute',
-      zIndex: '2',
-    }
-    const cover = {
-      position: 'fixed',
-      top: '0px',
-      right: '0px',
-      bottom: '0px',
-      left: '0px',
-    }
-
-
-    
-  return (
-
-
-    <div>
-
-      {/* <form > */}
-       
+    const { selectedColor, displayColorPicker } = this.state;
+    return (
+      <div>
         <div >
-
-
-
-
           <label>Name:</label>
           <input type="text" id="" className="" placeholder="Name"></input>
           <br />
@@ -67,39 +36,30 @@ class Form extends React.Component {
 
           <label>Icon:</label>
           <br />
-
-
           <br />
-
-
           <input
             accept="image/*"
-            //className={classes.input}
             id="contained-button-file"
             multiple
             type="file"
           />
-         
           <br />
           <br />
           <label>Colour:</label>
-
           <div>
-        <div onClick={ this.handleClick } style={{backgroundColor:selectedColor}} className='colorbox'></div>
-        {/* {displayColorPicker ? <div style={ popover }> */}
-          <div onClick={ this.handleClose }/>
-        {/* </div> : null } */}
-          {displayColorPicker && <ChromePicker onChange={ this.handleColor} />}
+            <div onClick={this.handleClick} style={{ backgroundColor: selectedColor }} className='colorbox'></div>
+            <div onClick={this.handleClose} />
+            {displayColorPicker && <ChromePicker onChange={this.handleColor} />}
+          </div>
+
+
+
+
+
+          {/* </form> */}
+        </div>
       </div>
-
-
-
-
-
-      {/* </form> */}
-    </div>
-    </div>
-  )
+    )
   }
 }
 export default Form
