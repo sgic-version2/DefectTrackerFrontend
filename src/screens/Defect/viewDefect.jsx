@@ -1,58 +1,50 @@
 import React, { useState } from 'react';
 import Tables from '../../components/tables/table';
 import { Button, Segment } from 'semantic-ui-react';
-import { Grid, IconButton, Badge, Avatar } from '@material-ui/core';
-//import AddDefect from './addDefect';
-//import BreadCrumbs from '../../components/breadCrumbs';
-//import Model from './model';
+import { Grid } from '@material-ui/core';
 import AddDefect from './addDefect';
 import More from './more';
 import EditDefect from './editDefect';
 import MoreOutlinedIcon from '@material-ui/icons/MoreOutlined';
 
-//import EditDefect from './editDefect';
-
-
-
-
 const ViewDefect = () => {
     const [open, setOpen] = useState({
-        open:false,
-        value:false
+        open: false,
+        value: false
     });
 
     const handleOpen = () => {
         setOpen({
-            open:true
+            open: true
         });
     };
 
     const handleClose = () => {
         setOpen({
-            open:false
+            open: false
         });
     };
 
     const handleOpenmore = () => {
         setOpen({
-            valueMore:true
+            valueMore: true
         });
     };
 
     const handleClosemore = () => {
         setOpen({
-            valueMore:false
+            valueMore: false
         });
     };
     const handleOpenEdit = () => {
         setOpen({
-            value:true
+            value: true
         });
     };
 
     const handleCloseEdit = () => {
         setOpen({
-            value:false
+            value: false
         });
     };
     const columns = [
@@ -206,10 +198,10 @@ const ViewDefect = () => {
             action: <Button.Group>
                 <Button secondary onClick={handleOpenEdit}>Edit</Button>
                 <Button.Or />
-                <Button negative 
-                    onClick={() => 
-                    window.confirm( "Are you sure you want to delete this Defect? ") && 
-                    this.deleteDefect()}>Delete
+                <Button negative
+                    onClick={() =>
+                        window.confirm("Are you sure you want to delete this Defect? ") &&
+                        this.deleteDefect()}>Delete
                 </Button>
             </Button.Group>,
             more: <MoreOutlinedIcon onClick={handleOpenmore} />
@@ -225,8 +217,8 @@ const ViewDefect = () => {
             action: <Button.Group>
                 <Button secondary onClick={handleOpenEdit}>Edit</Button>
                 <Button.Or />
-                <Button negative onClick={() => 
-                    window.confirm( "Are you sure you want to delete this Defect? ") && 
+                <Button negative onClick={() =>
+                    window.confirm("Are you sure you want to delete this Defect? ") &&
                     this.deleteDefect()}>Delete
                 </Button>
             </Button.Group>,
@@ -244,8 +236,8 @@ const ViewDefect = () => {
             action: <Button.Group>
                 <Button secondary onClick={handleOpenEdit}>Edit</Button>
                 <Button.Or />
-                <Button negative onClick={() => 
-                    window.confirm( "Are you sure you want to delete this Defect? ") && 
+                <Button negative onClick={() =>
+                    window.confirm("Are you sure you want to delete this Defect? ") &&
                     this.deleteDefect()}>Delete
                 </Button>
             </Button.Group>,
@@ -262,8 +254,8 @@ const ViewDefect = () => {
             action: <Button.Group>
                 <Button secondary onClick={handleOpenEdit}>Edit</Button>
                 <Button.Or />
-                <Button negative onClick={() => 
-                    window.confirm( "Are you sure you want to delete this Defect? ") && 
+                <Button negative onClick={() =>
+                    window.confirm("Are you sure you want to delete this Defect? ") &&
                     this.deleteDefect()}>Delete
                 </Button>
             </Button.Group>,
@@ -278,14 +270,14 @@ const ViewDefect = () => {
             <Grid item xs={11} style={{ marginTop: '2%' }}>
                 <Segment>
                     {/* <BreadCrumbs/> */}
-                    
-                    <AddDefect open={open.open} handleClose={handleClose} handleOpen={handleOpen}  />
-                    <Button color="primary" onClick={handleOpen}>AddDefect</Button> 
+
+                    <AddDefect open={open.open} handleClose={handleClose} handleOpen={handleOpen} />
+                    <Button color="primary" onClick={handleOpen}>AddDefect</Button>
                     <Tables column={columns} data={data} />
 
-                    <EditDefect open={open.value}  handleOpen={handleOpenEdit} handleClose={handleCloseEdit}/>
+                    <EditDefect open={open.value} handleOpen={handleOpenEdit} handleClose={handleCloseEdit} />
 
-                    <More open={open.valueMore}  handleOpen={handleOpenmore} handleClose={handleClosemore}/>
+                    <More open={open.valueMore} handleOpen={handleOpenmore} handleClose={handleClosemore} />
 
                 </Segment>
             </Grid>

@@ -1,4 +1,4 @@
-import React, { Component ,useState} from 'react'
+import React, { Component } from 'react'
 import { Segment } from 'semantic-ui-react'
 import { Grid } from '@material-ui/core'
 
@@ -8,48 +8,43 @@ import { Button } from 'semantic-ui-react';
 import MoreOutlinedIcon from '@material-ui/icons/MoreOutlined';
 import AddButton from '../company/AddButton'
 import EditCompany from '../../screens/company/EditCompany';
-import { Popconfirm ,message} from 'antd'
+import { Popconfirm, message } from 'antd'
 import MoreDetails from './MoreDetails'
 
 const text = 'Are you sure delete this task?'; //Delete button
 
 function confirm() {
-  message.info('Click on Yes.');
+   message.info('Click on Yes.');
 }
-var colour = {
-    bgcolor: 'white',
-    
-  };
-
 export default class CompanyDetails extends Component {
-   state={
-      open:false,
-      open1:false
+   state = {
+      open: false,
+      open1: false
    }
 
- handleOpen = () => {
-    this.setState({
-       open:true
-    })
-  };
+   handleOpen = () => {
+      this.setState({
+         open: true
+      })
+   };
 
-  handleClose = () => {
-   this.setState({
-      open:false
-   })
-  };
-  handleOpen1 = () => {
-   this.setState({
-      open1:true
-   })
- };
+   handleClose = () => {
+      this.setState({
+         open: false
+      })
+   };
+   handleOpen1 = () => {
+      this.setState({
+         open1: true
+      })
+   };
 
- handleClose1 = () => {
-  this.setState({
-     open1:false
-  })
- };
-    render() {
+   handleClose1 = () => {
+      this.setState({
+         open1: false
+      })
+   };
+   render() {
       const columns = [
          {
             title: 'Registration Id',
@@ -77,17 +72,17 @@ export default class CompanyDetails extends Component {
             sorter: (a, b) => a.age - b.age,
          },
          {
-             title: 'Abbreviation',
-             dataIndex: 'abbreviation',
-             defaultSortOrder: 'descend',
-             sorter: (a, b) => a.companyname - b.companyname,
-          },
-          {
-             title: 'License Period',
-             dataIndex: 'licenseprriod',
-             defaultSortOrder: 'descend',
-             sorter: (a, b) => a.licenseprriod - b.licenseprriod,
-          },
+            title: 'Abbreviation',
+            dataIndex: 'abbreviation',
+            defaultSortOrder: 'descend',
+            sorter: (a, b) => a.companyname - b.companyname,
+         },
+         {
+            title: 'License Period',
+            dataIndex: 'licenseprriod',
+            defaultSortOrder: 'descend',
+            sorter: (a, b) => a.licenseprriod - b.licenseprriod,
+         },
          {
             title: 'IT Admin',
             dataIndex: 'itadmin',
@@ -100,11 +95,11 @@ export default class CompanyDetails extends Component {
             defaultSortOrder: 'descend',
          },
          {
-             title: 'More',
-             dataIndex: 'more',
-             defaultSortOrder: 'descend',
-             sorter: (a, b) => a.more - b.more,
-          },
+            title: 'More',
+            dataIndex: 'more',
+            defaultSortOrder: 'descend',
+            sorter: (a, b) => a.more - b.more,
+         },
       ];
       const data = [
          {
@@ -114,17 +109,17 @@ export default class CompanyDetails extends Component {
             abbreviation: 'JK',
             licenseprriod: '6Yrs',
             itadmin: 'John ',
-            
+
             action: <Button.Group>
-                <EditCompany open={this.state.open} handleOpen={this.handleOpen} handleClose={this.handleClose}/> 
-               <Button onClick={this.handleOpen}  secondary>Edit</Button>
+               <EditCompany open={this.state.open} handleOpen={this.handleOpen} handleClose={this.handleClose} />
+               <Button onClick={this.handleOpen} secondary>Edit</Button>
                <Button.Or />
                <Popconfirm placement="topRight" title={text} onConfirm={confirm} okText="yes" cancelText="No">
-               <Button negative>Delete</Button>
+                  <Button negative>Delete</Button>
                </Popconfirm>
             </Button.Group>,
-            more: 
-            <MoreOutlinedIcon onClick={this.handleOpen1}/>,
+            more:
+               <MoreOutlinedIcon onClick={this.handleOpen1} />,
          },
          {
             key: '2',
@@ -133,14 +128,14 @@ export default class CompanyDetails extends Component {
             abbreviation: 'NGK',
             licenseprriod: '5 yrs',
             itadmin: 'Selvaragavan',
-            
+
             action: <Button.Group>
-               <EditCompany open={this.state.open} handleOpen={this.handleOpen} handleClose={this.handleClose}/> 
-               <Button onClick={this.handleOpen}  secondary>Edit</Button>
+               <EditCompany open={this.state.open} handleOpen={this.handleOpen} handleClose={this.handleClose} />
+               <Button onClick={this.handleOpen} secondary>Edit</Button>
                <Button.Or />
                <Button negative>Delete</Button>
             </Button.Group>,
-            more:  <MoreOutlinedIcon onClick={this.handleOpen1}/>,
+            more: <MoreOutlinedIcon onClick={this.handleOpen1} />,
          },
          {
             key: '3',
@@ -149,14 +144,14 @@ export default class CompanyDetails extends Component {
             abbreviation: 'UWU',
             licenseprriod: '10 yrs',
             itadmin: 'Ranjith',
-            
+
             action: <Button.Group>
-               <EditCompany open={this.state.open} handleOpen={this.handleOpen} handleClose={this.handleClose}/> 
-               <Button onClick={this.handleOpen}  secondary>Edit</Button>
+               <EditCompany open={this.state.open} handleOpen={this.handleOpen} handleClose={this.handleClose} />
+               <Button onClick={this.handleOpen} secondary>Edit</Button>
                <Button.Or />
                <Button negative>Delete</Button>
             </Button.Group>,
-            more: <MoreOutlinedIcon onClick={this.handleOpen1}/>,
+            more: <MoreOutlinedIcon onClick={this.handleOpen1} />,
 
          },
          {
@@ -166,28 +161,28 @@ export default class CompanyDetails extends Component {
             abbreviation: 'CFC',
             licenseprriod: '3 Yrs',
             itadmin: 'Amuthan',
-            
+
             action: <Button.Group>
-               <EditCompany open={this.state.open} handleOpen={this.handleOpen} handleClose={this.handleClose}/> 
-               <Button onClick={this.handleOpen}  secondary>Edit</Button>
+               <EditCompany open={this.state.open} handleOpen={this.handleOpen} handleClose={this.handleClose} />
+               <Button onClick={this.handleOpen} secondary>Edit</Button>
                <Button.Or />
                <Button negative>Delete</Button>
             </Button.Group>,
-            more:  <MoreOutlinedIcon onClick={this.handleOpen1}/>,
+            more: <MoreOutlinedIcon onClick={this.handleOpen1} />,
          },
-         
+
       ];
-        return (
-            <div>
-                <Grid item xs={11} style={{ marginTop: '2%' }}>
-                    <Segment>
-                        <BreadCrumbs />
-                        <AddButton/>
-                        <Table column={columns} data={data}/>
-                        <MoreDetails open={this.state.open1}handleOpen1={this.handleOpen1} handleClose1={this.handleClose1}/>
-                    </Segment>
-                </Grid>
-            </div>
-        )
-    }
+      return (
+         <div>
+            <Grid item xs={11} style={{ marginTop: '2%' }}>
+               <Segment>
+                  <BreadCrumbs />
+                  <AddButton />
+                  <Table column={columns} data={data} />
+                  <MoreDetails open={this.state.open1} handleOpen1={this.handleOpen1} handleClose1={this.handleClose1} />
+               </Segment>
+            </Grid>
+         </div>
+      )
+   }
 }

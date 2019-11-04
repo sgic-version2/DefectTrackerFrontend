@@ -1,23 +1,11 @@
-import { Popover, Button } from 'antd';
+
 import React, { Component } from 'react';
 import {
-    Layout,
-    Icon,
-    Badge,
-    Row,
-    Col,
-    Menu,
     Avatar,
-    Dropdown,
-    Input,
     Tag,
     Divider,
 } from 'antd';
 import { Link } from 'react-router-dom'
-
-
-
-const buttonWidth = 70;
 class Notification extends Component {
     render() {
         return (
@@ -29,15 +17,13 @@ class Notification extends Component {
                         fontSize: '15px'
                     }}>
 
-                    <a >Notifications</a>
+                    <Link to="/notification">Notifications</Link>
                     <div style={{ float: 'right' }}>
                         <Divider type="vertical" />
                         <Link to="/notification">More</Link>
                         <Divider type="vertical" />
                     </div>
                 </p>
-
-
                 </div>
                 <Divider />
                 <div>
@@ -181,7 +167,7 @@ class Notification extends Component {
 
 
                         <Divider type="vertical" />
-                        <a href="">View More</a>
+                        <Link to="/notification">View More</Link>
                         <Divider type="vertical" />
                     </p>
                 </div>

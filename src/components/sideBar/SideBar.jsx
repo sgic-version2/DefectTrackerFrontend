@@ -14,7 +14,7 @@ const sideBarContent = [{
         },
         {
             name: 'Defect',
-            url: '/defectDashboard',
+            url: '/defect',
             status: 0,
         },
         {

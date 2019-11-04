@@ -1,8 +1,4 @@
-import React, {Component, useState} from "react";
-//import FormLabel from '@material-ui/core/FormLabel'
-//import Grid from '@material-ui/core/Grid';
-//import { Segment, ModalDescription } from "semantic-ui-react";
-import { Button } from "@material-ui/core";
+import React from "react";
 import SubmitModel from "../../components/model/submitModel";
 import Form from './form';
 
