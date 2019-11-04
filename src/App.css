@@ -1,4 +1,4 @@
-#Container{
+  #Container{
   margin-top: 54px;
 }
 .ant-table-thead > tr > th .ant-table-header-column .ant-table-column-sorters::before{
@@ -14,7 +14,6 @@
   border-bottom: #fff 2px solid !important;
   text-align: center !important;
   border-right: #fff 2px solid !important;
-  padding: 10px !important;
 }
 .ant-table-thead > tr > th .ant-table-header-column .ant-table-column-sorters > *:not(.ant-table-column-sorter) {
   color:#fff !important;
@@ -22,6 +21,6 @@
 .ant-table-tbody > tr > td{
   text-align: center !important;
 }
-body{
+/* body{
   overflow-y: scroll;
-}
+} */

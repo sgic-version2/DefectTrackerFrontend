@@ -3,11 +3,11 @@ import { Transfer, Table, Tag } from 'antd';
 import difference from 'lodash/difference';
 import { Button } from 'semantic-ui-react';
 import Model from '../../components/model/model'
-import EditRole from './EditRole';
+// import EditRole from './../project/EditRole';
 
 
 var originTargetKeys;
-export default class RoleAllocation extends Component {
+export default class AddEmployee extends Component {
   state = {
     targetKeys: originTargetKeys,
     disabled: false,
@@ -155,7 +155,7 @@ export default class RoleAllocation extends Component {
           leftColumns={leftTableColumns}
           rightColumns={rightTableColumns}
         />
-        <Model open={open} handleOpen={this.handleOpen} handleClose={this.handleClose} width={30} form={<EditRole />} title='Edit Role' />
+        <Model open={open} handleOpen={this.handleOpen} handleClose={this.handleClose} width={30} form="" title='Edit Role' />
       </div>
     );
   }
