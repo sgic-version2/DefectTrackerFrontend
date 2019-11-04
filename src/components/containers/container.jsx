@@ -44,11 +44,19 @@ export default function Container({ textAlign, collapsed }) {
   return (
     <div style={useStyles.root}>
       <Grid direction="row" container justify="center" alignItems={textAlign ? textAlign : "center"} style={useStyles.gridContainer} spacing={4}>
+       
+       
         <Grid item xs={collapsed ? 12 : 10} style={useStyles.subContainer}>
+
           <Switch>
             <Route exact path="/" component={EditRole} />
+            {/* <Route path="/defectDashboard" component={Dashboard}/> */}
             <Route path="/projectAllocation" component={ProjectAllocation} />
+            {/* <Route path= "/companyAdministration" component = {AddEmployee}/> */}
+            {/* <Route path= "/companyCompany" component = {CompanyDetails}/> */}
+            {/* <Route path= "/defect" component = {ViewDefect} /> */}
           </Switch>
+
         </Grid>
       </Grid>
     </div>
