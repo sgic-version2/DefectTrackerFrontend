@@ -11,6 +11,7 @@ import AddEmployee from './../../screens/CompanyAdministaration/AddEmployee';
 import ViewDefect from '../../screens/Defect/viewDefect';
 import AuditTable from '../../screens/Settings/Troubleshoot and Support/Audit Log/Audit_table/Audit_table'
 import PriorityConfig from '../../screens/general_configuration/priority/PriorityConfig'
+import AllocationTable from '../../screens/HrAllocate/AllocationTable'
 // container using material Ui
 // container has property 
 //'textAlight' - left, right, center, justified
