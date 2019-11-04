@@ -62,6 +62,7 @@ const columns = [
       dataIndex: 'associateQA',
       // defaultSortOrder: 'descend',
       // sorter: (a, b) => a.age - b.age,
+
    },
 ];
 const data = [
@@ -77,7 +78,7 @@ const data = [
    },
    {
       key: '2',
-      projectName: 'Defect System',
+      projectName: 'Defect Tracker System',
       softwareEngineer: 32,
       associateSoftwareEngineer: 60,
       teachLead: 52,
