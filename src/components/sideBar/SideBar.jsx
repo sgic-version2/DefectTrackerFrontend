@@ -9,27 +9,27 @@ const sideBarContent = [{
     subMenu: [
         {
             name: 'Company',
-            url: '/company',
+            url: '/defect/company',
             status: 0,
         },
         {
             name: 'Defect',
-            url: '/defect',
+            url: '/defect/defect',
             status: 0,
         },
         {
             name: 'Developer',
-            url: '/developer',
+            url: '/defect/developer',
             status: 0,
         },
         {
             name: 'Project Manager',
-            url: '/projectManager',
+            url: '/defect/projectManager',
             status: 0,
         },
         {
             name: 'QA',
-            url: '/qa',
+            url: '/defect/qa',
             status: 0,
         },
     ],
@@ -40,30 +40,30 @@ const sideBarContent = [{
     name: 'Project Administration',
     icon: 'appstore',
     status: 0,
-    url: '/projectAdministration'
+    url: '/defect/projectAdministration'
 },
 {
     name: 'Company Administration',
     icon: 'appstore',
     status: 0,
-    url: '/companyAdministration'
+    url: '/defect/companyAdministration'
 },
 {
     name: 'Company',
     subMenu: [
         {
             name: 'Company',
-            url: '/companyCompany',
+            url: '/defect/companyCompany',
             status: 0
         },
         {
             name: 'HR Allocation',
-            url: '/hrAllocation',
+            url: '/defect/hrAllocation',
             status: 0
         },
         {
             name: 'Employee',
-            url: '/companyEmployee',
+            url: '/defect/companyEmployee',
             status: 0
         }
     ],
@@ -74,19 +74,19 @@ const sideBarContent = [{
     name: 'Module',
     icon: 'appstore',
     status: 0,
-    url: '/module'
+    url: '/defect/module'
 },
 {
     name: 'Project Allocation',
     icon: 'appstore',
     status: 0,
-    url: '/projectAllocation'
+    url: '/defect/projectAllocation'
 },
 {
     name: 'Manage Project',
     icon: 'appstore',
     status: 0,
-    url: '/manageProject',
+    url: '/defect/manageProject',
 },
 {
     name: 'Defect',
@@ -95,7 +95,7 @@ const sideBarContent = [{
     subMenu: [
         {
             name: 'Defect',
-            url: '/defect',
+            url: '/defect/defect',
             status: 0
         }
     ]
@@ -107,17 +107,17 @@ const sideBarContent = [{
     subMenu: [
         {
             name: 'General Configuration',
-            url: '/generalConfiguration',
+            url: '/defect/generalConfiguration',
             status: 0
         },
         {
             name: 'Look and Feel',
-            url: '/lookandfeel',
+            url: '/defect/lookandfeel',
             status: 0
         },
         {
             name: 'Profile Setting',
-            url: '/profileSetting',
+            url: '/defect/profileSetting',
             status: 0
         },
         {
@@ -125,19 +125,19 @@ const sideBarContent = [{
             subcontent: [
                 {
                     name: 'Priority',
-                    url: '/priority'
+                    url: '/defect/priority'
                 },
                 {
                     name: 'Severity',
-                    url: '/severity'
+                    url: '/defect/severity'
                 },
                 {
                     name: 'Defect Type',
-                    url: '/defectType'
+                    url: '/defect/defectType'
                 },
                 {
                     name: 'Defect Status',
-                    url: '/defectStatus'
+                    url: '/defect/defectStatus'
                 },
 
             ],
@@ -151,7 +151,7 @@ const sideBarContent = [{
             subcontent: [
                 {
                     name: 'Audit Log',
-                    url: '/auditLog'
+                    url: '/defect/auditLog'
                 }
             ]
         },
@@ -162,19 +162,19 @@ const sideBarContent = [{
             subcontent: [
                 {
                     name: 'Company Privilege',
-                    url: '/companyPrivilege'
+                    url: '/defect/companyPrivilege'
                 },
                 {
                     name: 'Project Privilege',
-                    url: '/projectPrivilege'
+                    url: '/defect/projectPrivilege'
                 },
                 {
                     name: 'QA Lead Privilege',
-                    url: '/qaLeadPrivilege'
+                    url: '/defect/qaLeadPrivilege'
                 },
                 {
                     name: 'Tech Lead Privilege',
-                    url: '/techLeadPrivilege'
+                    url: '/defect/techLeadPrivilege'
                 }
             ]
         },
@@ -185,11 +185,11 @@ const sideBarContent = [{
             subcontent: [
                 {
                     name: 'Defect Roles Flow',
-                    url: '/defctRolesFlow'
+                    url: '/defect/defctRolesFlow'
                 },
                 {
                     name: 'Defect Status Flow',
-                    url: '/defectStatusFlow'
+                    url: '/defect/defectStatusFlow'
                 }
             ]
         }
