@@ -13,6 +13,7 @@ import AuditTable from '../../screens/Settings/Troubleshoot and Support/Audit Lo
 import PriorityConfig from '../../screens/general_configuration/priority/PriorityConfig'
 import AllocationTable from '../../screens/HrAllocate/AllocationTable'
 import EmployeeTable from './../../screens/employee/EmployeeTable';
+import DefectType from '../../screens/CommonConfiguration/DefectConfig/DefectConfic'
 // container using material Ui
 // container has property 
 //'textAlight' - left, right, center, justified
@@ -59,6 +60,7 @@ export default function Container({ textAlign, collapsed }) {
             <Route path="/auditLog" component={AuditTable} />
             <Route path="/priority" component={PriorityConfig} />
             <Route path="/companyEmployee" component={EmployeeTable} />
+            <Route path="/defectType" component={DefectType}/>
           </Switch>
 
         </Grid>
