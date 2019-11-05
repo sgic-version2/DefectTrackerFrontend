@@ -48,7 +48,7 @@ export default function SignIn() {
   const classes = useStyles();
   const handleSubmit = (event) => {
     event.preventDefault()
-    window.location.href = "/company"
+    window.location.href = "/defect/company"
   }
   return (
     <Container component="main" maxWidth="xs">

@@ -49,18 +49,18 @@ export default function Container({ textAlign, collapsed }) {
         <Grid item xs={collapsed ? 12 : 10} style={useStyles.subContainer}>
 
           <Switch>
-            <Route exact path="/" component={EditRole} />
-            <Route path="/projectAllocation" component={ProjectAllocation} />
-            <Route path="/hrAllocation" component={AllocationTable} />
-            <Route path="/defectStatus" component={DefectList} />
-            <Route path="/defectDashboard" component={Dashboard} />
-            <Route path="/companyAdministration" component={AddEmployee} />
-            <Route path="/companyCompany" component={CompanyDetails} />
-            <Route path="/defect" component={ViewDefect} />
-            <Route path="/auditLog" component={AuditTable} />
-            <Route path="/priority" component={PriorityConfig} />
-            <Route path="/companyEmployee" component={EmployeeTable} />
-            <Route path="/defectType" component={DefectType}/>
+            <Route  path="/defect/editrole" component={EditRole} />
+            <Route path="/defect/projectAllocation" component={ProjectAllocation} />
+            <Route path="/defect/hrAllocation" component={AllocationTable} />
+            <Route path="/defect/defectStatus" component={DefectList} />
+            <Route path="/defect/defectDashboard" component={Dashboard} />
+            <Route path="/defect/companyAdministration" component={AddEmployee} />
+            <Route path="/defect/companyCompany" component={CompanyDetails} />
+            <Route path="/defect/defect" component={ViewDefect} />
+            <Route path="/defect/auditLog" component={AuditTable} />
+            <Route path="/defect/priority" component={PriorityConfig} />
+            <Route path="/defect/companyEmployee" component={EmployeeTable} />
+            <Route path="/defect/defectType" component={DefectType}/>
           </Switch>
 
         </Grid>
