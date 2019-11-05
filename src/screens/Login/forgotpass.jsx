@@ -57,7 +57,7 @@ export default function SignIn() {
             fullWidth
             id="userdetails"
             label="Email,Phone,Username or Fullname"
-            name="userdetails"
+            type="userdetails"
             autoComplete="userdetails"
             autoFocus
           />
