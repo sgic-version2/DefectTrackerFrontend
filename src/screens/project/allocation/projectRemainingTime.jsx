@@ -7,7 +7,7 @@ const projectRemainingTime = () => {
     const deadline = Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30;
     return (
         <div>
-            <h4 style={{ fontWeight: 800 }}>Project Performance</h4>
+            <h4 style={{ fontWeight: 800 }}>Project Remaining Time</h4>
             <Divider />
             <Row gutter={16}>
                 <Col span={12}>

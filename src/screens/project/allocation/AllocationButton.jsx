@@ -35,10 +35,10 @@ const AllocationButton = () => {
     };
     return (
         <div>
-            <Button color="primary" onClick={handleOpen}>Roll Allocation</Button>
-            <Button color="red" onClick={handleOpenDeallocation}>Deallocation</Button>
+            <Button primary onClick={handleOpen}>Roll Allocation</Button>
+            <Button color='red' onClick={handleOpenDeallocation}>Deallocation</Button>
             <Button primary>Module Allocation</Button>
-            <Model open={open.open} handleOpen={handleOpen} handleClose={handleClose} width={90} form={<RoleAllocation />} title='Roll Allocation' />
+            <Model open={open.open} handleOpen={handleOpen} handleClose={handleClose} width={90} form={<RoleAllocation />} title='Role Allocation' />
             <Model open={open.value} handleOpen={handleOpenDeallocation} handleClose={handleCloseDeallocation} width={90} form={<Deallocation />} title='Deallocation' />
 
         </div>
