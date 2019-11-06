@@ -118,7 +118,7 @@ export default function TechLeadPrivileges() {
             <Breadcrumbs />
             <div className={classes.search}>
               <div className={classes.searchIcon}>
-                <searchIcon />
+                <SearchIcon />
               </div>
               <InputBase
                 placeholder="Search…"
