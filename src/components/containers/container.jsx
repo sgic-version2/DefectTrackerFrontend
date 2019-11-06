@@ -15,6 +15,7 @@ import AllocationTable from '../../screens/HrAllocate/AllocationTable'
 import EmployeeTable from './../../screens/employee/EmployeeTable';
 import DefectType from '../../screens/CommonConfiguration/DefectConfig/DefectConfic'
 import DefectStatusFlow from '../../screens/WorkFlow/DefectStatus/DefectStatusFlow'
+import TeachLeadPrivilege from '../../screens/Settings/Privilege/TechLeadPrivileges'
 // container using material Ui
 // container has property 
 //'textAlight' - left, right, center, justified
@@ -63,6 +64,7 @@ export default function Container({ textAlign, collapsed }) {
             <Route path="/defect/companyEmployee" component={EmployeeTable} />
             <Route path="/defect/defectType" component={DefectType}/>
             <Route path="/defect/defectStatusFlow" component={DefectStatusFlow}/>
+            <Route path="/defect/techLeadPrivilege" component={TeachLeadPrivilege}/>
           </Switch>
 
         </Grid>
