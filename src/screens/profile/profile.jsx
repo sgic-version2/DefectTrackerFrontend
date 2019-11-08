@@ -44,10 +44,10 @@ export default class Profile extends Component {
                             <i className="pwd-icon-1"><LockOutlinedIcon /></i>
                             <input type="password" className="txt-pwd-1" placeholder="Verify Current Password" />
 
-                            <Link href="/hghg">Generate Strong Password</Link>
                             <i className="pwd-icon-2"><LockOutlinedIcon /></i>
                             <input type="password" className="txt-pwd-2" placeholder="New Password" />
-
+                            <Link id = "generatePassword" href="/hghg">Generate Strong Password</Link>
+                            
                             <i className="pwd-icon-3"><LockOutlinedIcon /></i>
                             <input type="password" className="txt-pwd-3" placeholder="Confirm New Password" />
 
@@ -58,21 +58,21 @@ export default class Profile extends Component {
                     <div className="otherField">
                         <label className="txt-basicInfo">Basic Information</label>
                         <form className="" action="">
-                            {/* <label className = "lbl-username">Username</label> <br/> */}
+                        
                             <i className="user-icon"><PersonOutlineOutlinedIcon /></i>
-                            <input type="text" className="txt-username" placeholder="Username" />
+                            <input type="text" id="txt-username" placeholder="Username" />
 
                             <i className="fname-icon"><AccountBoxOutlinedIcon /></i>
-                            <input type="text" className="txt-firstname" placeholder="First Name" />
+                            <input type="text" id="txt-firstname" placeholder="First Name" />
 
                             <i className="lname-icon"><AccountBoxOutlinedIcon /></i>
-                            <input type="text" className="txt-lastname" placeholder="Last Name" />
+                            <input type="text" id="txt-lastname" placeholder="Last Name" />
 
                             <i className="mail-icon"><MailOutlineOutlinedIcon /></i>
-                            <input type="text" className="txt-mail" placeholder="Email" />
+                            <input type="text" id="txt-mail" placeholder="Email" />
 
                             <i className="website-icon"><LanguageOutlinedIcon /></i>
-                            <input type="text" className="txt-website" placeholder="WebSite" />
+                            <input type="text" id="txt-website" placeholder="WebSite" />
 
                             <i className="update-icon"><PublishOutlinedIcon /></i>
                             <button className="btn-update">Update</button>

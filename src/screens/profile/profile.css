@@ -11,37 +11,37 @@
     position: absolute;
     width: 1009px;
     height: 500px;
-    left: 165px;
-    top: 37px;
+    left: 230px;
+    top: 96px;
     background-color: #003b99;
     border-radius: 10px;
     opacity: 0.3;
 }
  .basicInfo{
     position: relative;
-    left:40px;
-    top: 20px;
+    left: 104px;
+    top: 79px;
     background-color: white;
-    width: 500px;
+    width: 453px;
     height: 186px;
     border-radius: 10px;
 }
 
  .changePassword{
     position: relative;
-    left: 40px;
-    top: 26px;
+    left: 104px;
+    top: 84px;
     background-color: white;
-    width: 500px;
+    width: 453px;
     height: 268px;
     border-radius: 10px;
 }
  .otherField {
     position: relative;
-    left: 546px;
-    top: -434px;
+    left: 562px;
+    top: -375px;
     background-color: white;
-    width: 455px;
+    width: 504px;
     height: 460px;
     border-radius: 10px;
 }
@@ -51,7 +51,7 @@
     font-weight: 600;
     position: absolute;
     left: 24px;
-    top: 15px;
+    top: 7px;
 }
 
  .avatar{
@@ -70,7 +70,7 @@
     font-weight: 600;
     position: absolute;
     left: 170px;
-    top: 85px;
+    top: 75px;
 }
  .uploadFile {
       width: 0.1px;
@@ -90,14 +90,14 @@
  .imageUpload{
     position: absolute;
     left: 195px;
-    top: 125px;
+    top: 117px;
     cursor: pointer;
 }
 
  .takePhoto{
     position: absolute;
-    left: 303px;
-    top: 120px;
+    left: 298px;
+    top: 111px;
     padding: 1px 0px 11px 40px;
     border-radius: 5px;
     cursor: pointer;
@@ -105,22 +105,23 @@
 
  .cameraIcon{
     position: absolute;
-    left: 5px;
-    top: 3px;
+    left: 6px;
+    top: 6px;
 }
  .btn-label{
     position: relative;
-    left: -5px;
+    left: -6px;
     top: 4px;
     font-size: 14px;
     font-weight: bold;
     color: darkblue;
+    cursor: pointer;
 }
  .txt-basicInfo{
     position: absolute;
     font-family: Arial, Helvetica, sans-serif;
     left: 24px;
-    top: 14px;
+    top: 7px;
     font-size: 24px;
     font-weight: 650;
 }
@@ -129,16 +130,31 @@
     left: 26px;
     top: 54px;
 }
- .txt-username, .txt-firstname, .txt-lastname, .txt-mail, 
-.txt-website, .txt-pwd-1, .txt-pwd-2, .txt-pwd-3{
+ #txt-username, #txt-firstname, #txt-lastname, #txt-mail, 
+#txt-website, .txt-pwd-1, .txt-pwd-2, .txt-pwd-3{
     position: relative;
-    left: 25px;
-    width: 80%;
+    left: 24px;
+    width: 90%;
     height: 31px;
     border-radius: 5px;
     border: 1px solid #99c0ff;
     padding: 0px 0px 0 37px;
     font-size: 15px;
+}
+#txt-username{
+    top:50px;
+}
+#txt-firstname{
+    top:77px;   
+}
+#txt-lastname{
+    top:102px;
+}
+#txt-mail{
+    top:129px;
+}
+#txt-website {
+    top:157px;
 }
  .txt-username{
     top: 59px;
@@ -159,10 +175,10 @@
     top: 57px;
 } 
  .txt-pwd-2{
-    top: 78px;
+    top:79px;
 } 
  .txt-pwd-3{
-    top:101px;
+    top:104px;
 }
  .user-icon,  .fname-icon, .lname-icon,  .mail-icon, 
  .website-icon,  .pwd-icon-1,  .pwd-icon-2, .pwd-icon-3{
@@ -197,8 +213,8 @@
 }
  .btn-update {
     position: absolute;
-    left: 337px;
-    top: 410px;
+    left: 386px;
+    top: 405px;
     padding: 7px 10px 6px 34px;
     border-radius: 5px;
     color: white;
@@ -210,15 +226,15 @@
  .update-icon{
     position: absolute;
     top: 414px;
-    left: 346px;
+    left: 396px;
     z-index: 5;
     cursor: pointer;
     color: white;
 }
  .btn-pwd-update{
     position: absolute;
-    left: 374px;
-    top: 218px;
+    left: 340px;
+    top: 214px;
     padding: 7px 10px 6px 34px;
     border-radius: 5px;
     color: white;
@@ -230,14 +246,14 @@
  .pwd-update-icon{
     position: absolute;
     top: 222px;
-    left: 382px;
+    left: 349px;
     z-index: 5;
     color:white;
     cursor: pointer;
 }
- /* a{
+ #generatePassword{
     position: absolute;
-    left: 298px;
-    top: 147px;
+    left: 267px;
+    top: 140px;
     font-size: 14px;
-} */
+}
