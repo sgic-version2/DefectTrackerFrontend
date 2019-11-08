@@ -14,7 +14,10 @@ const projectPerformance = () => {
             <h5>HRM System</h5>
             <Progress percent={70} status="active" />
             <h5>Leave Management System</h5>
-            <Progress percent={100} />
+            <Progress percent={100} strokeColor={{
+                '0%': '#108ee9',
+                '100%': '#87d068',
+            }} />
             <h5>School Management System</h5>
             <Progress percent={50} status="active" />
         </div>
