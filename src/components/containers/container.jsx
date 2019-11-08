@@ -16,8 +16,9 @@ import EmployeeTable from './../../screens/employee/EmployeeTable';
 import DefectType from '../../screens/CommonConfiguration/DefectConfig/DefectConfic';
 import DefectStatusFlow from '../../screens/WorkFlow/DefectStatus/DefectStatusFlow';
 import TeachLeadPrivilege from '../../screens/Settings/Privilege/TechLeadPrivileges';
-import ManageProject from '../../screens/ManageProject/ProjectList';
-import Profile from './../../screens/profile/profile';
+import ManageProject from '../../screens/ManageProject/ProjectList'
+import Severity from '../../screens/general_configuration/severity/PriorityConfig'
+import ProfileSetting from '../../screens/profile/profile'
 // container using material Ui
 // container has property
 //'textAlight' - left, right, center, justified
@@ -72,7 +73,8 @@ export default function Container({ textAlign, collapsed }) {
             <Route path='/defect/defectStatusFlow' component={DefectStatusFlow} />
             <Route path='/defect/techLeadPrivilege' component={TeachLeadPrivilege} />
             <Route path='/defect/manageProject' component={ManageProject} />
-            <Route path='/defect/profileSetting' component={Profile} />
+            <Route path='/defect/severity' component={Severity} />
+            <Route path='/defect/profileSetting' component={ProfileSetting} />
           </Switch>
         </Grid>
       </Grid>

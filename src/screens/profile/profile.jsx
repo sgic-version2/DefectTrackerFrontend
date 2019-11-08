@@ -7,6 +7,7 @@ import MailOutlineOutlinedIcon from '@material-ui/icons/MailOutlineOutlined';
 import LanguageOutlinedIcon from '@material-ui/icons/LanguageOutlined';
 import PublishOutlinedIcon from '@material-ui/icons/PublishOutlined';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import { Link } from 'react-router-dom'
 
 import './profile.css'
 import User from '../../Assets/tony.png'
@@ -16,15 +17,15 @@ export default class Profile extends Component {
     render() {
         return (
             <>
-            {/* <img src = {BlueNight}/> */}
-            <div className = "form-background">
+                {/* <img src = {BlueNight}/> */}
+                <div className="form-background">
 
-            </div>
+                </div>
                 <div className="profile-model">
                     <div className="basicInfo">
                         <label className="txt-profile-photo">Profile Photo</label>
                         <label className="txt-upload-photo">Upload Photo</label>
-                        <img className="avatar" src={User} />
+                        <img className="avatar" src={User} alt='userimage' />
 
                         <input type="file" id="fileUplaod" className="uploadFile" />
                         <label className="imageUpload" for="fileUplaod">
@@ -43,7 +44,7 @@ export default class Profile extends Component {
                             <i className="pwd-icon-1"><LockOutlinedIcon /></i>
                             <input type="password" className="txt-pwd-1" placeholder="Verify Current Password" />
 
-                            <a href="#">Generate Strong Password</a>
+                            <Link href="/hghg">Generate Strong Password</Link>
                             <i className="pwd-icon-2"><LockOutlinedIcon /></i>
                             <input type="password" className="txt-pwd-2" placeholder="New Password" />
 

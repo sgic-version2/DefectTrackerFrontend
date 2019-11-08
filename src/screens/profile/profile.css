@@ -1,4 +1,4 @@
-.profile-model{
+ .profile-model{
     position: absolute;
     width: 1042px;
     height: 500px;
@@ -17,7 +17,7 @@
     border-radius: 10px;
     opacity: 0.3;
 }
-.basicInfo{
+ .basicInfo{
     position: relative;
     left:40px;
     top: 20px;
@@ -27,7 +27,7 @@
     border-radius: 10px;
 }
 
-.changePassword{
+ .changePassword{
     position: relative;
     left: 40px;
     top: 26px;
@@ -36,7 +36,7 @@
     height: 268px;
     border-radius: 10px;
 }
-.otherField {
+ .otherField {
     position: relative;
     left: 546px;
     top: -434px;
@@ -45,7 +45,7 @@
     height: 460px;
     border-radius: 10px;
 }
-.txt-profile-photo{
+ .txt-profile-photo{
     font-size: 24px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 600;
@@ -54,7 +54,7 @@
     top: 15px;
 }
 
-.avatar{
+ .avatar{
     width: 120px;
     height: 120px;
     border-radius: 50%;
@@ -64,7 +64,7 @@
     border: 3px #3385ff solid
 }
 
-.txt-upload-photo{
+ .txt-upload-photo{
     font-size: 24px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 600;
@@ -72,7 +72,7 @@
     left: 170px;
     top: 85px;
 }
-.uploadFile {
+ .uploadFile {
       width: 0.1px;
       height: 0.1px;
       opacity: 0;
@@ -80,21 +80,21 @@
       position: absolute;
       z-index: -1;
 }
-.icon{
+ .icon{
     position: absolute;
     left: -28px;
     top: -1px;
     cursor: pointer;
     
 }
-.imageUpload{
+ .imageUpload{
     position: absolute;
     left: 195px;
     top: 125px;
     cursor: pointer;
 }
 
-.takePhoto{
+ .takePhoto{
     position: absolute;
     left: 303px;
     top: 120px;
@@ -103,12 +103,12 @@
     cursor: pointer;
 }
 
-.cameraIcon{
+ .cameraIcon{
     position: absolute;
     left: 5px;
     top: 3px;
 }
-.btn-label{
+ .btn-label{
     position: relative;
     left: -5px;
     top: 4px;
@@ -116,7 +116,7 @@
     font-weight: bold;
     color: darkblue;
 }
-.txt-basicInfo{
+ .txt-basicInfo{
     position: absolute;
     font-family: Arial, Helvetica, sans-serif;
     left: 24px;
@@ -124,12 +124,12 @@
     font-size: 24px;
     font-weight: 650;
 }
-.lbl-username{
+ .lbl-username{
     position: relative;
     left: 26px;
     top: 54px;
 }
-.txt-username, .txt-firstname, .txt-lastname, .txt-mail, 
+ .txt-username, .txt-firstname, .txt-lastname, .txt-mail, 
 .txt-website, .txt-pwd-1, .txt-pwd-2, .txt-pwd-3{
     position: relative;
     left: 25px;
@@ -140,47 +140,47 @@
     padding: 0px 0px 0 37px;
     font-size: 15px;
 }
-.txt-username{
+ .txt-username{
     top: 59px;
 }
-.txt-firstname{
+ .txt-firstname{
     top: 99px;
 }
-.txt-lastname{
+ .txt-lastname{
     top:139px;
 }
-.txt-mail{
+ .txt-mail{
     top:181px;
 }
-.txt-website{
+ .txt-website{
     top:222px;
 }
-.txt-pwd-1{
+ .txt-pwd-1{
     top: 57px;
 } 
-.txt-pwd-2{
+ .txt-pwd-2{
     top: 78px;
 } 
-.txt-pwd-3{
+ .txt-pwd-3{
     top:101px;
 }
-.user-icon, .fname-icon, .lname-icon, .mail-icon, 
-.website-icon, .pwd-icon-1, .pwd-icon-2, .pwd-icon-3{
+ .user-icon,  .fname-icon, .lname-icon,  .mail-icon, 
+ .website-icon,  .pwd-icon-1,  .pwd-icon-2, .pwd-icon-3{
     position: absolute; 
     left: 33px;
     z-index: 5;
     color: gray;
 }
-.user-icon{
+ .user-icon{
     top: 63px;
 }
-.fname-icon{
+ .fname-icon{
     top: 137px
 }
-.lname-icon{
+ .lname-icon{
     top:210px;
 }
-.mail-icon{
+ .mail-icon{
     top:284px;
 } 
 .website-icon {
@@ -189,13 +189,13 @@
 .pwd-icon-1{
     top: 61px;
 } 
-.pwd-icon-2{
+ .pwd-icon-2{
     top: 115px
 }
-.pwd-icon-3{
+ .pwd-icon-3{
     top:171px;
 }
-.btn-update {
+ .btn-update {
     position: absolute;
     left: 337px;
     top: 410px;
@@ -207,7 +207,7 @@
     font-weight: 600;
     cursor: pointer;
 }
-.update-icon{
+ .update-icon{
     position: absolute;
     top: 414px;
     left: 346px;
@@ -215,7 +215,7 @@
     cursor: pointer;
     color: white;
 }
-.btn-pwd-update{
+ .btn-pwd-update{
     position: absolute;
     left: 374px;
     top: 218px;
@@ -227,7 +227,7 @@
     font-weight: 600;
     cursor: pointer;
 }
-.pwd-update-icon{
+ .pwd-update-icon{
     position: absolute;
     top: 222px;
     left: 382px;
@@ -235,9 +235,9 @@
     color:white;
     cursor: pointer;
 }
-a{
+ /* a{
     position: absolute;
     left: 298px;
     top: 147px;
     font-size: 14px;
-}
+} */
