@@ -9,14 +9,14 @@ import PublishOutlinedIcon from '@material-ui/icons/PublishOutlined';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 
 import './profile.css'
-import User from '../assets/tony.png'
-import BlueNight from '../assets/flo.jpg'
+import User from '../../Assets/tony.png'
+// import BlueNight from '../assets/flo.jpg'
 
 export default class Profile extends Component {
     render() {
         return (
             <>
-            <img src = {BlueNight}/>
+            {/* <img src = {BlueNight}/> */}
             <div className = "form-background">
 
             </div>
