@@ -7,20 +7,9 @@ import ProjectAllocation from '../../screens/project/allocation/ProjectAllocatio
 import { Switch, Route } from 'react-router-dom'
 import EditRole from '../../screens/project/allocation/EditRole';
 import AddEmployee from './../../screens/CompanyAdministaration/AddEmployee';
-// container using material Ui
-// container has property 
-//'textAlight' - left, right, center, justified
 
 export default function Container({ textAlign, collapsed }) {
-  // const [open, setOpen] = useState(true);
-
-  // const handleOpen = () => {
-  //   setOpen(true);
-  // };
-
-  // const handleClose = () => {
-  //   setOpen(false);
-  // };
+ 
   const useStyles = {
     root: {
       marginTop: '5%',
