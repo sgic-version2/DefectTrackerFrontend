@@ -7,9 +7,6 @@ import CompanyDetails from '../../screens/company/CompanyDetails';
 import ProjectAllocation from '../../screens/project/allocation/ProjectAllocation';
 import { Switch, Route } from 'react-router-dom';
 import EditRole from '../../screens/project/allocation/EditRole';
-<<<<<<< HEAD
-// import Profile from '../../screens/profile/profile';
-=======
 import AddEmployee from './../../screens/CompanyAdministaration/AddEmployee';
 import ViewDefect from '../../screens/Defect/viewDefect';
 import AuditTable from '../../screens/Settings/Troubleshoot and Support/Audit Log/Audit_table/Audit_table';
@@ -19,8 +16,8 @@ import EmployeeTable from './../../screens/employee/EmployeeTable';
 import DefectType from '../../screens/CommonConfiguration/DefectConfig/DefectConfic';
 import DefectStatusFlow from '../../screens/WorkFlow/DefectStatus/DefectStatusFlow';
 import TeachLeadPrivilege from '../../screens/Settings/Privilege/TechLeadPrivileges';
-import ManageProject from '../../screens/ManageProject/ProjectList'
->>>>>>> origin
+import ManageProject from '../../screens/ManageProject/ProjectList';
+import Profile from './../../screens/profile/profile';
 // container using material Ui
 // container has property
 //'textAlight' - left, right, center, justified
@@ -60,42 +57,22 @@ export default function Container({ textAlign, collapsed }) {
       >
         <Grid item xs={collapsed ? 12 : 10} style={useStyles.subContainer}>
           <Switch>
-<<<<<<< HEAD
-            <Route exact path="/" component={EditRole} />
-            <Route path="/projectAllocation" component={ProjectAllocation} />
-            {/* <Route path="/profileSetting" component={Profile}/> */}
-=======
             <Route path='/defect/editrole' component={EditRole} />
-            <Route
-              path='/defect/projectAllocation'
-              component={ProjectAllocation}
-            />
+            <Route path='/defect/projectAllocation' component={ProjectAllocation} />
             <Route path='/defect/hrAllocation' component={AllocationTable} />
             <Route path='/defect/defectStatus' component={DefectList} />
             <Route path='/defect/defectDashboard' component={Dashboard} />
-            <Route
-              path='/defect/companyAdministration'
-              component={AddEmployee}
-            />
+            <Route path='/defect/companyAdministration' component={AddEmployee} />
             <Route path='/defect/companyCompany' component={CompanyDetails} />
             <Route path='/defect/defect' component={ViewDefect} />
             <Route path='/defect/auditLog' component={AuditTable} />
             <Route path='/defect/priority' component={PriorityConfig} />
             <Route path='/defect/companyEmployee' component={EmployeeTable} />
             <Route path='/defect/defectType' component={DefectType} />
-            <Route
-              path='/defect/defectStatusFlow'
-              component={DefectStatusFlow}
-            />
-            <Route
-              path='/defect/techLeadPrivilege'
-              component={TeachLeadPrivilege}
-            />
-            <Route
-              path='/defect/manageProject'
-              component={ManageProject}
-            />
->>>>>>> origin
+            <Route path='/defect/defectStatusFlow' component={DefectStatusFlow} />
+            <Route path='/defect/techLeadPrivilege' component={TeachLeadPrivilege} />
+            <Route path='/defect/manageProject' component={ManageProject} />
+            <Route path='/defect/profileSetting' component={Profile} />
           </Switch>
         </Grid>
       </Grid>
