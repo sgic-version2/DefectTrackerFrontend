@@ -21,6 +21,7 @@ import Severity from '../../screens/general_configuration/severity/PriorityConfi
 import ProfileSetting from '../../screens/profile/profile'
 import DefectRolesFlow from '../../screens/WorkFlow/DefectRoles/DefectRolesFlow'
 import DeveloperDashboard from './../../screens/dashboards/developerDashboard';
+import LookAndFeel from '../../screens/settings/settings'
 // container using material Ui
 // container has property
 //'textAlight' - left, right, center, justified
@@ -79,6 +80,8 @@ export default function Container({ textAlign, collapsed }) {
             <Route path='/defect/profileSetting' component={ProfileSetting} />
             <Route path='/defect/defectRolesFlow' component={DefectRolesFlow} />
             <Route path='/defect/developer' component={DeveloperDashboard} />
+            <Route path='/defect/lookandfeel' component={LookAndFeel} />
+
           </Switch>
         </Grid>
       </Grid>

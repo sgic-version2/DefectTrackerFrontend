@@ -63,23 +63,15 @@ export default function SideBarColorSettings() {
       
 
         <Grid>
-<<<<<<< HEAD
             <Typography variant="h6">Sidebar color</Typography>
-=======
-            <Typography variant="subtitle2">Sidebar color</Typography>
->>>>>>> master
             <br/>
             <Grid xs={8} container sm spacing={3}>
                 <Grid  xs={2}>Sidebar</Grid>
                 <Grid  xs={2}>#87465</Grid>
                 <Grid  xs={2}>dfdf</Grid>
                 <Grid  xs={2}>
-<<<<<<< HEAD
                 <Button variant="contained" color="primary" onClick={handleClickOpen} >
                 {/* variant="contained" component="span"  */}
-=======
-                <Button variant="outlined" color="primary" onClick={handleClickOpen}>
->>>>>>> master
         Select
       </Button>
                     </Grid>
@@ -90,11 +82,7 @@ export default function SideBarColorSettings() {
                 <Grid  xs={2}>#87465</Grid>
                 <Grid  xs={2}>dfdf</Grid>
                 <Grid  xs={2}>
-<<<<<<< HEAD
                     <Button variant="contained" color="primary" onClick={handleClickOpen} >
-=======
-                    <Button variant="outlined" color="primary" onClick={handleClickOpen}>
->>>>>>> master
         Select
       </Button>
 
@@ -124,9 +112,7 @@ export default function SideBarColorSettings() {
         
         
 
-              
-              
-
+  
             </Grid>
           </Grid>
         </Grid>
