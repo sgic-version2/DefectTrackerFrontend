@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React  from 'react';
 import  Grid  from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
@@ -6,12 +6,9 @@ import BarChart from '../../components/charts/bar';
 import Doughtnut from './../../components/charts/doughNut';
 import LineChart from '../../components/charts/line';
 import Radar from '../../components/charts/radar';
-import { withStyles } from '@material-ui/core/styles';
-import { green } from '@material-ui/core/colors';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import { Breadcrumb } from 'antd';
 
 
 
