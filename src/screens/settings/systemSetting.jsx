@@ -100,13 +100,6 @@ export default function SystemSettings() {
         </Grid>
         <Divider/>
         <br/>
-
-        
-        
-
-              
-              
-
             </Grid>
           </Grid>
         </Grid>
