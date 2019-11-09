@@ -16,8 +16,7 @@ import User from '../../Assets/tony.png'
 export default class Profile extends Component {
     render() {
         return (
-            <>
-                {/* <img src = {BlueNight}/> */}
+            <div>
                 <div className="form-background">
 
                 </div>
@@ -46,8 +45,8 @@ export default class Profile extends Component {
 
                             <i className="pwd-icon-2"><LockOutlinedIcon /></i>
                             <input type="password" className="txt-pwd-2" placeholder="New Password" />
-                            <Link id = "generatePassword" href="/hghg">Generate Strong Password</Link>
-                            
+                            <Link id="generatePassword" href="/hghg">Generate Strong Password</Link>
+
                             <i className="pwd-icon-3"><LockOutlinedIcon /></i>
                             <input type="password" className="txt-pwd-3" placeholder="Confirm New Password" />
 
@@ -58,7 +57,7 @@ export default class Profile extends Component {
                     <div className="otherField">
                         <label className="txt-basicInfo">Basic Information</label>
                         <form className="" action="">
-                        
+
                             <i className="user-icon"><PersonOutlineOutlinedIcon /></i>
                             <input type="text" id="txt-username" placeholder="Username" />
 
@@ -79,7 +78,7 @@ export default class Profile extends Component {
                         </form>
                     </div>
                 </div>
-            </>
+            </div>
         )
     }
 }
