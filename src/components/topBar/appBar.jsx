@@ -17,18 +17,18 @@ import Notification from './Notification';
 const appBar = ({ position, color, backgroundColor, iconFontColor, marginSize, appBarExpandIcon, collapsed }) => {
     return (
         <Fragment >
-            <AppBar position={position ? position : 'static'} color={color ? color : 'primary'} style={{ background: `#${backgroundColor}`, marginLeft: marginSize, width: `${marginSize === 80 ? '95%' : '82%'}`, transition: 'width,0.5s',zIndex:100 }}>
+            <AppBar position={position ? position : 'static'} color={color ? color : 'primary'} style={{ background: `#${backgroundColor}`, marginLeft: marginSize, width: `${marginSize === 80 ? '95%' : '82%'}`, transition: 'width,0.5s', zIndex: 100 }}>
                 <Toolbar >
                     <Button onClick={() => appBarExpandIcon()} type="primary" style={{ background: 'transparent', color: `#${collapsed ? iconFontColor : 'ed3232'}`, border: 'none', marginRight: 15 }}>
                         <Icon type={collapsed ? 'menu-unfold' : 'menu-fold'} />
                     </Button>
-                    <Typography variant="h6" color='primary' style={{ width: '15%',position:'absolute',left:'8%' }}>
+                    <Typography variant="h6" color='primary' style={{ width: '15%', position: 'absolute', left: '8%' }}>
                         Defect-Tracker
                     </Typography>
                     <IconButton style={{ marginLeft: '70%' }}>
                         <Avatar size={30} src="http://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg" style={{ color: `#${iconFontColor ? iconFontColor : '048691'}` }} />
                     </IconButton>
-                    <Popover placement="bottomRight"  content={<Notification/>} trigger="click">
+                    <Popover placement="bottomRight" content={<Notification />} trigger="click">
                         <IconButton>
                             <Badge count={5}>
                                 <Avatar size={30} icon="alert" style={{ color: `#${iconFontColor ? iconFontColor : '048691'}` }} />

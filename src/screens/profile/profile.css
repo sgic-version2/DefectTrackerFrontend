@@ -1,0 +1,259 @@
+ .profile-model{
+    position: absolute;
+    width: 1042px;
+    height: 500px;
+    left:150px;
+    top: 37px;
+    border-radius: 10px;
+    z-index: 5;
+}
+.form-background{
+    position: absolute;
+    width: 1009px;
+    height: 500px;
+    left: 230px;
+    top: 96px;
+    background-color: #003b99;
+    border-radius: 10px;
+    opacity: 0.3;
+}
+ .basicInfo{
+    position: relative;
+    left: 104px;
+    top: 79px;
+    background-color: white;
+    width: 453px;
+    height: 186px;
+    border-radius: 10px;
+}
+
+ .changePassword{
+    position: relative;
+    left: 104px;
+    top: 84px;
+    background-color: white;
+    width: 453px;
+    height: 268px;
+    border-radius: 10px;
+}
+ .otherField {
+    position: relative;
+    left: 562px;
+    top: -375px;
+    background-color: white;
+    width: 504px;
+    height: 460px;
+    border-radius: 10px;
+}
+ .txt-profile-photo{
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    position: absolute;
+    left: 24px;
+    top: 7px;
+}
+
+ .avatar{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    position: absolute;
+    left: 30px;
+    top: 47px;
+    border: 3px #3385ff solid
+}
+
+ .txt-upload-photo{
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    position: absolute;
+    left: 170px;
+    top: 75px;
+}
+ .uploadFile {
+      width: 0.1px;
+      height: 0.1px;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      z-index: -1;
+}
+ .icon{
+    position: absolute;
+    left: -28px;
+    top: -1px;
+    cursor: pointer;
+    
+}
+ .imageUpload{
+    position: absolute;
+    left: 195px;
+    top: 117px;
+    cursor: pointer;
+}
+
+ .takePhoto{
+    position: absolute;
+    left: 298px;
+    top: 111px;
+    padding: 1px 0px 11px 40px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+ .cameraIcon{
+    position: absolute;
+    left: 6px;
+    top: 6px;
+}
+ .btn-label{
+    position: relative;
+    left: -6px;
+    top: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    color: darkblue;
+    cursor: pointer;
+}
+ .txt-basicInfo{
+    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
+    left: 24px;
+    top: 7px;
+    font-size: 24px;
+    font-weight: 650;
+}
+ .lbl-username{
+    position: relative;
+    left: 26px;
+    top: 54px;
+}
+ #txt-username, #txt-firstname, #txt-lastname, #txt-mail, 
+#txt-website, .txt-pwd-1, .txt-pwd-2, .txt-pwd-3{
+    position: relative;
+    left: 24px;
+    width: 90%;
+    height: 31px;
+    border-radius: 5px;
+    border: 1px solid #99c0ff;
+    padding: 0px 0px 0 37px;
+    font-size: 15px;
+}
+#txt-username{
+    top:50px;
+}
+#txt-firstname{
+    top:77px;   
+}
+#txt-lastname{
+    top:102px;
+}
+#txt-mail{
+    top:129px;
+}
+#txt-website {
+    top:157px;
+}
+ .txt-username{
+    top: 59px;
+}
+ .txt-firstname{
+    top: 99px;
+}
+ .txt-lastname{
+    top:139px;
+}
+ .txt-mail{
+    top:181px;
+}
+ .txt-website{
+    top:222px;
+}
+ .txt-pwd-1{
+    top: 57px;
+} 
+ .txt-pwd-2{
+    top:79px;
+} 
+ .txt-pwd-3{
+    top:104px;
+}
+ .user-icon,  .fname-icon, .lname-icon,  .mail-icon, 
+ .website-icon,  .pwd-icon-1,  .pwd-icon-2, .pwd-icon-3{
+    position: absolute; 
+    left: 33px;
+    z-index: 5;
+    color: gray;
+}
+ .user-icon{
+    top: 63px;
+}
+ .fname-icon{
+    top: 137px
+}
+ .lname-icon{
+    top:210px;
+}
+ .mail-icon{
+    top:284px;
+} 
+.website-icon {
+    top:359px;
+}
+.pwd-icon-1{
+    top: 61px;
+} 
+ .pwd-icon-2{
+    top: 115px
+}
+ .pwd-icon-3{
+    top:171px;
+}
+ .btn-update {
+    position: absolute;
+    left: 386px;
+    top: 405px;
+    padding: 7px 10px 6px 34px;
+    border-radius: 5px;
+    color: white;
+    background-color: #3366ff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+ .update-icon{
+    position: absolute;
+    top: 414px;
+    left: 396px;
+    z-index: 5;
+    cursor: pointer;
+    color: white;
+}
+ .btn-pwd-update{
+    position: absolute;
+    left: 340px;
+    top: 214px;
+    padding: 7px 10px 6px 34px;
+    border-radius: 5px;
+    color: white;
+    background-color: #3366ff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+ .pwd-update-icon{
+    position: absolute;
+    top: 222px;
+    left: 349px;
+    z-index: 5;
+    color:white;
+    cursor: pointer;
+}
+ #generatePassword{
+    position: absolute;
+    left: 267px;
+    top: 140px;
+    font-size: 14px;
+}

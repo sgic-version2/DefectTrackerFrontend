@@ -89,8 +89,8 @@ export default class Deallocation extends Component {
             mockData.push({
                 key: i.toString(),
                 employeeID: `EMP${i + 1}`,
-                fullname: `Employee${i + 1}`,
-                role: <Tag color={color[i % 4]}>{role[i % 4]}</Tag>,
+                member: `Member${i + 1}`,
+                role: <Tag key={i} color={color[i % 4]}>{role[i % 4]}</Tag>,
             });
         }
         const leftTableColumns = [

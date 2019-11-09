@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Transfer, Table, Tag } from 'antd';
+import { Transfer, Table, Tag, Progress } from 'antd';
 import difference from 'lodash/difference';
 import { Button } from 'semantic-ui-react';
 import Model from '../../../components/model/model'
@@ -83,6 +83,7 @@ export default class RoleAllocation extends Component {
     const mockData = [];
     const role = ['JSE', 'QAL', 'TL', 'SE']
     const color = ['blue', 'green', 'orange', 'red']
+    const availabilityTag = [<Progress type="circle" percent={30} width={50} />, <Progress type="circle" percent={60} width={50} />, <Progress type="circle" percent={90} width={50} />, <Tag color="red">Bench</Tag>]
 
     originTargetKeys = mockData.filter(item => +item.key % 3 > 1).map(item => item.key);
 
@@ -93,9 +94,11 @@ export default class RoleAllocation extends Component {
         key: i.toString(),
         employeeID: `EMP${i + 1}`,
         fullname: `Employee${i + 1}`,
+        availability: availabilityTag[i % 4],
         designation: <Tag color={color[i % 4]}>{mockTags[i % 4]}</Tag>,
         role: role[i % 4],
         action: <Button
+          key={i}
           icon='edit'
           label={{ as: 'a', basic: true, content: 'Edit' }}
           labelPosition='right'
@@ -112,6 +115,10 @@ export default class RoleAllocation extends Component {
       {
         dataIndex: 'fullname',
         title: 'Full Name',
+      },
+      {
+        dataIndex: 'availability',
+        title: 'Availability',
       },
       {
         dataIndex: 'designation',

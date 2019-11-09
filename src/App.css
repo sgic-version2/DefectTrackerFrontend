@@ -12,9 +12,9 @@
   box-shadow: 0px 1px 2px 0px rgba(34,36,38,.15) !important;
   color: #fff !important;
   border-bottom: #fff 2px solid !important;
-  border-right: #fff 2px solid !important;
   text-align: center !important;
   border-right: #fff 2px solid !important;
+  padding: 10px !important;
 }
 .ant-table-thead > tr > th .ant-table-header-column .ant-table-column-sorters > *:not(.ant-table-column-sorter) {
   color:#fff !important;
