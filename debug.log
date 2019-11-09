@@ -1,1 +1,6 @@
+<<<<<<< HEAD
 [1109/154043.273:ERROR:crash_report_database_win.cc(428)] unexpected header
+=======
+[1109/172033.787:ERROR:crash_report_database_win.cc(428)] unexpected header
+[1109/174357.500:ERROR:crash_report_database_win.cc(428)] unexpected header
+>>>>>>> master
