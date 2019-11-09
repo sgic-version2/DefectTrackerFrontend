@@ -13,19 +13,13 @@ import AuditTable from '../../screens/Settings/Troubleshoot and Support/Audit Lo
 import PriorityConfig from '../../screens/general_configuration/priority/PriorityConfig';
 import AllocationTable from '../../screens/HrAllocate/AllocationTable';
 import EmployeeTable from './../../screens/employee/EmployeeTable';
-<<<<<<< HEAD
-import DefectType from '../../screens/CommonConfiguration/DefectConfig/DefectConfic'
-import DefectStatusFlow from '../../screens/WorkFlow/DefectStatus/DefectStatusFlow'
-import DefectRolesFlow from '../../screens/WorkFlow/DefectRoles/DefectRolesFlow'
-import TeachLeadPrivilege from '../../screens/Settings/Privilege/TechLeadPrivileges'
-=======
 import DefectType from '../../screens/CommonConfiguration/DefectConfig/DefectConfic';
 import DefectStatusFlow from '../../screens/WorkFlow/DefectStatus/DefectStatusFlow';
 import TeachLeadPrivilege from '../../screens/Settings/Privilege/TechLeadPrivileges';
 import ManageProject from '../../screens/ManageProject/ProjectList'
 import Severity from '../../screens/general_configuration/severity/PriorityConfig'
 import ProfileSetting from '../../screens/profile/profile'
->>>>>>> 8f5c589ca64a7cd48a89556d25b16914d02c4c47
+import DefectRolesFlow from '../../screens/WorkFlow/DefectRoles/DefectRolesFlow'
 // container using material Ui
 // container has property
 //'textAlight' - left, right, center, justified
@@ -65,23 +59,6 @@ export default function Container({ textAlign, collapsed }) {
       >
         <Grid item xs={collapsed ? 12 : 10} style={useStyles.subContainer}>
           <Switch>
-<<<<<<< HEAD
-            <Route  path="/defect/editrole" component={EditRole} />
-            <Route path="/defect/projectAllocation" component={ProjectAllocation} />
-            <Route path="/defect/hrAllocation" component={AllocationTable} />
-            <Route path="/defect/defectStatus" component={DefectList} />
-            <Route path="/defect/defectDashboard" component={Dashboard} />
-            <Route path="/defect/companyAdministration" component={AddEmployee} />
-            <Route path="/defect/companyCompany" component={CompanyDetails} />
-            <Route path="/defect/defect" component={ViewDefect} />
-            <Route path="/defect/auditLog" component={AuditTable} />
-            <Route path="/defect/priority" component={PriorityConfig} />
-            <Route path="/defect/companyEmployee" component={EmployeeTable} />
-            <Route path="/defect/defectType" component={DefectType}/>
-            <Route path="/defect/defectStatusFlow" component={DefectStatusFlow}/>
-            <Route path="/defect/defectRolesFlow" component={DefectRolesFlow}/>
-            <Route path="/defect/techLeadPrivilege" component={TeachLeadPrivilege}/>
-=======
             <Route path='/defect/editrole' component={EditRole} />
             <Route path='/defect/projectAllocation' component={ProjectAllocation} />
             <Route path='/defect/hrAllocation' component={AllocationTable} />
@@ -99,7 +76,8 @@ export default function Container({ textAlign, collapsed }) {
             <Route path='/defect/manageProject' component={ManageProject} />
             <Route path='/defect/severity' component={Severity} />
             <Route path='/defect/profileSetting' component={ProfileSetting} />
->>>>>>> 8f5c589ca64a7cd48a89556d25b16914d02c4c47
+            <Route path='/defect/defectRolesFlow' component={DefectRolesFlow} />
+
           </Switch>
         </Grid>
       </Grid>
