@@ -20,7 +20,7 @@ import ManageProject from '../../screens/ManageProject/ProjectList'
 import Severity from '../../screens/general_configuration/severity/PriorityConfig'
 import ProfileSetting from '../../screens/profile/profile'
 import DefectRolesFlow from '../../screens/WorkFlow/DefectRoles/DefectRolesFlow'
-
+import DeveloperDashboard from './../../screens/dashboards/developerDashboard';
 // container using material Ui
 // container has property
 //'textAlight' - left, right, center, justified
@@ -78,7 +78,7 @@ export default function Container({ textAlign, collapsed }) {
             <Route path='/defect/severity' component={Severity} />
             <Route path='/defect/profileSetting' component={ProfileSetting} />
             <Route path='/defect/defectRolesFlow' component={DefectRolesFlow} />
-            {/* <Route path='/defect/developer' component={DeveloperDashboard} /> */}
+            <Route path='/defect/developer' component={DeveloperDashboard} />
           </Switch>
         </Grid>
       </Grid>
