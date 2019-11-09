@@ -185,7 +185,7 @@ const sideBarContent = [{
             subcontent: [
                 {
                     name: 'Defect Roles Flow',
-                    url: '/defect/defctRolesFlow'
+                    url: '/defect/defectRolesFlow'
                 },
                 {
                     name: 'Defect Status Flow',
