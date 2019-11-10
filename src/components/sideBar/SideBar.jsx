@@ -203,7 +203,7 @@ class SideBar extends Component {
         return (
             <div style={{ width: 'auto', marginTop: -64, overflowY: 'hidden', zIndex: 100 }} onMouseEnter={() => onMouseEnterSideBar()} onMouseLeave={() => onMouseEnterSideBar()}>
                 <Menu
-                    style={{ position: 'absolute', height: '100%', width: `${!collapsed ? '250px' : '100px'}`, background: `#${sideBarColor ? sideBarColor : 'fafafa'}`, transition: 'width,0.5s', overflow: 'auto', zIndex: 100 }}
+                    style={{ position: 'absolute', height: '100%', width: `${!collapsed ? '250px' : '100px'}`, background: `#${sideBarColor ? sideBarColor : 'fff'}`, transition: 'width,0.5s', overflow: 'auto', zIndex: 100,color:'blue' }}
                     mode="inline"
                     inlineCollapsed={collapsed}
                 >
