@@ -24,6 +24,8 @@ import DeveloperDashboard from './../../screens/dashboards/developerDashboard';
 import LookAndFeel from '../../screens/Settings/settings'
 import QADashboard from '../../screens/dashboards/QADashboard/chart'
 import Module from '../../screens/Module/ModuleList'
+import PmDashboard from '../../screens/dashboards/PmDashboard/chart'
+
 // container using material Ui
 // container has property
 //'textAlight' - left, right, center, justified
@@ -85,6 +87,7 @@ export default function Container({ textAlign, collapsed }) {
             <Route path='/defect/lookandfeel' component={LookAndFeel} />
             <Route path='/defect/qa' component={QADashboard} />
             <Route path='/defect/module' component={Module} />
+            <Route path='/defect/projectManager' component={PmDashboard} />
 
           </Switch>
         </Grid>
