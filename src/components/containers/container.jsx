@@ -94,4 +94,4 @@ export default function Container({ textAlign, collapsed }) {
       </Grid>
     </div>
   );
-}
+}    
