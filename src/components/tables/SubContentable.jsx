@@ -1,6 +1,7 @@
 import React from 'react';
 import { Table } from 'antd';
 import { Grid } from '@material-ui/core';
+import SubTable from '../../screens/Module/table'
 
 /* App bar using Ant ui
 * app bar have 2 properties
@@ -9,7 +10,7 @@ import { Grid } from '@material-ui/core';
 */
 
 
-const table = ({ column, data }) => {
+const table = ({ column, data,TableData }) => {
    const useStyle = {
       table: {
          background: '#fff',
@@ -17,7 +18,7 @@ const table = ({ column, data }) => {
    }
    return (
       <Grid item xs={12} style={{ marginTop: '2%' }}>
-         <Table columns={column} dataSource={data} style={useStyle.table}  />
+         <Table columns={column} dataSource={data} style={useStyle.table} expandedRowRender={record =><SubTable TableData={TableData} />} />
       </Grid>
    );
 }
