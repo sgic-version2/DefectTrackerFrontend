@@ -23,6 +23,7 @@ import DefectRolesFlow from '../../screens/WorkFlow/DefectRoles/DefectRolesFlow'
 import DeveloperDashboard from './../../screens/dashboards/developerDashboard';
 import LookAndFeel from '../../screens/Settings/settings'
 import QADashboard from '../../screens/dashboards/QADashboard/chart'
+// import PMDashboard from '../../screens/dashboards/'
 // container using material Ui
 // container has property
 //'textAlight' - left, right, center, justified
@@ -83,6 +84,8 @@ export default function Container({ textAlign, collapsed }) {
             <Route path='/defect/developer' component={DeveloperDashboard} />
             <Route path='/defect/lookandfeel' component={LookAndFeel} />
             <Route path='/defect/qa' component={QADashboard} />
+            <Route path='/defect/projectManager' component={QADashboard} />
+            
           </Switch>
         </Grid>
       </Grid>
