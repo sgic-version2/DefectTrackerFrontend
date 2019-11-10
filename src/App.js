@@ -55,11 +55,11 @@ class App extends Component {
     return (
       <Fragment>
         <Route exact path='/' component={Login} />
-        <Route  path="/forgetPassword" component={ForgetPassword}/>
+        <Route path="/forgetPassword" component={ForgetPassword}/>
         <Route path='/defect(.+)' render={() => (
           <Fragment>
             <AppBar position='static' backgroundColor='fff' iconFontColor='0f96ab' marginSize={this.state.marginSize} appBarExpandIcon={this.handleExpanedButton} collapsed={this.state.buttonClicked} />
-            <SideBar collapsed={this.state.open} onMouseEnterSideBar={this.handleExpaned} display={this.state.display} sideBarColor='1e2129' />
+            <SideBar collapsed={this.state.open} onMouseEnterSideBar={this.handleExpaned} display={this.state.display} sideBarColor='fff' />
             <Container textAlign="center" collapsed={this.state.open} />
           </Fragment>
         )} />
