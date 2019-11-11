@@ -23,6 +23,7 @@ import DefectRolesFlow from '../../screens/WorkFlow/DefectRoles/DefectRolesFlow'
 import DeveloperDashboard from './../../screens/dashboards/developerDashboard';
 import LookAndFeel from '../../screens/Settings/settings'
 import QADashboard from '../../screens/dashboards/QADashboard/chart'
+import Module from '../../screens/Module/ModuleList'
 import PmDashboard from '../../screens/dashboards/PmDashboard/chart'
 
 // container using material Ui
@@ -33,8 +34,8 @@ export default function Container({ textAlign, collapsed }) {
   const useStyles = {
     root: {
       marginTop: '5%',
-      marginLeft: `${!collapsed ? '250px' : '100px'}`,
-      background: '#fafafa',
+      marginLeft: `${!collapsed ? '250px' : '80px'}`,
+      background: 'transparent',
       width: '100%',
       height: '100vh',
       zIndex: -1000,
@@ -85,10 +86,11 @@ export default function Container({ textAlign, collapsed }) {
             <Route path='/defect/developer' component={DeveloperDashboard} />
             <Route path='/defect/lookandfeel' component={LookAndFeel} />
             <Route path='/defect/qa' component={QADashboard} />
+            <Route path='/defect/module' component={Module} />
             <Route path='/defect/projectManager' component={PmDashboard} />
           </Switch>
         </Grid>
       </Grid>
     </div>
   );
-}
+}    
