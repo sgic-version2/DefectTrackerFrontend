@@ -201,13 +201,13 @@ class SideBar extends Component {
     render() {
         const { collapsed, onMouseEnterSideBar, sideBarColor, display } = this.props
         return (
-            <div style={{ width: 'auto', marginTop: -64, overflowY: 'hidden', zIndex: 100 }} onMouseEnter={() => onMouseEnterSideBar()} onMouseLeave={() => onMouseEnterSideBar()}>
+            <div style={{ width: `${!collapsed ? '250px' : '80px'}`, marginTop: -64, overflowY: 'hidden', zIndex: 100 }} onMouseEnter={() => onMouseEnterSideBar()} onMouseLeave={() => onMouseEnterSideBar()}>
                 <Menu
-                    style={{ position: 'absolute', height: '100%', width: `${!collapsed ? '250px' : '100px'}`, background: `#${sideBarColor ? sideBarColor : 'fff'}`, transition: 'width,0.5s', overflow: 'auto', zIndex: 100,color:'blue' }}
+                    style={{ position: 'absolute', height: '100%', width: `${!collapsed ? '250px' : '80px'}`, background: `${sideBarColor ? sideBarColor : 'tranparent'}`, transition: 'width,0.5s', overflow: 'auto', zIndex: 100,color:'#fff',border:'none' }}
                     mode="inline"
                     inlineCollapsed={collapsed}
                 >
-                    <div style={{ height: '20vh', background: '#353c48', textAlign: 'center', justifyContent: 'center', marginBottom: '25%' }}>
+                    <div style={{ height: '20vh', background: 'transparent', textAlign: 'center', justifyContent: 'center', marginBottom: '25%',position:'absolute' }}>
                         <div style={{ textAlign: 'center' }}>
                             <Avatar style={{ marginTop: '25%', transition: 'width,0.5s', border: `${!collapsed ? '5px solid #2d323e' : 'none'}` }} size={!collapsed ? 90 : 70} src="http://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg" >
                             </Avatar>

@@ -34,8 +34,8 @@ export default function Container({ textAlign, collapsed }) {
   const useStyles = {
     root: {
       marginTop: '5%',
-      marginLeft: `${!collapsed ? '250px' : '100px'}`,
-      background: '#fafafa',
+      marginLeft: `${!collapsed ? '250px' : '80px'}`,
+      background: 'transparent',
       width: '100%',
       height: '100vh',
       zIndex: -1000,
