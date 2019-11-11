@@ -86,7 +86,6 @@ export default function Container({ textAlign, collapsed }) {
             <Route path='/defect/lookandfeel' component={LookAndFeel} />
             <Route path='/defect/qa' component={QADashboard} />
             <Route path='/defect/projectManager' component={PmDashboard} />
-
           </Switch>
         </Grid>
       </Grid>
