@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import Link from '@material-ui/core/Link';
 import Button from '@material-ui/core/Button';
-import { Divider} from '@material-ui/core';
+import { Divider } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   root: {
