@@ -25,3 +25,7 @@
 /* body{
   overflow-y: scroll;
 } */
+/* body{
+  background-image: url("./Assets/background.jpg");
+  background-size: cover;
+} */

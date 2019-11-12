@@ -4,9 +4,10 @@ import Container from './components/containers/container';
 import AppBar from './components/topBar/appBar';
 import 'antd/dist/antd.css';
 import SideBar from './components/sideBar/SideBar';
-import {Route} from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import Login from './screens/Login/login'
 import ForgetPassword from './screens/Login/forgotpass'
+import * as theme from './components/themes/theme'
 const InitialmarginSize = 80
 const ExpandmarginSize = 250
 class App extends Component {
@@ -52,15 +53,18 @@ class App extends Component {
     }
   }
   render() {
+    const {backgroundImageOne}=theme.themes;
     return (
       <Fragment>
         <Route exact path='/' component={Login} />
-        <Route path="/forgetPassword" component={ForgetPassword}/>
+        <Route path="/forgetPassword" component={ForgetPassword} />
         <Route path='/defect(.+)' render={() => (
           <Fragment>
-            <AppBar position='static' backgroundColor='fff' iconFontColor='0f96ab' marginSize={this.state.marginSize} appBarExpandIcon={this.handleExpanedButton} collapsed={this.state.buttonClicked} />
-            <SideBar collapsed={this.state.open} onMouseEnterSideBar={this.handleExpaned} display={this.state.display} sideBarColor='1e2129' />
-            <Container textAlign="center" collapsed={this.state.open} />
+            <div style={{backgroundImage: `url(${backgroundImageOne})`,backgroundSize:'cover'}}>
+              <AppBar position='static' backgroundColor='transparent' iconFontColor='0f96ab' marginSize={this.state.marginSize} appBarExpandIcon={this.handleExpanedButton} collapsed={this.state.buttonClicked} />
+              <SideBar collapsed={this.state.open} onMouseEnterSideBar={this.handleExpaned} display={this.state.display} sideBarColor='transparent' />
+              <Container textAlign="center" collapsed={this.state.open} />
+            </div>
           </Fragment>
         )} />
       </Fragment>
