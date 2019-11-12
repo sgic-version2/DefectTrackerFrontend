@@ -30,11 +30,12 @@ import PmDashboard from '../../screens/dashboards/PmDashboard/chart'
 // container has property
 //'textAlight' - left, right, center, justified
 
-export default function Container({ textAlign, collapsed }) {
+export default function Container({ textAlign }) {
   const useStyles = {
     root: {
       marginTop: '5%',
-      marginLeft: `${!collapsed ? '250px' : '80px'}`,
+      // marginLeft: `${!collapsed ? '250px' : '80px'}`,
+      marginLeft:'80px',
       background: 'transparent',
       width: '100%',
       height: '100vh',
@@ -46,7 +47,8 @@ export default function Container({ textAlign, collapsed }) {
       overflowY: 'auto'
     },
     subContainer: {
-      marginLeft: `${collapsed ? '2%' : '-10%'}`,
+      // marginLeft: `${collapsed ? '2%' : '-10%'}`,
+      marginLeft:'1%',
       transition: 'marginLeft,0.5s',
       overflow: 'auto !important',
       marginBottom: '10%'
@@ -63,7 +65,7 @@ export default function Container({ textAlign, collapsed }) {
         style={useStyles.gridContainer}
         spacing={4}
       >
-        <Grid item xs={collapsed ? 12 : 10} style={useStyles.subContainer}>
+        <Grid item xs={12} style={useStyles.subContainer}>
           <Switch>
             <Route path='/defect/editrole' component={EditRole} />
             <Route path='/defect/projectAllocation' component={ProjectAllocation} />

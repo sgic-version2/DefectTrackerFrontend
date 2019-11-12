@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Menu, Icon, Avatar } from 'antd';
 import { Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom'
+import * as theme from '../themes/theme'
 
 // sideBar Menu Object 
 const sideBarContent = [{
@@ -200,14 +201,19 @@ const { SubMenu } = Menu;
 class SideBar extends Component {
     render() {
         const { collapsed, onMouseEnterSideBar, sideBarColor, display } = this.props
+        const useStyle = {
+            menuStyle: {
+                color: theme.FontColors.colorIntoBackgroundImageOne,
+            },
+        }
         return (
             <div style={{ width: `${!collapsed ? '250px' : '80px'}`, marginTop: -64, overflowY: 'hidden', zIndex: 100 }} onMouseEnter={() => onMouseEnterSideBar()} onMouseLeave={() => onMouseEnterSideBar()}>
                 <Menu
-                    style={{ position: 'absolute', height: '100%', width: `${!collapsed ? '250px' : '80px'}`, background: `${sideBarColor ? sideBarColor : 'tranparent'}`, transition: 'width,0.5s', overflow: 'auto', zIndex: 100,color:'#fff',border:'none' }}
+                    style={{ position: 'absolute', height: '100%', width: `${!collapsed ? '250px' : '80px'}`, background: `${sideBarColor ? sideBarColor : 'tranparent'}`, transition: 'width,0.5s', overflow: 'auto', zIndex: 100, border: 'none' }}
                     mode="inline"
                     inlineCollapsed={collapsed}
                 >
-                    <div style={{ height: '20vh', background: 'transparent', textAlign: 'center', justifyContent: 'center', marginBottom: '25%',position:'absolute' }}>
+                    <div style={{ height: '20vh', background: 'transparent', textAlign: 'center', justifyContent: 'center', marginBottom: '25%' }}>
                         <div style={{ textAlign: 'center' }}>
                             <Avatar style={{ marginTop: '25%', transition: 'width,0.5s', border: `${!collapsed ? '5px solid #2d323e' : 'none'}` }} size={!collapsed ? 90 : 70} src="http://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg" >
                             </Avatar>
@@ -222,6 +228,7 @@ class SideBar extends Component {
                                 return (
                                     <SubMenu
                                         key={`sub${index}`}
+                                        style={useStyle.menuStyle}
                                         title={
                                             <span>
                                                 <Icon type={content.icon} />
@@ -232,17 +239,19 @@ class SideBar extends Component {
                                         {content.subMenu.map((submenuContent, subIndex) => {
                                             if (submenuContent.status === 1) {
                                                 return (
-                                                    <SubMenu key={`subAdded${subIndex}`} title={
-                                                        <span>
-                                                            <Icon type={submenuContent.icon} />
-                                                            <span>{submenuContent.name}</span>
-                                                        </span>
-                                                    }
+                                                    <SubMenu
+                                                        key={`subAdded${subIndex}`}
+                                                        title={
+                                                            <span>
+                                                                <Icon type={submenuContent.icon} />
+                                                                <span>{submenuContent.name}</span>
+                                                            </span>
+                                                        }
                                                     >
                                                         {
                                                             submenuContent.subcontent.map((subContents, indexSub) => {
                                                                 return (
-                                                                    <Menu.Item key={`sub${subIndex}join${indexSub}`}>
+                                                                    <Menu.Item  style={useStyle.menuStyle} key={`sub${subIndex}join${indexSub}`}>
                                                                         <Link to={subContents.url}>
                                                                             {subContents.name}
                                                                         </Link>
@@ -267,7 +276,7 @@ class SideBar extends Component {
                             } else {
                                 return (
                                     <Menu.Item key={`without${index}`} >
-                                        <Link to={content.url} >
+                                        <Link to={content.url}   style={useStyle.menuStyle}>
                                             <Icon type={content.icon} />
                                             <span>{content.name}</span>
                                         </Link>

@@ -25,7 +25,23 @@
 /* body{
   overflow-y: scroll;
 } */
-body{
+/* body{
   background-image: url("./Assets/background.jpg");
   background-size: cover;
+} */
+.ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title .anticon :hover{
+  color:red !important;
+}
+.ant-menu-vertical .ant-menu-submenu-selected, .ant-menu-vertical-left .ant-menu-submenu-selected, .ant-menu-vertical-right .ant-menu-submenu-selected {
+  background: linear-gradient(to right, #56ccf2, #2f80ed) !important;
+  border-right: 2px solid #093028;
+}
+.ant-menu-item-selected{
+  background: linear-gradient(to right, #56ccf2, #2f80ed) !important;
+  border-right: 2px solid #093028;
+  color: #01579B !important;
+  font-size: 15px !important;
+}
+.ant-menu-sub.ant-menu-inline {
+  background: #fff !important;
 }
