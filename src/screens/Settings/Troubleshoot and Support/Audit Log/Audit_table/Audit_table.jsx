@@ -5,7 +5,6 @@ import { Grid  } from '@material-ui/core'
  import BreadCrumbs from '../../../../../components/breadCrumbs/breadCrumbs'
 import Table from '../../../../../components/tables/table'
 
-import Export from '../Export/Export';
 
 import CustomizedMenus from '../Manage/Manage';
 import Date from '../Date_Picker/date';
@@ -126,7 +125,6 @@ class Audit_table extends Component {
                  <BreadCrumbs /> 
               <CustomizedMenus/>
               <Date/>
-                <Export/>
               
                 <Table column={columns} data={data}/>
             </Segment>
