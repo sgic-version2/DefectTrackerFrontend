@@ -53,15 +53,15 @@ class App extends Component {
     }
   }
   render() {
-    const {backgroundImageOne}=theme.themes;
+    const { backgroundImageOne } = theme.themes;
     return (
       <Fragment>
         <Route exact path='/' component={Login} />
         <Route path="/forgetPassword" component={ForgetPassword} />
         <Route path='/defect(.+)' render={() => (
           <Fragment>
-            <div style={{backgroundImage: `url(${backgroundImageOne})`,backgroundSize:'cover'}}>
-              <AppBar position='static' backgroundColor='transparent' iconFontColor='0f96ab' marginSize={this.state.marginSize} appBarExpandIcon={this.handleExpanedButton} collapsed={this.state.buttonClicked} />
+            <div style={{ backgroundImage: `url(${backgroundImageOne})`, backgroundSize: 'cover' }}>
+              <AppBar position='static' backgroundColor='transparent' iconFontColor='1a1f1e' marginSize={this.state.marginSize} appBarExpandIcon={this.handleExpanedButton} collapsed={this.state.buttonClicked} />
               <SideBar collapsed={this.state.open} onMouseEnterSideBar={this.handleExpaned} display={this.state.display} sideBarColor='transparent' />
               <Container textAlign="center" collapsed={this.state.open} />
             </div>
