@@ -58,7 +58,7 @@ export default function SystemSettings() {
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={2}>
               <Grid item >
-              <Typography variant="h6" component="h2">
+              <Typography variant="h6" >
               System Setting 
               </Typography>
               </Grid>

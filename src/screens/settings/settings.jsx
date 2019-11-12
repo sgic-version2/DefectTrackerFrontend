@@ -10,9 +10,13 @@ class AllSetting extends Component {
         return ( 
             <Fragment>
                 <SystemSettings/>
+                <br/>
                 <TitleSettings/>
+                <br/>
                 <FaviconSettings/>
+                <br/>
                 <SideBarColorSettings/>
+                <br/>
                 <DateTimeSetting/>
             </Fragment>
          );
