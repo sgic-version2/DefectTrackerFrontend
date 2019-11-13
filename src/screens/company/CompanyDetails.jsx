@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Segment } from 'semantic-ui-react'
 import { Grid } from '@material-ui/core'
-
 import BreadCrumbs from '../../components/breadCrumbs/breadCrumbs'
 import Table from '../../components/tables/table'
 import { Button } from 'semantic-ui-react';
@@ -174,13 +173,15 @@ export default class CompanyDetails extends Component {
       ];
       return (
          <div>
-            <Grid item xs={11} style={{ marginTop: '2%' }}>
-               <Segment>
-                  <BreadCrumbs />
-                  <AddButton />
-                  <Table column={columns} data={data} />
-                  <MoreDetails open={this.state.open1} handleOpen1={this.handleOpen1} handleClose1={this.handleClose1} />
-               </Segment>
+            <Grid direction="row" container>
+               <Grid item xs={11} style={{ marginTop: '2%' }}>
+                  <Segment>
+                     <BreadCrumbs />
+                     <AddButton />
+                     <Table column={columns} data={data} />
+                     <MoreDetails open={this.state.open1} handleOpen1={this.handleOpen1} handleClose1={this.handleClose1} />
+                  </Segment>
+               </Grid>
             </Grid>
          </div>
       )

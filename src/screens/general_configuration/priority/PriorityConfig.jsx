@@ -9,10 +9,6 @@ import { Icon } from 'semantic-ui-react';
 import { Popconfirm, message } from 'antd';
 import EditPriority from './EditPriority'
 
-
-
-
-
 const ProjectAllocation = () => {
    const [open, setOpen] = useState({
       open: false,
@@ -47,8 +43,6 @@ const ProjectAllocation = () => {
    function confirm() {
       message.info('Click on Yes.');
    }
-
-
 
    const columns = [
 
@@ -160,21 +154,18 @@ const ProjectAllocation = () => {
       // },
    ];
 
-
-
-   //  classes = useStyles(props);
-
    return (
       <div style={{ marginRight: '2%' }}>
-         <Grid item xs={11} style={{ marginTop: '2%' }}>
-            <Segment>
-               <BreadCrumbs />
-
-               <PriorityAdd open={open.open} handleOpen={handleOpen} handleClose={handleClose} />
-               <EditPriority open={open.value} handleOpen={handleOpenedit} handleClose={handleCloseedit} />
-               <Button color="primary" onClick={handleOpen} >Add Priority</Button>
-               <Table column={columns} data={data} />
-            </Segment>
+         <Grid direction="row" container>
+            <Grid item xs={11} style={{ marginTop: '2%' }}>
+               <Segment>
+                  <BreadCrumbs />
+                  <PriorityAdd open={open.open} handleOpen={handleOpen} handleClose={handleClose} />
+                  <EditPriority open={open.value} handleOpen={handleOpenedit} handleClose={handleCloseedit} />
+                  <Button color="primary" onClick={handleOpen} >Add Priority</Button>
+                  <Table column={columns} data={data} />
+               </Segment>
+            </Grid>
          </Grid>
       </div>
    )

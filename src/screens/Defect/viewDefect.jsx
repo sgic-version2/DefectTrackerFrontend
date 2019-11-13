@@ -263,25 +263,19 @@ const ViewDefect = () => {
         },
     ];
 
-
-
     return (
         <div>
-            <Grid item xs={11} style={{ marginTop: '2%' }}>
-                <Segment>
-                    {/* <BreadCrumbs/> */}
-
-                    <AddDefect open={open.open} handleClose={handleClose} handleOpen={handleOpen} />
-                    <Button color="primary" onClick={handleOpen}>AddDefect</Button>
-                    <Tables column={columns} data={data} />
-
-                    <EditDefect open={open.value} handleOpen={handleOpenEdit} handleClose={handleCloseEdit} />
-
-                    <More open={open.valueMore} handleOpen={handleOpenmore} handleClose={handleClosemore} />
-
-                </Segment>
+            <Grid direction="row" container>
+                <Grid item xs={11} style={{ marginTop: '2%' }}>
+                    <Segment>
+                        <AddDefect open={open.open} handleClose={handleClose} handleOpen={handleOpen} />
+                        <Button color="primary" onClick={handleOpen}>AddDefect</Button>
+                        <Tables column={columns} data={data} />
+                        <EditDefect open={open.value} handleOpen={handleOpenEdit} handleClose={handleCloseEdit} />
+                        <More open={open.valueMore} handleOpen={handleOpenmore} handleClose={handleClosemore} />
+                    </Segment>
+                </Grid>
             </Grid>
-
         </div>
     )
 }

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Segment } from 'semantic-ui-react'
 import { Grid } from '@material-ui/core'
-
 import BreadCrumbs from '../../../components/breadCrumbs/breadCrumbs'
 import Table from '../../../components/tables/table'
 import { Button } from 'semantic-ui-react';
@@ -48,12 +47,9 @@ const data = [
       defecttype: 'Arithmetic Defects',
       description: 'High',
       action: <Button.Group>
-      {/* <EditCompany open={this.state.open} handleOpen={this.handleOpen} handleClose={this.handleClose}/>  */}
      <Button   secondary>Edit</Button>
      <Button.Or />
-     {/* <Popconfirm placement="topRight" title={text} onConfirm={confirm} okText="yes" cancelText="No"> */}
      <Button negative>Delete</Button>
-     {/* </Popconfirm> */}
   </Button.Group>,
    },
    {
@@ -61,10 +57,8 @@ const data = [
     defecttype: 'Logical Defects',
     description: 'High',
     action: <Button.Group>
-    {/* <EditCompany open={this.state.open} handleOpen={this.handleOpen} handleClose={this.handleClose}/>  */}
    <Button   secondary>Edit</Button>
    <Button.Or />
-   {/* <Popconfirm placement="topRight" title={text} onConfirm={confirm} okText="yes" cancelText="No"> */}
    <Button negative>Delete</Button>
    {/* </Popconfirm> */}
 </Button.Group>,
@@ -74,10 +68,8 @@ const data = [
     defecttype: 'Syntax Defects',
     description: 'High',
     action: <Button.Group>
-    {/* <EditCompany open={this.state.open} handleOpen={this.handleOpen} handleClose={this.handleClose}/>  */}
    <Button   secondary>Edit</Button>
    <Button.Or />
-   {/* <Popconfirm placement="topRight" title={text} onConfirm={confirm} okText="yes" cancelText="No"> */}
    <Button negative>Delete</Button>
    {/* </Popconfirm> */}
 </Button.Group>,

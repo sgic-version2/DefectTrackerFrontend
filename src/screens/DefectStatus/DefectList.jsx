@@ -7,21 +7,14 @@ import Table from './Table'
 
 
 export default class ProjectAllocation extends Component {
-
-
-  
-
     render() {
         return (
             <div>
                 <Grid item xs={11} style={{ marginTop: '2%' }}>
                     <Segment>
-                       {/* <AddD open={this.state.open} handleClose={this.handleClose} handleOpen={this.handleOpen}  />
-                       <Button color="primary" onClick={this.handleOpen}>Add Defect</Button> */}
-                        <BreadCrumbs /> 
+                        <BreadCrumbs />
                         <DefectListButton />
-                        <Table/>
-                        {/* <Table column={columns} data={data}/> */}
+                        <Table />
                     </Segment>
                 </Grid>
             </div>
