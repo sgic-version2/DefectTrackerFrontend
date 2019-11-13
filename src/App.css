@@ -29,3 +29,20 @@
   background-image: url("./Assets/background.jpg");
   background-size: cover;
 } */
+
+.ant-menu-vertical .ant-menu-submenu-selected, .ant-menu-vertical-left .ant-menu-submenu-selected, .ant-menu-vertical-right .ant-menu-submenu-selected {
+  background-image: linear-gradient(to right top, #f5fbff, #eef5fa, #e8eff5, #e1eaf0, #dbe4eb) !important;
+  border-right: 2px solid #093028;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+.ant-menu-item-selected{
+  background-image: linear-gradient(to right top, #f5fbff, #eef5fa, #e8eff5, #e1eaf0, #dbe4eb) !important;
+  border-right: 2px solid #093028;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+
+}
+.ant-menu-sub.ant-menu-inline {
+  background: #fff !important;
+}
