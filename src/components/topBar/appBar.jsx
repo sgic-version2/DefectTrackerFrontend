@@ -20,7 +20,7 @@ const appBar = ({ position, color, backgroundColor, iconFontColor, marginSize, a
             <AppBar position={position ? position : 'static'} color={color ? color : 'primary'} style={{ background: `${backgroundColor}`, marginLeft: marginSize, width: `${marginSize === 80 ? '95%' : '82%'}`, transition: 'width,0.5s', zIndex: 100,boxShadow:'none' }}>
                 <Toolbar >
                     <Button onClick={() => appBarExpandIcon()} type="primary" style={{ background: 'transparent', color: `#${collapsed ? iconFontColor : 'ed3232'}`, border: 'none', marginRight: 15 }}>
-                        <Icon type={collapsed ? 'menu-unfold' : 'menu-fold'} />
+                        <Icon type={collapsed ? 'menu-unfold' : 'menu-fold'} style={{alignContent:"center"}}/>
                     </Button>
                     <Typography variant="h6" color='primary' style={{ width: '15%', position: 'absolute', left: '8%' }}>
                         Defect-Tracker
@@ -38,7 +38,7 @@ const appBar = ({ position, color, backgroundColor, iconFontColor, marginSize, a
                     <Divider type="vertical" style={{ height: '50px' }} />
                     <IconButton>
                         <Badge count={5}>
-                            <Avatar size={30} icon="message" style={{ color: `#${iconFontColor ? iconFontColor : '048691'}` }} />
+                            <Avatar size={30} icon="message" style={{ color: `#${iconFontColor ? iconFontColor : '048691'}`}} />
                         </Badge>
                     </IconButton>
                     <Divider type="vertical" style={{ height: '50px' }} />

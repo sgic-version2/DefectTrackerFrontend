@@ -38,6 +38,8 @@ const DeveloperDashboard = () => {
     const classes = useStyles();
     return ( 
         <div className={classes.root}>
+
+            <Paper className={classes.paper}>
             <Grid>
             <FormGroup row>
       <FormControlLabel
@@ -90,8 +92,6 @@ const DeveloperDashboard = () => {
 
     </FormGroup>
             </Grid>
-
-            <Paper className={classes.paper}>
             <Grid container spacing={2} >
 
         { state.BarChart &&<Grid item xs={6}>

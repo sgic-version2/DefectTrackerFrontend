@@ -81,32 +81,7 @@ export default function SideBarColorSettings() {
                     </Grid>
         </Grid>
             <br/>
-        <Grid xs={8} container sm spacing={3}>
-                <Grid  xs={2}>Sidebar</Grid>
-                <Grid  xs={2}>
-                    <Button variant="contained" onClick={handleClickOpen} className={classes.button} >
-                      
-      </Button>
-
-      <Dialog
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
-        {/* <DialogTitle id="alert-dialog-title">"Pick Color"</DialogTitle> */}
-        <SketchPicker color={"blue"} onChange={handleChangeColor}/>
-        <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Cancel
-          </Button>
-          <Button onClick={handleSelectColor} color="primary" autoFocus>
-            Select
-          </Button>
-        </DialogActions>
-      </Dialog>
-                        </Grid>
-        </Grid>
+        
         </Grid>
         <br/>
         <Divider/>
