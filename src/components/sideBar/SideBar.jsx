@@ -200,19 +200,20 @@ const sideBarContent = [{
 const { SubMenu } = Menu;
 class SideBar extends Component {
     render() {
-        const { collapsed, onMouseEnterSideBar, sideBarColor, display } = this.props
+        const { collapsed, onMouseEnterSideBar, sideBarColor, display, status } = this.props
+
         const useStyle = {
             menuStyle: {
-                color: !collapsed ? '#202224' : theme.FontColors.colorIntoBackgroundImageOne,
+                color: status ? theme.FontColors.colorIntoBackgroundImageOne : '#fff',
             },
             fontColor: {
-                color: !collapsed ? '#202224' : theme.FontColors.colorIntoBackgroundImageOne,
+                color: status ? theme.FontColors.colorIntoBackgroundImageOne : '#fff',
             }
         }
         return (
             <div style={{ width: `${!collapsed ? '250px' : '80px'}`, marginTop: -64, overflowY: 'hidden', zIndex: 100 }} onMouseEnter={() => onMouseEnterSideBar()} onMouseLeave={() => onMouseEnterSideBar()}>
                 <Menu
-                    style={{ position: 'absolute', height: '100%', width: `${!collapsed ? '250px' : '80px'}`, background: `${collapsed && sideBarColor ? sideBarColor : '#fff'}`, transition: 'width,0.5s', overflow: 'auto', zIndex: 100, border: 'none' }}
+                    style={{ position: 'absolute', height: '100%', width: `${!collapsed ? '250px' : '80px'}`, background: `${status ? 'transparent' : sideBarColor}`, transition: 'width,0.5s', overflow: 'auto', zIndex: 100, border: 'none' }}
                     mode="inline"
                     inlineCollapsed={collapsed}
                 >

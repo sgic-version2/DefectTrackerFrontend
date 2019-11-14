@@ -15,7 +15,9 @@ class App extends Component {
     open: true,
     marginSize: InitialmarginSize,
     buttonClicked: false,
-    display: 'none'
+    display: 'none',
+    contentStatus: false,
+    status: true,
   }
   handleExpanedButton = () => {
     this.setState({
@@ -39,6 +41,23 @@ class App extends Component {
       this.setState({
         open: !this.state.open
       })
+      if (this.state.open === true && this.state.status === false) {
+        this.setState({
+          contentStatus: false
+        })
+      } else if (this.state.open === false && this.state.status === false) {
+        this.setState({
+          contentStatus: true
+        })
+      }else if(this.state.open === false && this.state.status === true){
+        this.setState({
+          contentStatus: false
+        })
+      }else if(this.state.open === true && this.state.status === true){
+        this.setState({
+          contentStatus: false
+        })
+      }
       if (this.state.marginSize === InitialmarginSize) {
         this.setState({
           marginSize: ExpandmarginSize,
@@ -51,20 +70,20 @@ class App extends Component {
         })
       }
     }
+
   }
   render() {
     const { backgroundImageOne, backgroundDrakColor, backgroundLightColor } = theme.themes;
-    const status = false;
-    
+    const { status, contentStatus } = this.state
     return (
       <Fragment>
         <Route exact path='/' component={Login} />
         <Route path="/forgetPassword" component={ForgetPassword} />
         <Route path='/defect(.+)' render={() => (
           <Fragment>
-            <div style={{ background: status ? backgroundDrakColor : 'transparent', backgroundSize: 'cover', backgroundImage: !status?`url(${backgroundImageOne})`:'none'}}>
+            <div style={{ background: status ? backgroundDrakColor : 'transparent', backgroundSize: 'cover', backgroundImage: !status ? `url(${backgroundImageOne})` : 'none' }}>
               <AppBar position='static' backgroundColor={backgroundDrakColor} iconFontColor='1a1f1e' marginSize={this.state.marginSize} appBarExpandIcon={this.handleExpanedButton} collapsed={this.state.buttonClicked} />
-              <SideBar collapsed={this.state.open} onMouseEnterSideBar={this.handleExpaned} display={this.state.display} sideBarColor={backgroundLightColor} />
+              <SideBar collapsed={this.state.open} onMouseEnterSideBar={this.handleExpaned} display={this.state.display} sideBarColor={backgroundLightColor} status={contentStatus} />
               <Container textAlign="center" collapsed={this.state.open} />
             </div>
           </Fragment>
