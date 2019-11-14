@@ -73,7 +73,7 @@ class App extends Component {
 
   }
   render() {
-    const { backgroundImageOne, backgroundDrakColor, backgroundLightColor } = theme.themes;
+    const { backgroundImageOne, backgroundDrakColor, backgroundLightColor,backgroundLightColorBody,backgroundDrakColorBody } = theme.themes;
     const { status, contentStatus } = this.state
     return (
       <Fragment>
@@ -81,9 +81,9 @@ class App extends Component {
         <Route path="/forgetPassword" component={ForgetPassword} />
         <Route path='/defect(.+)' render={() => (
           <Fragment>
-            <div style={{ background: status ? backgroundDrakColor : 'transparent', backgroundSize: 'cover', backgroundImage: !status ? `url(${backgroundImageOne})` : 'none' }}>
-              <AppBar position='static' backgroundColor={backgroundDrakColor} iconFontColor='1a1f1e' marginSize={this.state.marginSize} appBarExpandIcon={this.handleExpanedButton} collapsed={this.state.buttonClicked} />
-              <SideBar collapsed={this.state.open} onMouseEnterSideBar={this.handleExpaned} display={this.state.display} sideBarColor={backgroundLightColor} status={contentStatus} />
+            <div style={{ background: status ? backgroundDrakColorBody : 'transparent', backgroundSize: 'cover', backgroundImage: !status ? `url(${backgroundImageOne})` : 'none' }}>
+              <AppBar position='static' backgroundColor={backgroundDrakColor} iconFontColor='1a1f1e' marginSize={this.state.marginSize} appBarExpandIcon={this.handleExpanedButton} collapsed={this.state.buttonClicked} status={contentStatus}/>
+              <SideBar collapsed={this.state.open} onMouseEnterSideBar={this.handleExpaned} display={this.state.display} sideBarColor={backgroundDrakColor} status={contentStatus} />
               <Container textAlign="center" collapsed={this.state.open} />
             </div>
           </Fragment>

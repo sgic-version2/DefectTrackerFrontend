@@ -46,3 +46,13 @@
 .ant-menu-sub.ant-menu-inline {
   background: #fff !important;
 }
+.ant-menu-item-selected > a, .ant-menu-item-selected > a:hover {
+    color: #000 !important;
+}
+
+.sideBar .ant-menu-vertical .ant-menu-submenu-selected, .ant-menu-vertical-left .ant-menu-submenu-selected{
+    color: black !important;
+}
+.ant-menu-sub.ant-menu-inline {
+  background: #fafafa !important;
+}
