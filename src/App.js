@@ -9,16 +9,20 @@ import Login from './screens/Login/login'
 import ForgetPassword from './screens/Login/forgotpass'
 import * as theme from './components/themes/theme'
 import { backgroundImage, darkOrLight } from './themesAction'
+import { expandWithButton, expandWithOutButton } from './expandAction'
 import { connect } from 'react-redux'
 const InitialmarginSize = 80
 const ExpandmarginSize = 250
 
 const mapStateProps = (state) => ({
-  themesStatus: state.themesStatus.themesStatus
+  themesStatus: state.themesStatus.themesStatus,
+  expandSideBarStatus: state.expandSideBarStatus
 })
 const mapDispatchToProps = {
   backgroundImage,
-  darkOrLight
+  darkOrLight,
+  expandWithButton,
+  expandWithOutButton
 }
 class App extends Component {
   state = {
@@ -30,10 +34,11 @@ class App extends Component {
     status: true,
   }
   handleExpanedButton = () => {
-    this.setState({
-      open: !this.state.open,
-      buttonClicked: !this.state.buttonClicked,
-    })
+    this.props.expandWithButton()
+    // this.setState({
+    //   open: !this.state.open,
+    //   buttonClicked: !this.state.buttonClicked,
+    // })
     if (this.state.marginSize === InitialmarginSize) {
       this.setState({
         marginSize: ExpandmarginSize,
@@ -95,7 +100,7 @@ class App extends Component {
           <Fragment>
             <div style={{ background: status ? backgroundDrakColorBody : 'transparent', backgroundSize: 'cover', backgroundImage: !status ? `url(${backgroundImageOne})` : 'none' }}>
               <AppBar position='static' backgroundColor={backgroundDrakColor} iconFontColor='1a1f1e' marginSize={this.state.marginSize} appBarExpandIcon={this.handleExpanedButton} collapsed={this.state.buttonClicked} status={contentStatus} />
-              <SideBar collapsed={this.state.open} onMouseEnterSideBar={this.handleExpaned} display={this.state.display} sideBarColor={backgroundDrakColor} themesStatus={this.props.themesStatus}/>
+              <SideBar collapsed={this.props.expandSideBarStatus.expandButtonStatus} onMouseEnterSideBar={this.handleExpaned} display={this.state.display} sideBarColor={backgroundDrakColor} themesStatus={this.props.themesStatus} />
               <Container textAlign="center" collapsed={this.state.open} />
             </div>
           </Fragment>

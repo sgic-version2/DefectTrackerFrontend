@@ -1,11 +1,14 @@
 import { BACKGROUND_IMAGE, DARKORLIGHT } from './themesConstant'
+import { EXPANDWITHOUTBUTTON, EXPANDWITHBUTTON } from './expandContant'
 
 
 
 const initialState = {
-    themesStatus: true
+    themesStatus: true,
+    expandStatus: true,
+    expandButtonStatus: true
 }
-const themeReducer = (state = initialState, action) => {
+export const themeReducer = (state = initialState.themesStatus, action) => {
     switch (action.type) {
         case DARKORLIGHT:
             return {
@@ -19,4 +22,19 @@ const themeReducer = (state = initialState, action) => {
             return state
     }
 }
-export default themeReducer
+
+
+export const expandSideBarReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case EXPANDWITHBUTTON:
+            return {
+                state: !state.expandButtonStatus
+            }
+        case EXPANDWITHOUTBUTTON:
+            return{
+                state:!state.expandStatus
+            }
+            default:
+                return state
+    }
+}
