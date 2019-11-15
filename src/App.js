@@ -8,8 +8,18 @@ import { Route } from 'react-router-dom'
 import Login from './screens/Login/login'
 import ForgetPassword from './screens/Login/forgotpass'
 import * as theme from './components/themes/theme'
+import { backgroundImage, darkOrLight } from './themesAction'
+import { connect } from 'react-redux'
 const InitialmarginSize = 80
 const ExpandmarginSize = 250
+
+const mapStateProps = (state) => ({
+  themesStatus: state.themesStatus.themesStatus
+})
+const mapDispatchToProps = {
+  backgroundImage,
+  darkOrLight
+}
 class App extends Component {
   state = {
     open: true,
@@ -49,11 +59,11 @@ class App extends Component {
         this.setState({
           contentStatus: true
         })
-      }else if(this.state.open === false && this.state.status === true){
+      } else if (this.state.open === false && this.state.status === true) {
         this.setState({
           contentStatus: false
         })
-      }else if(this.state.open === true && this.state.status === true){
+      } else if (this.state.open === true && this.state.status === true) {
         this.setState({
           contentStatus: false
         })
@@ -73,7 +83,9 @@ class App extends Component {
 
   }
   render() {
-    const { backgroundImageOne, backgroundDrakColor, backgroundLightColor,backgroundLightColorBody,backgroundDrakColorBody } = theme.themes;
+    console.log(this.props);
+
+    const { backgroundImageOne, backgroundDrakColor, backgroundLightColor, backgroundLightColorBody, backgroundDrakColorBody } = theme.themes;
     const { status, contentStatus } = this.state
     return (
       <Fragment>
@@ -82,8 +94,8 @@ class App extends Component {
         <Route path='/defect(.+)' render={() => (
           <Fragment>
             <div style={{ background: status ? backgroundDrakColorBody : 'transparent', backgroundSize: 'cover', backgroundImage: !status ? `url(${backgroundImageOne})` : 'none' }}>
-              <AppBar position='static' backgroundColor={backgroundDrakColor} iconFontColor='1a1f1e' marginSize={this.state.marginSize} appBarExpandIcon={this.handleExpanedButton} collapsed={this.state.buttonClicked} status={contentStatus}/>
-              <SideBar collapsed={this.state.open} onMouseEnterSideBar={this.handleExpaned} display={this.state.display} sideBarColor={backgroundDrakColor} status={contentStatus} />
+              <AppBar position='static' backgroundColor={backgroundDrakColor} iconFontColor='1a1f1e' marginSize={this.state.marginSize} appBarExpandIcon={this.handleExpanedButton} collapsed={this.state.buttonClicked} status={contentStatus} />
+              <SideBar collapsed={this.state.open} onMouseEnterSideBar={this.handleExpaned} display={this.state.display} sideBarColor={backgroundDrakColor} themesStatus={this.props.themesStatus}/>
               <Container textAlign="center" collapsed={this.state.open} />
             </div>
           </Fragment>
@@ -92,4 +104,4 @@ class App extends Component {
     );
   }
 }
-export default App;
+export default connect(mapStateProps, mapDispatchToProps)(App);
