@@ -5,21 +5,23 @@ import { EXPANDWITHOUTBUTTON, EXPANDWITHBUTTON } from './expandContant'
 const InitialmarginSize = 80
 const ExpandmarginSize = 250
 const initialState = {
-    themesStatus: true,
+    themesStatus: false,
     expandStatus: true,
-    expandButtonStatus: true,
+    expandButtonStatus: false,
     marginSize: InitialmarginSize,
     display: 'none',
+    backgroundOrThemeStatus:false,
+
 }
 export const themeReducer = (state = initialState.themesStatus, action) => {
     switch (action.type) {
         case DARKORLIGHT:
             return {
-                state: false
+                themesStatus: !state.themesStatus
             }
         case BACKGROUND_IMAGE:
             return {
-                state: true
+                themesStatus: !state.themesStatus
             }
         default:
             return state
@@ -28,35 +30,70 @@ export const themeReducer = (state = initialState.themesStatus, action) => {
 export const expandSideBarReducer = (state = initialState, action) => {
     switch (action.type) {
         case EXPANDWITHBUTTON:
-            if (state.marginSize === InitialmarginSize) {
-                return {
-                    marginSize: ExpandmarginSize,
-                    display: 'block',
-                    expandButtonStatus: !state.expandButtonStatus
-                }
-            } else {
-                return {
-                    marginSize: InitialmarginSize,
-                    display: 'none',
-                    expandButtonStatus: !state.expandButtonStatus
-                }
-            }
+                if (state.expandStatus  && !state.themesStatus ) {
+                    return{
+                        backgroundOrThemeStatus:false,
+                        marginSize: ExpandmarginSize,
+                        display: 'block',
+                        expandStatus: !state.expandStatus,
+                        expandButtonStatus: !state.expandButtonStatus
+                    }
+                  } else if (!state.expandStatus && !state.themesStatus) {
+                      return{
+                        backgroundOrThemeStatus:true,
+                        marginSize: InitialmarginSize,
+                        display: 'none',
+                        expandStatus: !state.expandStatus,
+                        expandButtonStatus: !state.expandButtonStatus
+                      }
+                  } else if (!state.expandStatus  && state.themesStatus) {
+                    return{
+                        backgroundOrThemeStatus:false,
+                        marginSize: InitialmarginSize,
+                        display: 'none',
+                        expandStatus: !state.expandStatus,
+                        expandButtonStatus: !state.expandButtonStatus
+                    }
+                  } else if (state.expandStatus  && state.themesStatus) {
+                    return{
+                        backgroundOrThemeStatus:false,
+                        marginSize: ExpandmarginSize,
+                        display: 'block',
+                        expandStatus: !state.expandStatus,
+                        expandButtonStatus: !state.expandButtonStatus
+                    }
+                  }
         case EXPANDWITHOUTBUTTON:
             if (!state.expandButtonStatus) {
-                if (this.state.marginSize === InitialmarginSize) {
-                    this.setState({
+                if (state.expandStatus  && !state.themesStatus ) {
+                    return{
+                        backgroundOrThemeStatus:false,
                         marginSize: ExpandmarginSize,
-                        display: 'block'
-                    })
-                } else {
-                    this.setState({
+                        display: 'block',
+                        expandStatus: !state.expandStatus
+                    }
+                  } else if (!state.expandStatus && !state.themesStatus) {
+                      return{
+                        backgroundOrThemeStatus:true,
                         marginSize: InitialmarginSize,
-                        display: 'none'
-                    })
-                }
-            }
-            return {
-                state: !state.expandStatus
+                        display: 'none',
+                        expandStatus: !state.expandStatus
+                      }
+                  } else if (!state.expandStatus  && state.themesStatus) {
+                    return{
+                        backgroundOrThemeStatus:false,
+                        marginSize: InitialmarginSize,
+                        display: 'none',
+                        expandStatus: !state.expandStatus
+                    }
+                  } else if (state.expandStatus  && state.themesStatus) {
+                    return{
+                        backgroundOrThemeStatus:false,
+                        marginSize: ExpandmarginSize,
+                        display: 'block',
+                        expandStatus: !state.expandStatus
+                    }
+                  }
             }
         default:
             return state
