@@ -2,11 +2,14 @@ import { BACKGROUND_IMAGE, DARKORLIGHT } from './themesConstant'
 import { EXPANDWITHOUTBUTTON, EXPANDWITHBUTTON } from './expandContant'
 
 
-
+const InitialmarginSize = 80
+const ExpandmarginSize = 250
 const initialState = {
     themesStatus: true,
     expandStatus: true,
-    expandButtonStatus: true
+    expandButtonStatus: true,
+    marginSize: InitialmarginSize,
+    display: 'none',
 }
 export const themeReducer = (state = initialState.themesStatus, action) => {
     switch (action.type) {
@@ -22,19 +25,40 @@ export const themeReducer = (state = initialState.themesStatus, action) => {
             return state
     }
 }
-
-
 export const expandSideBarReducer = (state = initialState, action) => {
     switch (action.type) {
         case EXPANDWITHBUTTON:
-            return {
-                state: !state.expandButtonStatus
+            if (state.marginSize === InitialmarginSize) {
+                return {
+                    marginSize: ExpandmarginSize,
+                    display: 'block',
+                    expandButtonStatus: !state.expandButtonStatus
+                }
+            } else {
+                return {
+                    marginSize: InitialmarginSize,
+                    display: 'none',
+                    expandButtonStatus: !state.expandButtonStatus
+                }
             }
         case EXPANDWITHOUTBUTTON:
-            return{
-                state:!state.expandStatus
+            if (!state.expandButtonStatus) {
+                if (this.state.marginSize === InitialmarginSize) {
+                    this.setState({
+                        marginSize: ExpandmarginSize,
+                        display: 'block'
+                    })
+                } else {
+                    this.setState({
+                        marginSize: InitialmarginSize,
+                        display: 'none'
+                    })
+                }
             }
-            default:
-                return state
+            return {
+                state: !state.expandStatus
+            }
+        default:
+            return state
     }
 }
