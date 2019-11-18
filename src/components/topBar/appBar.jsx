@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 import AppBar from '@material-ui/core/AppBar';
 import { Toolbar, Typography } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
@@ -14,7 +14,11 @@ import Notification from './Notification';
    **iconFontColor - you can change Icon Color
 */
 
-const appBar = ({ position, color, backgroundColor, iconFontColor, marginSize, appBarExpandIcon, collapsed }) => {
+
+const appBar = ({ position, color, backgroundColor, iconFontColor, marginSize, appBarExpandIcon, collapsed , changeDarktheme}) => {
+    const handleChangeTheme =() =>{
+        console.log("change theme");
+    }
     return (
         <Fragment >
             <AppBar position={position ? position : 'static'} color={color ? color : 'primary'} style={{ background: `${backgroundColor}`, marginLeft: marginSize, width: `${marginSize === 80 ? '95%' : '82%'}`, transition: 'width,0.5s', zIndex: 100, boxShadow: 'none' }}>
@@ -36,8 +40,8 @@ const appBar = ({ position, color, backgroundColor, iconFontColor, marginSize, a
                         </IconButton>
                     </Popover>
                     <Divider type="vertical" style={{ height: '50px' }} />
-                    <IconButton>
-                        <Badge count={5}>
+                    <IconButton onClick={changeDarktheme }>
+                        <Badge count={2}>
                             <Avatar size={30} icon="message" style={{ color: `#${iconFontColor ? iconFontColor : '048691'}`}} />
                         </Badge>
                     </IconButton>

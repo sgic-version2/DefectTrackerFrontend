@@ -52,8 +52,13 @@ class App extends Component {
       }
     }
   }
+
+  changeDarktheme=()=>{
+    console.log("hello from the other side")
+  }
   render() {
-    const { backgroundImageOne } = theme.themes;
+    const { backgroundImageOne , backgroundDrakColor, backgroundLightColor } = theme.themes;
+    console.log(backgroundDrakColor);
     return (
       <Fragment>
         <Route exact path='/' component={Login} />
@@ -61,7 +66,8 @@ class App extends Component {
         <Route path='/defect(.+)' render={() => (
           <Fragment>
             <div style={{ backgroundImage: `url(${backgroundImageOne})`, backgroundSize: 'cover' }}>
-              <AppBar position='static' backgroundColor='transparent' iconFontColor='1a1f1e' marginSize={this.state.marginSize} appBarExpandIcon={this.handleExpanedButton} collapsed={this.state.buttonClicked} />
+            {/* <div style={{ backgroundColor: backgroundDrakColor}}> */}
+              <AppBar position='static' backgroundColor='transparent' iconFontColor='1a1f1e' marginSize={this.state.marginSize} appBarExpandIcon={this.handleExpanedButton} collapsed={this.state.buttonClicked} changeDarktheme={this.changeDarktheme} />
               <SideBar collapsed={this.state.open} onMouseEnterSideBar={this.handleExpaned} display={this.state.display} sideBarColor='transparent' />
               <Container textAlign="center" collapsed={this.state.open} />
             </div>

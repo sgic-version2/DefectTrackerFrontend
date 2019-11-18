@@ -4,6 +4,7 @@ import TitleSettings from './titleSetting';
 import FaviconSettings from './faviconSetting';
 import SideBarColorSettings from './sideBarColorSetting';
 import DateTimeSetting from './dateTimeSetting';
+import ThemeSetting from './themeSetting';
 class AllSetting extends Component {
     state = {  }
     render() { 
@@ -18,6 +19,8 @@ class AllSetting extends Component {
                 <SideBarColorSettings/>
                 <br/>
                 <DateTimeSetting/>
+                <br/>
+                <ThemeSetting/>
             </Fragment>
          );
     }
