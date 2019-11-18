@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
@@ -37,9 +37,21 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+const handleStoreThemeCookie=(e)=>{
+  localStorage.setItem('backGroundImage',e.target.src);
+  console.log("new bg image", e.target.src)
+}
+
+
+
+
 export default function ThemeSettings() {
   const classes = useStyles();
-
+    useEffect(() => {
+    console.log("bg image from local storage", localStorage.getItem('backGroundImage'))
+    // console.log("dfgdjfg")
+    });
+  
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
@@ -62,6 +74,7 @@ export default function ThemeSettings() {
                       image="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
                       title="Contemplative Reptile"
                       style={{height:"150px", cursor:"pointer"}}
+                      onClick={handleStoreThemeCookie}
                     />
                   </Card>
                 </Grid>
@@ -75,6 +88,7 @@ export default function ThemeSettings() {
                       image="http://getwallpapers.com/wallpaper/full/d/c/1/425500.jpg"
                       title="Contemplative Reptile"
                       style={{height:"150px", cursor:"pointer"}}
+                      onClick={handleStoreThemeCookie}
                     />
                   </Card>
                 </Grid>
@@ -88,6 +102,7 @@ export default function ThemeSettings() {
                       image="https://wallpaper.wiki/wp-content/uploads/2017/04/wallpaper.wiki-Fern-leaves-landscapes-hd-wallpapers-PIC-WPB005204.jpg"
                       title="Contemplative Reptile"
                       style={{height:"150px", cursor:"pointer"}}
+                      onClick={handleStoreThemeCookie}
                     />
                   </Card>
                 </Grid>
