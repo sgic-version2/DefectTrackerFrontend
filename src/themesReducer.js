@@ -10,7 +10,7 @@ const initialState = {
     expandButtonStatus: false,
     marginSize: InitialmarginSize,
     display: 'none',
-    backgroundOrThemeStatus:false,
+    backgroundOrThemeStatus: false,
 
 }
 export const themeReducer = (state = initialState.themesStatus, action) => {
@@ -30,71 +30,73 @@ export const themeReducer = (state = initialState.themesStatus, action) => {
 export const expandSideBarReducer = (state = initialState, action) => {
     switch (action.type) {
         case EXPANDWITHBUTTON:
-                if (state.expandStatus  && !state.themesStatus ) {
-                    return{
-                        backgroundOrThemeStatus:false,
-                        marginSize: ExpandmarginSize,
-                        display: 'block',
-                        expandStatus: !state.expandStatus,
-                        expandButtonStatus: !state.expandButtonStatus
-                    }
-                  } else if (!state.expandStatus && !state.themesStatus) {
-                      return{
-                        backgroundOrThemeStatus:true,
-                        marginSize: InitialmarginSize,
-                        display: 'none',
-                        expandStatus: !state.expandStatus,
-                        expandButtonStatus: !state.expandButtonStatus
-                      }
-                  } else if (!state.expandStatus  && state.themesStatus) {
-                    return{
-                        backgroundOrThemeStatus:false,
-                        marginSize: InitialmarginSize,
-                        display: 'none',
-                        expandStatus: !state.expandStatus,
-                        expandButtonStatus: !state.expandButtonStatus
-                    }
-                  } else if (state.expandStatus  && state.themesStatus) {
-                    return{
-                        backgroundOrThemeStatus:false,
-                        marginSize: ExpandmarginSize,
-                        display: 'block',
-                        expandStatus: !state.expandStatus,
-                        expandButtonStatus: !state.expandButtonStatus
-                    }
-                  }
+            if (state.expandStatus && !state.themesStatus) {
+                return {
+                    backgroundOrThemeStatus: false,
+                    marginSize: ExpandmarginSize,
+                    display: 'block',
+                    expandStatus: !state.expandStatus,
+                    expandButtonStatus: !state.expandButtonStatus
+                }
+            } else if (!state.expandStatus && !state.themesStatus) {
+                return {
+                    backgroundOrThemeStatus: true,
+                    marginSize: InitialmarginSize,
+                    display: 'none',
+                    expandStatus: !state.expandStatus,
+                    expandButtonStatus: !state.expandButtonStatus
+                }
+            } else if (!state.expandStatus && state.themesStatus) {
+                return {
+                    backgroundOrThemeStatus: false,
+                    marginSize: InitialmarginSize,
+                    display: 'none',
+                    expandStatus: !state.expandStatus,
+                    expandButtonStatus: !state.expandButtonStatus
+                }
+            } else if (state.expandStatus && state.themesStatus) {
+                return {
+                    backgroundOrThemeStatus: false,
+                    marginSize: ExpandmarginSize,
+                    display: 'block',
+                    expandStatus: !state.expandStatus,
+                    expandButtonStatus: !state.expandButtonStatus
+                }
+            }
+            break;
         case EXPANDWITHOUTBUTTON:
             if (!state.expandButtonStatus) {
-                if (state.expandStatus  && !state.themesStatus ) {
-                    return{
-                        backgroundOrThemeStatus:false,
+                if (state.expandStatus && !state.themesStatus) {
+                    return {
+                        backgroundOrThemeStatus: false,
                         marginSize: ExpandmarginSize,
                         display: 'block',
                         expandStatus: !state.expandStatus
                     }
-                  } else if (!state.expandStatus && !state.themesStatus) {
-                      return{
-                        backgroundOrThemeStatus:true,
-                        marginSize: InitialmarginSize,
-                        display: 'none',
-                        expandStatus: !state.expandStatus
-                      }
-                  } else if (!state.expandStatus  && state.themesStatus) {
-                    return{
-                        backgroundOrThemeStatus:false,
+                } else if (!state.expandStatus && !state.themesStatus) {
+                    return {
+                        backgroundOrThemeStatus: true,
                         marginSize: InitialmarginSize,
                         display: 'none',
                         expandStatus: !state.expandStatus
                     }
-                  } else if (state.expandStatus  && state.themesStatus) {
-                    return{
-                        backgroundOrThemeStatus:false,
+                } else if (!state.expandStatus && state.themesStatus) {
+                    return {
+                        backgroundOrThemeStatus: false,
+                        marginSize: InitialmarginSize,
+                        display: 'none',
+                        expandStatus: !state.expandStatus
+                    }
+                } else if (state.expandStatus && state.themesStatus) {
+                    return {
+                        backgroundOrThemeStatus: false,
                         marginSize: ExpandmarginSize,
                         display: 'block',
                         expandStatus: !state.expandStatus
                     }
-                  }
+                }
             }
+            break;
         default:
             return state
     }
