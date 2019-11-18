@@ -1,5 +1,5 @@
-import React, { Component } from './node_modules/react';
-import { Button } from './node_modules/semantic-ui-react';
+import React, { Component } from 'react';
+import { Button } from 'semantic-ui-react';
 class Export extends Component {
     state = {  }
     

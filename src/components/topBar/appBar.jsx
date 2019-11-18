@@ -15,7 +15,7 @@ import Notification from './Notification';
 */
 
 
-const appBar = ({ position, color, backgroundColor, iconFontColor, marginSize, appBarExpandIcon, collapsed , changeDarktheme}) => {
+const appBar = ({ position, color, backgroundColor, iconFontColor, marginSize, appBarExpandIcon, collapsed , changeDarktheme,status}) => {
     const handleChangeTheme =() =>{
         console.log("change theme");
     }

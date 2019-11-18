@@ -113,25 +113,6 @@ class Audit_table extends Component {
          visible: false,
       });
    };
-<<<<<<< HEAD
-    render() { 
-        return ( 
-            <div>
-          
-       
-            <Grid item xs={11} style={{ marginTop: '2%' }}>
-            <Segment>
-                 <BreadCrumbs /> 
-              <CustomizedMenus/>
-              <Date/>
-              
-                <Table column={columns} data={data}/>
-            </Segment>
-        </Grid>
-        </div>
-        );
-    }
-=======
    render() {
       return (
          <div>
@@ -149,7 +130,6 @@ class Audit_table extends Component {
          </div>
       );
    }
->>>>>>> saseekalaraj
 }
 
 export default Audit_table;

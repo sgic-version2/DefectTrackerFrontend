@@ -63,6 +63,7 @@ export const expandSideBarReducer = (state = initialState, action) => {
                         expandButtonStatus: !state.expandButtonStatus
                     }
                   }
+                  break;
         case EXPANDWITHOUTBUTTON:
             if (!state.expandButtonStatus) {
                 if (state.expandStatus  && !state.themesStatus ) {
@@ -95,6 +96,7 @@ export const expandSideBarReducer = (state = initialState, action) => {
                     }
                   }
             }
+            break;
         default:
             return state
     }
