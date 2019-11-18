@@ -21,7 +21,7 @@ const appBar = ({ position, color, backgroundColor, iconFontColor, marginSize, a
     }
     return (
         <Fragment >
-            <AppBar position={position ? position : 'static'} color={color ? color : 'primary'} style={{ background: `${backgroundColor}`, marginLeft: marginSize, width: `${marginSize === 80 ? '95%' : '82%'}`, transition: 'width,0.5s', zIndex: 100, boxShadow: 'none' }}>
+            <AppBar position={position ? position : 'static'} color={color ? color : 'primary'} style={{ background: `${status ? 'transparent' : backgroundColor}`, marginLeft: marginSize, width: `${marginSize === 80 ? '95%' : '82%'}`, transition: 'width,0.5s', zIndex: 100}}>
                 <Toolbar >
                     <Button onClick={() => appBarExpandIcon()} type="primary" style={{ background: 'transparent', color: `#${collapsed ? iconFontColor : 'edf0f2'}`, border: 'none', marginLeft: '-2%', boxShadow: 'none', fontSize: 18 }}>
                         <Icon type={collapsed ? 'menu-unfold' : 'menu-fold'} />

@@ -15,7 +15,7 @@ const sideBarContent = [{
         },
         {
             name: 'Defect',
-            url: '/defect/defect',
+            url: '/defect/defectDashboard',
             status: 0,
         },
         {
@@ -200,19 +200,25 @@ const sideBarContent = [{
 const { SubMenu } = Menu;
 class SideBar extends Component {
     render() {
-        const { collapsed, onMouseEnterSideBar, sideBarColor, display } = this.props
+        const { collapsed, onMouseEnterSideBar, sideBarColor, display,themesStatus } = this.props
         const useStyle = {
             menuStyle: {
-                color: !collapsed ? '#202224' : theme.FontColors.colorIntoBackgroundImageOne,
+                color: themesStatus ? theme.FontColors.colorIntoBackgroundImageOne : '#fff',
+                '&:hover': {
+                    background: '#000'
+                }
             },
             fontColor: {
-                color: !collapsed ? '#202224' : theme.FontColors.colorIntoBackgroundImageOne,
+                color: themesStatus ? theme.FontColors.colorIntoBackgroundImageOne : '#fff',
+                '&:hover': {
+                    background: '#000'
+                }
             }
         }
         return (
-            <div style={{ width: `${!collapsed ? '250px' : '80px'}`, marginTop: -64, overflowY: 'hidden', zIndex: 100 }} onMouseEnter={() => onMouseEnterSideBar()} onMouseLeave={() => onMouseEnterSideBar()}>
+            <div className="sideBar" style={{ width: `${!collapsed ? '250px' : '80px'}`, marginTop: -64, overflowY: 'hidden', zIndex: 100}} onMouseEnter={() => onMouseEnterSideBar()} onMouseLeave={() => onMouseEnterSideBar()}>
                 <Menu
-                    style={{ position: 'absolute', height: '100%', width: `${!collapsed ? '250px' : '80px'}`, background: `${collapsed && sideBarColor ? sideBarColor : '#fff'}`, transition: 'width,0.5s', overflow: 'auto', zIndex: 100, border: 'none' }}
+                    style={{ position: 'absolute', height: '100%', width: `${!collapsed ? '250px' : '80px'}`, background: `${themesStatus ? 'transparent' : sideBarColor}`, transition: 'width,0.5s', overflow: 'auto', zIndex: 100, border: 'none',boxShadow:'1px 2px 8px -1px rgba(0,0,0,0.75)' }}
                     mode="inline"
                     inlineCollapsed={collapsed}
                 >

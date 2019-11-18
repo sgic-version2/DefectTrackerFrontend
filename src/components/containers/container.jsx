@@ -6,7 +6,6 @@ import Dashboard from '../../screens/Dashboard/Dashboard';
 import CompanyDetails from '../../screens/company/CompanyDetails';
 import ProjectAllocation from '../../screens/project/allocation/ProjectAllocation';
 import { Switch, Route } from 'react-router-dom';
-import EditRole from '../../screens/project/allocation/EditRole';
 import AddEmployee from './../../screens/CompanyAdministaration/AddEmployee';
 import ViewDefect from '../../screens/Defect/viewDefect';
 import AuditTable from '../../screens/Settings/Troubleshoot and Support/Audit Log/Audit_table/Audit_table';
@@ -35,7 +34,7 @@ export default function Container({ textAlign }) {
     root: {
       marginTop: '5%',
       // marginLeft: `${!collapsed ? '250px' : '80px'}`,
-      marginLeft:'80px',
+      marginLeft: '80px',
       background: 'transparent',
       width: '100%',
       height: '100vh',
@@ -48,7 +47,7 @@ export default function Container({ textAlign }) {
     },
     subContainer: {
       // marginLeft: `${collapsed ? '2%' : '-10%'}`,
-      marginLeft:'1%',
+      marginLeft: '1%',
       transition: 'marginLeft,0.5s',
       overflow: 'auto !important',
       marginBottom: '10%'
@@ -67,7 +66,6 @@ export default function Container({ textAlign }) {
       >
         <Grid item xs={12} style={useStyles.subContainer}>
           <Switch>
-            <Route path='/defect/editrole' component={EditRole} />
             <Route path='/defect/projectAllocation' component={ProjectAllocation} />
             <Route path='/defect/hrAllocation' component={AllocationTable} />
             <Route path='/defect/defectStatus' component={DefectList} />
