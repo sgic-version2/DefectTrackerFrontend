@@ -9,7 +9,7 @@ import { ChromePicker } from 'react-color' //color picker
 class Form extends React.Component {
   state = {
     displayColorPicker: false,
-    selectedColor: null
+     
   };
 
   handleColor = (e) => {
