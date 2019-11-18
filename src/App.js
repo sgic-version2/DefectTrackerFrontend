@@ -36,8 +36,8 @@ class App extends Component {
         <Route path="/forgetPassword" component={ForgetPassword} />
         <Route path='/defect(.+)' render={() => (
           <Fragment>
-            <div style={{ background: this.props.themesStatus ? backgroundDrakColorBody : 'transparent', backgroundSize: 'cover', backgroundImage: !this.props.themesStatus ? `url(${backgroundImageOne})` : 'none' }}>
-              <AppBar position='static' backgroundColor={backgroundDrakColor} iconFontColor='1a1f1e' marginSize={this.props.marginSize} appBarExpandIcon={this.props.expandWithButton} collapsed={this.props.expandButtonStatus} status={this.props.backgroundOrThemeStatus} />
+            <div style={{ background: this.props.themesStatus ? backgroundDrakColorBody : 'transparent', backgroundSize: !this.props.themesStatus?'cover':'none', backgroundImage: !this.props.themesStatus ? `url(${backgroundImageOne})` : 'none' }}>
+              <AppBar position='static' backgroundColor={backgroundDrakColor} iconFontColor='1a1f1e' marginSize={this.props.marginSize} appBarExpandIcon={this.props.expandWithButton} collapsed={this.props.expandButtonStatus} status={this.props.backgroundOrThemeStatus} drakLightButton={this.props.darkOrLight}/>
               <SideBar collapsed={this.props.expandSideBarStatus} onMouseEnterSideBar={this.props.expandWithOutButton} display={this.props.display} sideBarColor={backgroundDrakColor} themesStatus={this.props.backgroundOrThemeStatus} />
               <Container textAlign="center" collapsed={this.props.expandSideBarStatus} />
             </div>

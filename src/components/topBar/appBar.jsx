@@ -14,7 +14,7 @@ import Notification from './Notification';
    **iconFontColor - you can change Icon Color
 */
 
-const appBar = ({ position, color, backgroundColor, iconFontColor, marginSize, appBarExpandIcon, collapsed,status }) => {
+const appBar = ({ position, color, backgroundColor, iconFontColor, marginSize, appBarExpandIcon, collapsed,status,drakLightButton }) => {
     return (
         <Fragment >
             <AppBar position={position ? position : 'static'} color={color ? color : 'primary'} style={{ background: `${status ? 'transparent' : backgroundColor}`, marginLeft: marginSize, width: `${marginSize === 80 ? '95%' : '82%'}`, transition: 'width,0.5s', zIndex: 100}}>
@@ -36,7 +36,7 @@ const appBar = ({ position, color, backgroundColor, iconFontColor, marginSize, a
                         </IconButton>
                     </Popover>
                     <Divider type="vertical" style={{ height: '50px' }} />
-                    <IconButton>
+                    <IconButton onClick={drakLightButton}>
                         <Badge count={5}>
                             <Avatar size={30} icon="message" style={{ color: `#${iconFontColor ? iconFontColor : '048691'}` }} />
                         </Badge>

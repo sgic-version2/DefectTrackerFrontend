@@ -11,7 +11,6 @@ class AllSetting extends Component {
     render() {
         return (
             <Fragment>
-<<<<<<< HEAD
                 <Grid direction="row" container>
                     <Grid item xs={11} style={{ marginTop: '2%' }}>
                         <Segment>
@@ -23,17 +22,6 @@ class AllSetting extends Component {
                         </Segment>
                     </Grid>
                 </Grid>
-=======
-                <SystemSettings/>
-                <br/>
-                <TitleSettings/>
-                <br/>
-                <FaviconSettings/>
-                <br/>
-                <SideBarColorSettings/>
-                <br/>
-                <DateTimeSetting/>
->>>>>>> voranzov
             </Fragment>
         );
     }

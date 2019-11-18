@@ -5,7 +5,7 @@ import { EXPANDWITHOUTBUTTON, EXPANDWITHBUTTON } from './expandContant'
 const InitialmarginSize = 80
 const ExpandmarginSize = 250
 const initialState = {
-    themesStatus: false,
+    themesStatus: true,
     expandStatus: true,
     expandButtonStatus: false,
     marginSize: InitialmarginSize,
@@ -13,15 +13,28 @@ const initialState = {
     backgroundOrThemeStatus: false,
 
 }
-export const themeReducer = (state = initialState.themesStatus, action) => {
+export const themeReducer = (state = initialState, action) => {
     switch (action.type) {
         case DARKORLIGHT:
-            return {
-                themesStatus: !state.themesStatus
+            if (state.themesStatus === true) {
+                console.log('d')
+                return {
+                    themesStatus: false,
+                    blockContent: true,
+                    backgroundOrThemeStatus: true
+                }
+            } else {
+                return {
+                    themesStatus: true,
+                    blockContent: false,
+                    backgroundOrThemeStatus: false
+                }
             }
         case BACKGROUND_IMAGE:
             return {
-                themesStatus: !state.themesStatus
+                themesStatus: !state.themesStatus,
+                blockContent: true,
+                backgroundOrThemeStatus: true
             }
         default:
             return state
@@ -66,7 +79,7 @@ export const expandSideBarReducer = (state = initialState, action) => {
             break;
         case EXPANDWITHOUTBUTTON:
             if (!state.expandButtonStatus) {
-                if (state.expandStatus && !state.themesStatus) {
+                if (state.expandStatus && state.themesStatus) {
                     return {
                         backgroundOrThemeStatus: false,
                         marginSize: ExpandmarginSize,
@@ -87,7 +100,7 @@ export const expandSideBarReducer = (state = initialState, action) => {
                         display: 'none',
                         expandStatus: !state.expandStatus
                     }
-                } else if (state.expandStatus && state.themesStatus) {
+                } else if (state.expandStatus && !state.themesStatus) {
                     return {
                         backgroundOrThemeStatus: false,
                         marginSize: ExpandmarginSize,
@@ -95,6 +108,39 @@ export const expandSideBarReducer = (state = initialState, action) => {
                         expandStatus: !state.expandStatus
                     }
                 }
+
+
+                // if (state.expandStatus && !state.themesStatus) {
+                //     return {
+                //         backgroundOrThemeStatus: false,
+                //         marginSize: ExpandmarginSize,
+                //         display: 'block',
+                //         expandStatus: !state.expandStatus
+                //     }
+                // } else if (!state.expandStatus && !state.themesStatus) {
+                //     return {
+                //         backgroundOrThemeStatus: true,
+                //         marginSize: InitialmarginSize,
+                //         display: 'none',
+                //         expandStatus: !state.expandStatus
+                //     }
+                // } else if (!state.expandStatus && state.themesStatus) {
+                //     return {
+                //         backgroundOrThemeStatus: false,
+                //         marginSize: InitialmarginSize,
+                //         display: 'none',
+                //         expandStatus: !state.expandStatus
+                //     }
+                // } else if (state.expandStatus && state.themesStatus) {
+                //     return {
+                //         backgroundOrThemeStatus: false,
+                //         marginSize: ExpandmarginSize,
+                //         display: 'block',
+                //         expandStatus: !state.expandStatus
+                //     }
+                // }
+            } else {
+                return state
             }
             break;
         default:
