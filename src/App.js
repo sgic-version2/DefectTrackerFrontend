@@ -14,7 +14,7 @@ import { connect } from 'react-redux'
 
 
 const mapStateProps = (state) => ({
-  themesStatus: state.themesStatus.themesStatus,
+  themesStatus: state.expandSideBarStatus.themesStatus,
   expandSideBarStatus: state.expandSideBarStatus.expandStatus,
   display:state.expandSideBarStatus.display,
   marginSize:state.expandSideBarStatus.marginSize,
@@ -29,7 +29,7 @@ const mapDispatchToProps = {
 }
 class App extends Component {
   render() {
-    const { backgroundImageOne, backgroundDrakColor, backgroundLightColor, backgroundLightColorBody, backgroundDrakColorBody } = theme.themes;
+    const { backgroundImageOne, backgroundDrakColor, backgroundDrakColorBody } = theme.themes;
     return (
       <Fragment>
         <Route exact path='/' component={Login} />

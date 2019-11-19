@@ -1,4 +1,4 @@
-import { BACKGROUND_IMAGE, DARKORLIGHT } from './themesConstant'
+import {  DARKORLIGHT } from './themesConstant'
 import { EXPANDWITHOUTBUTTON, EXPANDWITHBUTTON } from './expandContant'
 
 
@@ -13,35 +13,29 @@ const initialState = {
     backgroundOrThemeStatus: false,
 
 }
-export const themeReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case DARKORLIGHT:
-            if (state.themesStatus === true) {
-                console.log('d')
-                return {
-                    themesStatus: false,
-                    blockContent: true,
-                    backgroundOrThemeStatus: true
-                }
-            } else {
-                return {
-                    themesStatus: true,
-                    blockContent: false,
-                    backgroundOrThemeStatus: false
-                }
-            }
-        case BACKGROUND_IMAGE:
-            return {
-                themesStatus: !state.themesStatus,
-                blockContent: true,
-                backgroundOrThemeStatus: true
-            }
-        default:
-            return state
-    }
-}
+
 export const expandSideBarReducer = (state = initialState, action) => {
     switch (action.type) {
+        case DARKORLIGHT:
+                if (state.themesStatus) {
+                    return {
+                        themesStatus: false,
+                        backgroundOrThemeStatus: true,
+                        expandButtonStatus:state.expandButtonStatus,
+                        marginSize:state.marginSize,
+                        display:state.display,
+                        expandStatus:state.expandStatus,
+                    }
+                } else {
+                    return {
+                        themesStatus: true,
+                        backgroundOrThemeStatus: false,
+                        expandButtonStatus:state.expandButtonStatus,
+                        marginSize:state.marginSize,
+                        display:state.display,
+                        expandStatus:state.expandStatus,
+                    }
+                }
         case EXPANDWITHBUTTON:
             if (state.expandStatus && !state.themesStatus) {
                 return {
@@ -49,7 +43,8 @@ export const expandSideBarReducer = (state = initialState, action) => {
                     marginSize: ExpandmarginSize,
                     display: 'block',
                     expandStatus: !state.expandStatus,
-                    expandButtonStatus: !state.expandButtonStatus
+                    expandButtonStatus: !state.expandButtonStatus,
+                    themesStatus:state.themesStatus
                 }
             } else if (!state.expandStatus && !state.themesStatus) {
                 return {
@@ -57,7 +52,8 @@ export const expandSideBarReducer = (state = initialState, action) => {
                     marginSize: InitialmarginSize,
                     display: 'none',
                     expandStatus: !state.expandStatus,
-                    expandButtonStatus: !state.expandButtonStatus
+                    expandButtonStatus: !state.expandButtonStatus,
+                    themesStatus:state.themesStatus
                 }
             } else if (!state.expandStatus && state.themesStatus) {
                 return {
@@ -65,7 +61,8 @@ export const expandSideBarReducer = (state = initialState, action) => {
                     marginSize: InitialmarginSize,
                     display: 'none',
                     expandStatus: !state.expandStatus,
-                    expandButtonStatus: !state.expandButtonStatus
+                    expandButtonStatus: !state.expandButtonStatus,
+                    themesStatus:state.themesStatus
                 }
             } else if (state.expandStatus && state.themesStatus) {
                 return {
@@ -73,7 +70,8 @@ export const expandSideBarReducer = (state = initialState, action) => {
                     marginSize: ExpandmarginSize,
                     display: 'block',
                     expandStatus: !state.expandStatus,
-                    expandButtonStatus: !state.expandButtonStatus
+                    expandButtonStatus: !state.expandButtonStatus,
+                    themesStatus:state.themesStatus
                 }
             }
             break;
@@ -84,65 +82,38 @@ export const expandSideBarReducer = (state = initialState, action) => {
                         backgroundOrThemeStatus: false,
                         marginSize: ExpandmarginSize,
                         display: 'block',
-                        expandStatus: !state.expandStatus
+                        expandStatus: !state.expandStatus,
+                        themesStatus:state.themesStatus
                     }
                 } else if (!state.expandStatus && !state.themesStatus) {
                     return {
                         backgroundOrThemeStatus: true,
                         marginSize: InitialmarginSize,
                         display: 'none',
-                        expandStatus: !state.expandStatus
+                        expandStatus: !state.expandStatus,
+                        themesStatus:state.themesStatus
                     }
                 } else if (!state.expandStatus && state.themesStatus) {
                     return {
                         backgroundOrThemeStatus: false,
                         marginSize: InitialmarginSize,
                         display: 'none',
-                        expandStatus: !state.expandStatus
+                        expandStatus: !state.expandStatus,
+                        themesStatus:state.themesStatus
                     }
                 } else if (state.expandStatus && !state.themesStatus) {
                     return {
                         backgroundOrThemeStatus: false,
                         marginSize: ExpandmarginSize,
                         display: 'block',
-                        expandStatus: !state.expandStatus
+                        expandStatus: !state.expandStatus,
+                        themesStatus:state.themesStatus
                     }
                 }
-
-
-                // if (state.expandStatus && !state.themesStatus) {
-                //     return {
-                //         backgroundOrThemeStatus: false,
-                //         marginSize: ExpandmarginSize,
-                //         display: 'block',
-                //         expandStatus: !state.expandStatus
-                //     }
-                // } else if (!state.expandStatus && !state.themesStatus) {
-                //     return {
-                //         backgroundOrThemeStatus: true,
-                //         marginSize: InitialmarginSize,
-                //         display: 'none',
-                //         expandStatus: !state.expandStatus
-                //     }
-                // } else if (!state.expandStatus && state.themesStatus) {
-                //     return {
-                //         backgroundOrThemeStatus: false,
-                //         marginSize: InitialmarginSize,
-                //         display: 'none',
-                //         expandStatus: !state.expandStatus
-                //     }
-                // } else if (state.expandStatus && state.themesStatus) {
-                //     return {
-                //         backgroundOrThemeStatus: false,
-                //         marginSize: ExpandmarginSize,
-                //         display: 'block',
-                //         expandStatus: !state.expandStatus
-                //     }
-                // }
             } else {
                 return state
             }
-            break;
+            break
         default:
             return state
     }

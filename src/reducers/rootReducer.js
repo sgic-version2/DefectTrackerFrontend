@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import { themeReducer, expandSideBarReducer } from '../themesReducer'
+import {  expandSideBarReducer } from '../themesReducer'
 const rootReducer = combineReducers({
-    themesStatus: themeReducer,
-    expandSideBarStatus: expandSideBarReducer
+    expandSideBarStatus: expandSideBarReducer,
+    // themeReducer:themeReducer
 })
 
 export default rootReducer
