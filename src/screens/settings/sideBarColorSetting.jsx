@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import { Divider, Dialog, DialogTitle, DialogActions } from '@material-ui/core';
+import { Divider, Dialog, DialogActions } from '@material-ui/core';
 import { SketchPicker } from 'react-color';
 
 const useStyles = makeStyles(theme => ({
@@ -29,6 +29,7 @@ const useStyles = makeStyles(theme => ({
   },
   button: {
     margin: theme.spacing(1),
+   Height:"100%",
   },
   input: {
     display: 'none',
@@ -38,6 +39,7 @@ const useStyles = makeStyles(theme => ({
 export default function SideBarColorSettings() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+  const [selectedColor, setSelectedColor] = React.useState('');
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -46,6 +48,16 @@ export default function SideBarColorSettings() {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const handleSelectColor = (e) => {
+    setOpen(false);
+    
+  };
+  
+  const handleChangeColor = (color) =>{
+    console.log(color.hex)
+     setSelectedColor(color.hex);
+  }
 
   return (
     <div className={classes.root}>
@@ -57,33 +69,23 @@ export default function SideBarColorSettings() {
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={2}>
 
-
-
-        
-      
-
         <Grid>
             <Typography variant="h6">Sidebar color</Typography>
             <br/>
             <Grid xs={8} container sm spacing={3}>
                 <Grid  xs={2}>Sidebar</Grid>
-                <Grid  xs={2}>#87465</Grid>
-                <Grid  xs={2}>dfdf</Grid>
                 <Grid  xs={2}>
-                <Button variant="contained" color="primary" onClick={handleClickOpen} >
-                {/* variant="contained" component="span"  */}
-        Select
-      </Button>
+                <button onClick={handleClickOpen} style={{ backgroundColor: selectedColor }} className='colorbox' >
+        
+      </button>
                     </Grid>
         </Grid>
             <br/>
         <Grid xs={8} container sm spacing={3}>
                 <Grid  xs={2}>Sidebar</Grid>
-                <Grid  xs={2}>#87465</Grid>
-                <Grid  xs={2}>dfdf</Grid>
                 <Grid  xs={2}>
-                    <Button variant="contained" color="primary" onClick={handleClickOpen} >
-        Select
+                    <Button variant="contained" onClick={handleClickOpen} className={classes.button} >
+                      
       </Button>
 
       <Dialog
@@ -92,13 +94,13 @@ export default function SideBarColorSettings() {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">{"Use Google's location service?"}</DialogTitle>
-        <SketchPicker />
+        {/* <DialogTitle id="alert-dialog-title">"Pick Color"</DialogTitle> */}
+        <SketchPicker color={"blue"} onChange={handleChangeColor}/>
         <DialogActions>
           <Button onClick={handleClose} color="primary">
             Cancel
           </Button>
-          <Button onClick={handleClose} color="primary" autoFocus>
+          <Button onClick={handleSelectColor} color="primary" autoFocus>
             Select
           </Button>
         </DialogActions>

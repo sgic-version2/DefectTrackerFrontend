@@ -14,10 +14,10 @@ import Notification from './Notification';
    **iconFontColor - you can change Icon Color
 */
 
-const appBar = ({ position, color, backgroundColor, iconFontColor, marginSize, appBarExpandIcon, collapsed,status }) => {
+const appBar = ({ position, color, backgroundColor, iconFontColor, marginSize, appBarExpandIcon, collapsed, status, drakLightButton }) => {
     return (
         <Fragment >
-            <AppBar position={position ? position : 'static'} color={color ? color : 'primary'} style={{ background: `${status ? 'transparent' : backgroundColor}`, marginLeft: marginSize, width: `${marginSize === 80 ? '95%' : '82%'}`, transition: 'width,0.5s', zIndex: 100}}>
+            <AppBar position={position ? position : 'static'} color={color ? color : 'primary'} style={{ background: `${status ? 'transparent' : backgroundColor}`, marginLeft: marginSize, width: `${marginSize === 80 ? '95%' : '82%'}`, transition: 'width,0.5s', zIndex: 100 }}>
                 <Toolbar >
                     <Button onClick={() => appBarExpandIcon()} type="primary" style={{ background: 'transparent', color: `#${collapsed ? iconFontColor : 'edf0f2'}`, border: 'none', marginLeft: '-2%', boxShadow: 'none', fontSize: 18 }}>
                         <Icon type={collapsed ? 'menu-unfold' : 'menu-fold'} />
@@ -36,10 +36,8 @@ const appBar = ({ position, color, backgroundColor, iconFontColor, marginSize, a
                         </IconButton>
                     </Popover>
                     <Divider type="vertical" style={{ height: '50px' }} />
-                    <IconButton>
-                        <Badge count={5}>
-                            <Avatar size={30} icon="message" style={{ color: `#${iconFontColor ? iconFontColor : '048691'}` }} />
-                        </Badge>
+                    <IconButton onClick={drakLightButton}>
+                        <Avatar size={30} icon="bulb" style={{ color: `#${iconFontColor ? iconFontColor : '048691'}` }} />
                     </IconButton>
                     <Divider type="vertical" style={{ height: '50px' }} />
                     <IconButton>
