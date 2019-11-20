@@ -5,7 +5,6 @@ import IconButton from '@material-ui/core/IconButton';
 import { Icon, Button, Divider, Avatar, Badge, Popover } from 'antd';
 import Notification from './Notification';
 
-
 /* App bar using Material-ui 
 * app bar have 3 properties
    ** position - absolute,fixed,relative,static,sticky
@@ -37,9 +36,7 @@ const appBar = ({ position, color, backgroundColor, iconFontColor, marginSize, a
                     </Popover>
                     <Divider type="vertical" style={{ height: '50px' }} />
                     <IconButton onClick={drakLightButton}>
-                        <Badge count={5}>
-                            <Avatar size={30} icon="message" style={{ color: `#${iconFontColor ? iconFontColor : '048691'}` }} />
-                        </Badge>
+                            <Avatar size={30} icon="bulb" theme="filled" style={{ color: `#${iconFontColor ? iconFontColor : '048691'}` }} />
                     </IconButton>
                     <Divider type="vertical" style={{ height: '50px' }} />
                     <IconButton>
