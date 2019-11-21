@@ -3,6 +3,7 @@ import { Menu, Icon, Avatar } from 'antd';
 import { Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom'
 import * as theme from '../themes/theme'
+import AssessmentOutlinedIcon from '@material-ui/icons/AssessmentOutlined';
 
 // sideBar Menu Object 
 const sideBarContent = [{
@@ -39,7 +40,7 @@ const sideBarContent = [{
 },
 {
     name: 'Project Administration',
-    icon: 'appstore',
+    icon: <span><AssessmentOutlinedIcon /></span>,
     status: 0,
     url: '/defect/projectAdministration'
 },
@@ -200,7 +201,7 @@ const sideBarContent = [{
 const { SubMenu } = Menu;
 class SideBar extends Component {
     render() {
-        const { collapsed, onMouseEnterSideBar, sideBarColor, display,themesStatus } = this.props
+        const { collapsed, onMouseEnterSideBar, sideBarColor, display, themesStatus } = this.props
         const useStyle = {
             menuStyle: {
                 color: themesStatus ? theme.FontColors.colorIntoBackgroundImageOne : '#fff',
@@ -216,9 +217,9 @@ class SideBar extends Component {
             }
         }
         return (
-            <div className="sideBar" style={{ width: `${!collapsed ? '250px' : '80px'}`, marginTop: -64, overflowY: 'hidden', zIndex: 100}} onMouseEnter={() => onMouseEnterSideBar()} onMouseLeave={() => onMouseEnterSideBar()}>
+            <div className="sideBar" style={{ width: `${!collapsed ? '250px' : '80px'}`, marginTop: -64, overflowY: 'hidden', zIndex: 100 }} onMouseEnter={() => onMouseEnterSideBar()} onMouseLeave={() => onMouseEnterSideBar()}>
                 <Menu
-                    style={{ position: 'absolute', height: '100%', width: `${!collapsed ? '250px' : '80px'}`, background: `${themesStatus ? 'transparent' : sideBarColor}`, transition: 'width,0.5s', overflow: 'auto', zIndex: 100, border: 'none',boxShadow:'1px 2px 8px -1px rgba(0,0,0,0.75)' }}
+                    style={{ position: 'absolute', height: '100%', width: `${!collapsed ? '250px' : '80px'}`, background: `${themesStatus ? 'transparent' : sideBarColor}`, transition: 'width,0.5s', overflow: 'auto', zIndex: 100, border: 'none', boxShadow: '1px 2px 8px -1px rgba(0,0,0,0.75)' }}
                     mode="inline"
                     inlineCollapsed={collapsed}
                 >
@@ -252,6 +253,7 @@ class SideBar extends Component {
                                                         key={`subAdded${subIndex}`}
                                                         title={
                                                             <span>
+                                                                {submenuContent.icon}
                                                                 <Icon type={submenuContent.icon} />
                                                                 <span>{submenuContent.name}</span>
                                                             </span>
