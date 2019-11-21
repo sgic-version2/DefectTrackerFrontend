@@ -3,8 +3,40 @@ import { Menu, Icon, Avatar } from 'antd';
 import { Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom'
 import * as theme from '../themes/theme'
+import DashboardOutlinedIcon from '@material-ui/icons/DashboardOutlined';
 import AssessmentOutlinedIcon from '@material-ui/icons/AssessmentOutlined';
-
+import AssignmentLateOutlinedIcon from '@material-ui/icons/AssignmentLateOutlined';
+import AssignmentIndOutlinedIcon from '@material-ui/icons/AssignmentIndOutlined';
+import AssistantOutlinedIcon from '@material-ui/icons/AssistantOutlined';
+import BallotOutlinedIcon from '@material-ui/icons/BallotOutlined';
+import BusinessCenterOutlinedIcon from '@material-ui/icons/BusinessCenterOutlined';
+import SupervisorAccountOutlinedIcon from '@material-ui/icons/SupervisorAccountOutlined';
+import AccountBalanceOutlinedIcon from '@material-ui/icons/AccountBalanceOutlined';
+import ApartmentOutlinedIcon from '@material-ui/icons/ApartmentOutlined';
+import PeopleOutlinedIcon from '@material-ui/icons/PeopleOutlined';
+import GroupAddOutlinedIcon from '@material-ui/icons/GroupAddOutlined';
+import ViewModuleOutlinedIcon from '@material-ui/icons/ViewModuleOutlined';
+import DevicesOutlinedIcon from '@material-ui/icons/DevicesOutlined';
+import DevicesOtherOutlinedIcon from '@material-ui/icons/DevicesOtherOutlined';
+import BugReportOutlinedIcon from '@material-ui/icons/BugReportOutlined';
+import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
+import SpeakerNotesOutlinedIcon from '@material-ui/icons/SpeakerNotesOutlined';
+import BubbleChartOutlinedIcon from '@material-ui/icons/BubbleChartOutlined';
+import ContactPhoneOutlinedIcon from '@material-ui/icons/ContactPhoneOutlined';
+import ContactSupportOutlinedIcon from '@material-ui/icons/ContactSupportOutlined';
+import DnsOutlinedIcon from '@material-ui/icons/DnsOutlined';
+import AssignmentOutlinedIcon from '@material-ui/icons/AssignmentOutlined';
+import AccountTreeOutlinedIcon from '@material-ui/icons/AccountTreeOutlined';
+import ArtTrackOutlinedIcon from '@material-ui/icons/ArtTrackOutlined';
+import DateRangeOutlinedIcon from '@material-ui/icons/DateRangeOutlined';
+import BlurLinearOutlinedIcon from '@material-ui/icons/BlurLinearOutlined';
+import HowToRegOutlinedIcon from '@material-ui/icons/HowToRegOutlined';
+import TrendingUpOutlinedIcon from '@material-ui/icons/TrendingUpOutlined';
+import MultilineChartOutlinedIcon from '@material-ui/icons/MultilineChartOutlined';
+import LowPriorityIcon from '@material-ui/icons/LowPriority';
+import PriorityHighIcon from '@material-ui/icons/PriorityHigh';
+import MergeTypeIcon from '@material-ui/icons/MergeType';
+import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
 // sideBar Menu Object 
 const sideBarContent = [{
     name: 'Dashborad',
@@ -13,40 +45,45 @@ const sideBarContent = [{
             name: 'Company',
             url: '/defect/company',
             status: 0,
+            icon: <AssessmentOutlinedIcon />
         },
         {
             name: 'Defect',
             url: '/defect/defectDashboard',
             status: 0,
+            icon: <AssignmentLateOutlinedIcon />
         },
         {
             name: 'Developer',
             url: '/defect/developer',
             status: 0,
+            icon: <AssignmentIndOutlinedIcon />
         },
         {
             name: 'Project Manager',
             url: '/defect/projectManager',
             status: 0,
+            icon: <AssistantOutlinedIcon />
         },
         {
             name: 'QA',
             url: '/defect/qa',
             status: 0,
+            icon: <BallotOutlinedIcon />
         },
     ],
-    icon: 'mail',
+    icon: <DashboardOutlinedIcon />,
     status: 1
 },
 {
     name: 'Project Administration',
-    icon: <span><AssessmentOutlinedIcon /></span>,
+    icon: <BusinessCenterOutlinedIcon />,
     status: 0,
     url: '/defect/projectAdministration'
 },
 {
     name: 'Company Administration',
-    icon: 'appstore',
+    icon: <SupervisorAccountOutlinedIcon />,
     status: 0,
     url: '/defect/companyAdministration'
 },
@@ -56,142 +93,161 @@ const sideBarContent = [{
         {
             name: 'Company',
             url: '/defect/companyCompany',
-            status: 0
+            status: 0,
+            icon: <ApartmentOutlinedIcon />
         },
         {
             name: 'HR Allocation',
             url: '/defect/hrAllocation',
-            status: 0
+            status: 0,
+            icon: <PeopleOutlinedIcon />
         },
         {
             name: 'Employee',
             url: '/defect/companyEmployee',
-            status: 0
+            status: 0,
+            icon: <GroupAddOutlinedIcon />
         }
     ],
     status: 1,
-    icon: 'mail'
+    icon: <AccountBalanceOutlinedIcon />
 },
 {
     name: 'Module',
-    icon: 'appstore',
+    icon: <ViewModuleOutlinedIcon />,
     status: 0,
     url: '/defect/module'
 },
 {
     name: 'Project Allocation',
-    icon: 'appstore',
+    icon: <DevicesOutlinedIcon />,
     status: 0,
     url: '/defect/projectAllocation'
 },
 {
     name: 'Manage Project',
-    icon: 'appstore',
+    icon: <DevicesOtherOutlinedIcon />,
     status: 0,
     url: '/defect/manageProject',
 },
 {
     name: 'Defect',
-    icon: 'mail',
+    icon: <BugReportOutlinedIcon />,
     status: 1,
     subMenu: [
         {
             name: 'Defect',
             url: '/defect/defect',
-            status: 0
+            status: 0,
+            icon: <BugReportOutlinedIcon />,
         }
     ]
 },
 {
     name: 'Setting',
-    icon: 'mail',
+    icon: <SettingsOutlinedIcon />,
     status: 1,
     subMenu: [
         {
             name: 'General Configuration',
             url: '/defect/generalConfiguration',
-            status: 0
+            status: 0,
+            icon: <SpeakerNotesOutlinedIcon />
         },
         {
             name: 'Look and Feel',
             url: '/defect/lookandfeel',
-            status: 0
+            status: 0,
+            icon: <BubbleChartOutlinedIcon />
         },
         {
             name: 'Profile Setting',
             url: '/defect/profileSetting',
-            status: 0
+            status: 0,
+            icon: <ContactPhoneOutlinedIcon />
         },
         {
             name: 'Common Configuration',
             subcontent: [
                 {
                     name: 'Priority',
-                    url: '/defect/priority'
+                    url: '/defect/priority',
+                    icon: <LowPriorityIcon />
                 },
                 {
                     name: 'Severity',
-                    url: '/defect/severity'
+                    url: '/defect/severity',
+                    icon: <PriorityHighIcon />
                 },
                 {
                     name: 'Defect Type',
-                    url: '/defect/defectType'
+                    url: '/defect/defectType',
+                    icon: <MergeTypeIcon />
                 },
                 {
                     name: 'Defect Status',
-                    url: '/defect/defectStatus'
+                    url: '/defect/defectStatus',
+                    icon: <HourglassEmptyIcon />
                 },
 
             ],
             status: 1,
-            icon: 'appstore'
+            icon: <DnsOutlinedIcon />
         },
         {
             name: 'Troubleshoot and Support',
             status: 1,
-            icon: 'appstore',
+            icon: <ContactSupportOutlinedIcon />,
             subcontent: [
                 {
                     name: 'Audit Log',
-                    url: '/defect/auditLog'
+                    url: '/defect/auditLog',
+                    icon: <AssignmentOutlinedIcon />
                 }
             ]
         },
         {
             name: 'Privilege',
             status: 1,
-            icon: 'appstore',
+            icon: <AccountTreeOutlinedIcon />,
             subcontent: [
                 {
                     name: 'Company Privilege',
-                    url: '/defect/companyPrivilege'
+                    url: '/defect/companyPrivilege',
+                    icon: <ArtTrackOutlinedIcon />
                 },
                 {
                     name: 'Project Privilege',
-                    url: '/defect/projectPrivilege'
+                    url: '/defect/projectPrivilege',
+                    icon: <DateRangeOutlinedIcon />
                 },
                 {
                     name: 'QA Lead Privilege',
-                    url: '/defect/qaLeadPrivilege'
+                    url: '/defect/qaLeadPrivilege',
+                    icon: <BlurLinearOutlinedIcon />
                 },
                 {
                     name: 'Tech Lead Privilege',
-                    url: '/defect/techLeadPrivilege'
+                    url: '/defect/techLeadPrivilege',
+                    icon: <HowToRegOutlinedIcon />
                 }
             ]
         },
         {
             name: 'Work Flow',
-            icon: 'appstore',
+            icon: <TrendingUpOutlinedIcon />,
             status: 1,
             subcontent: [
                 {
                     name: 'Defect Roles Flow',
-                    url: '/defect/defectRolesFlow'
+                    url: '/defect/defectRolesFlow',
+                    icon: <TrendingUpOutlinedIcon />
                 },
                 {
                     name: 'Defect Status Flow',
-                    url: '/defect/defectStatusFlow'
+                    url: '/defect/defectStatusFlow',
+                    icon: <MultilineChartOutlinedIcon />
+
                 }
             ]
         }
@@ -241,7 +297,8 @@ class SideBar extends Component {
                                         style={useStyle.menuStyle}
                                         title={
                                             <span>
-                                                <Icon type={content.icon} />
+                                                {content.icon}
+                                                <Icon />
                                                 <span style={useStyle.fontColor}>{content.name}</span>
                                             </span>
                                         }
@@ -253,8 +310,8 @@ class SideBar extends Component {
                                                         key={`subAdded${subIndex}`}
                                                         title={
                                                             <span>
-                                                                {submenuContent.icon}
-                                                                <Icon type={submenuContent.icon} />
+                                                                <span>{submenuContent.icon}</span>
+                                                                <Icon />
                                                                 <span>{submenuContent.name}</span>
                                                             </span>
                                                         }
@@ -265,7 +322,10 @@ class SideBar extends Component {
                                                                     <Menu.Item style={useStyle.menuStyle} key={`sub${subIndex}join${indexSub}`}>
                                                                         <Link to={subContents.url}
                                                                         >
-                                                                            {subContents.name}
+                                                                            <span>{subContents.icon}</span>
+                                                                            <Icon />
+                                                                            <span>{subContents.name}</span>
+                                                                            <span>{subContents.name}</span>
                                                                         </Link>
                                                                     </Menu.Item>
                                                                 )
@@ -277,7 +337,9 @@ class SideBar extends Component {
                                                 return (
                                                     <Menu.Item key={`oneSubModule${index}join${subIndex}`}>
                                                         <Link to={submenuContent.url}>
-                                                            {submenuContent.name}
+                                                            <span>{submenuContent.icon}</span>
+                                                            <Icon />
+                                                            <span> {submenuContent.name}</span>
                                                         </Link>
                                                     </Menu.Item>
                                                 )
@@ -289,7 +351,8 @@ class SideBar extends Component {
                                 return (
                                     <Menu.Item key={`without${index}`} >
                                         <Link to={content.url} style={useStyle.menuStyle}>
-                                            <Icon type={content.icon} />
+                                            <span>{content.icon}</span>
+                                            <Icon />
                                             <span>{content.name}</span>
                                         </Link>
                                     </Menu.Item>
