@@ -325,7 +325,6 @@ class SideBar extends Component {
                                                                             <span>{subContents.icon}</span>
                                                                             <Icon />
                                                                             <span>{subContents.name}</span>
-                                                                            <span>{subContents.name}</span>
                                                                         </Link>
                                                                     </Menu.Item>
                                                                 )

@@ -51,8 +51,14 @@
 }
 
 .sideBar .ant-menu-vertical .ant-menu-submenu-selected, .ant-menu-vertical-left .ant-menu-submenu-selected{
-    color: black !important;
+    color: #000 !important;
 }
 .ant-menu-sub.ant-menu-inline {
   background: #fafafa !important;
 }
+/* .ant-menu-sub.ant-menu-inline *, *::before, *::after{
+  color:#fff;
+} */
+/* .ant-menu-item-selected{
+  color:#fff !important;
+} */
