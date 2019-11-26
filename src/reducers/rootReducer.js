@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux'
-import {  expandSideBarReducer } from '../themesReducer'
+import { expandSideBarReducer } from '../themesReducer'
+import { addEmployeeReducer } from '../screens/employee/addEmployeeReducer'
 const rootReducer = combineReducers({
     expandSideBarStatus: expandSideBarReducer,
-    // themeReducer:themeReducer
+    addEmployeeData: addEmployeeReducer
 })
 
 export default rootReducer

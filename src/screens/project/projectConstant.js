@@ -1,2 +1,4 @@
-export const OPEN = 'OPEN'
-export const CLOSE = 'CLOSE'
+export const ROLLALLOCATION = 'ROLLALLOCATION'
+export const TABLETRANFER = 'TABLETRANFER'
+export const ROWSELECTION = 'ROWSELECTION'
+export const ORIGINTARGETKEYS = 'ORIGINTARGETKEYS'
