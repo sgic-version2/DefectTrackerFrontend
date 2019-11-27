@@ -8,7 +8,7 @@ import TransitionsModal from './add_employee';
 // import EditEmployee from './edit_employee';
 
 
-const EmployeeButton = () => {
+const EmployeeButton = ({changeDataValues}) => {
     const [open, setOpen] = React.useState(false);
 
     const handleOpen = () => {
@@ -38,7 +38,7 @@ const EmployeeButton = () => {
 
             {/* <Button color="red" onClick={handleOpenDeallocation}>Deallocation</Button> */}
             {/* <Button primary>Module Allocation</Button> */}
-           <TransitionsModal open={open} handleOpen={handleOpen} handleClose={handleClose} width={30} title="Add Employee"/>
+           <TransitionsModal open={open} handleOpen={handleOpen} handleClose={handleClose} width={30} title="Add Employee" changeDataValues={changeDataValues}/>
             {/* <Model open={open.value} handleOpen={handleOpenDeallocation} handleClose={handleCloseDeallocation} width={90} form={<Deallocation />} title='Deallocation' /> */}
 
         </div>

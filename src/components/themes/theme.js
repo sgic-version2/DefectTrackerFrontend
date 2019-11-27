@@ -1,8 +1,11 @@
 import BackImageOne from '../../Assets/background.jpg'
 const themes = {
     backgroundDrakColor: '#1d1e1f',
+    backgroundDrakColorBody: '#171616',
     backgroundImageOne:BackImageOne ,
-    backgroundLightColor: 'linear-gradient(to right top, #0d4971, #084f7e, #05568b, #055c99, #0a62a6);'
+    backgroundLightColor: '#0d24d6',
+    backgroundLightColorBody: '#0330fc'
+
 }
 const FontColors = {
     colorIntoBackgroundDrakColor: '#e3e3e3',

@@ -8,64 +8,38 @@ import { Route } from 'react-router-dom'
 import Login from './screens/Login/login'
 import ForgetPassword from './screens/Login/forgotpass'
 import * as theme from './components/themes/theme'
-const InitialmarginSize = 80
-const ExpandmarginSize = 250
+import { backgroundImage, darkOrLight } from './themesAction'
+import { expandWithButton, expandWithOutButton } from './expandAction'
+import { connect } from 'react-redux'
+
+
+const mapStateProps = (state) => ({
+  themesStatus: state.expandSideBarStatus.themesStatus,
+  expandSideBarStatus: state.expandSideBarStatus.expandStatus,
+  display:state.expandSideBarStatus.display,
+  marginSize:state.expandSideBarStatus.marginSize,
+  expandButtonStatus:state.expandSideBarStatus.expandButtonStatus,
+  backgroundOrThemeStatus:state.expandSideBarStatus.backgroundOrThemeStatus,
+})
+const mapDispatchToProps = {
+  backgroundImage,
+  darkOrLight,
+  expandWithButton,
+  expandWithOutButton
+}
 class App extends Component {
-  state = {
-    open: true,
-    marginSize: InitialmarginSize,
-    buttonClicked: false,
-    display: 'none'
-  }
-  handleExpanedButton = () => {
-    this.setState({
-      open: !this.state.open,
-      buttonClicked: !this.state.buttonClicked,
-    })
-    if (this.state.marginSize === InitialmarginSize) {
-      this.setState({
-        marginSize: ExpandmarginSize,
-        display: 'block'
-      })
-    } else {
-      this.setState({
-        marginSize: InitialmarginSize,
-        display: 'none'
-      })
-    }
-  }
-  handleExpaned = () => {
-    if (!this.state.buttonClicked) {
-      this.setState({
-        open: !this.state.open
-      })
-      if (this.state.marginSize === InitialmarginSize) {
-        this.setState({
-          marginSize: ExpandmarginSize,
-          display: 'block'
-        })
-      } else {
-        this.setState({
-          marginSize: InitialmarginSize,
-          display: 'none'
-        })
-      }
-    }
-  }
   render() {
-    const { backgroundImageOne, backgroundDrakColor, backgroundLightColor } = theme.themes;
-    const status = false;
-    
+    const { backgroundImageOne, backgroundDrakColor, backgroundDrakColorBody } = theme.themes;
     return (
       <Fragment>
         <Route exact path='/' component={Login} />
         <Route path="/forgetPassword" component={ForgetPassword} />
         <Route path='/defect(.+)' render={() => (
           <Fragment>
-            <div style={{ background: status ? backgroundDrakColor : 'transparent', backgroundSize: 'cover', backgroundImage: !status?`url(${backgroundImageOne})`:'none'}}>
-              <AppBar position='static' backgroundColor={backgroundDrakColor} iconFontColor='1a1f1e' marginSize={this.state.marginSize} appBarExpandIcon={this.handleExpanedButton} collapsed={this.state.buttonClicked} />
-              <SideBar collapsed={this.state.open} onMouseEnterSideBar={this.handleExpaned} display={this.state.display} sideBarColor={backgroundLightColor} />
-              <Container textAlign="center" collapsed={this.state.open} />
+            <div style={{ background: this.props.themesStatus ? backgroundDrakColorBody : 'transparent', backgroundSize: !this.props.themesStatus?'cover':'none', backgroundImage: !this.props.themesStatus ? `url(${backgroundImageOne})` : 'none' }}>
+              <AppBar position='static' backgroundColor={backgroundDrakColor} iconFontColor='1a1f1e' marginSize={this.props.marginSize} appBarExpandIcon={this.props.expandWithButton} collapsed={this.props.expandButtonStatus} status={this.props.backgroundOrThemeStatus} drakLightButton={this.props.darkOrLight}/>
+              <SideBar collapsed={this.props.expandSideBarStatus} onMouseEnterSideBar={this.props.expandWithOutButton} display={this.props.display} sideBarColor={backgroundDrakColor} themesStatus={this.props.backgroundOrThemeStatus} />
+              <Container textAlign="center" collapsed={this.props.expandSideBarStatus} />
             </div>
           </Fragment>
         )} />
@@ -73,4 +47,4 @@ class App extends Component {
     );
   }
 }
-export default App;
+export default connect(mapStateProps, mapDispatchToProps)(App);
