@@ -6,7 +6,16 @@ import BreadCrumbs from '../../../components/breadCrumbs/breadCrumbs'
 import Table from '../../../components/tables/table'
 import ProjectPerformance from './projectPerformance'
 import ProjectRemainingTime from './projectRemainingTime'
+import { modelOpen, modelClose } from '../../../fileAction/modelAction'
+import { connect } from 'react-redux'
 
+const mapStateToProps = (state) => ({
+   open: state.modelOpen.open
+})
+const mapDispatchToProps = {
+   modelOpen,
+   modelClose
+}
 const columns = [
    {
       title: 'Project',
@@ -97,15 +106,16 @@ const data = [
       associateQA: 25
    },
 ];
-export default class ProjectAllocation extends Component {
+class ProjectAllocation extends Component {
    render() {
+      const { open, modelClose, modelOpen } = this.props
       return (
          <div>
             <Grid direction="row" container>
                <Grid item xs={11} style={{ marginTop: '2%' }}>
                   <Segment>
                      <BreadCrumbs />
-                     <AllocationButton />
+                     <AllocationButton open={open} modelOpen={modelOpen} modelClose={modelClose} />
                      <Table column={columns} data={data} />
                   </Segment>
                </Grid>
@@ -125,3 +135,4 @@ export default class ProjectAllocation extends Component {
       )
    }
 }
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectAllocation)

@@ -6,74 +6,75 @@ import Deallocation from '../deallocation/Deallocation';
 import ModuleAllocation from '../allocation/moduleAllocation/ModuleAllocate';
 
 const AllocationButton = () => {
-  const [open, setOpen] = useState({
-    open: false,
-    value: false,
-    model: false
-  });
+  const [modelopen, setOpen] = useState({
+    moduleAllocation: false,
+    deallocation: false,
+    roleAllocation: false
+  })
 
-  const handleOpen = () => {
+  const modulehandleOpen = () => {
     setOpen({
-      open: true
-    });
+      moduleAllocation: true
+    })
   };
 
-  const handleClose = () => {
+  const modulehandleClose = () => {
     setOpen({
-      open: false
-    });
+      moduleAllocation: false
+    })
   };
   const handleOpenDeallocation = () => {
     setOpen({
-      value: true
-    });
+      deallocation: true
+    })
   };
 
   const handleCloseDeallocation = () => {
     setOpen({
-      value: false
-    });
+      deallocation: false
+    })
   };
-  const handleOpenModule = () => {
+  const handleOpenRole = () => {
     setOpen({
-      model: true
-    });
+      roleAllocation: true
+    })
   };
 
-  const handleCloseModule = () => {
+  const handleCloseRole = () => {
     setOpen({
-      model: false
-    });
+      roleAllocation: false
+    })
   };
+
   return (
     <div>
-      <Button primary onClick={handleOpen}>
+      <Button primary onClick={handleOpenRole}>
         Roll Allocation
       </Button>
       <Button color='red' onClick={handleOpenDeallocation}>
         Deallocation
       </Button>
-      <Button primary onClick={handleOpenModule}>
+      <Button primary onClick={modulehandleOpen}>
         Module Allocation
       </Button>
       <Model
-        open={open.model}
-        handleOpen={handleOpenModule}
-        handleClose={handleCloseModule}
+        open={modelopen.moduleAllocation}
+        handleOpen={modulehandleOpen}
+        handleClose={modulehandleClose}
         width={90}
         form={<ModuleAllocation />}
         title='Module Allocation'
       />
       <Model
-        open={open.open}
-        handleOpen={handleOpen}
-        handleClose={handleClose}
+        open={modelopen.roleAllocation}
+        handleOpen={handleOpenRole}
+        handleClose={handleCloseRole}
         width={90}
         form={<RoleAllocation />}
         title='Role Allocation'
       />
       <Model
-        open={open.value}
+        open={modelopen.deallocation}
         handleOpen={handleOpenDeallocation}
         handleClose={handleCloseDeallocation}
         width={90}
