@@ -1,4 +1,4 @@
-import * as actionTypes from './addEmployeeConstant';
+import * as actionTypes from '../constant/addEmployeeConstant';
 
 export const changeDataValues = (data) => {
     return {
