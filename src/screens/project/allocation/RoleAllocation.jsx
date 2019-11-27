@@ -17,6 +17,7 @@ export default class RoleAllocation extends Component {
 
   onChange = nextTargetKeys => {
     this.setState({ targetKeys: nextTargetKeys });
+    this.props.roleAllocation(nextTargetKeys)
   };
   handleOpen = () => {
     this.setState({
@@ -71,6 +72,7 @@ export default class RoleAllocation extends Component {
                 onClick: () => {
                   if (itemDisabled || listDisabled) return;
                   onItemSelect(key, !listSelectedKeys.includes(key));
+
                 },
               })}
             />
