@@ -1,14 +1,6 @@
 import React from 'react'
-import { connect } from "react-redux";
-import { changeDataValues } from "./addEmployeeAction";
 import { Button } from 'semantic-ui-react';
 
-const mapStateToProps = (state) => ({
-    data: state.addEmployeeData.employeeDetailsFromState
-})
-const mapDispatchToProps = {
-    changeDataValues
-}
 class add_employee_form extends React.Component {
     state = {
         employeeID: '',
@@ -63,4 +55,4 @@ class add_employee_form extends React.Component {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(add_employee_form)
+export default add_employee_form

@@ -4,8 +4,16 @@ import { Grid } from '@material-ui/core'
 import BreadCrumbs from '../../components/breadCrumbs/breadCrumbs'
 import EmployeeButton from './EmployeeButton';
 import Ntable from './employee_new_table'
+import { connect } from "react-redux";
+import { changeDataValues } from "./addEmployeeAction";
 
-export default class EmployeeTable extends Component {
+const mapStateToProps = (state) => ({
+   data: state.addEmployeeData.employeeDetailsFromState
+})
+const mapDispatchToProps = {
+   changeDataValues
+}
+class EmployeeTable extends Component {
    render() {
       return (
          <div>
@@ -13,7 +21,7 @@ export default class EmployeeTable extends Component {
                <Grid item xs={11} style={{ marginTop: '2%' }}>
                   <Segment>
                      <BreadCrumbs />
-                     <EmployeeButton />
+                     <EmployeeButton changeDataValues={this.props.changeDataValues} />
                      <Ntable />
                   </Segment>
                </Grid>
@@ -23,4 +31,4 @@ export default class EmployeeTable extends Component {
    }
 
 }
-
+export default connect(mapStateToProps, mapDispatchToProps)(EmployeeTable)
