@@ -175,7 +175,7 @@ const sideBarContent = [{
                 },
                 {
                     name: 'Tech Lead Privilege',
-                    url: '/defect/techLeadPrivilege'
+                    url: '/defect/TeachLeadPrivileges'
                 }
             ]
         },
