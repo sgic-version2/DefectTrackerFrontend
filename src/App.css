@@ -65,6 +65,6 @@
 .ant-modal-footer button + button{
   display: none !important;
 }
-.ant-btn, .ant-btn:active, .ant-btn:focus{
+/* .ant-btn, .ant-btn:active, .ant-btn:focus{
   display: none !important;
-}
+} */
