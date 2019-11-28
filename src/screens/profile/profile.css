@@ -29,8 +29,8 @@
 
  .changePassword{
     position: relative;
-    left: 104px;
-    top: 84px;
+    left: 126px;
+    top: -220px;
     background-color: white;
     width: 453px;
     height: 268px;
@@ -38,8 +38,8 @@
 }
  .otherField {
     position: relative;
-    left: 562px;
-    top: -375px;
+    left: 585px;
+    top: 48px;
     background-color: white;
     width: 504px;
     height: 460px;
