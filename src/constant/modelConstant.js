@@ -1,0 +1,2 @@
+export const MODELOPEN = 'MODELOPEN'
+export const MODELCLOSE = 'MODELCLOSE'
