@@ -5,7 +5,7 @@ import RoleAllocation from './RoleAllocation';
 import Deallocation from '../deallocation/Deallocation';
 import ModuleAllocation from '../allocation/moduleAllocation/ModuleAllocate';
 
-const AllocationButton = ({ roleAllocation, deAllocation }) => {
+const AllocationButton = ({ roleAllocation, deAllocation, employeeData }) => {
   const [modelopen, setOpen] = useState({
     moduleAllocation: false,
     deallocation: false,
@@ -70,7 +70,7 @@ const AllocationButton = ({ roleAllocation, deAllocation }) => {
         handleOpen={handleOpenRole}
         handleClose={handleCloseRole}
         width={90}
-        form={<RoleAllocation roleAllocation={roleAllocation} deAllocation={deAllocation} />}
+        form={<RoleAllocation roleAllocation={roleAllocation} deAllocation={deAllocation} employeeData={employeeData} />}
         title='Role Allocation'
       />
       <Model
