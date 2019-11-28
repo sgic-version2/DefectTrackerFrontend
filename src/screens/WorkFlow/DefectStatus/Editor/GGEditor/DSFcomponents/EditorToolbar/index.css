@@ -1,0 +1,35 @@
+.toolbar {
+   
+  display: flex;
+  align-items: center;
+}
+
+.toolbar .command i {
+  display: inline-block;
+  width: 27px;
+  height: 27px;
+  margin: 0 6px;
+  padding-top: 6px;
+  text-align: center;
+  border: 2px solid rgb(216, 213, 213);
+  cursor: pointer;
+  box-shadow: 2px 2px #888888;
+}
+
+.toolbar .command i:hover {
+  border: 1px solid #e6e9ed;
+}
+
+.toolbar .disable i {
+  color: rgba(0, 0, 0, 0.25);
+  cursor: auto;
+}
+
+.toolbar .disable i:hover {
+  border: 1px solid #fff;
+}
+
+.tooltip .ant-tooltip-inner {
+  font-size: 12px;
+  border-radius: 0;
+}

@@ -1,26 +1,8 @@
 import React from 'react'
-import { Modal, Button } from 'antd';
-import {
-    
-    Icon,
-    Form,
-    Input,
-    Radio,
-    DatePicker
-  } from "antd";
-  import { InputNumber } from "antd";
-  import moment from "moment";
-  import { Row, Col } from "antd";
-//   import "./company.css";
-  const dateFormatList = ["DD/MM/YYYY", "DD/MM/YY"];
+import { Modal } from 'antd';
 
-  const { TextArea } = Input;
-  //dropdown for Lisence period s Function
-  function onChange(value) {
-    console.log("changed", value);
-  }
 
-const SubmitModel = ({ form, open, handleOpen, handleClose, width, title }) => {
+const SubmitModel = ({ form, open, handleClose, width, title }) => {
     //use state 
 
 
@@ -31,20 +13,11 @@ const SubmitModel = ({ form, open, handleOpen, handleClose, width, title }) => {
                 centered
                 visible={open}
                 title={title}
-                onOk={handleOpen}
+                onOk={handleClose}
                 onCancel={handleClose}
-                footer={[
-                    <Button key="back" onClick={handleClose}>
-                        Return
-            </Button>,
-                    <Button key="submit" type="primary" onClick={handleClose}>
-                        Save
-            </Button>,
-                ]}
             >
-                
                 {form}
-        </Modal>
+            </Modal>
         </div>
     )
 }

@@ -5,7 +5,7 @@ import AllocationButton from './AllocationButton'
 import BreadCrumbs from '../../../components/breadCrumbs/breadCrumbs'
 import Table from '../../../components/tables/table'
 import ProjectPerformance from './projectPerformance'
-import ProjectRemainingTime from '../../../projectRemainingTime'
+import ProjectRemainingTime from './projectRemainingTime'
 
 const columns = [
    {
@@ -62,6 +62,7 @@ const columns = [
       dataIndex: 'associateQA',
       // defaultSortOrder: 'descend',
       // sorter: (a, b) => a.age - b.age,
+
    },
 ];
 const data = [
@@ -76,8 +77,8 @@ const data = [
       associateQA: 25
    },
    {
-      key: '1',
-      projectName: 'Defect System',
+      key: '2',
+      projectName: 'Defect Tracker System',
       softwareEngineer: 32,
       associateSoftwareEngineer: 60,
       teachLead: 52,
@@ -86,7 +87,7 @@ const data = [
       associateQA: 25
    },
    {
-      key: '1',
+      key: '3',
       projectName: 'HRM System',
       softwareEngineer: 32,
       associateSoftwareEngineer: 60,
