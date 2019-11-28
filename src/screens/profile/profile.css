@@ -2,8 +2,8 @@
     position: absolute;
     width: 1042px;
     height: 500px;
-    left:150px;
-    top: 37px;
+    left:31px;
+    top: -45px;
     border-radius: 10px;
     z-index: 5;
 }
@@ -11,8 +11,8 @@
     position: relative;
     width: 1009px;
     height: 500px;
-    left: 230px;
-    top: 96px;
+    left: 96px;
+    /* top: 96px; */
     background-color: #003b99;
     border-radius: 10px;
     opacity: 0.3;
