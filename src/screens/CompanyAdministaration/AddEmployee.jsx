@@ -135,14 +135,15 @@ export default class AddEmployee extends Component {
       ];
       return (
          <div>
-            <Grid item xs={11} style={{ marginTop: '2%' }}>
-               <Segment>
-                  <BreadCrumbs />
-                  <AllocationButton />
-                  <Table column={columns} data={data} />
-
-                  <More open={this.state.value} handleOpen={this.handleOpen} handleClose={this.handleClose} />
-               </Segment>
+            <Grid direction="row" container>
+               <Grid item xs={11} style={{ marginTop: '2%' }}>
+                  <Segment>
+                     <BreadCrumbs />
+                     <AllocationButton />
+                     <Table column={columns} data={data} />
+                     <More open={this.state.value} handleOpen={this.handleOpen} handleClose={this.handleClose} />
+                  </Segment>
+               </Grid>
             </Grid>
          </div>
       )

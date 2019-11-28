@@ -8,7 +8,7 @@
     z-index: 5;
 }
 .form-background{
-    position: absolute;
+    position: relative;
     width: 1009px;
     height: 500px;
     left: 230px;

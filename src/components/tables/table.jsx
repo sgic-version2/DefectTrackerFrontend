@@ -17,7 +17,7 @@ const table = ({ column, data }) => {
    }
    return (
       <Grid item xs={12} style={{ marginTop: '2%' }}>
-         <Table columns={column} dataSource={data} style={useStyle.table} />
+         <Table columns={column} dataSource={data} style={useStyle.table}  />
       </Grid>
    );
 }

@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import { Transfer, Table, Tag, Progress } from 'antd';
+import { Transfer, Table, Tag, Progress, Icon } from 'antd';
 import difference from 'lodash/difference';
 import { Button } from 'semantic-ui-react';
 import Model from '../../../components/model/model'
 import EditRole from './EditRole';
 
 
-var originTargetKeys;
+var originTargetKeys = [1];
 export default class RoleAllocation extends Component {
   state = {
     targetKeys: originTargetKeys,
@@ -79,9 +79,9 @@ export default class RoleAllocation extends Component {
       </Transfer>
     );
 
-    const mockTags = ['SE', 'QAE', 'TL', 'ASE'];
-    const mockData = [];
-    const role = ['JSE', 'QAL', 'TL', 'SE']
+    const mockTags = ['ASE', 'SE', 'QAE', 'TL', 'ASE'];
+    const mockData = this.props.employeeData;
+    const role = ['ASE', 'QAL', 'TL', 'SE']
     const color = ['blue', 'green', 'orange', 'red']
     const availabilityTag = [<Progress type="circle" percent={30} width={50} />, <Progress type="circle" percent={60} width={50} />, <Progress type="circle" percent={90} width={50} />, <Tag color="red">Bench</Tag>]
 
@@ -89,31 +89,13 @@ export default class RoleAllocation extends Component {
 
 
     const { targetKeys, disabled, showSearch, open } = this.state;
-    for (let i = 0; i < 20; i++) {
-      mockData.push({
-        key: i.toString(),
-        employeeID: `EMP${i + 1}`,
-        fullname: `Employee${i + 1}`,
-        availability: availabilityTag[i % 4],
-        designation: <Tag color={color[i % 4]}>{mockTags[i % 4]}</Tag>,
-        role: role[i % 4],
-        action: <Button
-          key={i}
-          icon='edit'
-          label={{ as: 'a', basic: true, content: 'Edit' }}
-          labelPosition='right'
-          color='blue'
-          onClick={this.handleOpen}
-        />
-      });
-    }
     const leftTableColumns = [
       {
         dataIndex: 'employeeID',
         title: 'Employee ID',
       },
       {
-        dataIndex: 'fullname',
+        dataIndex: 'employeeName',
         title: 'Full Name',
       },
       {
@@ -121,7 +103,7 @@ export default class RoleAllocation extends Component {
         title: 'Availability',
       },
       {
-        dataIndex: 'designation',
+        dataIndex: 'employeeDesignation',
         title: 'Designation',
       },
 
@@ -132,11 +114,11 @@ export default class RoleAllocation extends Component {
         title: 'Employee ID',
       },
       {
-        dataIndex: 'fullname',
+        dataIndex: 'employeeName',
         title: 'Full Name',
       },
       {
-        dataIndex: 'designation',
+        dataIndex: 'employeeDesignation',
         title: 'Designation',
       },
       {
@@ -144,8 +126,8 @@ export default class RoleAllocation extends Component {
         title: 'Role',
       },
       {
-        dataIndex: 'action',
         title: 'Action',
+        render: item =><Icon type="edit"  className="iconposition"  onClick={this.handleOpen}/> 
       },
     ];
     return (

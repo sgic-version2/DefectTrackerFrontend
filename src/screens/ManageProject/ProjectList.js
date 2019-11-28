@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Segment } from 'semantic-ui-react'
 import { Grid } from '@material-ui/core'
-// import AllocationButton from './AllocationButton'
 import BreadCrumbs from '../../components/breadCrumbs/breadCrumbs'
 import Table from '../../components/tables/table'
 import { Button } from 'semantic-ui-react';
@@ -119,13 +118,15 @@ export default class ProjectList extends Component {
    render() {
       return (
          <div>
-            <Grid item xs={11} style={{ marginTop: '2%' }}>
-               <Segment>
-                  <BreadCrumbs />
-                  <AddButton />
-                  {handiler.editor && <PopUp />}
-                  <Table column={columns} data={data} />
-               </Segment>
+            <Grid direction="row" container>
+               <Grid item xs={11} style={{ marginTop: '2%' }}>
+                  <Segment>
+                     <BreadCrumbs />
+                     <AddButton />
+                     {handiler.editor && <PopUp />}
+                     <Table column={columns} data={data} />
+                  </Segment>
+               </Grid>
             </Grid>
          </div>
       )
