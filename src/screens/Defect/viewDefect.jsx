@@ -280,5 +280,5 @@ const ViewDefect = () => {
     )
 }
 
-export default ViewDefect
+export default  ViewDefect
 

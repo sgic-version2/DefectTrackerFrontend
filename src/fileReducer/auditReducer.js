@@ -1,14 +1,14 @@
 import * as actionType from '../constant/auditConstant'
 
 const InitialState = {
-    open: false
+    auditexportState: false
 }
 
 export const auditReducer = (state = InitialState, action) => {
     switch (action.type) {
         case actionType.EXPORTAUDIT:
             return {
-                open: true
+                auditexportState: [...state.auditexportState, action.payload]
             }
 
         default:
