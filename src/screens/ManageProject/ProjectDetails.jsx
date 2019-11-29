@@ -7,13 +7,14 @@ import { Button } from "semantic-ui-react";
 import AddButton from "./AddButton";
 import EditProject from "./EditProject";
 import { connect } from "react-redux";
-import { changeDataValues } from './../../fileAction/defectTypeAction';
+
 import IconBreadcrumbs from "../../components/breadCrumbs/breadCrumbs";
-import Table from './../../components/tables/table';
+import Table from '../../components/tables/table';
+import { changeDataValues } from '../../fileAction/projectDetailsAction';
 
 
 const mapStateToProps = (state) => ({
-  data: state.defectTypeData.defectTypeDetailsFromState
+  data: state.projectDetailsData.projectDetailsFromState
  
 
 })
@@ -40,17 +41,22 @@ class ProjectDetails extends Component {
   render() {
     const columns = [
       {
-        title: "Defect Type",
-        dataIndex: "name"
+        title: "Project Name",
+        dataIndex: "project_name"
       },
       {
-        title: " Description",
-        dataIndex: "description"
+        title: " Type",
+        dataIndex: "type"
       },
       {
-        title: " DefectValue",
-        dataIndex: "defectValue"
+        title: " Duration",
+        dataIndex: "duration"
       },
+      {
+        title: " status",
+        dataIndex: "status"
+      },
+      
 
       {
         title: "Action",
@@ -71,11 +77,11 @@ class ProjectDetails extends Component {
     // const data = [
     //   {
     //     key: "1",
-    //     defecttype: "Arithmetic Defects",
+    //     project_name: "Arithmetic Defects",
     //     description: "High",
     //     action: (
     //       <Button.Group>
-    //         <EditDefectType
+    //         <EditProject
     //           open={this.state.open}
     //           handleOpen={this.handleOpen}
     //           handleClose={this.handleClose}
