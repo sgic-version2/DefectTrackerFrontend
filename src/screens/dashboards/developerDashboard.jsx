@@ -26,22 +26,21 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const DeveloperDashboard = () => {
-  const [state, setState] = React.useState({
-    BarChart: true,
-    DoughnutChart: true,
-    RadarChart: true,
-    LineChart: true,
-  });
+    const [state, setState] = React.useState({
+        BarChart: true,
+        DoughnutChart: true,
+        RadarChart: true,
+        LineChart: true,
+      });
+    
+      const handleChange = name => event => {
+        setState({ ...state, [name]: event.target.checked });
+      };
+    const classes = useStyles();
+    return ( 
+        <div className={classes.root}>
 
-  const handleChange = name => event => {
-    setState({ ...state, [name]: event.target.checked });
-  };
-  const classes = useStyles();
-  return (
-    <Grid direction="row" container>
-      <Grid item xs={11} style={{ marginTop: '2%' }}>
-        <Segment>
-          <div className={classes.root}>
+            <Paper className={classes.paper}>
             <Grid>
               <FormGroup row>
                 <FormControlLabel
@@ -90,35 +89,37 @@ const DeveloperDashboard = () => {
                 />
               </FormGroup>
             </Grid>
-            <Paper className={classes.paper}>
-              <Grid container spacing={2} >
-                {state.BarChart && <Grid item xs={6}>
-                  <Paper className={classes.paper}>
-                    <BarChart />
-                  </Paper>
-                </Grid>}
-                {state.DoughnutChart && <Grid item xs={6}>
-                  <Paper className={classes.paper}>
-                    <Doughtnut />
-                  </Paper>
-                </Grid>}
-                {state.RadarChart && <Grid item xs={6}>
-                  <Paper className={classes.paper}>
-                    <Radar />
-                  </Paper>
-                </Grid>}
-                {state.LineChart && <Grid item xs={6}>
-                  <Paper className={classes.paper}>
-                    <LineChart />
-                  </Paper>
-                </Grid>}
-              </Grid>
-            </Paper>
-          </div>
-        </Segment>
-      </Grid>
-    </Grid>
-  );
+            <Grid container spacing={2} >
+
+        { state.BarChart &&<Grid item xs={6}>
+        <Paper className={classes.paper}>
+          <BarChart/>
+          </Paper>
+        </Grid>}
+
+        {state.DoughnutChart &&<Grid item xs={6}>
+        <Paper className={classes.paper}>
+          <Doughtnut/>
+          </Paper>
+        </Grid>}
+
+        { state.RadarChart &&<Grid item xs={6}>
+        <Paper className={classes.paper}>
+          <Radar/>
+          </Paper>
+        </Grid>}
+
+        { state.LineChart &&<Grid item xs={6}>
+        <Paper className={classes.paper}>
+          <LineChart/>
+          </Paper>
+        </Grid>}
+
+
+        </Grid>
+        </Paper>
+            </div>
+     );
 }
 
 export default DeveloperDashboard;

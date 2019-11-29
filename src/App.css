@@ -79,14 +79,114 @@
 .ant-menu-vertical-left .ant-menu-submenu-selected {
   color: #000 !important;
 }
-.ant-menu-sub.ant-menu-inline {
-  background: #fafafa !important;
+/* privilage for tech lead and qa */
+.main2 {
+  height: 20px;
+  margin-top: -2%;
+  text-align: center;
+  margin-left: 30%;
+  margin-right: 30%;
 }
-/* .ant-menu-sub.ant-menu-inline *, *::before, *::after{
-  color:#fff;
-} */
-/* .ant-menu-item-selected{
-  color:#fff !important;
+/* privileg button css  */
+.main {
+  height: 20px;
+  margin-top: -2%;
+  text-align: center;
+}
+.center {
+  margin-left: 25%;
+  margin-right: 16%;
+  /* align-content: center; */
+  /* position: absolute; */
+  /* top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%); */
+  transform-style: preserve-3d;
+  perspective: 200px;
+  /* border: 2px solid #000; */
+  /* width: 100px;
+  height: 10px; */
+  border-radius: 40px;
+}
+input[type='checkbox'] {
+  position: relative;
+  width: 100px;
+  height: 30px;
+  margin: 0;
+  -webkit-appearance: none;
+  outline: none;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.span {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  line-height: 30px;
+  height: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  pointer-events: none;
+  color: #fff;
+  transform-style: preserve-3d;
+  text-shadow: 2px 2px 4px #000000;
+}
+.span:nth-child(2) {
+  left: 0;
+  border-top-left-radius: 40px;
+  border-bottom-left-radius: 40px;
+  background: #07943b;
+}
+.span:nth-child(2)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #545454, #707070);
+  border-top-left-radius: 40px;
+  border-bottom-left-radius: 40px;
+  transform-origin: right;
+  transition: 1s;
+  backface-visibility: hidden;
+}
+input[type='checkbox']:checked ~ .span:nth-child(2)::before {
+  transform: rotateY(180deg);
+}
+.span:nth-child(3) {
+  right: 0;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  background: #545454;
+}
+.span:nth-child(3)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #08bf4e, #07943b);
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  transform-origin: left;
+  transition: 1s;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+}
+input[type='checkbox']:checked ~ .span:nth-child(3)::before {
+  transform: rotateY(360deg);
+}
+
+/* .techLeadPrivilage .ant-table-tbody > tr > td{
+text-align: center !important;
+}
+.techLeadPrivilage .ant-table-thead > tr > th, .ant-table-tbody > tr > td {
+padding: 10px 10px !important;
+width : 50% !important;
 } */
 .ant-modal-footer button + button {
   display: none !important;
@@ -96,4 +196,12 @@
 } */
 .iconposition {
   position: relative !important;
+}
+.techLeadPrivilage {
+  padding: 10px 10px !important;
+  width: 50% !important;
+}
+.QaLeadPrivilage {
+  padding: 10px 10px !important;
+  width: 50% !important;
 }
