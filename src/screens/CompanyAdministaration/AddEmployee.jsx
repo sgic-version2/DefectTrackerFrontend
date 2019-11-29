@@ -7,7 +7,17 @@ import Table from '../../components/tables/table'
 import { Button } from 'semantic-ui-react';
 import MoreOutlinedIcon from '@material-ui/icons/MoreOutlined';
 import More from './More'
+import { connect } from "react-redux";
+import { changeDataValues } from './../../fileAction/addCompanyEmployeeAction'
 
+
+const mapStateToProps = (state) => ({
+  data: state.addEmployeeData.employeeDetailsFromState
+ 
+})
+const mapDispatchToProps = {
+  changeDataValues
+};
 const columns = [
    {
       title: 'ID',
@@ -140,7 +150,7 @@ class AddEmployee extends Component {
                <Grid item xs={11} style={{ marginTop: '2%' }}>
                   <Segment>
                      <BreadCrumbs />
-                     <AllocationButton   />
+                     <AllocationButton changeDataValues={this.props.changeDataValues}  />
                      <Table column={columns} data={data} />
                      <More open={this.state.value} handleOpen={this.handleOpen} handleClose={this.handleClose} />
                   </Segment>
