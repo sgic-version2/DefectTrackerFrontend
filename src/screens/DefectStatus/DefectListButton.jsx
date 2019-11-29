@@ -2,8 +2,9 @@ import React,{useState} from 'react'
 import { Button } from 'semantic-ui-react'
 //import addf from './AddDefect';
 import TransitionsModal from './Add_Defect'
+// import { changeDataValuesStatus } from './../../fileAction/addDefectStatusAction';
 
-const DefectListButton = () => {
+const DefectListButton = (changeDataValuesStatus) => {
     const [open,setOpen]=useState(false);
 
     const handleOpen=()=>{
@@ -18,7 +19,7 @@ const DefectListButton = () => {
         <div>
             
 
-            <TransitionsModal open={open} handleOpen={handleOpen} handleClose={handleClose} width={30} title="Add Defect" />
+            <TransitionsModal open={open} handleOpen={handleOpen} handleClose={handleClose} width={30} title="Add Defect" changeDataValues={changeDataValuesStatus}/>
             <Button  color="primary" onClick={handleOpen}>Add Defect</Button>
             {/* <form action="/addf" class="inline">
     <Button color="primary">Home</Button>

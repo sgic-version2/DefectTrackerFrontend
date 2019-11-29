@@ -51,13 +51,13 @@ datePick =(date, dateString, e)=>{
   render() {
     console.log(this.state);
     const {
-      form,
+      
       open,
       handleOpen,
       handleClose,
       width,
       title,
-      changeDataValues
+      
     } = this.props;
     return (
       <div>

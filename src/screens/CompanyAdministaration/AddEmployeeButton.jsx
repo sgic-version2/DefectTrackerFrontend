@@ -4,7 +4,7 @@ import SubmitModel from '../../components/model/submitModel'
 import EditForm from './EditForm';
 
 
-const AllocationButton = () => {
+const AllocationButton = (changeDataValues) => {
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
@@ -16,8 +16,8 @@ const AllocationButton = () => {
   };
   return (
     <div style={{ marginBottom: 40 }}>
-      <SubmitModel form={<EditForm />} open={open} handleOpen={handleOpen} handleClose={handleClose} />
-      <Button color="primary" onClick={handleOpen}>Add Employee</Button>
+      <SubmitModel form={<EditForm />} open={open} handleOpen={handleOpen} handleClose={handleClose}  />
+      <Button color="primary" onClick={handleOpen} changeDataValues={changeDataValues} >Add Employee</Button>
       <label for="embedpollfileinput" class="ui medium red left button">
         <i class="ui upload icon"></i>
         Import Employee

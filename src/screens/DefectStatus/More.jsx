@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-import './Defect.css'
+// import './Defect.css'
 import { Button } from 'semantic-ui-react'
 import { Label } from 'semantic-ui-react'
 

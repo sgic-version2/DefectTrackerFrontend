@@ -1,12 +1,23 @@
-import React, { Component } from "react";
-import { Segment } from "semantic-ui-react";
-import { Grid } from "@material-ui/core";
-import AllocationButton from "./AddEmployeeButton";
-import BreadCrumbs from "../../components/breadCrumbs/breadCrumbs";
-import Table from "../../components/tables/table";
-import { Button } from "semantic-ui-react";
-import MoreOutlinedIcon from "@material-ui/icons/MoreOutlined";
-import More from "./More";
+import React, { Component } from 'react'
+import { Segment } from 'semantic-ui-react'
+import { Grid } from '@material-ui/core'
+import AllocationButton from './AddEmployeeButton'
+import BreadCrumbs from '../../components/breadCrumbs/breadCrumbs'
+import Table from '../../components/tables/table'
+import { Button } from 'semantic-ui-react';
+import MoreOutlinedIcon from '@material-ui/icons/MoreOutlined';
+import More from './More'
+import { connect } from "react-redux";
+import { changeDataValues } from './../../fileAction/addCompanyEmployeeAction'
+
+
+const mapStateToProps = (state) => ({
+  data: state.addEmployeeData.employeeDetailsFromState
+ 
+})
+const mapDispatchToProps = {
+  changeDataValues
+};
 const columns = [
   {
     title: "ID",
@@ -59,10 +70,10 @@ const columns = [
   }
 ];
 
-export default class AddEmployee extends Component {
-  state = {
-    value: false
-  };
+class AddEmployee extends Component {
+   state = {
+      value: false,
+   };
 
   handleOpen = () => {
     this.setState({
@@ -130,33 +141,67 @@ export default class AddEmployee extends Component {
         Role: 32,
         Email: "New York No. 1 Lake Park",
 
-        action: (
-          <Button.Group>
-            <Button secondary>Edit</Button>
-            <Button.Or />
-            <Button negative>Delete</Button>
-          </Button.Group>
-        ),
-        More: <MoreOutlinedIcon onClick={this.handleOpen} />
-      }
-    ];
-    return (
-      <div>
-        <Grid direction="row" container>
-          <Grid item xs={11} style={{ marginTop: "2%" }}>
-            <Segment>
-              <BreadCrumbs />
-              <AllocationButton />
-              <Table column={columns} data={data} />
-              <More
-                open={this.state.value}
-                handleOpen={this.handleOpen}
-                handleClose={this.handleClose}
-              />
-            </Segment>
-          </Grid>
-        </Grid>
-      </div>
-    );
-  }
+            action: <Button.Group>
+               <Button secondary onClick={this.handleOpen}>Edit</Button>
+               <Button.Or />
+               <Button negative>Delete</Button>
+            </Button.Group>,
+            More: <MoreOutlinedIcon onClick={this.handleOpen} />
+         },
+         {
+            ID: '1',
+            Name: 'John Brown',
+            Role: 32,
+            Email: 'New York No. 1 Lake Park',
+
+            action: <Button.Group>
+               <Button secondary>Edit</Button>
+               <Button.Or />
+               <Button negative>Delete</Button>
+            </Button.Group>,
+            More: <MoreOutlinedIcon onClick={this.handleOpen} />
+         },
+         {
+            ID: '1',
+            Name: 'John Brown',
+            Role: 32,
+            Email: 'New York No. 1 Lake Park',
+
+            action: <Button.Group>
+               <Button secondary>Edit</Button>
+               <Button.Or />
+               <Button negative>Delete</Button>
+            </Button.Group>,
+            More: <MoreOutlinedIcon onClick={this.handleOpen} />
+         },
+         {
+            ID: '1',
+            Name: 'John Brown',
+            Role: 32,
+            Email: 'New York No. 1 Lake Park',
+
+            action: <Button.Group>
+               <Button secondary>Edit</Button>
+               <Button.Or />
+               <Button negative>Delete</Button>
+            </Button.Group>,
+            More: <MoreOutlinedIcon onClick={this.handleOpen} />
+         },
+      ];
+      return (
+         <div>
+            <Grid direction="row" container>
+               <Grid item xs={11} style={{ marginTop: '2%' }}>
+                  <Segment>
+                     <BreadCrumbs />
+                     <AllocationButton changeDataValues={this.props.changeDataValues}  />
+                     <Table column={columns} data={data} />
+                     <More open={this.state.value} handleOpen={this.handleOpen} handleClose={this.handleClose} />
+                  </Segment>
+               </Grid>
+            </Grid>
+         </div>
+      )
+   }
 }
+export default  AddEmployee
