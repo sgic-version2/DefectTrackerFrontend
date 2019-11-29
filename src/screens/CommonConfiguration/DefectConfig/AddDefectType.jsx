@@ -32,7 +32,7 @@ class AddDefectType extends Component {
 
   };
   render() {
-    const { form, open, handleOpen, handleClose, width, title } = this.props;
+    const {  open, handleOpen, handleClose, width, title } = this.props;
 
     return (
       <div>

@@ -10,7 +10,7 @@ const mapStateToProps = (state) => ({
     data: state.addEmployeeData.employeeDetailsFromState
  })
  const mapDispatchToProps = {
-    changeDataValues
+    changeDataValuesStatus
  }
 
  class ProjectAllocation extends Component {
