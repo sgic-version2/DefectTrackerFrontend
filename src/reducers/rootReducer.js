@@ -1,9 +1,17 @@
-import { combineReducers } from 'redux'
-import { themeReducer, expandSideBarReducer } from '../themesReducer'
+import { combineReducers } from "redux";
+import { expandSideBarReducer } from "../themesReducer";
+import { addEmployeeReducer } from "../screens/employee/addEmployeeReducer";
+import {
+  showOnDashboardReducer,
+  faviconReducer,
+  systemLogoReducer
+} from "../screens/Settings/settingReducer";
 const rootReducer = combineReducers({
-    themesStatus: themeReducer,
-    expandSideBarStatus: expandSideBarReducer,
-    
-})
+  expandSideBarStatus: expandSideBarReducer,
+  addEmployeeData: addEmployeeReducer,
+  lookAndFeelData: systemLogoReducer,
+  showOnDashboard: showOnDashboardReducer,
+  favicon: faviconReducer
+});
 
-export default rootReducer
+export default rootReducer;

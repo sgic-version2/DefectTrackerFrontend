@@ -64,7 +64,7 @@ export default function ThemeSettings() {
                 <br />
               </Grid>
 
-              <Grid container spacing={10}>
+              <Grid container spacing={5}>
                 <Grid item>
                   <Card className={classes.card}>
                     <CardMedia

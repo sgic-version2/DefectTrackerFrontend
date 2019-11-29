@@ -10,6 +10,7 @@
     "bootstrap": "^4.3.1",
     "chart.js": "2.7.1",
     "gg-editor": "^2.0.4",
+    "http-server": "^0.12.0",
     "material-table": "^1.52.0",
     "material-ui-color-picker": "^3.2.0",
     "mdbreact": "^4.22.0",
@@ -23,8 +24,8 @@
     "react-scripts": "3.2.0",
     "react-spring": "^8.0.27",
     "redux": "^4.0.4",
-    "semantic-ui-react": "^0.88.1",
-    "redux-devtools-extension": "^2.13.8"
+    "redux-devtools-extension": "^2.13.8",
+    "semantic-ui-react": "^0.88.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -46,5 +47,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint-plugin-react-hooks": "^2.3.0"
   }
 }
