@@ -1,40 +1,50 @@
 import {
-  CHANGE_INPUT_BASIC_INFO,
-  CHNAGE_INPUT_CHANGE_PASSWORD,
-  UPDATE_PASSWORD,
-  UPDATE_USER_DETAILS
+  // IMAGE_UPLOAD_INPUT_CHANGE,
+  IMAGE_UPLOAD,
+  // PASSWORD_INFO_INPUT_CHANGE,
+  PASSWORD_INFO_UPDATE,
+  // BASIC_INFO_INPUT_CHANGE,
+  BASIC_INFO_UPDATE
 } from "../constant/profileConstant";
 
-export const basicInfoChangeControl = event => {
+export const imageUploadChangeControl = event => {
   return {
-    type: CHANGE_INPUT_BASIC_INFO,
+    type: IMAGE_UPLOAD,
     payload: event
   };
 };
 
-export const changePasswordChangeControl = event => {
+// export const imageUploadControl = eventId => {
+//   return {
+//     type: IMAGE_UPLOAD,
+//     payload: eventId
+//   };
+// };
+
+export const basicInfoChangeControl = event => {
   return {
-    type: CHNAGE_INPUT_CHANGE_PASSWORD,
-    payload: {
-      event
-    }
+    type: BASIC_INFO_UPDATE,
+    payload: event
   };
 };
 
-export const updateBasicInfo = eventId => {
+// export const basicInfoUpdateControl = eventId => {
+//   return {
+//     type: BASIC_INFO_UPDATE,
+//     payload: eventId
+//   };
+// };
+
+export const passwordInfoChangeControl = event => {
   return {
-    type: UPDATE_USER_DETAILS,
-    payload: {
-      eventId
-    }
+    type: PASSWORD_INFO_UPDATE,
+    payload: event
   };
 };
 
-export const updatePassword = eventId => {
-  return {
-    type: UPDATE_PASSWORD,
-    payload: {
-      eventId
-    }
-  };
-};
+// export const passwordUpdateControl = eventId => {
+//   return {
+//     type: PASSWORD_INFO_UPDATE,
+//     payload: eventId
+//   };
+// };

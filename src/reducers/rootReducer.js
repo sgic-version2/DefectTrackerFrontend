@@ -10,8 +10,7 @@ const rootReducer = combineReducers({
   addEmployeeData: addEmployeeReducer,
   modelOpen: modelReducer,
   roleAllocationData: projectReducer,
-  basicInfo: profileReducer,
-  passwordInfo: profileReducer
+  profileDetails: profileReducer,
 });
 
 export default rootReducer;

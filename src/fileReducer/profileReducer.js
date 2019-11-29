@@ -1,24 +1,33 @@
 import {
-  CHANGE_INPUT_BASIC_INFO,
-  CHNAGE_INPUT_CHANGE_PASSWORD,
-  UPDATE_USER_DETAILS,
-  UPDATE_PASSWORD
+  // IMAGE_UPLOAD_INPUT_CHANGE,
+  IMAGE_UPLOAD,
+  // PASSWORD_INFO_INPUT_CHANGE,
+  PASSWORD_INFO_UPDATE,
+  // BASIC_INFO_INPUT_CHANGE,
+  BASIC_INFO_UPDATE
 } from "../constant/profileConstant";
 
 const InitialState = {
+  imageUplaodDetails: {
+    id: 1,
+    fileUpload:
+      "https://www.gettyimages.com/gi-resources/images/500px/983794168.jpg"
+  },
+
   basicInfo: [
     {
       id: 1,
       username: "stark@93",
       firstName: "Stark",
       lastName: "Tony",
-      email: "stark@gmail.com",
-      website: "jrstark@blogspot.com"
+      mail: "stark@gmail.com",
+      webSite: "jrstark@blogspot.com"
     }
   ],
 
   passwordInfo: [
     {
+      id: 1,
       currentPassword: "123",
       newPassword: "456",
       confirmPassword: "456"
@@ -26,17 +35,33 @@ const InitialState = {
   ]
 };
 
-export const profileReducer = (state = InitialState, action, payload) => {
+export const profileReducer = (state = InitialState, action) => {
   switch (action.type) {
-    case CHANGE_INPUT_BASIC_INFO:
+    case IMAGE_UPLOAD:
       return {
-        basicInfo: action.payload
+        imageUplaodDetails: action.payload
       };
 
-    case CHNAGE_INPUT_CHANGE_PASSWORD:
+    case BASIC_INFO_UPDATE:
       return {
-        passwordInfo: action.payload
+        basicInfo: [
+          ...state.basicInfo.filter(
+            basicInfoDetails => basicInfoDetails.id !== action.payload.id
+          ),
+          action.payload
+        ]
       };
+
+    case PASSWORD_INFO_UPDATE:
+      return {
+        passwordInfo: [
+          ...state.passwordInfo.filter(
+            passwordInfoDetails => passwordInfoDetails.id !== action.payload.id
+          ),
+          action.payload
+        ]
+      };
+
     default:
       return state;
   }
