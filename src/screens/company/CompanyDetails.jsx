@@ -5,22 +5,32 @@ import BreadCrumbs from '../../components/breadCrumbs/breadCrumbs'
 import Table from '../../components/tables/table'
 import { Button } from 'semantic-ui-react';
 import MoreOutlinedIcon from '@material-ui/icons/MoreOutlined';
-import AddButton from '../company/AddButton'
+import AddButton from './AddButton'
 import EditCompany from '../../screens/company/EditCompany';
 import { Popconfirm, message } from 'antd'
 import MoreDetails from './MoreDetails'
+import { connect } from "react-redux";
+import { changeDataValues } from "../../fileAction/companyAction";
 
 const text = 'Are you sure delete this task?'; //Delete button
 
 function confirm() {
    message.info('Click on Yes.');
 }
-export default class CompanyDetails extends Component {
+const mapStateToProps = (state) => ({
+   data: state.companyData.companyDetailsFromState
+})
+const mapDispatchToProps = {
+   changeDataValues
+}
+ class CompanyDetails extends Component {
    state = {
       open: false,
-      open1: false
-   }
-
+      open1: false,
+     
+    
+    
+  }
    handleOpen = () => {
       this.setState({
          open: true
@@ -44,20 +54,22 @@ export default class CompanyDetails extends Component {
       })
    };
    render() {
+      
+      
       const columns = [
          {
             title: 'Registration Id',
-            dataIndex: 'regid',
-            filters: [
-               {
-                  text: 'Joe',
-                  value: 'Joe',
-               },
-               {
-                  text: 'Jim',
-                  value: 'Jim',
-               },
-            ],
+            dataIndex: 'reg_no',
+            // filters: [
+            //    {
+            //       text: 'Joe',
+            //       value: 'Joe',
+            //    },
+            //    {
+            //       text: 'Jim',
+            //       value: 'Jim',
+            //    },
+            // ],
             // specify the condition of filtering result
             // here is that finding the name started with `value`
             onFilter: (value, record) => record.regid.indexOf(value) === 0,
@@ -66,7 +78,7 @@ export default class CompanyDetails extends Component {
          },
          {
             title: 'Company Name',
-            dataIndex: 'companyname',
+            dataIndex: 'companyName',
             defaultSortOrder: 'descend',
             sorter: (a, b) => a.age - b.age,
          },
@@ -78,107 +90,44 @@ export default class CompanyDetails extends Component {
          },
          {
             title: 'License Period',
-            dataIndex: 'licenseprriod',
+            dataIndex: 'license_period',
             defaultSortOrder: 'descend',
             sorter: (a, b) => a.licenseprriod - b.licenseprriod,
          },
          {
             title: 'IT Admin',
-            dataIndex: 'itadmin',
+            dataIndex: 'admin_name',
             defaultSortOrder: 'descend',
             sorter: (a, b) => a.itadmin - b.itadmin,
          },
          {
             title: 'Action',
-            dataIndex: 'action',
-            defaultSortOrder: 'descend',
+            render:item=> <Button.Group>
+            <EditCompany open={this.state.open} handleOpen={this.handleOpen} handleClose={this.handleClose} />
+            <Button onClick={this.handleOpen} secondary>Edit</Button>
+            <Button.Or />
+            <Popconfirm placement="topRight" title={text} onConfirm={confirm} okText="yes" cancelText="No">
+               <Button negative>Delete</Button>
+            </Popconfirm>
+         </Button.Group>,
          },
          {
             title: 'More',
-            dataIndex: 'more',
-            defaultSortOrder: 'descend',
-            sorter: (a, b) => a.more - b.more,
+            render:item=> <MoreOutlinedIcon onClick={this.handleOpen1} />,
          },
       ];
-      const data = [
-         {
-            key: '1',
-            regid: 'SGIC-001',
-            companyname: 'John Keels',
-            abbreviation: 'JK',
-            licenseprriod: '6Yrs',
-            itadmin: 'John ',
-
-            action: <Button.Group>
-               <EditCompany open={this.state.open} handleOpen={this.handleOpen} handleClose={this.handleClose} />
-               <Button onClick={this.handleOpen} secondary>Edit</Button>
-               <Button.Or />
-               <Popconfirm placement="topRight" title={text} onConfirm={confirm} okText="yes" cancelText="No">
-                  <Button negative>Delete</Button>
-               </Popconfirm>
-            </Button.Group>,
-            more:
-               <MoreOutlinedIcon onClick={this.handleOpen1} />,
-         },
-         {
-            key: '2',
-            regid: 'SGIC-002',
-            companyname: 'Nandha Gobalan Kumaran',
-            abbreviation: 'NGK',
-            licenseprriod: '5 yrs',
-            itadmin: 'Selvaragavan',
-
-            action: <Button.Group>
-               <EditCompany open={this.state.open} handleOpen={this.handleOpen} handleClose={this.handleClose} />
-               <Button onClick={this.handleOpen} secondary>Edit</Button>
-               <Button.Or />
-               <Button negative>Delete</Button>
-            </Button.Group>,
-            more: <MoreOutlinedIcon onClick={this.handleOpen1} />,
-         },
-         {
-            key: '3',
-            regid: 'SGIC-003',
-            companyname: 'UVA Wellassa University',
-            abbreviation: 'UWU',
-            licenseprriod: '10 yrs',
-            itadmin: 'Ranjith',
-
-            action: <Button.Group>
-               <EditCompany open={this.state.open} handleOpen={this.handleOpen} handleClose={this.handleClose} />
-               <Button onClick={this.handleOpen} secondary>Edit</Button>
-               <Button.Or />
-               <Button negative>Delete</Button>
-            </Button.Group>,
-            more: <MoreOutlinedIcon onClick={this.handleOpen1} />,
-
-         },
-         {
-            key: '4',
-            regid: 'SGIC-004',
-            companyname: 'cargils Food City',
-            abbreviation: 'CFC',
-            licenseprriod: '3 Yrs',
-            itadmin: 'Amuthan',
-
-            action: <Button.Group>
-               <EditCompany open={this.state.open} handleOpen={this.handleOpen} handleClose={this.handleClose} />
-               <Button onClick={this.handleOpen} secondary>Edit</Button>
-               <Button.Or />
-               <Button negative>Delete</Button>
-            </Button.Group>,
-            more: <MoreOutlinedIcon onClick={this.handleOpen1} />,
-         },
-
-      ];
+      
+        
+    
+      console.log("hg"+this.props.data);
       return (
          <div>
             <Grid direction="row" container>
                <Grid item xs={11} style={{ marginTop: '2%' }}>
                   <Segment>
                      <BreadCrumbs />
-                     <AddButton />
-                     <Table column={columns} data={data} />
+                     <AddButton changeDataValues={this.props.changeDataValues} />
+                     <Table column={columns} data={this.props.data} />
                      <MoreDetails open={this.state.open1} handleOpen1={this.handleOpen1} handleClose1={this.handleClose1} />
                   </Segment>
                </Grid>
@@ -187,3 +136,4 @@ export default class CompanyDetails extends Component {
       )
    }
 }
+export default connect(mapStateToProps, mapDispatchToProps)(CompanyDetails)

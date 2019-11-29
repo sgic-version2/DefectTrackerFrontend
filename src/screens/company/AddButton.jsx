@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import { Button } from 'semantic-ui-react'
-import SubmitModel from '../../screens/company/AddCompany';
+import React, { useState } from "react";
+import { Button } from "semantic-ui-react";
+import SubmitModel from "./AddCompany";
 
-const AddButton = () => {
+const AddButton = ({ changeDataValues }) => {
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
@@ -15,10 +15,17 @@ const AddButton = () => {
 
   return (
     <div>
-      <SubmitModel open={open} handleOpen={handleOpen} handleClose={handleClose} />
-      <Button onClick={handleOpen} color="primary">Add Company</Button>
+      <SubmitModel
+        open={open}
+        handleOpen={handleOpen}
+        handleClose={handleClose}
+        changeDataValues={changeDataValues}
+      />
+      <Button onClick={handleOpen} color="primary">
+        Add Company
+      </Button>
     </div>
-  )
-}
+  );
+};
 
-export default AddButton
+export default AddButton;

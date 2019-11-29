@@ -14,6 +14,10 @@ import {
 } from "../screens/Settings/settingReducer";
 import { profileReducer } from "../fileReducer/profileReducer";
 import { hrAllocationReducer } from "../fileReducer/hrAllocationReducer";
+import { companyReducer } from "./../fileReducer/companyReducer";
+import { defectTypeReducer } from "./../fileReducer/defectTypeReducer";
+import { projectDetailsReducer } from "./../fileReducer/projectDeatilsReducer";
+import { severityConfigReducer } from "./../fileReducer/severityConfigReducer";
 
 const rootReducer = combineReducers({
   expandSideBarStatus: expandSideBarReducer,
@@ -26,11 +30,12 @@ const rootReducer = combineReducers({
   showOnDashboard: showOnDashboardReducer,
   favicon: faviconReducer,
   profileDetails: profileReducer,
+  hrAllocationData: hrAllocationReducer,
+  companyData: companyReducer,
+  defectTypeData: defectTypeReducer,
+  projectDetailsData: projectDetailsReducer,
   expandSideBarStatus: expandSideBarReducer,
-  addEmployeeData: addEmployeeReducer,
-  modelOpen: modelReducer,
-  roleAllocationData: projectReducer,
-  hrAllocationData: hrAllocationReducer
+  severityConfigData: severityConfigReducer,
 });
 
 export default rootReducer;

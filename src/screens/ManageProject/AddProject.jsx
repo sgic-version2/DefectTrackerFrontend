@@ -12,28 +12,22 @@ function onChange(value) {
   console.log("changed", value);
 }
 
-class AddCompany extends Component {
+class AddProject extends Component {
   state = {
-    companyID: "",
-    companyName: "",
-    abbreviation: "",
-    company_description: "",
-    reg_no: "",
-    admin_name: "",
-    admin_email: "",
-    license_type_id: "",
-    license_period: "",
-    license_type_name: "",
-    license_start_date: "",
-    license_end_date: ""
+    project_id: "",
+    project_name: "",
+    type: "",
+    duration: "",
+    status: "",
+    project_start_date: "",
+    project_end_date: ""
   };
-  
-  handleOnChange=(e)=>{
+  handleOnChange = e => {
     this.setState({
       [e.target.name]: e.target.value
-  })
-  console.log(e.target.name)
-  }
+    });
+    console.log(e.target.name);
+  };
   handleSubmit = e => {
     // e.preventDefault();
     this.props.changeDataValues(this.state);
@@ -42,14 +36,27 @@ class AddCompany extends Component {
     e();
 
   };
-datePick =(date, dateString, e)=>{
-  // e.preventDefault()
-  console.log( "hfh" ,dateString);
-    this.setState({ license_start_date:dateString  ,license_end_date:dateString  });
 
-}
+  // handleOnChange = e => {
+  //   this.setState({
+  //     [e.target.name]: e.target.value
+  //   });
+  //   console.log(e.target.name);
+  // };
+  // handleSubmit = e => {
+  //   e.preventDefault();
+  //   this.props.changeDataValues(this.state);
+  // };
+  datePick = (date, dateString, e) => {
+    // e.preventDefault()
+    console.log("hfh", dateString);
+    this.setState({
+      license_start_date: dateString,
+      license_end_date: dateString
+    });
+  };
   render() {
-    console.log(this.state);
+    console.log("hi"+this.state);
     const {
       form,
       open,
@@ -79,39 +86,34 @@ datePick =(date, dateString, e)=>{
           <Form layout="vertical" >
             <Row>
               <Col span={12} style={{ padding: "5px" }}>
-                <Form.Item label="Company Name">
+                <Form.Item label="Project Name">
                   <Input
-                   value={this.state.companyName} name="companyName"
-                    placeholder="eg: Samuel Gnanam IT Centre" onChange={this.handleOnChange}
+                    value={this.state.project_name}
+                    name="project_name"
+                    placeholder="Project Name....."
+                    onChange={this.handleOnChange}
                   />
                 </Form.Item>{" "}
               </Col>
 
               <Col span={12} style={{ padding: "5px" }}>
-                <Form.Item label="Abbreviation">
-                  <Input value={this.state.abbreviation} name="abbreviation" placeholder="eg: SGIC" onChange={this.handleOnChange}/>
+                <Form.Item label="Project Type">
+                  <Input
+                    value={this.state.type}
+                    name="type"
+                    placeholder="Project Type...."
+                    onChange={this.handleOnChange}
+                  />
                 </Form.Item>
               </Col>
             </Row>
+            <Row></Row>
             <Row>
               <Col span={12} style={{ padding: "5px" }}>
-                <Form.Item label="Reg NO">
-                  <Input  value={this.state.reg_no} name="reg_no"  placeholder="Registration Number" onChange={this.handleOnChange}/>
-                </Form.Item>
-              </Col>
-
-              <Col span={12} style={{ padding: "5px" }}>
-                <Form.Item label="Admin Name">
-                  <Input value={this.state.admin_name} name="admin_name" placeholder="IT Administrator" onChange={this.handleOnChange} />
-                </Form.Item>
-              </Col>
-            </Row>
-            <Row>
-              <Col span={9} style={{ padding: "5px" }}>
-                <Form.Item label="License Period">
+                <Form.Item label="Project Duration">
                   <InputNumber
-                  // value={this.state.license_period}
-                  //  name="license_period"
+                    // value={this.state.license_period}
+                    //  name="license_period"
                     // min={1}
                     // max={10}
                     // defaultValue={3}
@@ -122,21 +124,17 @@ datePick =(date, dateString, e)=>{
                   />{" "}
                 </Form.Item>
               </Col>
-
-              <Col span={15} style={{ padding: "5px" }}>
-                <Form.Item
-                  label="Lisence Type"
-                  className="collection-create-form_last-form-item"
+              <Col span={12} style={{ padding: "5px" }}>
+              <Form.Item label="Project Status">
+                <Input
+                  value={this.state.status}
+                  name="status"
+                  placeholder="status...."
                   onChange={this.handleOnChange}
-                >
-                  <Radio.Group>
-                    <Radio value="basic">Basic</Radio>
-                    <Radio value="medium">Medium</Radio>
-                    <Radio value="advanced">Advanced</Radio>
-                    <Radio value="customized">Customized</Radio>
-                  </Radio.Group>
-                </Form.Item>
-              </Col>
+                  style={{marginTop:'0px'}}
+                />
+              </Form.Item>
+            </Col>
             </Row>
             <Row>
               <Col span={12} style={{ padding: "5px" }}>
@@ -145,7 +143,7 @@ datePick =(date, dateString, e)=>{
                     defaultValue={moment("01/01/2015", dateFormatList[0])}
                     format={dateFormatList}
                     style={{ width: "100%" }}
-                    name="license_start_date"
+                    name="project_start_date"
                     // value={this.state.license_start_date}
                     onChange={this.datePick}
                   />
@@ -158,32 +156,19 @@ datePick =(date, dateString, e)=>{
                     defaultValue={moment("01/01/2016", dateFormatList[0])}
                     format={dateFormatList}
                     style={{ width: "100%" }}
-                    name="license_end_date"
+                    name="project_end_date"
                     // value={this.state.license_end_date}
                     onChange={this.datePick}
-
                   />
                 </Form.Item>
               </Col>
-            </Row>
-
-            <Form.Item label="E-mail">
-              <Input
-                prefix={
-                  <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
-                }
-                placeholder="samuelgnanamitcentre@gmail.com"
-                style={{ width: "50%" }}
-                value={this.state.admin_email}
-                name="admin_email"
-                onChange={this.handleOnChange}
-              />
-            </Form.Item>
-            <Form.Item label="Description">
-              <TextArea value={this.state.company_description}
-                name="company_description" rows={3} placeholder="company description" onChange={this.handleOnChange}/>
-            </Form.Item>
             
+            </Row>
+          
+
+            {/* <button type="submit" onClick={handleClose}>
+              submit
+            </button> */}
           </Form>
         </Modal>
       </div>
@@ -191,4 +176,4 @@ datePick =(date, dateString, e)=>{
   }
 }
 
-export default AddCompany;
+export default AddProject;

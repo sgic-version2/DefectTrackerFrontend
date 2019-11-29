@@ -1,17 +1,20 @@
 import React, { Component } from "react";
 import { Segment } from "semantic-ui-react";
 import { Grid } from "@material-ui/core";
-import BreadCrumbs from "../../../components/breadCrumbs/breadCrumbs";
-import Table from "../../../components/tables/table";
+// import BreadCrumbs from "../../../components/breadCrumbs/breadCrumbs";
+
 import { Button } from "semantic-ui-react";
 import AddButton from "./AddButton";
-import EditDefectType from "./EditDefectType";
+import EditProject from "./EditProject";
 import { connect } from "react-redux";
-import { changeDataValues } from './../../../fileAction/defectTypeAction';
+
+import IconBreadcrumbs from "../../components/breadCrumbs/breadCrumbs";
+import Table from '../../components/tables/table';
+import { changeDataValues } from '../../fileAction/projectDetailsAction';
 
 
 const mapStateToProps = (state) => ({
-  data: state.defectTypeData.defectTypeDetailsFromState
+  data: state.projectDetailsData.projectDetailsFromState
  
 
 })
@@ -19,7 +22,7 @@ const mapDispatchToProps = {
   changeDataValues
 };
 
-class DefectConfic extends Component {
+class ProjectDetails extends Component {
   state = {
     open: false
   };
@@ -38,22 +41,27 @@ class DefectConfic extends Component {
   render() {
     const columns = [
       {
-        title: "Defect Type",
-        dataIndex: "name"
+        title: "Project Name",
+        dataIndex: "project_name"
       },
       {
-        title: " Description",
-        dataIndex: "description"
+        title: " Type",
+        dataIndex: "type"
       },
       {
-        title: " DefectValue",
-        dataIndex: "defectValue"
+        title: " Duration",
+        dataIndex: "duration"
       },
+      {
+        title: " status",
+        dataIndex: "status"
+      },
+      
 
       {
         title: "Action",
         render:item=>  <Button.Group>
-        <EditDefectType
+        <EditProject
           open={this.state.open}
           handleOpen={this.handleOpen}
           handleClose={this.handleClose}
@@ -61,6 +69,7 @@ class DefectConfic extends Component {
         <Button onClick={this.handleOpen} secondary>
           Edit
         </Button>
+
         <Button.Or />
         <Button negative>Delete</Button>
       </Button.Group>    }
@@ -68,11 +77,11 @@ class DefectConfic extends Component {
     // const data = [
     //   {
     //     key: "1",
-    //     defecttype: "Arithmetic Defects",
+    //     project_name: "Arithmetic Defects",
     //     description: "High",
     //     action: (
     //       <Button.Group>
-    //         <EditDefectType
+    //         <EditProject
     //           open={this.state.open}
     //           handleOpen={this.handleOpen}
     //           handleClose={this.handleClose}
@@ -93,7 +102,7 @@ class DefectConfic extends Component {
         <Grid direction="row" container>
           <Grid item xs={11} style={{ marginTop: "2%" }}>
             <Segment>
-              <BreadCrumbs />
+              <IconBreadcrumbs/>
               <AddButton changeDataValues={this.props.changeDataValues}/>
               <Table column={columns} data={this.props.data} />
             </Segment>
@@ -103,4 +112,4 @@ class DefectConfic extends Component {
     );
   }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(DefectConfic);
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectDetails);
