@@ -11,7 +11,9 @@ import { roleAllocation, deAllocation } from '../../../fileAction/projectAction'
 import { connect } from 'react-redux'
 
 const mapStateToProps = (state) => ({
-   open: state.modelOpen.open
+   open: state.modelOpen.open,
+   employeeData: state.addEmployeeData.employeeDetailsFromState,
+   roleAllocationData:state.roleAllocationData.roleAllocationData
 })
 const mapDispatchToProps = {
    modelOpen,
@@ -118,7 +120,7 @@ class ProjectAllocation extends Component {
                <Grid item xs={11} style={{ marginTop: '2%' }}>
                   <Segment>
                      <BreadCrumbs />
-                     <AllocationButton open={open} modelOpen={modelOpen} modelClose={modelClose} roleAllocation={roleAllocation} deAllocation={deAllocation} />
+                     <AllocationButton open={open} modelOpen={modelOpen} modelClose={modelClose} roleAllocation={roleAllocation} deAllocation={deAllocation} employeeData={this.props.employeeData} allocationData={this.props.roleAllocationData}/>
                      <Table column={columns} data={data} />
                   </Segment>
                </Grid>
