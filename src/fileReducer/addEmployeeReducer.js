@@ -8,7 +8,7 @@ const InitialState = {
             employeeName: 'sasee',
             employeeDesignation: 'SE',
             employeeEmail: 'sasee9488@gmail.com',
-            availability: '30',
+            availability: '90',
             role: ''
         },
         {

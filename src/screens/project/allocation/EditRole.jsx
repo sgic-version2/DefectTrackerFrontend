@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Grid } from '@material-ui/core'
 import { AutoComplete } from 'antd'
 
@@ -12,8 +12,16 @@ const EditRole = ({ data }) => {
             textAlign: 'center',
         }
     }
-    const dataSource = ['Teach Lead', 'QA Lead', 'Software Engineer', 'Senior Software Engineer'];
-    console.log(data)
+    const [role, setRole] = useState({
+        role: ''
+    })
+    const handleChange = (e) => {
+        setRole({
+            role: e.target.value
+        })
+        console.log(role)
+    }
+    const dataSource = ['ASE', 'SE', 'SSE', 'ATL', 'TL', 'STL'];
     return (
         <div>
             {data.map((data, key) => {
@@ -50,6 +58,8 @@ const EditRole = ({ data }) => {
                                     filterOption={(inputValue, option) =>
                                         option.props.children.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
                                     }
+                                    onChange={handleChange}
+                                    value={role.role}
                                 />
                             </Grid>
                             <Grid item xs={12} style={useStyle.root}  >

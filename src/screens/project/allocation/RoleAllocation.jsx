@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { Transfer, Table, Tag, Progress, Icon } from 'antd';
 import difference from 'lodash/difference';
+<<<<<<< HEAD
 import { Button } from 'semantic-ui-react';
 import Model from '../../../components/model/model';
+=======
+import Model from '../../../components/model/model'
+>>>>>>> saseekalaraj
 import EditRole from './EditRole';
 
 const color = ['blue', 'green', 'orange', 'red', 'olive', 'gold']
@@ -66,7 +70,7 @@ export default class RoleAllocation extends Component {
           employeeName: data.employeeName,
           employeeDesignation: <Tag color={color[indexOfValues]} >{data.employeeDesignation}</Tag>,
           employeeEmail: data.employeeEmail,
-          availability: data.availability,
+          availability:<Progress type="circle" percent={data.availability} width={50} /> ,
           role: data.role
         }),
         this.setState({
@@ -127,6 +131,7 @@ export default class RoleAllocation extends Component {
       </Transfer>
     );
 
+<<<<<<< HEAD
     const mockTags = ['ASE', 'SE', 'QAE', 'TL', 'ASE'];
     const mockData = this.props.employeeData;
     const role = ['ASE', 'QAL', 'TL', 'SE']
@@ -138,6 +143,8 @@ export default class RoleAllocation extends Component {
       .filter(item => +item.key % 3 > 1)
       .map(item => item.key);
 
+=======
+>>>>>>> saseekalaraj
     const { targetKeys, disabled, showSearch, open, buttonClick } = this.state;
     const leftTableColumns = [
       {
@@ -179,11 +186,10 @@ export default class RoleAllocation extends Component {
         render: (item, key) => <Icon type="edit" className="iconposition" onClick={() => this.handlebuttonClick(key)} />
       },
     ];
-    console.log(dataStore)
     return (
       <div>
         <TableTransfer
-          dataSource={this.state.buttonClick}
+          dataSource={buttonClick}
           targetKeys={targetKeys}
           disabled={disabled}
           showSearch={showSearch}
