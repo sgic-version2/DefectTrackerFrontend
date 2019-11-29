@@ -62,9 +62,9 @@
 /* .ant-menu-item-selected{
   color:#fff !important;
 } */
-.ant-modal-footer button + button{
+/* .ant-modal-footer button + button{
   display: none !important;
-}
+} */
 /* .ant-btn, .ant-btn:active, .ant-btn:focus{
   display: none !important;
 } */
