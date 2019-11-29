@@ -3,11 +3,13 @@ import { expandSideBarReducer } from '../themesReducer'
 import { addEmployeeReducer } from '../fileReducer/addEmployeeReducer'
 import { modelReducer } from '../fileReducer/modelReducer'
 import { projectReducer } from '../fileReducer/projectReducer'
+import { hrAllocationReducer } from '../fileReducer/hrAllocationReducer'
 const rootReducer = combineReducers({
     expandSideBarStatus: expandSideBarReducer,
     addEmployeeData: addEmployeeReducer,
     modelOpen: modelReducer,
-    roleAllocationData: projectReducer
+    roleAllocationData: projectReducer,
+    hrAllocationData:hrAllocationReducer
 })
 
 export default rootReducer
