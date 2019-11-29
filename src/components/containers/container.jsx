@@ -15,7 +15,7 @@ import EmployeeTable from './../../screens/employee/EmployeeTable';
 import DefectType from '../../screens/CommonConfiguration/DefectConfig/DefectConfic';
 import DefectStatusFlow from '../../screens/WorkFlow/DefectStatus/DefectStatusFlow';
 import TeachLeadPrivilege from '../../screens/Settings/Privilege/TechLeadPrivileges';
-import ManageProject from '../../screens/ManageProject/ProjectList'
+import ManageProject from '../../screens/test/ProjectDetails'
 import Severity from '../../screens/general_configuration/severity/PriorityConfig'
 import ProfileSetting from '../../screens/profile/profile'
 import DefectRolesFlow from '../../screens/WorkFlow/DefectRoles/DefectRolesFlow'
