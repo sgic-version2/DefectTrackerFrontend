@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
 import "./profile.css";
-import User from "../../Assets/tony.png";
+// import User from "../../Assets/tony.png";
 
 export default class profilePictureUpload extends Component {
   state = {
@@ -18,11 +18,7 @@ export default class profilePictureUpload extends Component {
     });
     this.props.imageUploadChangeControl(e.target.value);
   };
-
-  // handleImageChange = e => {
-    // console.log("pics", e.target.value);
-  // };
-
+  
   render() {
     const { fileUpload } = this.state;
     return (
