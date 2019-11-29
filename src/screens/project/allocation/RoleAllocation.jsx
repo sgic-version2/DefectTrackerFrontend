@@ -1,10 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { Transfer, Table, Tag, Progress, Icon } from 'antd';
 import difference from 'lodash/difference';
 import { Button } from 'semantic-ui-react';
-import Model from '../../../components/model/model'
+import Model from '../../../components/model/model';
 import EditRole from './EditRole';
-
 
 var originTargetKeys = [1];
 export default class RoleAllocation extends Component {
@@ -22,17 +21,17 @@ export default class RoleAllocation extends Component {
   handleOpen = () => {
     this.setState({
       open: true
-    })
-  }
+    });
+  };
   handleClose = () => {
     this.setState({
       open: false
-    })
-  }
-  handlebuttonClick = (data) => {
-    this.props.roleAllocation(data)
-    this.handleOpen()
-  }
+    });
+  };
+  handlebuttonClick = data => {
+    this.props.roleAllocation(data);
+    this.handleOpen();
+  };
   render() {
     // Customize Table Transfer
     const TableTransfer = ({ leftColumns, rightColumns, ...restProps }) => (
@@ -43,12 +42,14 @@ export default class RoleAllocation extends Component {
           onItemSelectAll,
           onItemSelect,
           selectedKeys: listSelectedKeys,
-          disabled: listDisabled,
+          disabled: listDisabled
         }) => {
           const columns = direction === 'left' ? leftColumns : rightColumns;
 
           const rowSelection = {
-            getCheckboxProps: item => ({ disabled: listDisabled || item.disabled }),
+            getCheckboxProps: item => ({
+              disabled: listDisabled || item.disabled
+            }),
             onSelectAll(selected, selectedRows) {
               const treeSelectedKeys = selectedRows
                 .filter(item => !item.disabled)
@@ -61,7 +62,7 @@ export default class RoleAllocation extends Component {
             onSelect({ key }, selected) {
               onItemSelect(key, selected);
             },
-            selectedRowKeys: listSelectedKeys,
+            selectedRowKeys: listSelectedKeys
           };
 
           return (
@@ -69,13 +70,13 @@ export default class RoleAllocation extends Component {
               rowSelection={rowSelection}
               columns={columns}
               dataSource={filteredItems}
-              size="small"
+              size='small'
               style={{ pointerEvents: listDisabled ? 'none' : null }}
               onRow={({ key, disabled: itemDisabled }) => ({
                 onClick: () => {
                   if (itemDisabled || listDisabled) return;
                   onItemSelect(key, !listSelectedKeys.includes(key));
-                },
+                }
               })}
             />
           );
@@ -85,54 +86,65 @@ export default class RoleAllocation extends Component {
 
     const mockTags = ['ASE', 'SE', 'QAE', 'TL', 'ASE'];
     const mockData = this.props.employeeData;
-    const role = ['ASE', 'QAL', 'TL', 'SE']
-    const color = ['blue', 'green', 'orange', 'red']
-    const availabilityTag = [<Progress type="circle" percent={30} width={50} />, <Progress type="circle" percent={60} width={50} />, <Progress type="circle" percent={90} width={50} />, <Tag color="red">Bench</Tag>]
+    const role = ['ASE', 'QAL', 'TL', 'SE'];
+    const color = ['blue', 'green', 'orange', 'red'];
+    const availabilityTag = [
+      <Progress type='circle' percent={30} width={50} />,
+      <Progress type='circle' percent={60} width={50} />,
+      <Progress type='circle' percent={90} width={50} />,
+      <Tag color='red'>Bench</Tag>
+    ];
 
-    originTargetKeys = mockData.filter(item => +item.key % 3 > 1).map(item => item.key);
-
+    originTargetKeys = mockData
+      .filter(item => +item.key % 3 > 1)
+      .map(item => item.key);
 
     const { targetKeys, disabled, showSearch, open, buttonClick } = this.state;
     const leftTableColumns = [
       {
         dataIndex: 'employeeID',
-        title: 'Employee ID',
+        title: 'Employee ID'
       },
       {
         dataIndex: 'employeeName',
-        title: 'Full Name',
+        title: 'Full Name'
       },
       {
         dataIndex: 'availability',
-        title: 'Availability',
+        title: 'Availability'
       },
       {
         dataIndex: 'employeeDesignation',
-        title: 'Designation',
-      },
-
+        title: 'Designation'
+      }
     ];
     const rightTableColumns = [
       {
         dataIndex: 'employeeID',
-        title: 'Employee ID',
+        title: 'Employee ID'
       },
       {
         dataIndex: 'employeeName',
-        title: 'Full Name',
+        title: 'Full Name'
       },
       {
         dataIndex: 'employeeDesignation',
-        title: 'Designation',
+        title: 'Designation'
       },
       {
         dataIndex: 'role',
-        title: 'Role',
+        title: 'Role'
       },
       {
         title: 'Action',
-        render: (item, key) => <Icon type="edit" className="iconposition" onClick={()=>this.handlebuttonClick(key)} />
-      },
+        render: (item, key) => (
+          <Icon
+            type='edit'
+            className='iconposition'
+            onClick={() => this.handlebuttonClick(key)}
+          />
+        )
+      }
     ];
     return (
       <div>
@@ -143,12 +155,20 @@ export default class RoleAllocation extends Component {
           showSearch={showSearch}
           onChange={this.onChange}
           filterOption={(inputValue, item) =>
-            item.title.indexOf(inputValue) !== -1 || item.tag.indexOf(inputValue) !== -1
+            item.title.indexOf(inputValue) !== -1 ||
+            item.tag.indexOf(inputValue) !== -1
           }
           leftColumns={leftTableColumns}
           rightColumns={rightTableColumns}
         />
-        <Model open={open} handleOpen={this.handleOpen} handleClose={this.handleClose} width={30} form={<EditRole data={this.props.allocationData} />} title='Edit Role' />
+        <Model
+          open={open}
+          handleOpen={this.handleOpen}
+          handleClose={this.handleClose}
+          width={30}
+          form={<EditRole data={this.props.allocationData} />}
+          title='Edit Role'
+        />
       </div>
     );
   }
