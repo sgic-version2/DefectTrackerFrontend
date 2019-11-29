@@ -7,9 +7,11 @@ const EditPriority = ({ open, handleOpen, handleClose }) => {
     return (
         <div>
 
-            <SubmitModel open={open} handleOpen={handleOpen} handleClose={handleClose} form={<Form />} />
+            <SubmitModel open={open} handleOpen={handleOpen} form={<Form />} handleClose={handleClose}  />
 
         </div>
+
+        
     )
 }
 export default EditPriority

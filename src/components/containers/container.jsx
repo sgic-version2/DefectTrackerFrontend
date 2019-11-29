@@ -10,6 +10,7 @@ import AddEmployee from './../../screens/CompanyAdministaration/AddEmployee';
 import ViewDefect from '../../screens/Defect/viewDefect';
 import AuditTable from '../../screens/Settings/Troubleshoot and Support/Audit Log/Audit_table/Audit_table';
 import PriorityConfig from '../../screens/general_configuration/priority/PriorityConfig';
+
 import AllocationTable from '../../screens/HrAllocate/AllocationTable';
 import EmployeeTable from './../../screens/employee/EmployeeTable';
 import DefectType from '../../screens/CommonConfiguration/DefectConfig/DefectConfic';
@@ -24,6 +25,7 @@ import LookAndFeel from '../../screens/Settings/settings'
 import QADashboard from '../../screens/dashboards/QADashboard/chart'
 import Module from '../../screens/Module/ModuleList'
 import PmDashboard from '../../screens/dashboards/PmDashboard/chart'
+
 
 // container using material Ui
 // container has property
