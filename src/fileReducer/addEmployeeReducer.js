@@ -1,4 +1,5 @@
 import * as actionType from '../constant/addEmployeeConstant'
+import { EDITROLE } from '../constant/role'
 
 const InitialState = {
     employeeDetailsFromState: [
@@ -28,6 +29,10 @@ export const addEmployeeReducer = (state = InitialState, action) => {
         case actionType.CREATENEWEMPLOYEE:
             return {
                 employeeDetailsFromState: [...state.employeeDetailsFromState, action.payload]
+            }
+        case EDITROLE:
+            return {
+                employeeDetailsFromState: [...state.employeeDetailsFromState.filter(data => data.employeeID !== action.payload.employeeID), action.payload]
             }
         default:
             return state

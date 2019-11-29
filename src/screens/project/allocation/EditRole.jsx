@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Grid } from '@material-ui/core'
-import { AutoComplete } from 'antd'
 
 const EditRole = ({ data }) => {
     const useStyle = {
@@ -21,12 +20,15 @@ const EditRole = ({ data }) => {
         })
         console.log(role)
     }
-    const dataSource = ['ASE', 'SE', 'SSE', 'ATL', 'TL', 'STL'];
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+    }
     return (
         <div>
             {data.map((data, key) => {
                 return (
-                    <form key={key}>
+                    <form key={key} onSubmit={handleSubmit}>
                         <Grid direction="row" container>
                             <Grid item xs={6} style={useStyle.root}>
                                 <span style={useStyle.forntStyle}>Employee ID :</span>
@@ -51,16 +53,16 @@ const EditRole = ({ data }) => {
                                 <span style={useStyle.forntStyle}>Select Role :</span>
                             </Grid>
                             <Grid item xs={6} style={useStyle.root}>
-                                <AutoComplete
-                                    style={{ width: 'auto' }}
-                                    dataSource={dataSource}
-                                    placeholder="Select One Role"
-                                    filterOption={(inputValue, option) =>
-                                        option.props.children.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
-                                    }
-                                    onChange={handleChange}
-                                    value={role.role}
-                                />
+                                <select class="ui fluid dropdown" onChange={handleChange}
+                                    value={role.role}>
+                                    <option disabled>-----Select------</option>
+                                    <option value="ASE">ASE</option>
+                                    <option value="SE">SE</option>
+                                    <option value="SSE">SSE</option>
+                                    <option value="ATL">ATL</option>
+                                    <option value="TL">TL</option>
+                                    <option value="STL">STL</option>
+                                </select>
                             </Grid>
                             <Grid item xs={12} style={useStyle.root}  >
                                 <button type="submit" >Save Data</button>
