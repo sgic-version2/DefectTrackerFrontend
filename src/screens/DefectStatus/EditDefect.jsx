@@ -1,5 +1,5 @@
 import React from 'react';
-import './Defect.css'
+// import './Defect.css'
 import Editform from './EditForm'
 import Model from '../../components/model/submitModel'
 
