@@ -12,7 +12,8 @@ export default class RoleAllocation extends Component {
     targetKeys: originTargetKeys,
     disabled: false,
     showSearch: true,
-    open: false
+    open: false,
+    buttonClick: []
   };
 
   onChange = nextTargetKeys => {
@@ -28,7 +29,10 @@ export default class RoleAllocation extends Component {
       open: false
     })
   }
-
+  handlebuttonClick = (data) => {
+    this.props.roleAllocation(data)
+    this.handleOpen()
+  }
   render() {
     // Customize Table Transfer
     const TableTransfer = ({ leftColumns, rightColumns, ...restProps }) => (
@@ -88,7 +92,7 @@ export default class RoleAllocation extends Component {
     originTargetKeys = mockData.filter(item => +item.key % 3 > 1).map(item => item.key);
 
 
-    const { targetKeys, disabled, showSearch, open } = this.state;
+    const { targetKeys, disabled, showSearch, open, buttonClick } = this.state;
     const leftTableColumns = [
       {
         dataIndex: 'employeeID',
@@ -127,7 +131,7 @@ export default class RoleAllocation extends Component {
       },
       {
         title: 'Action',
-        render: item =><Icon type="edit"  className="iconposition"  onClick={this.handleOpen}/> 
+        render: (item, key) => <Icon type="edit" className="iconposition" onClick={()=>this.handlebuttonClick(key)} />
       },
     ];
     return (
@@ -144,7 +148,7 @@ export default class RoleAllocation extends Component {
           leftColumns={leftTableColumns}
           rightColumns={rightTableColumns}
         />
-        <Model open={open} handleOpen={this.handleOpen} handleClose={this.handleClose} width={30} form={<EditRole />} title='Edit Role' />
+        <Model open={open} handleOpen={this.handleOpen} handleClose={this.handleClose} width={30} form={<EditRole data={this.props.allocationData} />} title='Edit Role' />
       </div>
     );
   }
