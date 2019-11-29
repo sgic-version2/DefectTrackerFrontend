@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 import { Transfer, Table, Tag, Progress, Icon } from 'antd';
 import difference from 'lodash/difference';
-<<<<<<< HEAD
-import { Button } from 'semantic-ui-react';
-import Model from '../../../components/model/model';
-=======
 import Model from '../../../components/model/model'
->>>>>>> saseekalaraj
 import EditRole from './EditRole';
 
 const color = ['blue', 'green', 'orange', 'red', 'olive', 'gold']
@@ -131,20 +126,6 @@ export default class RoleAllocation extends Component {
       </Transfer>
     );
 
-<<<<<<< HEAD
-    const mockTags = ['ASE', 'SE', 'QAE', 'TL', 'ASE'];
-    const mockData = this.props.employeeData;
-    const role = ['ASE', 'QAL', 'TL', 'SE']
-    const availabilityTag = [<Progress type="circle" percent={30} width={50} />, <Progress type="circle" percent={60} width={50} />, <Progress type="circle" percent={90} width={50} />, <Tag color="red">Bench</Tag>]
-
-    originTargetKeys = mockData.filter(item => +item.key % 3 > 1).map(item => item.key);
-
-    originTargetKeys = mockData
-      .filter(item => +item.key % 3 > 1)
-      .map(item => item.key);
-
-=======
->>>>>>> saseekalaraj
     const { targetKeys, disabled, showSearch, open, buttonClick } = this.state;
     const leftTableColumns = [
       {
