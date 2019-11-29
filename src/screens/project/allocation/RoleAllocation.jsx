@@ -5,7 +5,8 @@ import { Button } from 'semantic-ui-react';
 import Model from '../../../components/model/model'
 import EditRole from './EditRole';
 
-
+const color = ['blue', 'green', 'orange', 'red', 'olive', 'gold']
+var dataStore = [];
 var originTargetKeys = [1];
 export default class RoleAllocation extends Component {
   state = {
@@ -32,6 +33,47 @@ export default class RoleAllocation extends Component {
   handlebuttonClick = (data) => {
     this.props.roleAllocation(data)
     this.handleOpen()
+  }
+  componentDidMount() {
+    var indexOfValues;
+    this.props.employeeData.map((data, index) => {
+      switch (data.employeeDesignation) {
+        case 'ASE':
+          indexOfValues = 0
+          break;
+        case 'SE':
+          indexOfValues = 1
+          break;
+        case 'SSE':
+          indexOfValues = 2
+          break;
+        case 'ATL':
+          indexOfValues = 3
+          break;
+        case 'TL':
+          indexOfValues = 4
+          break;
+        case 'STL':
+          indexOfValues = 5
+          break;
+        default:
+          indexOfValues = 0
+      }
+      return (
+        dataStore.push({
+          key: index.toString(),
+          employeeID: data.employeeID,
+          employeeName: data.employeeName,
+          employeeDesignation: <Tag color={color[indexOfValues]} >{data.employeeDesignation}</Tag>,
+          employeeEmail: data.employeeEmail,
+          availability: data.availability,
+          role: data.role
+        }),
+        this.setState({
+          buttonClick: dataStore
+        })
+      )
+    })
   }
   render() {
     // Customize Table Transfer
@@ -86,7 +128,6 @@ export default class RoleAllocation extends Component {
     const mockTags = ['ASE', 'SE', 'QAE', 'TL', 'ASE'];
     const mockData = this.props.employeeData;
     const role = ['ASE', 'QAL', 'TL', 'SE']
-    const color = ['blue', 'green', 'orange', 'red']
     const availabilityTag = [<Progress type="circle" percent={30} width={50} />, <Progress type="circle" percent={60} width={50} />, <Progress type="circle" percent={90} width={50} />, <Tag color="red">Bench</Tag>]
 
     originTargetKeys = mockData.filter(item => +item.key % 3 > 1).map(item => item.key);
@@ -131,13 +172,14 @@ export default class RoleAllocation extends Component {
       },
       {
         title: 'Action',
-        render: (item, key) => <Icon type="edit" className="iconposition" onClick={()=>this.handlebuttonClick(key)} />
+        render: (item, key) => <Icon type="edit" className="iconposition" onClick={() => this.handlebuttonClick(key)} />
       },
     ];
+    console.log(dataStore)
     return (
       <div>
         <TableTransfer
-          dataSource={mockData}
+          dataSource={this.state.buttonClick}
           targetKeys={targetKeys}
           disabled={disabled}
           showSearch={showSearch}
