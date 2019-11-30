@@ -8,18 +8,20 @@ import ProjectPerformance from './projectPerformance'
 import ProjectRemainingTime from './projectRemainingTime'
 import { modelOpen, modelClose } from '../../../fileAction/modelAction'
 import { roleAllocation, deAllocation } from '../../../fileAction/projectAction'
+import { editRole } from '../../../fileAction/roleAction'
 import { connect } from 'react-redux'
 
 const mapStateToProps = (state) => ({
    open: state.modelOpen.open,
    employeeData: state.addEmployeeData.employeeDetailsFromState,
-   roleAllocationData:state.roleAllocationData.roleAllocationData
+   roleAllocationData: state.roleAllocationData.roleAllocationData
 })
 const mapDispatchToProps = {
    modelOpen,
    modelClose,
    roleAllocation,
-   deAllocation
+   deAllocation,
+   editRole
 }
 const columns = [
    {
@@ -113,14 +115,14 @@ const data = [
 ];
 class ProjectAllocation extends Component {
    render() {
-      const { open, modelClose, modelOpen, roleAllocation, deAllocation } = this.props
+      const { open, modelClose, modelOpen, roleAllocation, deAllocation,editRole } = this.props
       return (
          <div>
             <Grid direction="row" container>
                <Grid item xs={11} style={{ marginTop: '2%' }}>
                   <Segment>
                      <BreadCrumbs />
-                     <AllocationButton open={open} modelOpen={modelOpen} modelClose={modelClose} roleAllocation={roleAllocation} deAllocation={deAllocation} employeeData={this.props.employeeData} allocationData={this.props.roleAllocationData}/>
+                     <AllocationButton open={open} modelOpen={modelOpen} modelClose={modelClose} roleAllocation={roleAllocation} deAllocation={deAllocation} employeeData={this.props.employeeData} allocationData={this.props.roleAllocationData} editRole={editRole}/>
                      <Table column={columns} data={data} />
                   </Segment>
                </Grid>

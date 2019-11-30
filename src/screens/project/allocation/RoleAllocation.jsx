@@ -73,7 +73,11 @@ export default class RoleAllocation extends Component {
         })
       )
     })
+    
   }
+  setTimeout(
+    console.log('dfdf'),200
+  )
   render() {
     // Customize Table Transfer
     const TableTransfer = ({ leftColumns, rightColumns, ...restProps }) => (
@@ -180,7 +184,7 @@ export default class RoleAllocation extends Component {
           leftColumns={leftTableColumns}
           rightColumns={rightTableColumns}
         />
-        <Model open={open} handleOpen={this.handleOpen} handleClose={this.handleClose} width={30} form={<EditRole data={this.props.allocationData} />} title='Edit Role' />
+        <Model open={open} handleOpen={this.handleOpen} handleClose={this.handleClose} width={30} form={<EditRole data={this.props.allocationData} editRole={this.props.editRole}/>} title='Edit Role' />
       </div>
     );
   }
