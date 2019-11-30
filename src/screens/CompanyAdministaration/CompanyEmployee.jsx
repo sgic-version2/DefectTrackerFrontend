@@ -13,8 +13,8 @@ import { changeDataValues } from './../../fileAction/defectTypeAction';
 
 
 const mapStateToProps = (state) => ({
-  data: state. defectTypeData.defectTypeDetailsFromState
- 
+  data: state.defectTypeData.defectTypeDetailsFromState
+
 
 })
 const mapDispatchToProps = {
@@ -40,7 +40,7 @@ class CompanyEmployee extends Component {
   render() {
     const columns = [
       {
-        title: "UserName",
+        title: "User Name",
         dataIndex: "username"
       },
       {
@@ -52,25 +52,26 @@ class CompanyEmployee extends Component {
         dataIndex: "middlename"
       },
       {
-        title: " Last name",
+        title: " Last Name",
         dataIndex: "lastname"
       },
 
       {
         title: "Action",
-        render:item=>  <Button.Group>
-        <EditEmployee
-          open={this.state.open}
-          handleOpen={this.handleOpen}
-          handleClose={this.handleClose}
-        />
-        <Button onClick={this.handleOpen} secondary>
-          Edit
+        render: item => <Button.Group>
+          <EditEmployee
+            open={this.state.open}
+            handleOpen={this.handleOpen}
+            handleClose={this.handleClose}
+          />
+          <Button onClick={this.handleOpen} secondary>
+            Edit
         </Button>
 
-        <Button.Or />
-        <Button negative>Delete</Button>
-      </Button.Group>    }
+          <Button.Or />
+          <Button negative>Delete</Button>
+        </Button.Group>
+      }
     ];
     // const data = [
     //   {
@@ -94,14 +95,14 @@ class CompanyEmployee extends Component {
     //     )
     //   }
     // ];
-    console.log("hg"+this.props.data);
+    console.log("hg" + this.props.data);
     return (
       <div>
         <Grid direction="row" container>
           <Grid item xs={11} style={{ marginTop: "2%" }}>
             <Segment>
               <BreadCrumbs />
-              <AddEmployeeButton changeDataValues={this.props.changeDataValues}/>
+              <AddEmployeeButton changeDataValues={this.props.changeDataValues} />
               <Table column={columns} data={this.props.data} />
             </Segment>
           </Grid>

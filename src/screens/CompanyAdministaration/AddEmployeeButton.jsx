@@ -31,8 +31,8 @@ const AddEmployeeButton = ({ changeDataValues }) => {
         Import Employee
   </label>
       <input type="file" class="inputfile" id="embedpollfileinput" style={{ display: "none" }} />
-    
-   
+
+
     </div>
   );
 };
