@@ -7,9 +7,9 @@ export const changeDataValues = data => {
   };
 };
 
-// export const upadateDefectType = data => {
-//   return {
-//     type: actionTypes.UPDATE_DEFECT_TYPE,
-//     payload: data
-//   };
-// };
+export const upadateDefectType = data => {
+  return {
+    type: actionTypes.UPDATE_DEFECT_TYPE,
+    payload: data
+  };
+};
