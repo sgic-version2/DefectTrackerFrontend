@@ -4,7 +4,7 @@ import { EDITROLE } from '../constant/role'
 const InitialState = {
     employeeDetailsFromState: [
         {
-            key: '1',
+            key: '0',
             employeeID: '001',
             employeeName: 'sasee',
             employeeDesignation: 'SE',
@@ -13,7 +13,7 @@ const InitialState = {
             role: ''
         },
         {
-            key: '2',
+            key: '1',
             employeeID: '002',
             employeeName: 'kumar',
             employeeDesignation: 'ASE',

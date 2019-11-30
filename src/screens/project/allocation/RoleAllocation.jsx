@@ -32,11 +32,13 @@ export default class RoleAllocation extends Component {
   handlebuttonClick = (data) => {
     this.props.roleAllocation(data)
     this.handleOpen()
+    console.log(data);
+
   }
   componentDidMount() {
     this.dataCollection()
   }
-  dataCollection=()=>{
+  dataCollection = () => {
     var indexOfValues;
     this.props.employeeData.map((data, index) => {
       switch (data.employeeDesignation) {
@@ -68,7 +70,7 @@ export default class RoleAllocation extends Component {
           employeeName: data.employeeName,
           employeeDesignation: <Tag color={color[indexOfValues]} >{data.employeeDesignation}</Tag>,
           employeeEmail: data.employeeEmail,
-          availability:<Progress type="circle" percent={data.availability} width={50} /> ,
+          availability: <Progress type="circle" percent={data.availability} width={50} />,
           role: data.role
         }),
         this.setState({
@@ -76,11 +78,17 @@ export default class RoleAllocation extends Component {
         })
       )
     })
-    
+
   }
-  functionRefresh=()=>{
+  functionRefresh = () => {
+    dataStore = []
+    this.setState({
+      buttonClick: []
+    })
+    //   this.dataCollection()
+    setTimeout(() => {
       this.dataCollection()
-      console.log('jdbfg')
+    }, 20)
   }
   render() {
     // Customize Table Transfer
@@ -188,7 +196,7 @@ export default class RoleAllocation extends Component {
           leftColumns={leftTableColumns}
           rightColumns={rightTableColumns}
         />
-        <Model open={open} handleOpen={this.handleOpen} handleClose={this.handleClose} width={30} form={<EditRole data={this.props.allocationData} editRole={this.props.editRole} functionRefresh={this.functionRefresh}/>}  title='Edit Role' />
+        <Model open={open} handleOpen={this.handleOpen} handleClose={this.handleClose} width={30} form={<EditRole data={this.props.allocationData} editRole={this.props.editRole} functionRefresh={this.functionRefresh} />} title='Edit Role' />
       </div>
     );
   }
