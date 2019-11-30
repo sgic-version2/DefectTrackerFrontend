@@ -11,16 +11,16 @@
     position: relative;
     width: 1009px;
     height: 500px;
-    left: 230px;
-    top: 96px;
+    left: 133px;
+    top: 33px;
     background-color: #003b99;
     border-radius: 10px;
     opacity: 0.3;
 }
  .basicInfo{
     position: relative;
-    left: 104px;
-    top: 79px;
+    left: 102px;
+    top: 87px;
     background-color: white;
     width: 453px;
     height: 186px;
@@ -29,8 +29,8 @@
 
  .changePassword{
     position: relative;
-    left: 126px;
-    top: -220px;
+    left: 158px;
+    top: -713px;
     background-color: white;
     width: 453px;
     height: 268px;
@@ -38,8 +38,8 @@
 }
  .otherField {
     position: relative;
-    left: 585px;
-    top: 48px;
+    left: 616px;
+    top: -446px;
     background-color: white;
     width: 504px;
     height: 460px;

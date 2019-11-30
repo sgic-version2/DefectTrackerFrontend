@@ -1,4 +1,4 @@
-import { AVATAR_UPLOAD_INPUT_CHANGE, UPLOAD_AVATAR } from '../fileConstant/profileActionTypes';
+import { AVATAR_UPLOAD_INPUT_CHANGE, UPLOAD_AVATAR } from '../constant/profileActionTypes';
 
 export const avatarUploadFieldChange = (event) => {
     return {

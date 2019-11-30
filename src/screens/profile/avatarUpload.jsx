@@ -1,12 +1,40 @@
 import React, { Component } from 'react'
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import PhotoCameraIcon from '@material-ui/icons/PhotoCamera';
-import BasicInfo from './basicInfo';
-import PasswordInfo from './passwordInfo';
 import './profile.css'
 import User from '../../Assets/tony.png';
+import { connect } from 'react-redux'
+import { avatarUploadFieldChange, avatarUpload } from '../../fileAction/profileAction'
 
-export default class AvatarUpload extends Component {
+
+
+const mapStatToProps = (state) => ({
+    uploadDetails: state.uploadDetails
+})
+
+const mapDispatchToProps = {
+    avatarUploadFieldChange,
+    avatarUpload
+}
+
+
+class AvatarUpload extends Component {
+    state = {
+        fileUplaod: {
+            fileName: '',
+            path: '',
+            size: ''
+        }
+    }
+
+    handleChange = (e) => {
+        this.setState({
+            fileUplaod: this.state.uploadDetails
+        }
+        )
+        console.log(this.state.fileUplaod);
+        
+    }
     render() {
         return (
             <div>
@@ -18,7 +46,7 @@ export default class AvatarUpload extends Component {
                         <label className="txt-upload-photo">Upload Photo</label>
                         <img className="avatar" src={User} alt='userimage' />
 
-                        <input type="file" id="fileUplaod" className="uploadFile" />
+                        <input type="file" id="fileUplaod" className="uploadFile" name="fileUplaod" value={this.state.fileUplaod.fileName} onChange={this.handleChange} />
                         <label className="imageUpload" for="fileUplaod">
                             <i className="icon"><CloudUploadIcon /></i>
                             Upload Image
@@ -33,3 +61,5 @@ export default class AvatarUpload extends Component {
         )
     }
 }
+
+export default connect(mapStatToProps, mapDispatchToProps)(AvatarUpload);
