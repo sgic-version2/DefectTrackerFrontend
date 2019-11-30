@@ -9,6 +9,9 @@ import { auditReducer } from '../fileReducer/auditReducer'
 import { companyReducer } from './../fileReducer/companyReducer';
 import { defectTypeReducer } from './../fileReducer/defectTypeReducer';
 import {projectDetailsReducer} from './../fileReducer/projectDeatilsReducer'
+import { defectReducer } from '../fileReducer/defectReducer'
+
+
 const rootReducer = combineReducers({
     expandSideBarStatus: expandSideBarReducer,
     addEmployeeData: addEmployeeReducer,
@@ -21,6 +24,7 @@ const rootReducer = combineReducers({
     defectTypeData: defectTypeReducer,
     projectDetailsData: projectDetailsReducer,
 
+    defectState: defectReducer,
 })
 
 export default rootReducer
