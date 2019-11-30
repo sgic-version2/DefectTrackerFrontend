@@ -1,8 +1,8 @@
 import React from 'react'
-import { Modal, Button } from 'antd';
+import { Modal } from 'antd';
 
 
-const SubmitModel = ({ form, open, handleOpen, handleClose, width, title }) => {
+const SubmitModel = ({ form, open, handleClose, width, title }) => {
     //use state 
 
 
@@ -13,16 +13,8 @@ const SubmitModel = ({ form, open, handleOpen, handleClose, width, title }) => {
                 centered
                 visible={open}
                 title={title}
-                onOk={handleOpen}
+                onOk={handleClose}
                 onCancel={handleClose}
-                footer={[
-                    <Button key="back" onClick={handleClose}>
-                        Return
-            </Button>,
-                    <Button key="submit" type="primary" onClick={handleClose}>
-                        Submit
-            </Button>,
-                ]}
             >
                 {form}
             </Modal>

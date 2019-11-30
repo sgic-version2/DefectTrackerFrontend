@@ -5,7 +5,6 @@ import IconButton from '@material-ui/core/IconButton';
 import { Icon, Button, Divider, Avatar, Badge, Popover } from 'antd';
 import Notification from './Notification';
 
-
 /* App bar using Material-ui 
 * app bar have 3 properties
    ** position - absolute,fixed,relative,static,sticky
@@ -14,10 +13,10 @@ import Notification from './Notification';
    **iconFontColor - you can change Icon Color
 */
 
-const appBar = ({ position, color, backgroundColor, iconFontColor, marginSize, appBarExpandIcon, collapsed }) => {
+const appBar = ({ position, color, backgroundColor, iconFontColor, marginSize, appBarExpandIcon, collapsed,status,drakLightButton }) => {
     return (
         <Fragment >
-            <AppBar position={position ? position : 'static'} color={color ? color : 'primary'} style={{ background: `${backgroundColor}`, marginLeft: marginSize, width: `${marginSize === 80 ? '95%' : '82%'}`, transition: 'width,0.5s', zIndex: 100, boxShadow: 'none' }}>
+            <AppBar position={position ? position : 'static'} color={color ? color : 'primary'} style={{ background: `${status ? 'transparent' : backgroundColor}`, marginLeft: marginSize, width: `${marginSize === 80 ? '95%' : '82%'}`, transition: 'width,0.5s', zIndex: 100}}>
                 <Toolbar >
                     <Button onClick={() => appBarExpandIcon()} type="primary" style={{ background: 'transparent', color: `#${collapsed ? iconFontColor : 'edf0f2'}`, border: 'none', marginLeft: '-2%', boxShadow: 'none', fontSize: 18 }}>
                         <Icon type={collapsed ? 'menu-unfold' : 'menu-fold'} />
@@ -36,10 +35,8 @@ const appBar = ({ position, color, backgroundColor, iconFontColor, marginSize, a
                         </IconButton>
                     </Popover>
                     <Divider type="vertical" style={{ height: '50px' }} />
-                    <IconButton>
-                        <Badge count={5}>
-                            <Avatar size={30} icon="message" style={{ color: `#${iconFontColor ? iconFontColor : '048691'}` }} />
-                        </Badge>
+                    <IconButton onClick={drakLightButton}>
+                            <Avatar size={30} icon="bulb" theme="filled" style={{ color: `#${iconFontColor ? iconFontColor : '048691'}` }} />
                     </IconButton>
                     <Divider type="vertical" style={{ height: '50px' }} />
                     <IconButton>

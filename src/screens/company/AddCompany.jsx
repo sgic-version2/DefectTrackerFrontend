@@ -21,9 +21,6 @@ import {
   }
 
 const SubmitModel = ({ form, open, handleOpen, handleClose, width, title }) => {
-    //use state 
-
-
     return (
         <div>
             <Modal
