@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -11,13 +11,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { Link } from 'react-router-dom'
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center"></Typography>
-  );
-}
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   '@global': {
@@ -46,10 +40,39 @@ const useStyles = makeStyles(theme => ({
 
 export default function SignIn() {
   const classes = useStyles();
+
+  const handleChange = (e) => {
+    setName(e.target.value)
+    console.log(name);
+  }
+
+  const handleChangePass = (e) => {
+    setPassword(e.target.value)
+    console.log(password);
+  }
   const handleSubmit = (event) => {
     event.preventDefault()
-    window.location.href = "/defect/company"
+    console.log("abcdefg",event.target.password.value)
+    if (event.target.password.value === "sgic" && event.target.name.value === "sgic") {
+      window.location.href = "/defect/company"
+    }
+    else alert("something went work");
   }
+  // const userName = 'sgic';
+  // const pass = 'sgic';
+
+  const [name, setName] = useState('');
+  const [password, setPassword] = useState('')
+
+  // this.setState({ submitted: true });
+  // const { name, password, returnUrl } = this.state;
+
+
+  //   if (!(name && password)) {
+  //     return;
+  // }
+
+
   return (
     <Container component="main" maxWidth="xs" >
       <CssBaseline />
@@ -66,11 +89,14 @@ export default function SignIn() {
             margin="normal"
             required
             fullWidth
+            name="name"
             id="username"
             label="UserName"
             type="username"
             autoComplete="username"
             autoFocus
+            onChange={handleChange}
+
           />
           <TextField
             variant="outlined"
@@ -82,6 +108,7 @@ export default function SignIn() {
             type="password"
             id="password"
             autoComplete="current-password"
+            onChange={handleChangePass}
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
@@ -106,8 +133,9 @@ export default function SignIn() {
         </form>
       </div>
       <Box mt={8}>
-        <Copyright />
+        {/* <Copyright /> */}
       </Box>
     </Container>
+
   );
 }
