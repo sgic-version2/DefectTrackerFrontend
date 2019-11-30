@@ -5,12 +5,12 @@ import Form from './form';
 //import './style.css'
 
 
-const AddDefect = ({open,handleOpen,handleClose,changeDataValues}) => {
+const AddDefect = ({open,handleOpen,handleClose}) => {
 
  
 return (
     <div style={{marginBottom:40}}>
-        <SubmitModel open={open}  handleOpen={handleOpen} handleClose={handleClose} form={<Form changeDataValues={changeDataValues}/>}/>
+        <SubmitModel open={open}  handleOpen={handleOpen} handleClose={handleClose} form={<Form />}/>
      
     </div>
 );

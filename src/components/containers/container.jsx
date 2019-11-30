@@ -6,7 +6,7 @@ import Dashboard from '../../screens/Dashboard/Dashboard';
 import CompanyDetails from '../../screens/company/CompanyDetails';
 import ProjectAllocation from '../../screens/project/allocation/ProjectAllocation';
 import { Switch, Route } from 'react-router-dom';
-import AddEmployee from './../../screens/CompanyAdministaration/AddEmployee';
+import CompanyEmployee from './../../screens/CompanyAdministaration/CompanyEmployee';
 import ViewDefect from '../../screens/Defect/viewDefect';
 import AuditTable from '../../screens/Settings/Troubleshoot and Support/Audit Log/Audit_table/Audit_table';
 import PriorityConfig from '../../screens/general_configuration/priority/PriorityConfig';
@@ -70,7 +70,7 @@ export default function Container({ textAlign }) {
             <Route path='/defect/hrAllocation' component={AllocationTable} />
             <Route path='/defect/defectStatus' component={DefectList} />
             <Route path='/defect/defectDashboard' component={Dashboard} />
-            <Route path='/defect/companyAdministration' component={AddEmployee} />
+            <Route path='/defect/companyAdministration' component={CompanyEmployee} />
             <Route path='/defect/companyCompany' component={CompanyDetails} />
             <Route path='/defect/defect' component={ViewDefect} />
             <Route path='/defect/auditLog' component={AuditTable} />

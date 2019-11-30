@@ -1,163 +1,100 @@
-import React, { Component } from 'react'
-import { Segment } from 'semantic-ui-react'
-import { Grid } from '@material-ui/core'
-import AllocationButton from './AddEmployeeButton'
-import BreadCrumbs from '../../components/breadCrumbs/breadCrumbs'
-import Table from '../../components/tables/table'
-import { Button } from 'semantic-ui-react';
-import MoreOutlinedIcon from '@material-ui/icons/MoreOutlined';
-import More from './More'
-import { connect } from "react-redux";
-import { changeDataValues } from './../../fileAction/addCompanyEmployeeAction'
+import React, { Component } from "react";
+import { Modal, Button } from "antd";
+import { Form, Input } from "antd";
+import { Divider } from "@material-ui/core";
 
 
-const mapStateToProps = (state) => ({
-  data: state.addEmployeeData.employeeDetailsFromState
- 
-})
-const mapDispatchToProps = {
-  changeDataValues
+const formItemLayout = {
+  labelCol: { span: 4 },
+  wrapperCol: { span: 8 }
 };
-const columns = [
-   {
-      title: 'ID',
-      dataIndex: 'ID',
-      filters: [
-         {
-            text: 'Sgic1',
-            value: 'Sgic2',
-         },
-         {
-            text: 'Sgic1',
-            value: 'Sgic2',
-         },
-      ],
-      // specify the condition of filtering result
-      // here is that finding the name started with `value`
-      onFilter: (value, record) => record.ID.indexOf(value) === 0,
-      sorter: (a, b) => a.ID.length - b.ID.length,
-      sortDirections: ['descend'],
-   },
-   {
-      title: 'Name',
-      dataIndex: 'Name',
-      defaultSortOrder: 'descend',
-      sorter: (a, b) => a.Name - b.Name,
-   },
-   {
-      title: 'Role',
-      dataIndex: 'Role',
-      defaultSortOrder: 'descend',
-      sorter: (a, b) => a.Role - b.Role,
-   },
-   {
-      title: 'Email',
-      dataIndex: 'Email',
-      defaultSortOrder: 'descend',
-      sorter: (a, b) => a.Email - b.Email,
-   },
 
-   {
-      title: 'Action',
-      dataIndex: 'action',
-      defaultSortOrder: 'descend',
-   },
-   {
-      title: 'More',
-      dataIndex: 'More',
-      // defaultSortOrder: 'descend',
-      // sorter: (a, b) => a.Role - b.Role,
-   },
-];
+class AddEmpolyee extends Component {
+  state = {
+    username: "",
+    firstname: "",
+    middlename: "",
+    lastname: "",
+  };
+  handleOnChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+    console.log(e.target.name);
+  };
+  handleSubmit = e => {
+    // e.preventDefault();
+    this.props.changeDataValues(this.state);
+    // this.setState({ formOpen: !this.state.formOpen });
+    console.log(e)
+    e();
 
-class AddEmployee extends Component {
-   state = {
-      value: false,
-   };
+  };
+  render() {
+    const {  open, handleOpen, handleClose, width, title } = this.props;
 
-   handleOpen = () => {
-      this.setState({
-         value: true
-      })
-   };
-   handleClose = () => {
-      this.setState({
-         value: false
-      })
-
-
-
-   };
-
-   render() {
-      const data = [
-         {
-            ID: '1',
-            Name: 'John Brown',
-            Role: 32,
-            Email: 'New York No. 1 Lake Park',
-
-            action: <Button.Group>
-               <Button secondary onClick={this.handleOpen}>Edit</Button>
-               <Button.Or />
-               <Button negative>Delete</Button>
-            </Button.Group>,
-            More: <MoreOutlinedIcon onClick={this.handleOpen} />
-         },
-         {
-            ID: '1',
-            Name: 'John Brown',
-            Role: 32,
-            Email: 'New York No. 1 Lake Park',
-
-            action: <Button.Group>
-               <Button secondary>Edit</Button>
-               <Button.Or />
-               <Button negative>Delete</Button>
-            </Button.Group>,
-            More: <MoreOutlinedIcon onClick={this.handleOpen} />
-         },
-         {
-            ID: '1',
-            Name: 'John Brown',
-            Role: 32,
-            Email: 'New York No. 1 Lake Park',
-
-            action: <Button.Group>
-               <Button secondary>Edit</Button>
-               <Button.Or />
-               <Button negative>Delete</Button>
-            </Button.Group>,
-            More: <MoreOutlinedIcon onClick={this.handleOpen} />
-         },
-         {
-            ID: '1',
-            Name: 'John Brown',
-            Role: 32,
-            Email: 'New York No. 1 Lake Park',
-
-            action: <Button.Group>
-               <Button secondary>Edit</Button>
-               <Button.Or />
-               <Button negative>Delete</Button>
-            </Button.Group>,
-            More: <MoreOutlinedIcon onClick={this.handleOpen} />
-         },
-      ];
-      return (
-         <div>
-            <Grid direction="row" container>
-               <Grid item xs={11} style={{ marginTop: '2%' }}>
-                  <Segment>
-                     <BreadCrumbs />
-                     <AllocationButton changeDataValues={this.props.changeDataValues}  />
-                     <Table column={columns} data={data} />
-                     <More open={this.state.value} handleOpen={this.handleOpen} handleClose={this.handleClose} />
-                  </Segment>
-               </Grid>
-            </Grid>
-         </div>
-      )
-   }
+    return (
+      <div>
+        
+          <Modal
+            width={`${width ? width : "50"}%`}
+            visible={open}
+            title={title}
+            onOk={handleOpen}
+            onCancel={handleClose}
+            footer={[
+              <Button key="back" onClick={handleClose}>
+                Return
+              </Button>,
+              <Button key="submit" type="primary" onClick={()=>this.handleSubmit(handleClose)}>
+                Submit
+              </Button>
+            ]}
+          >
+            <Form>
+              <p>Add Employee </p>
+              <Divider></Divider>
+              <Form.Item {...formItemLayout} label="UserName">
+                <Input
+                  value={this.state.username}
+                  name="username"
+                  placeholder="Please input your username "
+                  onChange={this.handleOnChange}
+                />
+              </Form.Item>
+              <Form.Item {...formItemLayout} label="FirstName">
+                <Input
+                  value={this.state.firstname}
+                  name="firstname"
+                  placeholder="Please input firstname "
+                  onChange={this.handleOnChange}
+                />
+              </Form.Item>
+              <Form.Item {...formItemLayout} label="MiddleName">
+                <Input
+                  value={this.state.middlename}
+                  name="middlename"
+                  placeholder="Please input middlename"
+                  onChange={this.handleOnChange}
+                />
+              </Form.Item>
+              <Form.Item {...formItemLayout} label="LastName">
+                <Input
+                  value={this.state.lastname}
+                  name="lastname"
+                  placeholder="Please input your lastname"
+                  onChange={this.handleOnChange}
+                />
+              </Form.Item>
+              {/* <button type="submit" onClick={handleClose}>
+                submit
+              </button> */}
+            </Form>
+          </Modal>
+        
+      </div>
+    );
+  }
 }
-export default  AddEmployee
+
+export default AddEmpolyee;
