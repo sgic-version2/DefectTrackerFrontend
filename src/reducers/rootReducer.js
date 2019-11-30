@@ -17,18 +17,14 @@ import { hrAllocationReducer } from "../fileReducer/hrAllocationReducer";
 import { companyReducer } from "./../fileReducer/companyReducer";
 import { defectTypeReducer } from "./../fileReducer/defectTypeReducer";
 import { projectDetailsReducer } from "./../fileReducer/projectDeatilsReducer";
-<<<<<<< HEAD
-import { severityConfigReducer } from "./../fileReducer/severityConfigReducer";
 import { addCompanyEmployeeReducer } from "../fileReducer/addCompanyEmployeeReducer";
 import { auditReducer } from "../fileReducer/auditReducer";
 import { addDefectReducer } from "../fileReducer/addDefectReducer";
 
-=======
 import { severityConfigReducer } from './../fileReducer/severityConfigReducer';
-import { modelReducer } from './../fileReducer/modelReducer';
-import { projectReducer } from './../fileReducer/projectReducer';
 import { editCompanyReducer } from './../fileReducer/editCompanyReducer';
->>>>>>> jeyaamuthan
+
+
 const rootReducer = combineReducers({
   expandSideBarStatus: expandSideBarReducer,
   addEmployeeData: addEmployeeReducer,
@@ -44,11 +40,7 @@ const rootReducer = combineReducers({
   companyData: companyReducer,
   defectTypeData: defectTypeReducer,
   projectDetailsData: projectDetailsReducer,
-<<<<<<< HEAD
-  expandSideBarStatus: expandSideBarReducer,
-=======
   editCompanyData:editCompanyReducer,
->>>>>>> jeyaamuthan
   severityConfigData: severityConfigReducer,
   addCompanyEmployeeData: addCompanyEmployeeReducer,
   exportAudit: auditReducer,
