@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { Modal, Button } from "antd";
-import { Icon, Form, Input, Radio, DatePicker } from "antd";
+import { Form, Input, DatePicker } from "antd";
 import { InputNumber } from "antd";
 import moment from "moment";
 import { Row, Col } from "antd";
 const dateFormatList = ["DD/MM/YYYY", "DD/MM/YY"];
 
-const { TextArea } = Input;
+
 //dropdown for Lisence period s Function
 function onChange(value) {
   console.log("changed", value);
@@ -57,13 +57,13 @@ class AddProject extends Component {
   render() {
     console.log("hi" + this.state);
     const {
-      form,
+   
       open,
       handleOpen,
       handleClose,
       width,
       title,
-      changeDataValues
+      
     } = this.props;
     return (
       <div>
