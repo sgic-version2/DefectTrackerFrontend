@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/DefectTrackerFrontend/static/css/main.7106453d.chunk.css",
+    "main.js": "/DefectTrackerFrontend/static/js/main.b956d4b2.chunk.js",
+    "main.js.map": "/DefectTrackerFrontend/static/js/main.b956d4b2.chunk.js.map",
+    "runtime-main.js": "/DefectTrackerFrontend/static/js/runtime-main.b41930b3.js",
+    "runtime-main.js.map": "/DefectTrackerFrontend/static/js/runtime-main.b41930b3.js.map",
+    "static/css/2.2b857762.chunk.css": "/DefectTrackerFrontend/static/css/2.2b857762.chunk.css",
+    "static/js/2.7a69f907.chunk.js": "/DefectTrackerFrontend/static/js/2.7a69f907.chunk.js",
+    "static/js/2.7a69f907.chunk.js.map": "/DefectTrackerFrontend/static/js/2.7a69f907.chunk.js.map",
+    "index.html": "/DefectTrackerFrontend/index.html",
+    "precache-manifest.cf18ed9261f16f008f8c2f2ddd10420a.js": "/DefectTrackerFrontend/precache-manifest.cf18ed9261f16f008f8c2f2ddd10420a.js",
+    "service-worker.js": "/DefectTrackerFrontend/service-worker.js",
+    "static/css/2.2b857762.chunk.css.map": "/DefectTrackerFrontend/static/css/2.2b857762.chunk.css.map",
+    "static/css/main.7106453d.chunk.css.map": "/DefectTrackerFrontend/static/css/main.7106453d.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b41930b3.js",
+    "static/css/2.2b857762.chunk.css",
+    "static/js/2.7a69f907.chunk.js",
+    "static/css/main.7106453d.chunk.css",
+    "static/js/main.b956d4b2.chunk.js"
+  ]
+}
