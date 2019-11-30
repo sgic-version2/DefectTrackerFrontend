@@ -4,9 +4,7 @@ import { addEmployeeReducer } from '../fileReducer/addEmployeeReducer';
 import { modelReducer } from '../fileReducer/modelReducer';
 import { projectReducer } from '../fileReducer/projectReducer';
 import { moduleReducer } from '../fileReducer/moduleReducer';
-
 import { priorityConfigReducer } from './../fileReducer/priorityConfigReducer';
-
 import {
   showOnDashboardReducer,
   faviconReducer,
