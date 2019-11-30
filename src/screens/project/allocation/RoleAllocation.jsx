@@ -34,6 +34,9 @@ export default class RoleAllocation extends Component {
     this.handleOpen()
   }
   componentDidMount() {
+    this.dataCollection()
+  }
+  dataCollection=()=>{
     var indexOfValues;
     this.props.employeeData.map((data, index) => {
       switch (data.employeeDesignation) {
@@ -73,6 +76,11 @@ export default class RoleAllocation extends Component {
         })
       )
     })
+    
+  }
+  functionRefresh=()=>{
+      this.dataCollection()
+      console.log('jdbfg')
   }
   render() {
     // Customize Table Transfer
@@ -180,7 +188,7 @@ export default class RoleAllocation extends Component {
           leftColumns={leftTableColumns}
           rightColumns={rightTableColumns}
         />
-        <Model open={open} handleOpen={this.handleOpen} handleClose={this.handleClose} width={30} form={<EditRole data={this.props.allocationData} />} title='Edit Role' />
+        <Model open={open} handleOpen={this.handleOpen} handleClose={this.handleClose} width={30} form={<EditRole data={this.props.allocationData} editRole={this.props.editRole} functionRefresh={this.functionRefresh}/>}  title='Edit Role' />
       </div>
     );
   }

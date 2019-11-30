@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Grid } from '@material-ui/core'
 
-const EditRole = ({ data }) => {
+const EditRole = ({ data ,editRole,functionRefresh}) => {
     const useStyle = {
         forntStyle: {
             fontWeight: 900
@@ -12,17 +12,23 @@ const EditRole = ({ data }) => {
         }
     }
     const [role, setRole] = useState({
-        role: ''
+        role: '',
+        employeeID:'',
+        employeeName:'',
+
     })
     const handleChange = (e) => {
         setRole({
-            role: e.target.value
+            role: e.target.value,
+            employeeID:document.getElementById('employeeID').value,
+            employeeName:document.getElementById('employeeName').value
         })
         console.log(role)
     }
     const handleSubmit = (e) => {
         e.preventDefault()
-
+        editRole(role)
+        functionRefresh()
     }
     return (
         <div>
@@ -34,13 +40,13 @@ const EditRole = ({ data }) => {
                                 <span style={useStyle.forntStyle}>Employee ID :</span>
                             </Grid>
                             <Grid item xs={6} style={useStyle.root}>
-                                <input type="text" value={data.employeeID} disabled="false" />
+                                <input type="text" value={data.employeeID} readonly="readonly" name="employeeID" id="employeeID"/>
                             </Grid>
                             <Grid item xs={6} style={useStyle.root}>
                                 <span style={useStyle.forntStyle}>Name :</span>
                             </Grid>
                             <Grid item xs={6} style={useStyle.root}>
-                                <input type="text" value={data.employeeName} disabled="false" />
+                                <input type="text" value={data.employeeName} readonly="readonly" id="employeeName"/>
                             </Grid>
                             <Grid item xs={6} style={useStyle.root}>
                                 <span style={useStyle.forntStyle}>Designation :</span>
@@ -65,7 +71,7 @@ const EditRole = ({ data }) => {
                                 </select>
                             </Grid>
                             <Grid item xs={12} style={useStyle.root}  >
-                                <button type="submit" >Save Data</button>
+                                <button type="submit"  >Save Data</button>
                             </Grid>
                         </Grid>
                     </form>

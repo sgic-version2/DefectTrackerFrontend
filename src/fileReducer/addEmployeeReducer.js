@@ -32,7 +32,7 @@ export const addEmployeeReducer = (state = InitialState, action) => {
             }
         case EDITROLE:
             return {
-                employeeDetailsFromState: [...state.employeeDetailsFromState.filter(data => data.employeeID !== action.payload.employeeID), action.payload]
+                employeeDetailsFromState: [...state.employeeDetailsFromState.filter(data => data.employeeID !== action.payload.employeeID),action.payload]
             }
         default:
             return state
