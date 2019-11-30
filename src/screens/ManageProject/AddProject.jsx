@@ -32,9 +32,8 @@ class AddProject extends Component {
     // e.preventDefault();
     this.props.changeDataValues(this.state);
     // this.setState({ formOpen: !this.state.formOpen });
-    console.log(e)
+    console.log(e);
     e();
-
   };
 
   // handleOnChange = e => {
@@ -56,7 +55,7 @@ class AddProject extends Component {
     });
   };
   render() {
-    console.log("hi"+this.state);
+    console.log("hi" + this.state);
     const {
       form,
       open,
@@ -78,12 +77,16 @@ class AddProject extends Component {
             <Button key="back" onClick={handleClose}>
               Return
             </Button>,
-             <Button key="submit" type="primary" onClick={()=>this.handleSubmit(handleClose)}>
-             Submit
-           </Button>
+            <Button
+              key="submit"
+              type="primary"
+              onClick={() => this.handleSubmit(handleClose)}
+            >
+              Submit
+            </Button>
           ]}
         >
-          <Form layout="vertical" >
+          <Form layout="vertical">
             <Row>
               <Col span={12} style={{ padding: "5px" }}>
                 <Form.Item label="Project Name">
@@ -125,16 +128,16 @@ class AddProject extends Component {
                 </Form.Item>
               </Col>
               <Col span={12} style={{ padding: "5px" }}>
-              <Form.Item label="Project Status">
-                <Input
-                  value={this.state.status}
-                  name="status"
-                  placeholder="status...."
-                  onChange={this.handleOnChange}
-                  style={{marginTop:'0px'}}
-                />
-              </Form.Item>
-            </Col>
+                <Form.Item label="Project Status">
+                  <Input
+                    value={this.state.status}
+                    name="status"
+                    placeholder="status...."
+                    onChange={this.handleOnChange}
+                    style={{ marginTop: "0px" }}
+                  />
+                </Form.Item>
+              </Col>
             </Row>
             <Row>
               <Col span={12} style={{ padding: "5px" }}>
@@ -162,9 +165,7 @@ class AddProject extends Component {
                   />
                 </Form.Item>
               </Col>
-            
             </Row>
-          
 
             {/* <button type="submit" onClick={handleClose}>
               submit

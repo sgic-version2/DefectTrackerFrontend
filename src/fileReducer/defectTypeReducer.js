@@ -1,16 +1,38 @@
-import * as actionType from '../constant/defectTypeConstant'
+import * as actionType from "../constant/defectTypeConstant";
 
 const InitialState = {
-    defectTypeDetailsFromState: []
-}
+  defectTypeDetailsFromState: [],
+  defectTypeUpdateDetails: [
+    {
+      typeId: "1",
+      name: "",
+      defectValue: "",
+      description: ""
+    }
+  ]
+};
 
 export const defectTypeReducer = (state = InitialState, action) => {
-    switch (action.type) {
-        case actionType.CREATENEWDEFECTTYPE:
-            return {
-                defectTypeDetailsFromState: [...state.defectTypeDetailsFromState, action.payload]
-            }
-        default:
-            return state
-    }
-}
+  switch (action.type) {
+    case actionType.CREATENEWDEFECTTYPE:
+      return {
+        defectTypeDetailsFromState: [
+          ...state.defectTypeDetailsFromState,
+          action.payload
+        ]
+      };
+
+    // case actionType.UPDATE_DEFECT_TYPE:
+    //   return {
+    //     defectTypeUpdateDetails: [
+    //       ...defectTypeUpdateDetails.filter(
+    //         updateInfo => updateInfo.typeId !== action.payload.typeId
+    //       ),
+    //       action.payload
+    //     ]
+    //   };
+
+    default:
+      return state;
+  }
+};

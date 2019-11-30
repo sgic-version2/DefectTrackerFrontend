@@ -20,7 +20,7 @@ import ManageProject from '../../screens/ManageProject/ProjectDetails';
 import Severity from '../../screens/general_configuration/severity/SeverityConfig';
 import ProfileSetting from '../../screens/profile/profile';
 import DefectRolesFlow from '../../screens/WorkFlow/DefectRoles/DefectRolesFlow';
-import DeveloperDashboard from './../../screens/dashboards/developerDashboard';
+// import Developer from './../../screens/dashboards/developerDashboard';
 import LookAndFeel from '../../screens/Settings/settings';
 import QADashboard from '../../screens/dashboards/QADashboard/chart';
 import Module from '../../screens/Module/ModuleList';
@@ -99,7 +99,7 @@ export default function Container({ textAlign }) {
             <Route path='/defect/severity' component={Severity} />
             <Route path='/defect/profileSetting' component={ProfileSetting} />
             <Route path='/defect/defectRolesFlow' component={DefectRolesFlow} />
-            <Route path='/defect/developer' component={DeveloperDashboard} />
+            {/* <Route path='/defect/developer' component={DeveloperDashboard} /> */}
             <Route path='/defect/lookandfeel' component={LookAndFeel} />
             <Route path='/defect/qa' component={QADashboard} />
             <Route path='/defect/module' component={Module} />

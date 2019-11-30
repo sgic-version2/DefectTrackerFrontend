@@ -25,7 +25,7 @@ const mapDispatchToProps = {
 };
 class Profile extends Component {
   render() {
-    //  console.log('propsss', this.props.profileDetailsImage.fileUpload);
+      console.log('propsss', this.props.profileDetailsImage);
 
     const {
       imageUploadChangeControl,

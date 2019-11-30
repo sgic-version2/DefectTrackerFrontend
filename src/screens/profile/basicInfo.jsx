@@ -9,11 +9,11 @@ import "./profile.css";
 export default class basicInfo extends Component {
   state = {
     id: 1,
-    username: "",
-    firstName: "",
-    lastName: "",
-    mail: "",
-    webSite: ""
+    username: "jrstark@24",
+    firstName: "Tony",
+    lastName: "Stark",
+    mail: "tony@93@gmail.com",
+    webSite: "gmail"
   };
 
   handleChange = e => {
