@@ -27,43 +27,42 @@ class EditCompany extends Component {
     license_start_date: "",
     license_end_date: ""
   };
-  
-  handleOnChange=(e)=>{
+
+  handleOnChange = e => {
     this.setState({
       [e.target.name]: e.target.value
-  })
-  console.log(e.target.name)
-  }
-  handleSubmit = e => {
-    // e.preventDefault();
-    this.props.companyDetailsChangeControl(this.state);
+    });
+        this.setState({
+          abbreviation: document.getElementById("abbreviation").value
+        });
+  };
+  handleSubmit = event => {
+   // event.preventDefault();
     // this.setState({ formOpen: !this.state.formOpen });
-    console.log(e)
-    e();
+    //
+    
+    if (!this.state.abbreviation) {
+    } else {
+      this.props.companyDetailsChangeControl(this.state);
+    }
+    event()
+console.log(this.state)
+     
 
   };
- 
-datePick =(date, dateString, e)=>{
-  // e.preventDefault()
-  console.log( "hfh" ,dateString);
-    this.setState({ license_start_date:dateString  ,license_end_date:dateString  });
 
-}
+  datePick = (date, dateString, e) => {
+    // e.preventDefault()
+    console.log("hfh", dateString);
+    this.setState({
+      license_start_date: dateString,
+      license_end_date: dateString
+    });
+  };
   render() {
-    console.log(this.state);
-    const {
-     
-      open,
-      handleOpen,
-      handleClose,
-      width,
-      title,
-   
-    } = this.props;
+    const { open, handleOpen, handleClose, width, title } = this.props;
     return (
       <div>
-         {this.props.map((data, key) => {
-                return (
         <Modal
           width={`${width ? width : "50"}%`}
           visible={open}
@@ -74,121 +73,169 @@ datePick =(date, dateString, e)=>{
             <Button key="back" onClick={handleClose}>
               Return
             </Button>,
-             <Button key="submit" type="primary" onClick={()=>this.handleSubmit(handleClose)}>
-             Submit
-           </Button>
+            <Button
+              key="submit"
+              type="primary"
+             onClick={()=>this.handleSubmit(handleClose)}
+              // onClick={handleClose}
+            >
+              Submit
+            </Button>
           ]}
         >
-          <Form layout="vertical" >
-            <Row>
-              <Col span={12} style={{ padding: "5px" }}>
-                <Form.Item label="Company Name">
+          {this.props.data1.map((data, key) => {
+            return (
+              <Form layout="vertical" 
+              // onSubmit={this.handleSubmit}
+              >
+                <Row>
+                  <Col span={12} style={{ padding: "5px" }}>
+                    <Form.Item label="Company Name">
+                      <Input
+                        value={
+                          this.state.companyName !== ""
+                            ? this.state.companyName
+                            : data.companyName
+                        }
+                        name="companyName"
+                        placeholder="eg: Samuel Gnanam IT Centre"
+                        onChange={this.handleOnChange}
+                      />
+                    </Form.Item>{" "}
+                  </Col>
+
+                  <Col span={12} style={{ padding: "5px" }}>
+                    <Form.Item label="Abbreviation">
+                      <Input
+                        value={
+                          this.state.abbreviation !== ""
+                            ? this.state.abbreviation
+                            : data.abbreviation
+                        }
+                        name="abbreviation"
+                        placeholder="eg: SGIC"
+                        onChange={this.handleOnChange}
+                        id="abbreviation"
+                      />
+                    </Form.Item>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col span={12} style={{ padding: "5px" }}>
+                    <Form.Item label="Reg NO">
+                      <Input
+                        value={
+                          this.state.status ? this.state.reg_no : data.reg_no
+                        }
+                        name="reg_no"
+                        placeholder="Registration Number"
+                        onChange={this.handleOnChange}
+                      />
+                    </Form.Item>
+                  </Col>
+
+                  <Col span={12} style={{ padding: "5px" }}>
+                    <Form.Item label="Admin Name">
+                      <Input
+                        value={
+                          this.state.status
+                            ? this.state.admin_name
+                            : data.admin_name
+                        }
+                        name="admin_name"
+                        placeholder="IT Administrator"
+                        onChange={this.handleOnChange}
+                      />
+                    </Form.Item>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col span={9} style={{ padding: "5px" }}>
+                    <Form.Item label="License Period">
+                      <InputNumber
+                        // value={this.state.license_period}
+                        //  name="license_period"
+                        // min={1}
+                        // max={10}
+                        // defaultValue={3}
+                        onChange={onChange}
+                        placeholder="In Years"
+                        // onChange={this.handleOnChange}
+                        style={{ width: "100%" }}
+                      />{" "}
+                    </Form.Item>
+                  </Col>
+
+                  <Col span={15} style={{ padding: "5px" }}>
+                    <Form.Item
+                      label="Lisence Type"
+                      className="collection-create-form_last-form-item"
+                      onChange={this.handleOnChange}
+                    >
+                      <Radio.Group>
+                        <Radio value="basic">Basic</Radio>
+                        <Radio value="medium">Medium</Radio>
+                        <Radio value="advanced">Advanced</Radio>
+                        <Radio value="customized">Customized</Radio>
+                      </Radio.Group>
+                    </Form.Item>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col span={12} style={{ padding: "5px" }}>
+                    <Form.Item label="Start Date">
+                      <DatePicker
+                        defaultValue={moment("01/01/2015", dateFormatList[0])}
+                        format={dateFormatList}
+                        style={{ width: "100%" }}
+                        name="license_start_date"
+                        // value={this.state.license_start_date}
+                        onChange={this.datePick}
+                      />
+                    </Form.Item>
+                  </Col>
+
+                  <Col span={12} style={{ padding: "5px" }}>
+                    <Form.Item label="End Date">
+                      <DatePicker
+                        defaultValue={moment("01/01/2016", dateFormatList[0])}
+                        format={dateFormatList}
+                        style={{ width: "100%" }}
+                        name="license_end_date"
+                        // value={this.state.license_end_date}
+                        onChange={this.datePick}
+                      />
+                    </Form.Item>
+                  </Col>
+                </Row>
+
+                <Form.Item label="E-mail">
                   <Input
-                   value={this.state.companyName} name="companyName"
-                    placeholder="eg: Samuel Gnanam IT Centre" onChange={this.handleOnChange}
-                  />
-                </Form.Item>{" "}
-              </Col>
-
-              <Col span={12} style={{ padding: "5px" }}>
-                <Form.Item label="Abbreviation">
-                  <Input value={this.state.abbreviation} name="abbreviation" placeholder="eg: SGIC" onChange={this.handleOnChange}/>
-                </Form.Item>
-              </Col>
-            </Row>
-            <Row>
-              <Col span={12} style={{ padding: "5px" }}>
-                <Form.Item label="Reg NO">
-                  <Input  value={this.state.reg_no} name="reg_no"  placeholder="Registration Number" onChange={this.handleOnChange}/>
-                </Form.Item>
-              </Col>
-
-              <Col span={12} style={{ padding: "5px" }}>
-                <Form.Item label="Admin Name">
-                  <Input value={this.state.admin_name} name="admin_name" placeholder="IT Administrator" onChange={this.handleOnChange} />
-                </Form.Item>
-              </Col>
-            </Row>
-            <Row>
-              <Col span={9} style={{ padding: "5px" }}>
-                <Form.Item label="License Period">
-                  <InputNumber
-                  // value={this.state.license_period}
-                  //  name="license_period"
-                    // min={1}
-                    // max={10}
-                    // defaultValue={3}
-                    onChange={onChange}
-                    placeholder="In Years"
-                    // onChange={this.handleOnChange}
-                    style={{ width: "100%" }}
-                  />{" "}
-                </Form.Item>
-              </Col>
-
-              <Col span={15} style={{ padding: "5px" }}>
-                <Form.Item
-                  label="Lisence Type"
-                  className="collection-create-form_last-form-item"
-                  onChange={this.handleOnChange}
-                >
-                  <Radio.Group>
-                    <Radio value="basic">Basic</Radio>
-                    <Radio value="medium">Medium</Radio>
-                    <Radio value="advanced">Advanced</Radio>
-                    <Radio value="customized">Customized</Radio>
-                  </Radio.Group>
-                </Form.Item>
-              </Col>
-            </Row>
-            <Row>
-              <Col span={12} style={{ padding: "5px" }}>
-                <Form.Item label="Start Date">
-                  <DatePicker
-                    defaultValue={moment("01/01/2015", dateFormatList[0])}
-                    format={dateFormatList}
-                    style={{ width: "100%" }}
-                    name="license_start_date"
-                    // value={this.state.license_start_date}
-                    onChange={this.datePick}
+                    prefix={
+                      <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
+                    }
+                    placeholder="samuelgnanamitcentre@gmail.com"
+                    style={{ width: "50%" }}
+                    value={this.state.admin_email}
+                    name="admin_email"
+                    onChange={this.handleOnChange}
                   />
                 </Form.Item>
-              </Col>
-
-              <Col span={12} style={{ padding: "5px" }}>
-                <Form.Item label="End Date">
-                  <DatePicker
-                    defaultValue={moment("01/01/2016", dateFormatList[0])}
-                    format={dateFormatList}
-                    style={{ width: "100%" }}
-                    name="license_end_date"
-                    // value={this.state.license_end_date}
-                    onChange={this.datePick}
-
+                <Form.Item label="Description">
+                  <TextArea
+                    value={this.state.company_description}
+                    name="company_description"
+                    rows={3}
+                    placeholder="company description"
+                    onChange={this.handleOnChange}
                   />
                 </Form.Item>
-              </Col>
-            </Row>
-
-            <Form.Item label="E-mail">
-              <Input
-                prefix={
-                  <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
-                }
-                placeholder="samuelgnanamitcentre@gmail.com"
-                style={{ width: "50%" }}
-                value={this.state.admin_email}
-                name="admin_email"
-                onChange={this.handleOnChange}
-              />
-            </Form.Item>
-            <Form.Item label="Description">
-              <TextArea value={this.state.company_description}
-                name="company_description" rows={3} placeholder="company description" onChange={this.handleOnChange}/>
-            </Form.Item>
-            
-          </Form>
-        </Modal>)})};
+                {/* <button type="submit" >submit</button> */}
+              </Form>
+            );
+          })}
+          ;
+        </Modal>
       </div>
     );
   }

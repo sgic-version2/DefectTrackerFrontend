@@ -2,7 +2,8 @@ import * as actionType from "../constant/companyConstant";
 
 const InitialState = {
   companyDetailsFromState: [
-    {companyID: "1",
+    {
+      companyID: "1",
       reg_no: "SGIC-001",
       companyName: "John Keels",
       abbreviation: "JK",
@@ -21,6 +22,7 @@ export const companyReducer = (state = InitialState, action) => {
           action.payload
         ]
       };
+
     case actionType.COMPANYDETAILSUPDATE:
       return {
         companyDetailsFromState: [

@@ -6,6 +6,7 @@ export const changeDataValues = (data) => {
         payload: data
     }
 }
+
 export const companyDetailsChangeControl = data => {
     return {
       type:actionTypes.COMPANYDETAILSUPDATE,
