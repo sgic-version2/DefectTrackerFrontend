@@ -8,10 +8,25 @@ import { ChromePicker } from 'react-color' //color picker
 
 class Form extends React.Component {
   state = {
+    severityId:'',
+    severityName: '',
+    severityDiscription:'',
+    SeverityColor:'',
+   // SeverityIcon:'',
     displayColorPicker: false,
      
   };
+  handleChange = (e) => {
+    this.setState({
+        [e.target.name]: e.target.value
+    })
+}
+handleSubmit = (e) => {
+    e.preventDefault()
+    this.props.changeDataValues(this.state)
+}
 
+  
   handleColor = (e) => {
     this.setState({ selectedColor: e.hex });
     console.log(e.hex)
@@ -27,16 +42,19 @@ class Form extends React.Component {
 
   render() {
 
+    console.log("hh"+this.state)
+
     const { selectedColor, displayColorPicker } = this.state;
 
     return (
       <div>
+        <form onSubmit={this.handleSubmit}>
         <div >
           <label>Name:</label>
-          <input type="text" id="" className="" placeholder="Name"></input>
+          <input type="text" id="" className="" name="severityName" value={this.state.severityName} placeholder="Name" onChange={this.handleChange}></input>
           <br />
           <label>Description:</label>
-          <input type="text" id="" className="" placeholder="Description"></input>
+          <input type="text" id="" className=""  name="severityDiscription" value={this.state.severityDiscription}placeholder="Description"onChange={this.handleChange}></input>
           <br />
           <label>Icon:</label>
           <br />
@@ -59,6 +77,9 @@ class Form extends React.Component {
             {displayColorPicker && <ChromePicker onChange={this.handleColor} />}
           </div>
         </div>
+        <br></br>
+        <button type="submit" onClick={this.handleClose}>submit</button>
+        </form>
       </div>
     )
   }

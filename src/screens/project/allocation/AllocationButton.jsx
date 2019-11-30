@@ -5,45 +5,51 @@ import RoleAllocation from './RoleAllocation';
 import Deallocation from '../deallocation/Deallocation';
 import ModuleAllocation from '../allocation/moduleAllocation/ModuleAllocate';
 
-const AllocationButton = ({ roleAllocation, deAllocation }) => {
+const AllocationButton = ({
+  roleAllocation,
+  deAllocation,
+  moduleAllocation,
+  employeeData,
+  allocationData
+}) => {
   const [modelopen, setOpen] = useState({
     moduleAllocation: false,
     deallocation: false,
     roleAllocation: false
-  })
+  });
 
   const modulehandleOpen = () => {
     setOpen({
       moduleAllocation: true
-    })
+    });
   };
 
   const modulehandleClose = () => {
     setOpen({
       moduleAllocation: false
-    })
+    });
   };
   const handleOpenDeallocation = () => {
     setOpen({
       deallocation: true
-    })
+    });
   };
 
   const handleCloseDeallocation = () => {
     setOpen({
       deallocation: false
-    })
+    });
   };
   const handleOpenRole = () => {
     setOpen({
       roleAllocation: true
-    })
+    });
   };
 
   const handleCloseRole = () => {
     setOpen({
       roleAllocation: false
-    })
+    });
   };
 
   return (
@@ -62,7 +68,12 @@ const AllocationButton = ({ roleAllocation, deAllocation }) => {
         handleOpen={modulehandleOpen}
         handleClose={modulehandleClose}
         width={90}
-        form={<ModuleAllocation />}
+        form={
+          <ModuleAllocation
+            employeeData={employeeData}
+            moduleAllocation={moduleAllocation}
+          />
+        }
         title='Module Allocation'
       />
       <Model
@@ -70,7 +81,14 @@ const AllocationButton = ({ roleAllocation, deAllocation }) => {
         handleOpen={handleOpenRole}
         handleClose={handleCloseRole}
         width={90}
-        form={<RoleAllocation roleAllocation={roleAllocation} deAllocation={deAllocation} />}
+        form={
+          <RoleAllocation
+            roleAllocation={roleAllocation}
+            deAllocation={deAllocation}
+            employeeData={employeeData}
+            allocationData={allocationData}
+          />
+        }
         title='Role Allocation'
       />
       <Model

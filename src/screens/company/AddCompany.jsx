@@ -34,10 +34,14 @@ class AddCompany extends Component {
   })
   console.log(e.target.name)
   }
-  handleSubmit = (e) => {
-    e.preventDefault()
-    this.props.changeDataValues(this.state)
-}
+  handleSubmit = e => {
+    // e.preventDefault();
+    this.props.changeDataValues(this.state);
+    // this.setState({ formOpen: !this.state.formOpen });
+    console.log(e)
+    e();
+
+  };
 datePick =(date, dateString, e)=>{
   // e.preventDefault()
   console.log( "hfh" ,dateString);
@@ -67,12 +71,12 @@ datePick =(date, dateString, e)=>{
             <Button key="back" onClick={handleClose}>
               Return
             </Button>,
-            <button  type="submit" onClick={handleClose}>
-              Submit
-            </button>
+             <Button key="submit" type="primary" onClick={()=>this.handleSubmit(handleClose)}>
+             Submit
+           </Button>
           ]}
         >
-          <Form layout="vertical" onSubmit={this.handleSubmit} >
+          <Form layout="vertical" >
             <Row>
               <Col span={12} style={{ padding: "5px" }}>
                 <Form.Item label="Company Name">
@@ -179,7 +183,7 @@ datePick =(date, dateString, e)=>{
               <TextArea value={this.state.company_description}
                 name="company_description" rows={3} placeholder="company description" onChange={this.handleOnChange}/>
             </Form.Item>
-            <button type="submit" onClick={handleClose}>submit</button>
+            
           </Form>
         </Modal>
       </div>

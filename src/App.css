@@ -1,25 +1,34 @@
-#Container{
+#Container {
   margin-top: 54px;
 }
-.ant-table-thead > tr > th .ant-table-header-column .ant-table-column-sorters::before{
+.ant-table-thead
+  > tr
+  > th
+  .ant-table-header-column
+  .ant-table-column-sorters::before {
   background: #1e1e1f !important;
-  box-shadow: 0px 1px 2px 0px rgba(34,36,38,.15) !important;
+  box-shadow: 0px 1px 2px 0px rgba(34, 36, 38, 0.15) !important;
   border-bottom: #fff 1px solid !important;
   border-right: #fff 1px solid !important;
 }
-.ant-table-thead > tr:first-child > th{
-  background:#1e1e1f !important;
-  box-shadow: 0px 1px 2px 0px rgba(34,36,38,.15) !important;
+.ant-table-thead > tr:first-child > th {
+  background: #1e1e1f !important;
+  box-shadow: 0px 1px 2px 0px rgba(34, 36, 38, 0.15) !important;
   color: #fff !important;
   border-bottom: #fff 1px solid !important;
   text-align: center !important;
   border-right: #fff 1px solid !important;
   padding: 5px !important;
 }
-.ant-table-thead > tr > th .ant-table-header-column .ant-table-column-sorters > *:not(.ant-table-column-sorter) {
-  color:#fff !important;
+.ant-table-thead
+  > tr
+  > th
+  .ant-table-header-column
+  .ant-table-column-sorters
+  > *:not(.ant-table-column-sorter) {
+  color: #fff !important;
 }
-.ant-table-tbody > tr > td{
+.ant-table-tbody > tr > td {
   text-align: center !important;
 }
 /* body{
@@ -30,41 +39,172 @@
   background-size: cover;
 } */
 
-.ant-menu-vertical .ant-menu-submenu-selected, .ant-menu-vertical-left .ant-menu-submenu-selected, .ant-menu-vertical-right .ant-menu-submenu-selected {
-  background-image: linear-gradient(to right top, #f5fbff, #eef5fa, #e8eff5, #e1eaf0, #dbe4eb) !important;
+.ant-menu-vertical .ant-menu-submenu-selected,
+.ant-menu-vertical-left .ant-menu-submenu-selected,
+.ant-menu-vertical-right .ant-menu-submenu-selected {
+  background-image: linear-gradient(
+    to right top,
+    #f5fbff,
+    #eef5fa,
+    #e8eff5,
+    #e1eaf0,
+    #dbe4eb
+  ) !important;
   border-right: 2px solid #093028;
   border-top-right-radius: 40px;
   border-bottom-right-radius: 40px;
 }
-.ant-menu-item-selected{
-  background-image: linear-gradient(to right top, #f5fbff, #eef5fa, #e8eff5, #e1eaf0, #dbe4eb) !important;
+.ant-menu-item-selected {
+  background-image: linear-gradient(
+    to right top,
+    #f5fbff,
+    #eef5fa,
+    #e8eff5,
+    #e1eaf0,
+    #dbe4eb
+  ) !important;
   border-right: 2px solid #093028;
   border-top-right-radius: 40px;
   border-bottom-right-radius: 40px;
-
 }
 .ant-menu-sub.ant-menu-inline {
   background: #fff !important;
 }
-.ant-menu-item-selected > a, .ant-menu-item-selected > a:hover {
-    color: #000 !important;
+.ant-menu-item-selected > a,
+.ant-menu-item-selected > a:hover {
+  color: #000 !important;
 }
 
-.sideBar .ant-menu-vertical .ant-menu-submenu-selected, .ant-menu-vertical-left .ant-menu-submenu-selected{
-    color: #000 !important;
+.sideBar .ant-menu-vertical .ant-menu-submenu-selected,
+.ant-menu-vertical-left .ant-menu-submenu-selected {
+  color: #000 !important;
 }
-.ant-menu-sub.ant-menu-inline {
-  background: #fafafa !important;
+/* privilage for tech lead and qa */
+.main2 {
+  height: 20px;
+  margin-top: -2%;
+  text-align: center;
+  margin-left: 30%;
+  margin-right: 30%;
 }
-/* .ant-menu-sub.ant-menu-inline *, *::before, *::after{
-  color:#fff;
+/* privileg button css  */
+.main {
+  height: 20px;
+  margin-top: -2%;
+  text-align: center;
+}
+.center {
+  margin-left: 25%;
+  margin-right: 16%;
+  /* align-content: center; */
+  /* position: absolute; */
+  /* top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%); */
+  transform-style: preserve-3d;
+  perspective: 200px;
+  /* border: 2px solid #000; */
+  /* width: 100px;
+  height: 10px; */
+  border-radius: 40px;
+}
+input[type="checkbox"] {
+  position: relative;
+  width: 100px;
+  height: 30px;
+  margin: 0;
+  -webkit-appearance: none;
+  outline: none;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.span {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  line-height: 30px;
+  height: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  pointer-events: none;
+  color: #fff;
+  transform-style: preserve-3d;
+  text-shadow: 2px 2px 4px #000000;
+}
+.span:nth-child(2) {
+  left: 0;
+  border-top-left-radius: 40px;
+  border-bottom-left-radius: 40px;
+  background: #07943b;
+}
+.span:nth-child(2)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #545454, #707070);
+  border-top-left-radius: 40px;
+  border-bottom-left-radius: 40px;
+  transform-origin: right;
+  transition: 1s;
+  backface-visibility: hidden;
+}
+input[type="checkbox"]:checked ~ .span:nth-child(2)::before {
+  transform: rotateY(180deg);
+}
+.span:nth-child(3) {
+  right: 0;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  background: #545454;
+}
+.span:nth-child(3)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #08bf4e, #07943b);
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  transform-origin: left;
+  transition: 1s;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+}
+input[type="checkbox"]:checked ~ .span:nth-child(3)::before {
+  transform: rotateY(360deg);
+}
+
+/* .techLeadPrivilage .ant-table-tbody > tr > td{
+text-align: center !important;
+}
+.techLeadPrivilage .ant-table-thead > tr > th, .ant-table-tbody > tr > td {
+padding: 10px 10px !important;
+width : 50% !important;
 } */
-/* .ant-menu-item-selected{
-  color:#fff !important;
-} */
-/* .ant-modal-footer button + button{
+/* .ant-modal-footer button + button {
   display: none !important;
 } */
 /* .ant-btn, .ant-btn:active, .ant-btn:focus{
   display: none !important;
 } */
+.iconposition {
+  position: relative !important;
+}
+.techLeadPrivilage {
+  padding: 10px 10px !important;
+  width: 50% !important;
+}
+.QaLeadPrivilage {
+  padding: 10px 10px !important;
+  width: 50% !important;
+}
+.iconposition {
+  position: relative !important;
+}
