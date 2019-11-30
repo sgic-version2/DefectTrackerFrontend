@@ -2,7 +2,7 @@ import React from 'react';
 import 'semantic-ui-react';
 import { Grid } from '@material-ui/core';
 import DefectList from '../../screens/DefectStatus/DefectList';
-import Dashboard from '../../screens/Dashboard/Dashboard';
+
 import CompanyDetails from '../../screens/company/CompanyDetails';
 import ProjectAllocation from '../../screens/project/allocation/ProjectAllocation';
 import { Switch, Route } from 'react-router-dom';
@@ -29,6 +29,8 @@ import PmDashboard from '../../screens/dashboards/PmDashboard/chart';
 import QAPrivilege from '../../screens/Settings/Privilege/QALeadPrivileges';
 import companyPrivilege from '../../screens/Settings/Privilege/CompanyPrivilege';
 import projectPrivilege from '../../screens/Settings/Privilege/CompanyPrivilege';
+import Dashboard from './../../screens/Dashboard/Dashboard';
+
 // container using material Ui
 // container has property
 //'textAlight' - left, right, center, justified
