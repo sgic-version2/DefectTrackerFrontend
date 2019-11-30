@@ -112,6 +112,11 @@ export default class ModuleAllocate extends React.Component {
     });
   };
 
+  handlebuttonClick = data => {
+    this.props.moduleAllocation(data);
+    this.showModal();
+  };
+
   render() {
     const leftTableColumns = [
       {
