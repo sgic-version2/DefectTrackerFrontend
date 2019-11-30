@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Grid } from '@material-ui/core'
 
-const EditRole = ({ data ,editRole}) => {
+const EditRole = ({ data ,editRole,functionRefresh}) => {
     const useStyle = {
         forntStyle: {
             fontWeight: 900
@@ -28,6 +28,7 @@ const EditRole = ({ data ,editRole}) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         editRole(role)
+        functionRefresh()
     }
     return (
         <div>
@@ -70,7 +71,7 @@ const EditRole = ({ data ,editRole}) => {
                                 </select>
                             </Grid>
                             <Grid item xs={12} style={useStyle.root}  >
-                                <button type="submit" >Save Data</button>
+                                <button type="submit"  >Save Data</button>
                             </Grid>
                         </Grid>
                     </form>
