@@ -5,7 +5,7 @@ import SeverityAdd from './SeverityAdd'
 import BreadCrumbs from '../../../components/breadCrumbs/breadCrumbs'
 import Table from '../../../components/tables/table'
 import { Button } from 'semantic-ui-react';
-import { Icon } from 'semantic-ui-react';
+
 import { Popconfirm, message } from 'antd';
 import EditSeverity from './EditSeverity'
 import { connect } from "react-redux";
@@ -99,41 +99,7 @@ class SeverityConfig extends Component {
                </Button.Group>
                },
             ];
-            const data = [
-               {
-                  key: '1',
-                  severity: 'High',
-                  description: 'High Severity',
-                  icon: <Icon name='arrow up' />,
-         
-         
-                  color: 'red',
-                  action: <Button.Group>
-                     <Button secondary onClick={this.handleOpenedit}>Edit</Button>
-                     <Button.Or />
-         
-                     <Popconfirm placement="topRight" title={text} onConfirm={confirm} okText="Yes" cancelText="No">
-                        <Button negative>Delete</Button>
-         
-                     </Popconfirm>
-         
-                  </Button.Group>
-               },
-               {
-                  key: '2',
-                  severity: 'Medium ',
-                  description: 'Medium Severity',
-         
-                  icon: <Icon name='exchange' />,
-                  color: <div> green</div>,
-                  action: <Button.Group>
-                     <Button secondary onClick={this.handleOpenedit}>Edit</Button>
-                     <Button.Or />
-                     <Popconfirm placement="topRight" type="danger" title={text} onConfirm={confirm} okText="Yes" cancelText="No">
-                        <Button negative >Delete</Button>
-                     </Popconfirm>
-                  </Button.Group>
-               },
+            
             //    {
             //       key: '3',
             //       severity: 'Low',
@@ -150,7 +116,7 @@ class SeverityConfig extends Component {
             //       </Button.Group>
             //    },
          
-            ];
+           
         return (  <div style={{ marginRight: '2%' }}>
         <Grid direction="row" container>
            <Grid item xs={11} style={{ marginTop: '2%' }}>

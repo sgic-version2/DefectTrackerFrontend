@@ -10,7 +10,7 @@ import EditCompany from '../../screens/company/EditCompany';
 import { Popconfirm, message } from 'antd'
 import MoreDetails from './MoreDetails'
 import { connect } from "react-redux";
-import { changeDataValues } from "../../fileAction/companyAction";
+import { changeDataValues,companyDetailsChangeControl } from "../../fileAction/companyAction";
 
 const text = 'Are you sure delete this task?'; //Delete button
 
@@ -21,7 +21,7 @@ const mapStateToProps = (state) => ({
    data: state.companyData.companyDetailsFromState
 })
 const mapDispatchToProps = {
-   changeDataValues
+   changeDataValues,companyDetailsChangeControl
 }
  class CompanyDetails extends Component {
    state = {
@@ -53,6 +53,10 @@ const mapDispatchToProps = {
          open1: false
       })
    };
+   handlebuttonClick = (data) => {
+      this.props.changeDataValues(data)
+      this.handleOpen()
+    }
    render() {
       
       
@@ -102,8 +106,9 @@ const mapDispatchToProps = {
          },
          {
             title: 'Action',
-            render:item=> <Button.Group>
-            <EditCompany open={this.state.open} handleOpen={this.handleOpen} handleClose={this.handleClose} />
+             
+            render:({item, key})=> <Button.Group>
+            <EditCompany onClick={() => this.handlebuttonClick(key)} open={this.state.open} handleOpen={this.handleOpen} handleClose={this.handleClose} companyDetailsChangeControl={this.props.companyDetailsChangeControl} />
             <Button onClick={this.handleOpen} secondary>Edit</Button>
             <Button.Or />
             <Popconfirm placement="topRight" title={text} onConfirm={confirm} okText="yes" cancelText="No">

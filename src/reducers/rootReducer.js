@@ -13,8 +13,7 @@ const rootReducer = combineReducers({
   companyData: companyReducer,
   defectTypeData: defectTypeReducer,
   projectDetailsData: projectDetailsReducer,
-  expandSideBarStatus: expandSideBarReducer,
-  addEmployeeData: addEmployeeReducer,
+
   severityConfigData: severityConfigReducer,
   modelOpen: modelReducer,
   roleAllocationData: projectReducer
