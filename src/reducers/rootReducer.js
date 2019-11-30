@@ -11,6 +11,7 @@ import { defectTypeReducer } from './../fileReducer/defectTypeReducer';
 import {projectDetailsReducer} from './../fileReducer/projectDeatilsReducer'
 import { defectReducer } from '../fileReducer/defectReducer'
 
+import { addDefectStatusReducer } from './../fileReducer/addDefectStatusReducer';
 
 const rootReducer = combineReducers({
     expandSideBarStatus: expandSideBarReducer,
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
     companyData: companyReducer,
     defectTypeData: defectTypeReducer,
     projectDetailsData: projectDetailsReducer,
+    addDefectStatusReducer:addDefectStatusReducer,
 
     defectState: defectReducer,
 })

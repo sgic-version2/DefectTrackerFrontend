@@ -5,7 +5,8 @@ const InitialState = {
     defectStatusDetailsFromState: []
 }
 
-export const addEmployeeReducer = (state = InitialState, action) => {
+
+export const addDefectStatusReducer = (state = InitialState, action) => {
     switch (action.type) {
         case actionType.CREATENEWDEFECTSTATUS:
             return {

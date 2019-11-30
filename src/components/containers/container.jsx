@@ -1,7 +1,7 @@
 import React from 'react';
 import 'semantic-ui-react';
 import { Grid } from '@material-ui/core';
-import DefectList from '../../screens/DefectStatus/DefectList';
+import DefectList from '../../screens/DefectStatus/defectStatus';
 
 import CompanyDetails from '../../screens/company/CompanyDetails';
 import ProjectAllocation from '../../screens/project/allocation/ProjectAllocation';
