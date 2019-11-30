@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Transfer, Table, Tag, Progress, Icon } from 'antd';
 import difference from 'lodash/difference';
-import { Button } from 'semantic-ui-react';
 import Model from '../../../components/model/model';
 import EditRole from './EditRole';
 
+const color = ['blue', 'green', 'orange', 'red', 'olive', 'gold'];
+var dataStore = [];
 var originTargetKeys = [1];
 export default class RoleAllocation extends Component {
   state = {
@@ -31,6 +32,58 @@ export default class RoleAllocation extends Component {
   handlebuttonClick = data => {
     this.props.roleAllocation(data);
     this.handleOpen();
+  };
+  componentDidMount() {
+    this.dataCollection();
+  }
+  dataCollection = () => {
+    var indexOfValues;
+    this.props.employeeData.map((data, index) => {
+      switch (data.employeeDesignation) {
+        case 'ASE':
+          indexOfValues = 0;
+          break;
+        case 'SE':
+          indexOfValues = 1;
+          break;
+        case 'SSE':
+          indexOfValues = 2;
+          break;
+        case 'ATL':
+          indexOfValues = 3;
+          break;
+        case 'TL':
+          indexOfValues = 4;
+          break;
+        case 'STL':
+          indexOfValues = 5;
+          break;
+        default:
+          indexOfValues = 0;
+      }
+      return (
+        dataStore.push({
+          key: index.toString(),
+          employeeID: data.employeeID,
+          employeeName: data.employeeName,
+          employeeDesignation: (
+            <Tag color={color[indexOfValues]}>{data.employeeDesignation}</Tag>
+          ),
+          employeeEmail: data.employeeEmail,
+          availability: (
+            <Progress type='circle' percent={data.availability} width={50} />
+          ),
+          role: data.role
+        }),
+        this.setState({
+          buttonClick: dataStore
+        })
+      );
+    });
+  };
+  functionRefresh = () => {
+    this.dataCollection();
+    console.log('jdbfg');
   };
   render() {
     // Customize Table Transfer
@@ -84,21 +137,6 @@ export default class RoleAllocation extends Component {
       </Transfer>
     );
 
-    const mockTags = ['ASE', 'SE', 'QAE', 'TL', 'ASE'];
-    const mockData = this.props.employeeData;
-    const role = ['ASE', 'QAL', 'TL', 'SE'];
-    const color = ['blue', 'green', 'orange', 'red'];
-    const availabilityTag = [
-      <Progress type='circle' percent={30} width={50} />,
-      <Progress type='circle' percent={60} width={50} />,
-      <Progress type='circle' percent={90} width={50} />,
-      <Tag color='red'>Bench</Tag>
-    ];
-
-    originTargetKeys = mockData
-      .filter(item => +item.key % 3 > 1)
-      .map(item => item.key);
-
     const { targetKeys, disabled, showSearch, open, buttonClick } = this.state;
     const leftTableColumns = [
       {
@@ -149,7 +187,7 @@ export default class RoleAllocation extends Component {
     return (
       <div>
         <TableTransfer
-          dataSource={mockData}
+          dataSource={buttonClick}
           targetKeys={targetKeys}
           disabled={disabled}
           showSearch={showSearch}
@@ -166,7 +204,13 @@ export default class RoleAllocation extends Component {
           handleOpen={this.handleOpen}
           handleClose={this.handleClose}
           width={30}
-          form={<EditRole data={this.props.allocationData} />}
+          form={
+            <EditRole
+              data={this.props.allocationData}
+              editRole={this.props.editRole}
+              functionRefresh={this.functionRefresh}
+            />
+          }
           title='Edit Role'
         />
       </div>

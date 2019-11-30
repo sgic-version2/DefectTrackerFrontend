@@ -11,21 +11,20 @@ import {
   roleAllocation,
   deAllocation
 } from '../../../fileAction/projectAction';
-import { moduleAllocation } from '../../../fileAction/moduleAction';
+import { editRole } from '../../../fileAction/roleAction';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
   open: state.modelOpen.open,
   employeeData: state.addEmployeeData.employeeDetailsFromState,
-  roleAllocationData: state.roleAllocationData.roleAllocationData,
-  moduleAllocationData: state.moduleAllocationData.moduleAllocationData
+  roleAllocationData: state.roleAllocationData.roleAllocationData
 });
 const mapDispatchToProps = {
   modelOpen,
   modelClose,
   roleAllocation,
   deAllocation,
-  moduleAllocation
+  editRole
 };
 const columns = [
   {
@@ -124,7 +123,7 @@ class ProjectAllocation extends Component {
       modelOpen,
       roleAllocation,
       deAllocation,
-      moduleAllocation
+      editRole
     } = this.props;
     return (
       <div>
@@ -140,8 +139,7 @@ class ProjectAllocation extends Component {
                 deAllocation={deAllocation}
                 employeeData={this.props.employeeData}
                 allocationData={this.props.roleAllocationData}
-                moduleAllocation={moduleAllocation}
-                moduleAllocationData={this.props.moduleAllocationData}
+                editRole={editRole}
               />
               <Table column={columns} data={data} />
             </Segment>
