@@ -1,60 +1,127 @@
-import React from 'react';
-import './Form.css'
-import { ChromePicker } from 'react-color' //color picker
+import React from "react";
+import "./Form.css";
+import { Modal, Button } from "antd";
+import { ChromePicker } from "react-color"; //color picker
+import { PriorityHighIcon } from "@material-ui/icons/PriorityHigh";
 class Form extends React.Component {
   state = {
+    anchorE1: null,
+    priorityID: "",
+    priorityName: "",
+    priorityDescription: "",
+    //priorityIcon: "",
+    selectedColor: "",
     displayColorPicker: false,
-    selectedColor: null
+    selectedColor: null,
+    open:true,
   };
 
-  handleColor = (e) => {
+  handleColor = e => {
     this.setState({ selectedColor: e.hex });
-    console.log(e.hex)
-  }
+    console.log(e.hex);
+  };
 
   handleClick = () => {
-    this.setState({ displayColorPicker: !this.state.displayColorPicker })
+    this.setState({ displayColorPicker: !this.state.displayColorPicker });
   };
 
   handleClose = () => {
-    this.setState({ displayColorPicker: false })
+    this.setState({ displayColorPicker: false });
+  };
+  handleClose1 = () => {
+    this.setState({ anchorE1: null });
+  };
+  handleOnChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.changeDataValues(this.state);
+    console.log("vorannsd", this.props.openFormClose);
   };
 
   render() {
-
+   console.log ("haiii"+this.state)
+    const {
+      form,
+      open,
+      handleOpen,
+      handleClose,
+      width,
+      title,
+      changeDataValues
+    } = this.props;
+    console.log("hh" + this.state);
     const { selectedColor, displayColorPicker } = this.state;
     return (
       <div>
-        <div >
+        {/* <Modal
+          width={`${width ? width : "50"}%`}
+          visible={open}
+          title={title}
+          onOk={handleOpen}
+          onCancel={handleClose}
+          footer={[
+            <Button key="back" onClick={handleClose}>
+              Return
+            </Button>,
+            <button  type="submit" onClick={handleClose}>
+              Submit
+            </button>
+          ]}
+        > */}
+       
+        <form onSubmit={this.handleSubmit}>
           <label>Name:</label>
-          <input type="text" id="" className="" placeholder="Name"></input>
+          <input
+            type="text"
+            id=""
+            className=""
+            placeholder="Name"
+            name="priorityName"
+            value={this.state.priorityName}
+            onChange={this.handleOnChange}
+          ></input>
           <br />
 
           <label>Description:</label>
-          <input type="text" id="" className="" placeholder="Description"></input>
+          <input
+            type="text"
+            id=""
+            className=""
+            placeholder="Description"
+            name="priorityDescription"
+            value={this.state.priorityDescription}
+            onChange={this.handleOnChange}
+          ></input>
           <br />
 
-          <label>Icon:</label>
-          <br />
-          <br />
-          <input
-            accept="image/*"
-            id="contained-button-file"
-            multiple
-            type="file"
-          />
-          <br />
-          <br />
           <label>Colour:</label>
           <div>
-            <div onClick={this.handleClick} style={{ backgroundColor: selectedColor }} className='colorbox'></div>
+            <div
+            name="selectedColor"
+              onClick={this.handleClick}
+              style={{ backgroundColor: selectedColor }}
+              className="colorbox"
+            ></div>
             <div onClick={this.handleClose} />
             {displayColorPicker && <ChromePicker onChange={this.handleColor} />}
           </div>
+
           {/* </form> */}
-        </div>
+          <div>
+            <br />
+         
+            <button  type="submit"  onClick={this.props.openFormClose} >
+              Submit
+            </button>
+              </div>
+        </form>
+      
       </div>
-    )
+    );
   }
 }
-export default Form
+export default Form;

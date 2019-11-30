@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Transfer, Table, Modal, Tag, Row, Col, Select } from 'antd';
 import difference from 'lodash/difference';
 import { Segment, Button } from 'semantic-ui-react';
@@ -157,7 +157,7 @@ export default class ModuleAllocate extends React.Component {
             label={{ as: 'a', basic: true, content: 'Edit' }}
             labelPosition='right'
             color='blue'
-            onClick={this.handleOpen}
+            onClick={this.showModal}
           />
         )
       }

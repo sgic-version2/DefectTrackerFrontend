@@ -1,15 +1,50 @@
-import { AVATAR_UPLOAD_INPUT_CHANGE, UPLOAD_AVATAR } from '../constant/profileActionTypes';
+import {
+  // IMAGE_UPLOAD_INPUT_CHANGE,
+  IMAGE_UPLOAD,
+  // PASSWORD_INFO_INPUT_CHANGE,
+  PASSWORD_INFO_UPDATE,
+  // BASIC_INFO_INPUT_CHANGE,
+  BASIC_INFO_UPDATE
+} from "../constant/profileConstant";
 
-export const avatarUploadFieldChange = (event) => {
-    return {
-        type: AVATAR_UPLOAD_INPUT_CHANGE,
-        event
-    };
+export const imageUploadChangeControl = event => {
+  return {
+    type: IMAGE_UPLOAD,
+    payload: event
+  };
 };
 
-export const avatarUpload = (eventId) => {
-    return {
-        type: UPLOAD_AVATAR,
-        eventId
-    };
+// export const imageUploadControl = eventId => {
+//   return {
+//     type: IMAGE_UPLOAD,
+//     payload: eventId
+//   };
+// };
+
+export const basicInfoChangeControl = event => {
+  return {
+    type: BASIC_INFO_UPDATE,
+    payload: event
+  };
 };
+
+// export const basicInfoUpdateControl = eventId => {
+//   return {
+//     type: BASIC_INFO_UPDATE,
+//     payload: eventId
+//   };
+// };
+
+export const passwordInfoChangeControl = event => {
+  return {
+    type: PASSWORD_INFO_UPDATE,
+    payload: event
+  };
+};
+
+// export const passwordUpdateControl = eventId => {
+//   return {
+//     type: PASSWORD_INFO_UPDATE,
+//     payload: eventId
+//   };
+// };

@@ -6,6 +6,15 @@ const InitialState = {
             key: '1',
             employeeID: '001',
             employeeName: 'sasee',
+            employeeDesignation: 'SE',
+            employeeEmail: 'sasee9488@gmail.com',
+            availability: '90',
+            role: ''
+        },
+        {
+            key: '2',
+            employeeID: '002',
+            employeeName: 'kumar',
             employeeDesignation: 'ASE',
             employeeEmail: 'sasee9488@gmail.com',
             availability: '30',

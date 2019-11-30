@@ -4,16 +4,23 @@ import { Grid } from '@material-ui/core'
 import DefectListButton from './DefectListButton'
 import BreadCrumbs from '../../components/breadCrumbs/breadCrumbs'
 import Table from './Table'
+import { connect } from "react-redux";
+import { changeDataValuesStatus } from './../../fileAction/addDefectStatusAction';
+const mapStateToProps = (state) => ({
+    data: state.addEmployeeData.employeeDetailsFromState
+ })
+ const mapDispatchToProps = {
+    changeDataValuesStatus
+ }
 
-
-export default class ProjectAllocation extends Component {
+ class ProjectAllocation extends Component {
     render() {
         return (
             <div>
                 <Grid item xs={11} style={{ marginTop: '2%' }}>
                     <Segment>
                         <BreadCrumbs />
-                        <DefectListButton />
+                        <DefectListButton changeDataValuesStatus={this.props.changeDataValuesStatus} />
                         <Table />
                     </Segment>
                 </Grid>
@@ -21,3 +28,4 @@ export default class ProjectAllocation extends Component {
         )
     }
 }
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectAllocation)
