@@ -4,20 +4,14 @@ const InitialState = {
   moduleAllocationData: [
     {
       key: '1',
-      employeeID: '001',
-      employeeName: 'ravi',
-      employeeDesignation: 'ASE',
-      employeeEmail: 'sdsdasdfs@gmail.com',
-      availability: '30',
+      empname: 'ravi',
+      module: 'login',
       role: 'ASE'
     },
     {
       key: '2',
-      employeeID: '002',
-      employeeName: 'mala',
-      employeeDesignation: 'SE',
-      employeeEmail: 'lkfdkmcxm8@gmail.com',
-      availability: '30',
+      empname: 'mala',
+      module: 'login',
       role: 'SE'
     }
   ]
