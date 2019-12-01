@@ -1,11 +1,11 @@
 import React, { Component } from "react";
+import axios from "axios";
 import { Modal, Button } from "antd";
 import { Form, Input, DatePicker } from "antd";
 import { InputNumber } from "antd";
 import moment from "moment";
 import { Row, Col } from "antd";
 const dateFormatList = ["DD/MM/YYYY", "DD/MM/YY"];
-
 
 //dropdown for Lisence period s Function
 function onChange(value) {
@@ -22,17 +22,17 @@ class AddProject extends Component {
     project_start_date: "",
     project_end_date: ""
   };
+
   handleOnChange = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
-    console.log(e.target.name);
   };
+
+  // 
+
   handleSubmit = e => {
-    // e.preventDefault();
     this.props.changeDataValues(this.state);
-    // this.setState({ formOpen: !this.state.formOpen });
-    console.log(e);
     e();
   };
 
@@ -56,15 +56,7 @@ class AddProject extends Component {
   };
   render() {
     console.log("hi" + this.state);
-    const {
-   
-      open,
-      handleOpen,
-      handleClose,
-      width,
-      title,
-      
-    } = this.props;
+    const { open, handleOpen, handleClose, width, title } = this.props;
     return (
       <div>
         <Modal
@@ -115,14 +107,9 @@ class AddProject extends Component {
               <Col span={12} style={{ padding: "5px" }}>
                 <Form.Item label="Project Duration">
                   <InputNumber
-                    // value={this.state.license_period}
-                    //  name="license_period"
-                    // min={1}
-                    // max={10}
-                    // defaultValue={3}
                     onChange={onChange}
                     placeholder="In Years"
-                    // onChange={this.handleOnChange}
+                     onChange={this.handleOnChange}
                     style={{ width: "100%" }}
                   />{" "}
                 </Form.Item>
