@@ -9,6 +9,7 @@ import { companyReducer } from './../fileReducer/companyReducer';
 import { defectTypeReducer } from './../fileReducer/defectTypeReducer';
 import { projectDetailsReducer } from './../fileReducer/projectDeatilsReducer'
 import { addDefectStatusReducer } from './../fileReducer/addDefectStatusReducer';
+import { defectReducer } from '../fileReducer/defectReducer'
 import {
   showOnDashboardReducer,
   faviconReducer,
@@ -28,5 +29,6 @@ const rootReducer = combineReducers({
   defectTypeData: defectTypeReducer,
   projectDetailsData: projectDetailsReducer,
   addDefectStatusReducer: addDefectStatusReducer,
+  defectState: defectReducer,
 });
 export default rootReducer;
