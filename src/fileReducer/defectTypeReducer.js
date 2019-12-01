@@ -22,15 +22,15 @@ export const defectTypeReducer = (state = InitialState, action) => {
         ]
       };
 
-    // case actionType.UPDATE_DEFECT_TYPE:
-    //   return {
-    //     defectTypeUpdateDetails: [
-    //       ...defectTypeUpdateDetails.filter(
-    //         updateInfo => updateInfo.typeId !== action.payload.typeId
-    //       ),
-    //       action.payload
-    //     ]
-    //   };
+    case actionType.UPDATE_DEFECT_TYPE:
+      return {
+        defectTypeUpdateDetails: [
+          ...state.defectTypeUpdateDetails.filter(
+            updateInfo => updateInfo.typeId !== action.payload.typeId
+          ),
+          action.payload
+        ]
+      };
 
     default:
       return state;
