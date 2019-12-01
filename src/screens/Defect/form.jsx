@@ -11,7 +11,7 @@ class Form extends React.Component {
         Type: '',
         Severity: '',
         Priority: '',
-        Description: '',
+        description: '',
         StepsToRecreate: '',
         AssignTo: '',
         AssignBy:''
@@ -20,8 +20,6 @@ class Form extends React.Component {
         this.setState({
             [e.target.name]: e.target.value
         })
-        console.log(this.state);
-
     }
     handleSubmit = (e) => {
         e.preventDefault()
@@ -37,7 +35,7 @@ class Form extends React.Component {
             title,
             changeDataValues
         } = this.props;
-        const { Project, Module, DefectType, Severity, Priority,fixedBy,foundIn,fixedIn,attachment,defectSta,createdDate,updatedDate, Description, AssignTo,AssignBy } = this.state
+        const { Project, Module, DefectType, Severity, Priority,fixedBy,foundIn,fixedIn,attachment,defectSta,createdDate,updatedDate, description, AssignTo,AssignBy } = this.state
         return (
             <div>
                 <form class="ui form" onSubmit={this.handleSubmit}>
@@ -146,7 +144,7 @@ class Form extends React.Component {
                     </div>
                     <div class="field">
                         <label>Description</label>
-                        <textarea rows="1" placeholder="Description" name="Description" value={this.state.Description} onChange={this.handleChange}></textarea>
+                        <textarea rows="1" placeholder="description" name="description" value={this.state.description} onChange={this.handleChange}></textarea>
                     </div>
                     <div class="field">
                         <label>Assign To:</label>
