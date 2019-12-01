@@ -2,10 +2,9 @@ import * as actionType from '../constant/addEmployeeConstant';
 import { EDITROLE } from '../constant/role';
 
 const InitialState = {
-<<<<<<< HEAD
     employeeDetailsFromState: [
         {
-            key: '0',
+            key: '1',
             employeeID: '001',
             employeeName: 'sasee',
             employeeDesignation: 'SE',
@@ -14,7 +13,7 @@ const InitialState = {
             role: ''
         },
         {
-            key: '1',
+            key: '2',
             employeeID: '002',
             employeeName: 'kumar',
             employeeDesignation: 'ASE',
@@ -24,29 +23,6 @@ const InitialState = {
         }
     ]
 }
-=======
-  employeeDetailsFromState: [
-    {
-      key: '1',
-      employeeID: '001',
-      employeeName: 'sasee',
-      employeeDesignation: 'SE',
-      employeeEmail: 'sasee9488@gmail.com',
-      availability: '90',
-      role: 'SE'
-    },
-    {
-      key: '2',
-      employeeID: '002',
-      employeeName: 'kumar',
-      employeeDesignation: 'ASE',
-      employeeEmail: 'sasee9488@gmail.com',
-      availability: '30',
-      role: 'ASE'
-    }
-  ]
-};
->>>>>>> sasikumar
 
 export const addEmployeeReducer = (state = InitialState, action) => {
   switch (action.type) {
