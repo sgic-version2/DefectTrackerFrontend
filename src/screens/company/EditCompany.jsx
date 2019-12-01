@@ -32,23 +32,17 @@ class EditCompany extends Component {
     this.setState({
       [e.target.name]: e.target.value
     });
-        this.setState({
-          abbreviation: document.getElementById("abbreviation").value
-        });
+    this.setState({
+      abbreviation: document.getElementById("abbreviation").value
+    });
   };
   handleSubmit = event => {
-   // event.preventDefault();
-    // this.setState({ formOpen: !this.state.formOpen });
-    //
-    
     if (!this.state.abbreviation) {
     } else {
       this.props.companyDetailsChangeControl(this.state);
     }
-    event()
-console.log(this.state)
-     
-
+    event();
+    console.log(this.state);
   };
 
   datePick = (date, dateString, e) => {
@@ -76,8 +70,7 @@ console.log(this.state)
             <Button
               key="submit"
               type="primary"
-             onClick={()=>this.handleSubmit(handleClose)}
-              // onClick={handleClose}
+              onClick={() => this.handleSubmit(handleClose)}
             >
               Submit
             </Button>
@@ -85,9 +78,7 @@ console.log(this.state)
         >
           {this.props.data1.map((data, key) => {
             return (
-              <Form layout="vertical" 
-              // onSubmit={this.handleSubmit}
-              >
+              <Form layout="vertical">
                 <Row>
                   <Col span={12} style={{ padding: "5px" }}>
                     <Form.Item label="Company Name">

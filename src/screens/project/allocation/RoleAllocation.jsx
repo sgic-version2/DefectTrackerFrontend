@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { Transfer, Table, Tag, Progress, Icon } from 'antd';
-import difference from 'lodash/difference';
-import Model from '../../../components/model/model'
-import EditRole from './EditRole';
+import React, { Component } from "react";
+import { Transfer, Table, Tag, Progress, Icon } from "antd";
+import difference from "lodash/difference";
+import Model from "../../../components/model/model";
+import EditRole from "./EditRole";
 
-const color = ['blue', 'green', 'orange', 'red', 'olive', 'gold']
+const color = ["blue", "green", "orange", "red", "olive", "gold"];
 var dataStore = [];
 var originTargetKeys = [1];
 export default class RoleAllocation extends Component {
@@ -27,52 +27,56 @@ export default class RoleAllocation extends Component {
   handleClose = () => {
     this.setState({
       open: false
-    })
-  }
-  handlebuttonClick = (data) => {
-    this.props.roleAllocation(data)
-    this.handleOpen()
-  }
+    });
+  };
+  handlebuttonClick = data => {
+    this.props.roleAllocation(data);
+    this.handleOpen();
+  };
   componentDidMount() {
     var indexOfValues;
     this.props.employeeData.map((data, index) => {
       switch (data.employeeDesignation) {
-        case 'ASE':
-          indexOfValues = 0
+        case "ASE":
+          indexOfValues = 0;
           break;
-        case 'SE':
-          indexOfValues = 1
+        case "SE":
+          indexOfValues = 1;
           break;
-        case 'SSE':
-          indexOfValues = 2
+        case "SSE":
+          indexOfValues = 2;
           break;
-        case 'ATL':
-          indexOfValues = 3
+        case "ATL":
+          indexOfValues = 3;
           break;
-        case 'TL':
-          indexOfValues = 4
+        case "TL":
+          indexOfValues = 4;
           break;
-        case 'STL':
-          indexOfValues = 5
+        case "STL":
+          indexOfValues = 5;
           break;
         default:
-          indexOfValues = 0
+          indexOfValues = 0;
       }
       return (
         dataStore.push({
           key: index.toString(),
           employeeID: data.employeeID,
           employeeName: data.employeeName,
-          employeeDesignation: <Tag color={color[indexOfValues]} >{data.employeeDesignation}</Tag>,
+          employeeDesignation: (
+            <Tag color={color[indexOfValues]}>{data.employeeDesignation}</Tag>
+          ),
           employeeEmail: data.employeeEmail,
-          availability:<Progress type="circle" percent={data.availability} width={50} /> ,
+          availability: (
+            <Progress type="circle" percent={data.availability} width={50} />
+          ),
           role: data.role
         }),
         this.setState({
           buttonClick: dataStore
         })
-      )
-    })
+      );
+    });
   }
   render() {
     // Customize Table Transfer
@@ -86,7 +90,7 @@ export default class RoleAllocation extends Component {
           selectedKeys: listSelectedKeys,
           disabled: listDisabled
         }) => {
-          const columns = direction === 'left' ? leftColumns : rightColumns;
+          const columns = direction === "left" ? leftColumns : rightColumns;
 
           const rowSelection = {
             getCheckboxProps: item => ({
@@ -112,8 +116,8 @@ export default class RoleAllocation extends Component {
               rowSelection={rowSelection}
               columns={columns}
               dataSource={filteredItems}
-              size='small'
-              style={{ pointerEvents: listDisabled ? 'none' : null }}
+              size="small"
+              style={{ pointerEvents: listDisabled ? "none" : null }}
               onRow={({ key, disabled: itemDisabled }) => ({
                 onClick: () => {
                   if (itemDisabled || listDisabled) return;
@@ -129,43 +133,49 @@ export default class RoleAllocation extends Component {
     const { targetKeys, disabled, showSearch, open, buttonClick } = this.state;
     const leftTableColumns = [
       {
-        dataIndex: 'employeeID',
-        title: 'Employee ID'
+        dataIndex: "employeeID",
+        title: "Employee ID"
       },
       {
-        dataIndex: 'employeeName',
-        title: 'Full Name'
+        dataIndex: "employeeName",
+        title: "Full Name"
       },
       {
-        dataIndex: 'availability',
-        title: 'Availability'
+        dataIndex: "availability",
+        title: "Availability"
       },
       {
-        dataIndex: 'employeeDesignation',
-        title: 'Designation'
+        dataIndex: "employeeDesignation",
+        title: "Designation"
       }
     ];
     const rightTableColumns = [
       {
-        dataIndex: 'employeeID',
-        title: 'Employee ID'
+        dataIndex: "employeeID",
+        title: "Employee ID"
       },
       {
-        dataIndex: 'employeeName',
-        title: 'Full Name'
+        dataIndex: "employeeName",
+        title: "Full Name"
       },
       {
-        dataIndex: 'employeeDesignation',
-        title: 'Designation'
+        dataIndex: "employeeDesignation",
+        title: "Designation"
       },
       {
-        dataIndex: 'role',
-        title: 'Role'
+        dataIndex: "role",
+        title: "Role"
       },
       {
-        title: 'Action',
-        render: (item, key) => <Icon type="edit" className="iconposition" onClick={() => this.handlebuttonClick(key)} />
-      },
+        title: "Action",
+        render: (item, key) => (
+          <Icon
+            type="edit"
+            className="iconposition"
+            onClick={() => this.handlebuttonClick(key)}
+          />
+        )
+      }
     ];
     return (
       <div>
@@ -188,7 +198,7 @@ export default class RoleAllocation extends Component {
           handleClose={this.handleClose}
           width={30}
           form={<EditRole data={this.props.allocationData} />}
-          title='Edit Role'
+          title="Edit Role"
         />
       </div>
     );
