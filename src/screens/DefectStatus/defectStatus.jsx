@@ -1,13 +1,17 @@
 import React, { Component } from "react";
 import { Segment } from "semantic-ui-react";
 import { Grid } from "@material-ui/core";
-import BreadCrumbs from "../../../components/breadCrumbs/breadCrumbs";
-import Table from "../../../components/tables/table";
+import BreadCrumbs from "../../components/breadCrumbs/breadCrumbs";
+import Table from "../../components/tables/table";
 import { Button } from "semantic-ui-react";
-import AddButton from "./AddButton";
-import EditDefectType from "./EditDefectType";
+
+
+import AddButton from "./addDefectStatusButton";
+import EditDefectStatus from "./editDefectStatus";
+
+
 import { connect } from "react-redux";
-import { changeDataValues } from './../../../fileAction/defectTypeAction';
+import { changeDataValues } from './../../fileAction/defectTypeAction';
 
 
 const mapStateToProps = (state) => ({
@@ -19,7 +23,7 @@ const mapDispatchToProps = {
   changeDataValues
 };
 
-class DefectConfic extends Component {
+class DefectStatus extends Component {
   state = {
     open: false
   };
@@ -38,7 +42,7 @@ class DefectConfic extends Component {
   render() {
     const columns = [
       {
-        title: "Defect Type",
+        title: "Defect Status",
         dataIndex: "name"
       },
       {
@@ -53,7 +57,7 @@ class DefectConfic extends Component {
       {
         title: "Action",
         render:item=>  <Button.Group>
-        <EditDefectType
+        <EditDefectStatus
           open={this.state.open}
           handleOpen={this.handleOpen}
           handleClose={this.handleClose}
@@ -104,4 +108,4 @@ class DefectConfic extends Component {
     );
   }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(DefectConfic);
+export default connect(mapStateToProps, mapDispatchToProps)(DefectStatus);

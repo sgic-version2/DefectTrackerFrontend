@@ -9,10 +9,10 @@ const formItemLayout = {
   wrapperCol: { span: 8 }
 };
 
-class AddDefectType extends Component {
+class AddDefectStatus extends Component {
   state = {
-    typeId: "1",
-    name: "",
+    statusId: "1",
+    statusName: "",
     defectValue: "",
     description: "",
     formOpen: true
@@ -53,21 +53,21 @@ class AddDefectType extends Component {
             ]}
           >
             <Form>
-              <p>Add Defect Type</p>
+              <p>Add Defect Status</p>
               <Divider></Divider>
-              <Form.Item {...formItemLayout} label="Type Name">
+              <Form.Item {...formItemLayout} label="Defect Status">
                 <Input
                   value={this.state.name}
-                  name="name"
-                  placeholder="Please input Defect Type "
+                  name="statusname"
+                  placeholder="Please input Defect Status "
                   onChange={this.handleOnChange}
                 />
               </Form.Item>
-              <Form.Item {...formItemLayout} label="Type Value">
+              <Form.Item {...formItemLayout} label="Defect Value">
                 <Input
                   value={this.state.defectValue}
                   name="defectValue"
-                  placeholder="Please input Defect Type value "
+                  placeholder="Please input Defect Status value "
                   onChange={this.handleOnChange}
                 />
               </Form.Item>
@@ -90,4 +90,4 @@ class AddDefectType extends Component {
   }
 }
 
-export default AddDefectType;
+export default AddDefectStatus;
