@@ -20,6 +20,8 @@ const mapStateProps = (state) => ({
   marginSize:state.expandSideBarStatus.marginSize,
   expandButtonStatus:state.expandSideBarStatus.expandButtonStatus,
   backgroundOrThemeStatus:state.expandSideBarStatus.backgroundOrThemeStatus,
+  expandButtonStatus:state.expandSideBarStatus.expandButtonStatus,
+
 })
 const mapDispatchToProps = {
   backgroundImage,
@@ -27,9 +29,14 @@ const mapDispatchToProps = {
   expandWithButton,
   expandWithOutButton
 }
+
+
 class App extends Component {
+  
   render() {
     const { backgroundImageOne, backgroundDrakColor, backgroundDrakColorBody } = theme.themes;
+          // console.log("propsczv",this.props);
+
     return (
       <Fragment>
         <Route exact path='/' component={Login} />

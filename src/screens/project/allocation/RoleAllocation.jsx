@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { Transfer, Table, Tag, Progress, Icon } from 'antd';
 import difference from 'lodash/difference';
-import Model from '../../../components/model/model'
+import Model from '../../../components/model/model';
 import EditRole from './EditRole';
 
-const color = ['blue', 'green', 'orange', 'red', 'olive', 'gold']
+const color = ['blue', 'green', 'orange', 'red', 'olive', 'gold'];
 var dataStore = [];
 var originTargetKeys = [1];
 export default class RoleAllocation extends Component {
@@ -22,8 +22,8 @@ export default class RoleAllocation extends Component {
   handleOpen = () => {
     this.setState({
       open: true
-    })
-  }
+    });
+  };
   handleClose = () => {
     this.setState({
       open: false
@@ -36,39 +36,41 @@ export default class RoleAllocation extends Component {
 
   }
   componentDidMount() {
-    this.dataCollection()
+    this.dataCollection();
   }
   dataCollection = () => {
     var indexOfValues;
     this.props.employeeData.map((data, index) => {
       switch (data.employeeDesignation) {
         case 'ASE':
-          indexOfValues = 0
+          indexOfValues = 0;
           break;
         case 'SE':
-          indexOfValues = 1
+          indexOfValues = 1;
           break;
         case 'SSE':
-          indexOfValues = 2
+          indexOfValues = 2;
           break;
         case 'ATL':
-          indexOfValues = 3
+          indexOfValues = 3;
           break;
         case 'TL':
-          indexOfValues = 4
+          indexOfValues = 4;
           break;
         case 'STL':
-          indexOfValues = 5
+          indexOfValues = 5;
           break;
         default:
-          indexOfValues = 0
+          indexOfValues = 0;
       }
       return (
         dataStore.push({
           key: index.toString(),
           employeeID: data.employeeID,
           employeeName: data.employeeName,
-          employeeDesignation: <Tag color={color[indexOfValues]} >{data.employeeDesignation}</Tag>,
+          employeeDesignation: (
+            <Tag color={color[indexOfValues]}>{data.employeeDesignation}</Tag>
+          ),
           employeeEmail: data.employeeEmail,
           availability: <Progress type="circle" percent={data.availability} width={50} />,
           role: data.role
@@ -100,12 +102,14 @@ export default class RoleAllocation extends Component {
           onItemSelectAll,
           onItemSelect,
           selectedKeys: listSelectedKeys,
-          disabled: listDisabled,
+          disabled: listDisabled
         }) => {
           const columns = direction === 'left' ? leftColumns : rightColumns;
 
           const rowSelection = {
-            getCheckboxProps: item => ({ disabled: listDisabled || item.disabled }),
+            getCheckboxProps: item => ({
+              disabled: listDisabled || item.disabled
+            }),
             onSelectAll(selected, selectedRows) {
               const treeSelectedKeys = selectedRows
                 .filter(item => !item.disabled)
@@ -118,7 +122,7 @@ export default class RoleAllocation extends Component {
             onSelect({ key }, selected) {
               onItemSelect(key, selected);
             },
-            selectedRowKeys: listSelectedKeys,
+            selectedRowKeys: listSelectedKeys
           };
 
           return (
@@ -126,13 +130,13 @@ export default class RoleAllocation extends Component {
               rowSelection={rowSelection}
               columns={columns}
               dataSource={filteredItems}
-              size="small"
+              size='small'
               style={{ pointerEvents: listDisabled ? 'none' : null }}
               onRow={({ key, disabled: itemDisabled }) => ({
                 onClick: () => {
                   if (itemDisabled || listDisabled) return;
                   onItemSelect(key, !listSelectedKeys.includes(key));
-                },
+                }
               })}
             />
           );
@@ -144,43 +148,48 @@ export default class RoleAllocation extends Component {
     const leftTableColumns = [
       {
         dataIndex: 'employeeID',
-        title: 'Employee ID',
+        title: 'Employee ID'
       },
       {
         dataIndex: 'employeeName',
-        title: 'Full Name',
+        title: 'Full Name'
       },
       {
         dataIndex: 'availability',
-        title: 'Availability',
+        title: 'Availability'
       },
       {
         dataIndex: 'employeeDesignation',
-        title: 'Designation',
-      },
-
+        title: 'Designation'
+      }
     ];
     const rightTableColumns = [
       {
         dataIndex: 'employeeID',
-        title: 'Employee ID',
+        title: 'Employee ID'
       },
       {
         dataIndex: 'employeeName',
-        title: 'Full Name',
+        title: 'Full Name'
       },
       {
         dataIndex: 'employeeDesignation',
-        title: 'Designation',
+        title: 'Designation'
       },
       {
         dataIndex: 'role',
-        title: 'Role',
+        title: 'Role'
       },
       {
         title: 'Action',
-        render: (item, key) => <Icon type="edit" className="iconposition" onClick={() => this.handlebuttonClick(key)} />
-      },
+        render: (item, key) => (
+          <Icon
+            type='edit'
+            className='iconposition'
+            onClick={() => this.handlebuttonClick(key)}
+          />
+        )
+      }
     ];
     return (
       <div>
@@ -191,7 +200,8 @@ export default class RoleAllocation extends Component {
           showSearch={showSearch}
           onChange={this.onChange}
           filterOption={(inputValue, item) =>
-            item.title.indexOf(inputValue) !== -1 || item.tag.indexOf(inputValue) !== -1
+            item.title.indexOf(inputValue) !== -1 ||
+            item.tag.indexOf(inputValue) !== -1
           }
           leftColumns={leftTableColumns}
           rightColumns={rightTableColumns}
