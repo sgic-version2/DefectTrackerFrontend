@@ -44,11 +44,11 @@ class AllSetting extends Component {
                 showOnDashboard={this.props.showOnDashboardData}
                 showOnDashboardEvent={this.props.showOnDashboard}
               />
-              <br />
+              {/* <br />
               <FaviconSettings
-                systemLogo={this.props.favicon}
+                systemLogoFavicon={this.props.favicon}
                 faviconChange={this.props.faviconChange}
-              />
+              /> */}
               <br />
               <SideBarColorSettings />
               <br />

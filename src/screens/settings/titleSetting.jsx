@@ -4,7 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
-import { Divider, FormControlLabel, Checkbox } from "@material-ui/core";
+import { Divider, Checkbox } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -40,15 +40,11 @@ export default function TitleSettings({
 }) {
   const classes = useStyles();
 
-  
- console.log(showOnDashboard);
-  
-
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
         <Grid container spacing={2}>
-          <Grid item></Grid>
+          <Grid></Grid>
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={2}>
               <Grid>
@@ -64,7 +60,7 @@ export default function TitleSettings({
               <Grid>
                 <Checkbox
                   onClick={showOnDashboardEvent}
-                  value ={showOnDashboard}
+                  value={showOnDashboard}
                   // onChange={handleChange('checkedB')}
                   // value="checkedB"
                   checked={showOnDashboard}

@@ -39,7 +39,6 @@ const useStyles = makeStyles(theme => ({
 
 const handleStoreThemeCookie=(e)=>{
   localStorage.setItem('backGroundImage',e.target.src);
-  console.log("new bg image", e.target.src)
 }
 
 
@@ -48,7 +47,7 @@ const handleStoreThemeCookie=(e)=>{
 export default function ThemeSettings() {
   const classes = useStyles();
     useEffect(() => {
-    console.log("bg image from local storage", localStorage.getItem('backGroundImage'))
+    // console.log("bg image from local storage", localStorage.getItem('backGroundImage'))
     // console.log("dfgdjfg")
     });
   

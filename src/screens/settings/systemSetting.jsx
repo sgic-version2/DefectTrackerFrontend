@@ -100,7 +100,7 @@ export default function SystemSettings({ systemLogo, LogoChange }) {
                     type="file"
                     onChange={handleChangeLogo}
                   />
-                  <label htmlFor="contained-button-file" onClick={systemLogo}>
+                  <label htmlFor="contained-button-file">
                     <Button
                       variant="contained"
                       component="span"

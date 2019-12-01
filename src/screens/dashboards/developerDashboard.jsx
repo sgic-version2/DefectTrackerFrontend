@@ -9,7 +9,6 @@ import Radar from '../../components/charts/radar';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import { Segment } from 'semantic-ui-react';
 
 
 

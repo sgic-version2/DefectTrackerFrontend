@@ -36,13 +36,12 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const faviconImageChange = e => {
-  console.log("putit");
-};
-export default function FaviconSettings({ systemLogo, faviconChange }) {
+export default function FaviconSettings({ systemLogoFavicon, faviconChange }) {
   const classes = useStyles();
 
-
+  const faviconImageChange = (e) => {
+    console.log("putit",e);
+  };
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
@@ -60,7 +59,7 @@ export default function FaviconSettings({ systemLogo, faviconChange }) {
               </Grid>
               <Grid item>
                 <img
-                  src={systemLogo}
+                  src={systemLogoFavicon}
                   alt="Smiley face"
                   height="42"
                   width="42"
@@ -84,16 +83,12 @@ export default function FaviconSettings({ systemLogo, faviconChange }) {
                   <input
                     accept="image/*"
                     className={classes.input}
-                    id="contained-button-file"
-                    multiple
+                    // id="contained-button-file"
                     type="file"
-                    
-                    />
-                  <label
-                    htmlFor="contained-button-file"
-                    >
+                    onChange={faviconImageChange}
+                  />
+                  <label htmlFor="contained-button-file">
                     <Button
-                    onClick={faviconImageChange}
                       variant="contained"
                       component="span"
                       className={classes.button}
