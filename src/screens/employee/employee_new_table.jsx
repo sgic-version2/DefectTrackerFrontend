@@ -63,8 +63,12 @@ const columns = [
  
     {
        title: 'Action',
-       dataIndex: 'action',
-       defaultSortOrder: 'descend',
+      render:item=><Button.Group>
+         <EditEmployee open={open} handleOpen={handleOpen} handleClose={handleClose} />
+        <Button secondary onClick={handleOpen}>Edit</Button>
+        <Button.Or />
+        <Delete open={open} handleOpen={handleOpen.del} handleClose={handleClose} />
+     </Button.Group>
     },
     {
        title: 'View More',
@@ -81,12 +85,12 @@ const columns = [
        address: 'Admin',
        email: 'vithujan13@gmail.com',
  
-       action: <Button.Group>
-           <EditEmployee open={open} handleOpen={handleOpen} handleClose={handleClose} />
-          <Button secondary onClick={handleOpen}>Edit</Button>
-          <Button.Or />
-          <Delete open={open} handleOpen={handleOpen.del} handleClose={handleClose} />
-       </Button.Group>,
+      //  action: <Button.Group>
+      //      <EditEmployee open={open} handleOpen={handleOpen} handleClose={handleClose} />
+      //     <Button secondary onClick={handleOpen}>Edit</Button>
+      //     <Button.Or />
+      //     <Delete open={open} handleOpen={handleOpen.del} handleClose={handleClose} />
+      //  </Button.Group>,
 
        more: 
        <Button.Group>
@@ -101,13 +105,13 @@ const columns = [
        address: 'QA',
        email: 'vinoj@gmail.com',
  
-       action: <Button.Group>
-          <EditEmployee open={open} handleOpen={handleOpen} handleClose={handleClose} />
-          <Button secondary onClick={handleOpen}>Edit</Button>
-          <Button.Or />
-          <Delete open={open} handleOpen={handleOpen.del} handleClose={handleClose} />
+      //  action: <Button.Group>
+      //     <EditEmployee open={open} handleOpen={handleOpen} handleClose={handleClose} />
+      //     <Button secondary onClick={handleOpen}>Edit</Button>
+      //     <Button.Or />
+      //     <Delete open={open} handleOpen={handleOpen.del} handleClose={handleClose} />
 
-       </Button.Group>,
+      //  </Button.Group>,
        
        more: 
        <Button.Group>
@@ -121,13 +125,13 @@ const columns = [
        address: 'SE',
        email: 'mithusan@gmail.com',
  
-       action: <Button.Group>
-          <EditEmployee open={open} handleOpen={handleOpen} handleClose={handleClose} />
-          <Button secondary onClick={handleOpen}>Edit</Button>
-          <Button.Or />
-          <Delete open={open} handleOpen={handleOpen.del} handleClose={handleClose} />
+      //  action: <Button.Group>
+      //     <EditEmployee open={open} handleOpen={handleOpen} handleClose={handleClose} />
+      //     <Button secondary onClick={handleOpen}>Edit</Button>
+      //     <Button.Or />
+      //     <Delete open={open} handleOpen={handleOpen.del} handleClose={handleClose} />
 
-       </Button.Group>,
+      //  </Button.Group>,
        more: 
        <Button.Group>
        <More open={open} handleOpen={handleOpen.more} handleClose={handleClose} />
@@ -141,13 +145,13 @@ const columns = [
        address: 'HR',
        email: 'Mathusanth@gmail.com',
  
-       action: <Button.Group>
-         <EditEmployee open={open} handleOpen={handleOpen} handleClose={handleClose} />
-          <Button secondary onClick={handleOpen}>Edit</Button>
-          <Button.Or />
-          <Delete open={open} handleOpen={handleOpen.del} handleClose={handleClose} />
+      //  action: <Button.Group>
+      //    <EditEmployee open={open} handleOpen={handleOpen} handleClose={handleClose} />
+      //     <Button secondary onClick={handleOpen}>Edit</Button>
+      //     <Button.Or />
+      //     <Delete open={open} handleOpen={handleOpen.del} handleClose={handleClose} />
 
-       </Button.Group>,
+      //  </Button.Group>,
        more: 
        <Button.Group>
        <More open={open} handleOpen={handleOpen.more} handleClose={handleClose} />

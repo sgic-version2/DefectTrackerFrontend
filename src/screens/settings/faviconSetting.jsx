@@ -56,7 +56,7 @@ export default function FaviconSettings() {
 
        
         <Grid item >
-              <Typography variant="h6" component="h2">
+              <Typography variant="h6">
               Favicon 
               </Typography>
               </Grid>

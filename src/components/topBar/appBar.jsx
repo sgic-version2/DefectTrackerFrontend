@@ -6,7 +6,6 @@ import { Icon, Button, Divider, Avatar, Badge, Popover } from 'antd';
 import Notification from './Notification';
 import Chat from './chat';
 
-
 /* App bar using Material-ui 
 * app bar have 3 properties
    ** position - absolute,fixed,relative,static,sticky
@@ -15,15 +14,15 @@ import Chat from './chat';
    **iconFontColor - you can change Icon Color
 */
 
-const appBar = ({ position, color, backgroundColor, iconFontColor, marginSize, appBarExpandIcon, collapsed }) => {
+const appBar = ({ position, color, backgroundColor, iconFontColor, marginSize, appBarExpandIcon, collapsed,status,drakLightButton }) => {
     return (
         <Fragment >
-            <AppBar position={position ? position : 'static'} color={color ? color : 'primary'} style={{ background: `#${backgroundColor}`, marginLeft: marginSize, width: `${marginSize === 80 ? '95%' : '82%'}`, transition: 'width,0.5s', zIndex: 100 }}>
+            <AppBar position={position ? position : 'static'} color={color ? color : 'primary'} style={{ background: `${status ? 'transparent' : backgroundColor}`, marginLeft: marginSize, width: `${marginSize === 80 ? '95%' : '82%'}`, transition: 'width,0.5s', zIndex: 100}}>
                 <Toolbar >
-                    <Button onClick={() => appBarExpandIcon()} type="primary" style={{ background: 'transparent', color: `#${collapsed ? iconFontColor : 'ed3232'}`, border: 'none', marginRight: 15 }}>
+                    <Button onClick={() => appBarExpandIcon()} type="primary" style={{ background: 'transparent', color: `#${collapsed ? iconFontColor : 'edf0f2'}`, border: 'none', marginLeft: '-2%', boxShadow: 'none', fontSize: 18 }}>
                         <Icon type={collapsed ? 'menu-unfold' : 'menu-fold'} />
                     </Button>
-                    <Typography variant="h6" color='primary' style={{ width: '15%', position: 'absolute', left: '8%' }}>
+                    <Typography variant="h6" color='primary' style={{ width: '25%', position: 'absolute', left: '8%', color: '#ffffff', fontSize: 25, textShadow: '2px 2px 2px #000000', letterSpacing: '0.2em', textTransform: 'uppercase' }}>
                         Defect-Tracker
                     </Typography>
                     <IconButton style={{ marginLeft: '70%' }}>

@@ -5,9 +5,7 @@ import { Segment } from 'semantic-ui-react';
 import BreadCrumbs from '../../../components/breadCrumbs/breadCrumbs'
 
 class DefectStatusFlowComponent extends React.Component {
-
     render() {
-
         return (
             <React.Fragment>
                 <div>

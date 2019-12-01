@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import Link from '@material-ui/core/Link';
 import Button from '@material-ui/core/Button';
-import { Divider} from '@material-ui/core';
+import { Divider } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -58,7 +58,7 @@ export default function SystemSettings() {
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={2}>
               <Grid item >
-              <Typography variant="h6" component="h2">
+              <Typography variant="h6" >
               System Setting 
               </Typography>
               </Grid>

@@ -11,6 +11,8 @@ import { Link } from 'react-router-dom'
 
 import './profile.css'
 import User from '../../Assets/tony.png'
+import { Grid } from '@material-ui/core';
+import { Segment } from 'semantic-ui-react';
 // import BlueNight from '../assets/flo.jpg'
 
 export default class Profile extends Component {
@@ -19,29 +21,29 @@ export default class Profile extends Component {
             <div>
                 <div className="form-background">
 
-                </div>
-                <div className="profile-model">
-                    <div className="basicInfo">
-                        <label className="txt-profile-photo">Profile Photo</label>
-                        <label className="txt-upload-photo">Upload Photo</label>
-                        <img className="avatar" src={User} alt='userimage' />
-
-                        <input type="file" id="fileUplaod" className="uploadFile" />
-                        <label className="imageUpload" for="fileUplaod">
-                            <i className="icon"><CloudUploadIcon /></i>
-                            Upload Image
+                                <input type="file" id="fileUplaod" className="uploadFile" />
+                                <label className="imageUpload" for="fileUplaod">
+                                    <i className="icon"><CloudUploadIcon /></i>
+                                    Upload Image
                     </label>
-                        <button className="takePhoto">
-                            <i className="cameraIcon"><PhotoCameraIcon /></i>
-                            <label className="btn-label">Take Photo</label>
-                        </button>
-                    </div>
+                                <button className="takePhoto">
+                                    <i className="cameraIcon"><PhotoCameraIcon /></i>
+                                    <label className="btn-label">Take Photo</label>
+                                </button>
+                            </div>
 
-                    <div className="changePassword">
-                        <label className="txt-basicInfo">Change Password</label>
-                        <form action="" className="">
-                            <i className="pwd-icon-1"><LockOutlinedIcon /></i>
-                            <input type="password" className="txt-pwd-1" placeholder="Verify Current Password" />
+                            <div className="changePassword">
+                                <label className="txt-basicInfo">Change Password</label>
+                                <form action="" className="">
+                                    <i className="pwd-icon-1"><LockOutlinedIcon /></i>
+                                    <input type="password" className="txt-pwd-1" placeholder="Verify Current Password" />
+
+                                    <i className="pwd-icon-2"><LockOutlinedIcon /></i>
+                                    <input type="password" className="txt-pwd-2" placeholder="New Password" />
+                                    <Link id="generatePassword" href="/hghg">Generate Strong Password</Link>
+
+                                    <i className="pwd-icon-3"><LockOutlinedIcon /></i>
+                                    <input type="password" className="txt-pwd-3" placeholder="Confirm New Password" />
 
                             <i className="pwd-icon-2"><LockOutlinedIcon /></i>
                             <input type="password" className="txt-pwd-2" placeholder="New Password" />
@@ -61,24 +63,24 @@ export default class Profile extends Component {
                             <i className="user-icon"><PersonOutlineOutlinedIcon /></i>
                             <input type="text" id="txt-username" placeholder="Username" />
 
-                            <i className="fname-icon"><AccountBoxOutlinedIcon /></i>
-                            <input type="text" id="txt-firstname" placeholder="First Name" />
+                                    <i className="fname-icon"><AccountBoxOutlinedIcon /></i>
+                                    <input type="text" id="txt-firstname" placeholder="First Name" />
 
-                            <i className="lname-icon"><AccountBoxOutlinedIcon /></i>
-                            <input type="text" id="txt-lastname" placeholder="Last Name" />
+                                    <i className="lname-icon"><AccountBoxOutlinedIcon /></i>
+                                    <input type="text" id="txt-lastname" placeholder="Last Name" />
 
-                            <i className="mail-icon"><MailOutlineOutlinedIcon /></i>
-                            <input type="text" id="txt-mail" placeholder="Email" />
+                                    <i className="mail-icon"><MailOutlineOutlinedIcon /></i>
+                                    <input type="text" id="txt-mail" placeholder="Email" />
 
-                            <i className="website-icon"><LanguageOutlinedIcon /></i>
-                            <input type="text" id="txt-website" placeholder="WebSite" />
+                                    <i className="website-icon"><LanguageOutlinedIcon /></i>
+                                    <input type="text" id="txt-website" placeholder="WebSite" />
 
                             <i className="update-icon"><PublishOutlinedIcon /></i>
                             <button className="btn-update">Update</button>
                         </form>
                     </div>
                 </div>
-            </div>
+            // </div>
         )
     }
 }

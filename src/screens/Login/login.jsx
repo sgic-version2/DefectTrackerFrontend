@@ -51,7 +51,7 @@ export default function SignIn() {
     window.location.href = "/defect/company"
   }
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs" >
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
