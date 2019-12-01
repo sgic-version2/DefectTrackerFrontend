@@ -20,7 +20,6 @@ import DevicesOutlinedIcon from '@material-ui/icons/DevicesOutlined';
 import DevicesOtherOutlinedIcon from '@material-ui/icons/DevicesOtherOutlined';
 import BugReportOutlinedIcon from '@material-ui/icons/BugReportOutlined';
 import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
-import SpeakerNotesOutlinedIcon from '@material-ui/icons/SpeakerNotesOutlined';
 import BubbleChartOutlinedIcon from '@material-ui/icons/BubbleChartOutlined';
 import ContactPhoneOutlinedIcon from '@material-ui/icons/ContactPhoneOutlined';
 import ContactSupportOutlinedIcon from '@material-ui/icons/ContactSupportOutlined';
@@ -148,12 +147,6 @@ const sideBarContent = [{
     icon: <SettingsOutlinedIcon />,
     status: 1,
     subMenu: [
-        {
-            name: 'General Configuration',
-            url: '/defect/generalConfiguration',
-            status: 0,
-            icon: <SpeakerNotesOutlinedIcon />
-        },
         {
             name: 'Look and Feel',
             url: '/defect/lookandfeel',
