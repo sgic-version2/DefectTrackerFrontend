@@ -13,6 +13,7 @@ class add_employee_form extends React.Component {
         this.setState({
             [e.target.name]: e.target.value
         })
+        
     }
     handleSubmit = (e) => {
         e.preventDefault()
@@ -56,3 +57,5 @@ class add_employee_form extends React.Component {
 }
 
 export default add_employee_form
+
+

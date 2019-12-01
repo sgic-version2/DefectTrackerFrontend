@@ -1,10 +1,10 @@
-import * as actionType from '../constant/addEmployeeConstant'
-import { EDITROLE } from '../constant/role'
+import * as actionType from '../constant/addEmployeeConstant';
+import { EDITROLE } from '../constant/role';
 
 const InitialState = {
     employeeDetailsFromState: [
         {
-            key: '0',
+            key: '1',
             employeeID: '001',
             employeeName: 'sasee',
             employeeDesignation: 'SE',
@@ -13,7 +13,7 @@ const InitialState = {
             role: ''
         },
         {
-            key: '1',
+            key: '2',
             employeeID: '002',
             employeeName: 'kumar',
             employeeDesignation: 'ASE',
@@ -25,16 +25,24 @@ const InitialState = {
 }
 
 export const addEmployeeReducer = (state = InitialState, action) => {
-    switch (action.type) {
-        case actionType.CREATENEWEMPLOYEE:
-            return {
-                employeeDetailsFromState: [...state.employeeDetailsFromState, action.payload]
-            }
-        case EDITROLE:
-            return {
-                employeeDetailsFromState: [...state.employeeDetailsFromState.filter(data => data.employeeID !== action.payload.employeeID),action.payload]
-            }
-        default:
-            return state
-    }
-}
+  switch (action.type) {
+    case actionType.CREATENEWEMPLOYEE:
+      return {
+        employeeDetailsFromState: [
+          ...state.employeeDetailsFromState,
+          action.payload
+        ]
+      };
+    case EDITROLE:
+      return {
+        employeeDetailsFromState: [
+          ...state.employeeDetailsFromState.filter(
+            data => data.employeeID !== action.payload.employeeID
+          ),
+          action.payload
+        ]
+      };
+    default:
+      return state;
+  }
+};

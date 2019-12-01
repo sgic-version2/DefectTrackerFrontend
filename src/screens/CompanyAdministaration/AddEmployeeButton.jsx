@@ -17,7 +17,7 @@ const AllocationButton = () => {
   return (
     <div style={{ marginBottom: 40 }}>
       <SubmitModel form={<EditForm />} open={open} handleOpen={handleOpen} handleClose={handleClose} />
-      <Button color="primary" onClick={handleOpen}>Add Employee</Button>
+      <Button color="primary" onClick={handleOpen} >Add Employee</Button>
       <label for="embedpollfileinput" class="ui medium red left button">
         <i class="ui upload icon"></i>
         Import Employee

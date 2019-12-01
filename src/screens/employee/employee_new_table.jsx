@@ -141,9 +141,9 @@ const columns = [
     {
        key: '4',
        name: 4,
-       age: 'Mathusanth',
+       age: 'Mathushanth',
        address: 'HR',
-       email: 'Mathusanth@gmail.com',
+       email: 'Mathushanth@gmail.com',
  
       //  action: <Button.Group>
       //    <EditEmployee open={open} handleOpen={handleOpen} handleClose={handleClose} />
