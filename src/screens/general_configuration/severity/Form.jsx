@@ -1,6 +1,6 @@
 import React from 'react';
 import './Form.css'
-import { ChromePicker } from 'react-color' //color picker
+import { SketchPicker } from 'react-color' //color picker
 
 
 
@@ -11,9 +11,12 @@ class Form extends React.Component {
     severityId:'',
     severityName: '',
     severityDiscription:'',
-    SeverityColor:'',
+    selectedColor:null,
+    open:true,
+    
    // SeverityIcon:'',
     displayColorPicker: false,
+    tempColor:"#22194D"
      
   };
   handleChange = (e) => {
@@ -28,8 +31,13 @@ handleSubmit = (e) => {
 
   
   handleColor = (e) => {
-    this.setState({ selectedColor: e.hex });
+    this.setState({
+      selectedColor: <span style ={{backgroundColor:e.hex, borderRadius:20, width:10}}>&nbsp; &nbsp; &nbsp;</span>
+     
+    });
+    this.setState({tempColor:e.hex});
     console.log(e.hex)
+
   }
 
   handleClick = () => {
@@ -40,11 +48,18 @@ handleSubmit = (e) => {
     this.setState({ displayColorPicker: false })
   };
 
+  handleOnChange= e=>
+  {
+    this.setState({
+      [e.target.name]: e.target.value
+  })
+  }
+
   render() {
 
-    console.log("hh"+this.state)
+  
 
-    const { selectedColor, displayColorPicker } = this.state;
+    const { selectedColor, displayColorPicker,tempColor } = this.state;
 
     return (
       <div>
@@ -56,32 +71,25 @@ handleSubmit = (e) => {
           <label>Description:</label>
           <input type="text" id="" className=""  name="severityDiscription" value={this.state.severityDiscription}placeholder="Description"onChange={this.handleChange}></input>
           <br />
-          <label>Icon:</label>
-          <br />
-          <br />
-          <input
-            accept="image/*"
-            //className={classes.input}
-            id="contained-button-file"
-            multiple
-            type="file"
-          />
-          <br />
+          
+        
           <br />
           <label>Colour:</label>
           <div>
-            <div onClick={this.handleClick} style={{ backgroundColor: selectedColor }} className='colorbox'></div>
+            <div  name="selectedColor" onClick={this.handleClick} 
+            style={{ backgroundColor: tempColor }}
+             className='colorbox'></div>
             {/* {displayColorPicker ? <div style={ popover }> */}
             <div onClick={this.handleClose} />
             {/* </div> : null } */}
-            {displayColorPicker && <ChromePicker onChange={this.handleColor} />}
+            {displayColorPicker && <SketchPicker onChangeComplete={this.handleColor} />}
           </div>
         </div>
         <br></br>
-        <button type="submit" onClick={this.handleClose}>submit</button>
+        <button type="submit" onClick={this.props.openFormClose}>submit</button>
         </form>
       </div>
     )
   }
 }
-export default Form
+export default Form;

@@ -80,7 +80,7 @@ class SeverityConfig extends Component {
             //    },
                {
                   title: 'Color',
-                  dataIndex: 'SeverityColor',
+                  dataIndex: 'selectedColor',
                   defaultSortOrder: 'descend',
                   sorter: (a, b) => a.age - b.age,
                },
