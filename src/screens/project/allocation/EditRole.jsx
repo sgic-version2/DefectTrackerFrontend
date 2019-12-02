@@ -14,7 +14,7 @@ const EditRole = () => {
     const dataSource = ['Teach Lead', 'QA Lead', 'Software Engineer', 'Senior Software Engineer'];
     return (
         <div>
-            <Grid direction="row" container>
+            <Grid direction="row" container>-
                 <Grid item xs={6} style={useStyle.root}>
                     <h4 style={useStyle.forntStyle}>Employee ID :</h4>
                 </Grid>
