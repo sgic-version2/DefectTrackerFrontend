@@ -123,7 +123,7 @@ input[type="checkbox"] {
   top: 0;
   width: 50%;
   height: 100%;
-  line-height: 30px;
+  line-height: 30px; 
   height: 30px;
   text-align: center;
   text-transform: uppercase;
@@ -188,15 +188,14 @@ text-align: center !important;
 padding: 10px 10px !important;
 width : 50% !important;
 } */
-/* .ant-modal-footer button + button {
+.ant-modal-footer button + button {
   display: none !important;
 } */
 /* .ant-btn, .ant-btn:active, .ant-btn:focus{
   display: none !important;
 } */
-.iconposition {
-  position: relative !important;
-}
+
+
 .techLeadPrivilage {
   padding: 10px 10px !important;
   width: 50% !important;

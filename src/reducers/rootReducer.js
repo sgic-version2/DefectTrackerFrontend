@@ -6,7 +6,11 @@ import { projectReducer } from "../fileReducer/projectReducer";
 import { moduleReducer } from "../fileReducer/moduleReducer";
 
 import { priorityConfigReducer } from "./../fileReducer/priorityConfigReducer";
-
+import { companyReducer } from './../fileReducer/companyReducer';
+import { defectTypeReducer } from './../fileReducer/defectTypeReducer';
+import { projectDetailsReducer } from './../fileReducer/projectDeatilsReducer'
+import { addDefectStatusReducer } from './../fileReducer/addDefectStatusReducer';
+import { defectReducer } from '../fileReducer/defectReducer'
 import {
   showOnDashboardReducer,
   faviconReducer,
@@ -14,9 +18,6 @@ import {
 } from "../screens/Settings/settingReducer";
 import { profileReducer } from "../fileReducer/profileReducer";
 import { hrAllocationReducer } from "../fileReducer/hrAllocationReducer";
-import { companyReducer } from "./../fileReducer/companyReducer";
-import { defectTypeReducer } from "./../fileReducer/defectTypeReducer";
-import { projectDetailsReducer } from "./../fileReducer/projectDeatilsReducer";
 import { addCompanyEmployeeReducer } from "../fileReducer/addCompanyEmployeeReducer";
 import { auditReducer } from "../fileReducer/auditReducer";
 import { addDefectReducer } from "../fileReducer/addDefectReducer";
@@ -44,7 +45,11 @@ const rootReducer = combineReducers({
   severityConfigData: severityConfigReducer,
   addCompanyEmployeeData: addCompanyEmployeeReducer,
   exportAudit: auditReducer,
-  addDefectData: addDefectReducer
+  addDefectData: addDefectReducer,
+  companyData: companyReducer,
+  defectTypeData: defectTypeReducer,
+  projectDetailsData: projectDetailsReducer,
+  addDefectStatusReducer: addDefectStatusReducer,
+  defectState: defectReducer,
 });
-
 export default rootReducer;

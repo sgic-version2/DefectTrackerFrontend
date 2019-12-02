@@ -1,7 +1,7 @@
 import React from 'react';
 import 'semantic-ui-react';
 import { Grid } from '@material-ui/core';
-import DefectList from '../../screens/DefectStatus/DefectList';
+import DefectList from '../../screens/DefectStatus/defectStatus';
 import Dashboard from '../../screens/Dashboard/Dashboard';
 import CompanyDetails from '../../screens/company/CompanyDetails';
 import ProjectAllocation from '../../screens/project/allocation/ProjectAllocation';
@@ -17,10 +17,10 @@ import DefectType from '../../screens/CommonConfiguration/DefectConfig/DefectCon
 import DefectStatusFlow from '../../screens/WorkFlow/DefectStatus/DefectStatusFlow';
 import TeachLeadPrivilege from '../../screens/Settings/Privilege/TechLeadPrivileges';
 import ManageProject from '../../screens/ManageProject/ProjectDetails';
-import Severity from '../../screens/general_configuration/severity/SeverityConfig';
+import Severity from '../../screens/general_configuration/severity/PriorityConfig';
 import ProfileSetting from '../../screens/profile/profile';
 import DefectRolesFlow from '../../screens/WorkFlow/DefectRoles/DefectRolesFlow';
-// import Developer from './../../screens/dashboards/developerDashboard';
+import DeveloperDashboard from './../../screens/dashboards/developerDashboard';
 import LookAndFeel from '../../screens/Settings/settings';
 import QADashboard from '../../screens/dashboards/QADashboard/chart';
 import Module from '../../screens/Module/ModuleList';

@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import { Transfer, Table, Tag, Progress, Icon } from "antd";
-import difference from "lodash/difference";
-import Model from "../../../components/model/model";
-import EditRole from "./EditRole";
+import React, { Component } from 'react';
+import { Transfer, Table, Tag, Progress, Icon } from 'antd';
+import difference from 'lodash/difference';
+import Model from '../../../components/model/model';
+import EditRole from './EditRole';
 
-const color = ["blue", "green", "orange", "red", "olive", "gold"];
+const color = ['blue', 'green', 'orange', 'red', 'olive', 'gold'];
 var dataStore = [];
 var originTargetKeys = [1];
 export default class RoleAllocation extends Component {
@@ -27,32 +27,37 @@ export default class RoleAllocation extends Component {
   handleClose = () => {
     this.setState({
       open: false
-    });
-  };
-  handlebuttonClick = data => {
-    this.props.roleAllocation(data);
-    this.handleOpen();
-  };
+    })
+  }
+  handlebuttonClick = (data) => {
+    this.props.roleAllocation(data)
+    this.handleOpen()
+    console.log(data);
+
+  }
   componentDidMount() {
+    this.dataCollection();
+  }
+  dataCollection = () => {
     var indexOfValues;
     this.props.employeeData.map((data, index) => {
       switch (data.employeeDesignation) {
-        case "ASE":
+        case 'ASE':
           indexOfValues = 0;
           break;
-        case "SE":
+        case 'SE':
           indexOfValues = 1;
           break;
-        case "SSE":
+        case 'SSE':
           indexOfValues = 2;
           break;
-        case "ATL":
+        case 'ATL':
           indexOfValues = 3;
           break;
-        case "TL":
+        case 'TL':
           indexOfValues = 4;
           break;
-        case "STL":
+        case 'STL':
           indexOfValues = 5;
           break;
         default:
@@ -67,16 +72,25 @@ export default class RoleAllocation extends Component {
             <Tag color={color[indexOfValues]}>{data.employeeDesignation}</Tag>
           ),
           employeeEmail: data.employeeEmail,
-          availability: (
-            <Progress type="circle" percent={data.availability} width={50} />
-          ),
+          availability: <Progress type="circle" percent={data.availability} width={50} />,
           role: data.role
         }),
         this.setState({
           buttonClick: dataStore
         })
-      );
-    });
+      )
+    })
+
+  }
+  functionRefresh = () => {
+    dataStore = []
+    this.setState({
+      buttonClick: []
+    })
+    //   this.dataCollection()
+    setTimeout(() => {
+      this.dataCollection()
+    }, 20)
   }
   render() {
     // Customize Table Transfer
@@ -167,7 +181,7 @@ export default class RoleAllocation extends Component {
         title: "Role"
       },
       {
-        title: "Action",
+        title: 'Action',
         render: (item, key) => (
           <Icon
             type="edit"
@@ -192,14 +206,7 @@ export default class RoleAllocation extends Component {
           leftColumns={leftTableColumns}
           rightColumns={rightTableColumns}
         />
-        <Model
-          open={open}
-          handleOpen={this.handleOpen}
-          handleClose={this.handleClose}
-          width={30}
-          form={<EditRole data={this.props.allocationData} />}
-          title="Edit Role"
-        />
+        <Model open={open} handleOpen={this.handleOpen} handleClose={this.handleClose} width={30} form={<EditRole data={this.props.allocationData} editRole={this.props.editRole} functionRefresh={this.functionRefresh} />} title='Edit Role' />
       </div>
     );
   }
