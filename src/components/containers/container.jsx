@@ -12,7 +12,7 @@ import AuditTable from '../../screens/Settings/Troubleshoot and Support/Audit Lo
 import PriorityConfig from '../../screens/general_configuration/priority/PriorityConfig';
 
 import AllocationTable from '../../screens/HrAllocate/AllocationTable';
-import EmployeeTable from './../../screens/employee/EmployeeTable';
+import EmployeeTable from './../../screens/employee/employee_table';
 import DefectType from '../../screens/CommonConfiguration/DefectConfig/DefectConfic';
 import DefectStatusFlow from '../../screens/WorkFlow/DefectStatus/DefectStatusFlow';
 import TeachLeadPrivilege from '../../screens/Settings/Privilege/TechLeadPrivileges';
