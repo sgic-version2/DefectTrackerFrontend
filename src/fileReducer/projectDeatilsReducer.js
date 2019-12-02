@@ -14,13 +14,13 @@ export const projectDetailsReducer = (state = InitialState, action) => {
         .then(response => {
           console.log(response.status);
           return state.projectDetailsFromState
-        //   if (response.status == 200) {
-        //     return {
-        //       projectDetailsFromState: (state.projectDetailsFromState =
-        //         action.payload),
-        //       status: (state.status = 200)
-        //     };
-        //   }
+          if (response.status == 200) {
+            return {
+              projectDetailsFromState: (state.projectDetailsFromState =
+                action.payload),
+              status: (state.status = 200)
+            };
+          }
         })
         .catch(err => {
           state.projectDetailsFromState = err;
