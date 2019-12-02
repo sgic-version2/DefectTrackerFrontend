@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Transfer, Table, Modal, Tag, Row, Col, Select } from 'antd';
 import difference from 'lodash/difference';
 import { Segment, Button } from 'semantic-ui-react';
@@ -60,30 +60,30 @@ const TableTransfer = ({ leftColumns, rightColumns, ...restProps }) => (
 
 const mockRole = ['TL', 'QAL', 'JSE', 'JQA', 'SE', 'SSE', 'QAE', 'SQAE'];
 const mockModule = ['Login', 'Register', 'Logout', 'API Developement'];
-const mockData = [];
+
 const color = ['blue', 'green', 'orange', 'olive'];
-for (let i = 0; i < 20; i++) {
-  mockData.push({
-    key: i.toString(),
-    empname: `Emp${i + 1}`,
-    role: <Tag color={color[i % 4]}>{mockRole[i % 4]}</Tag>,
-    module: mockModule[i % 3]
-    // disabled: i % 4 === 0
-  });
-}
+// for (let i = 0; i < 20; i++) {
+//   mockData.push({
+//     key: i.toString(),
+//     empname: `Emp${i + 1}`,
+//     role: <Tag color={color[i % 4]}>{mockRole[i % 4]}</Tag>,
+//     module: mockModule[i % 3]
+//     // disabled: i % 4 === 0
+//   });
+// }
 
-const originTargetKeys = mockData
-  .filter(item => +item.key % 3 > 1)
-  .map(item => item.key);
-
+// const originTargetKeys = mockData
+//   .filter(item => +item.key % 3 > 1)
+//   .map(item => item.key);
+var mockData;
 export default class ModuleAllocate extends React.Component {
   state = {
-    targetKeys: originTargetKeys,
+    targetKeys: ['1'],
     disabled: false,
     showSearch: false,
     visible: false
   };
-
+  mockData = this.props.moduleAllocationData;
   onChange = nextTargetKeys => {
     this.setState({ targetKeys: nextTargetKeys });
   };
@@ -110,6 +110,11 @@ export default class ModuleAllocate extends React.Component {
     this.setState({
       value
     });
+  };
+
+  handlebuttonClick = data => {
+    this.props.moduleAllocation(data);
+    this.showModal();
   };
 
   render() {
@@ -157,7 +162,7 @@ export default class ModuleAllocate extends React.Component {
             label={{ as: 'a', basic: true, content: 'Edit' }}
             labelPosition='right'
             color='blue'
-            onClick={this.handleOpen}
+            onClick={this.showModal}
           />
         )
       }

@@ -10,40 +10,40 @@ const column = [
 const privilege = [
     {
         // name: 'Privilege', button: 'QA'
-        Privilege: 'Add Defect', techlead: <div class="main"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
+        Privilege: 'Add Defect', techlead: <div class="main2" style={{marginLeft:"30%", marginRight:"30%"}}><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
     },
     {
-        Privilege: 'Edit Defect', techlead: <div class="main"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
+        Privilege: 'Edit Defect', techlead: <div class="main2"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
     },
     {
-        Privilege: 'Manage Defect', techlead: <div class="main"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
+        Privilege: 'Manage Defect', techlead: <div class="main2"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
     },
     {
-        Privilege: 'Defect Dashboard', techlead: <div class="main"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
+        Privilege: 'Defect Dashboard', techlead: <div class="main2"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
     },
     {
-        Privilege: 'Add Module', techlead: <div class="main"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
+        Privilege: 'Add Module', techlead: <div class="main2"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
     },
     {
-        Privilege: 'Edit Module', techlead: <div class="main"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
+        Privilege: 'Edit Module', techlead: <div class="main2"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
     },
     {
-        Privilege: 'Manage Module', techlead: <div class="main"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
+        Privilege: 'Manage Module', techlead: <div class="main2"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
     },
     {
-        Privilege: 'Add Submodule', techlead: <div class="main"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
+        Privilege: 'Add Submodule', techlead: <div class="main2"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
     },
     {
-        Privilege: 'Edit Submodule', techlead: <div class="main"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
+        Privilege: 'Edit Submodule', techlead: <div class="main2"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
     },
     {
-        Privilege: 'Manage Submodule', techlead: <div class="main"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
+        Privilege: 'Manage Submodule', techlead: <div class="main2"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
     },
     {
-        Privilege: 'QA Dashboard', techlead: <div class="main"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
+        Privilege: 'QA Dashboard', techlead: <div class="main2"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
     },
     {
-        Privilege: 'QA Privilage', techlead: <div class="main"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
+        Privilege: 'QA Privilage', techlead: <div class="main2"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
     },
 ]
 const TechLeadPrivilege = () => {

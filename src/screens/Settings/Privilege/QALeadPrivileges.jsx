@@ -10,40 +10,40 @@ const column = [
 const privilege = [
     {
         // name: 'Privilege', button: 'QA'
-        Privilege: 'Add Defect', qa: <div class="main"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
+        Privilege: 'Add Defect', qa: <div class="main2"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
     },
     {
-        Privilege: 'Edit Defect', qa: <div class="main"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
+        Privilege: 'Edit Defect', qa: <div class="main2"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
     },
     {
-        Privilege: 'Manage Defect', qa: <div class="main"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
+        Privilege: 'Manage Defect', qa: <div class="main2"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
     },
     {
-        Privilege: 'Defect Dashboard', qa: <div class="main"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
+        Privilege: 'Defect Dashboard', qa: <div class="main2"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
     },
     {
-        Privilege: 'Add Module', qa: <div class="main"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
+        Privilege: 'Add Module', qa: <div class="main2"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
     },
     {
-        Privilege: 'Edit Module', qa: <div class="main"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
+        Privilege: 'Edit Module', qa: <div class="main2"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
     },
     {
-        Privilege: 'Manage Module', qa: <div class="main"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
+        Privilege: 'Manage Module', qa: <div class="main2"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
     },
     {
-        Privilege: 'Add Submodule', qa: <div class="main"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
+        Privilege: 'Add Submodule', qa: <div class="main2"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
     },
     {
-        Privilege: 'Edit Submodule', qa: <div class="main"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
+        Privilege: 'Edit Submodule', qa: <div class="main2"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
     },
     {
-        Privilege: 'Manage Submodule', qa: <div class="main"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
+        Privilege: 'Manage Submodule', qa: <div class="main2"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
     },
     {
-        Privilege: 'QA Dashboard', qa: <div class="main"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
+        Privilege: 'QA Dashboard', qa: <div class="main2"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
     },
     {
-        Privilege: 'QA Privilage', qa: <div class="main"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
+        Privilege: 'QA Privilage', qa: <div class="main2"><div class="center"><input type="checkbox" name="" /><span className="span">ON</span><span className="span">OFF</span></div></div>
     },
 ]
 const QALeadPrivileges = () => {

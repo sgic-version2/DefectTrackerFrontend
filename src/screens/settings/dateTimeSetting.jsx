@@ -104,13 +104,14 @@ const [fullFormat, setFullFormat] = useState("--")
         <Grid spacing={2}>
             <Typography variant="h6">Date and Time formats</Typography>
             <br/>
-            <Grid xs={8} container sm spacing={3}>
+            <Grid xs={8} container sm spacing={2}>
                 <Grid  xs={2}>Time Format</Grid>
                 <Grid  xs={2}>
                 <Select
          value={tFormat}
           onChange={handleChangeTime}
-          input={<BootstrapInput name="age" id="age-customized-select" />}
+          input={<BootstrapInput name="age" style={{height:"20%" , width:"50px"}} />}
+          
         >
 
           <MenuItem value={'HH:mm'}>HH:mm</MenuItem>
@@ -123,7 +124,7 @@ const [fullFormat, setFullFormat] = useState("--")
                     </Grid>
         </Grid>
             <br/>
-        <Grid xs={8} container sm spacing={3}>
+        <Grid xs={8} container sm spacing={2}>
                 <Grid  xs={2}>Date Format</Grid>
                 <Grid  xs={2}>
                 <Select
@@ -140,7 +141,7 @@ const [fullFormat, setFullFormat] = useState("--")
         </Grid>
 
         <br/>
-        <Grid xs={8} container sm spacing={3}>
+        <Grid xs={8} container sm spacing={2}>
                 <Grid  xs={2}>Day Format</Grid>
                 <Grid  xs={2}>
                 <Select
