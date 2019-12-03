@@ -7,7 +7,7 @@ export const projectReducer = (state = InitialState, action) => {
     switch (action.type) {
         case actionType.ROLEALLOCATION:
             return {
-                roleAllocationData: [...state.roleAllocationData, action.payload]
+                roleAllocationData: [state.roleAllocationData= action.payload]
             }
         case actionType.DEALLOCATION:
             return {

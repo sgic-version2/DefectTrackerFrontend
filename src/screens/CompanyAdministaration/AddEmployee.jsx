@@ -7,6 +7,7 @@ import Table from '../../components/tables/table'
 import { Button } from 'semantic-ui-react';
 import MoreOutlinedIcon from '@material-ui/icons/MoreOutlined';
 import More from './More'
+
 const columns = [
    {
       title: 'ID',
@@ -59,7 +60,7 @@ const columns = [
    },
 ];
 
-export default class AddEmployee extends Component {
+class AddEmployee extends Component {
    state = {
       value: false,
    };
@@ -139,7 +140,7 @@ export default class AddEmployee extends Component {
                <Grid item xs={11} style={{ marginTop: '2%' }}>
                   <Segment>
                      <BreadCrumbs />
-                     <AllocationButton />
+                     <AllocationButton   />
                      <Table column={columns} data={data} />
                      <More open={this.state.value} handleOpen={this.handleOpen} handleClose={this.handleClose} />
                   </Segment>
@@ -149,3 +150,4 @@ export default class AddEmployee extends Component {
       )
    }
 }
+export default  AddEmployee

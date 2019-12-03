@@ -122,7 +122,7 @@ class Audit_table extends Component {
                      <BreadCrumbs />
                      <CustomizedMenus />
                      <Date />
-                     <Export />
+                     <Export  />
                      <Table column={columns} data={data} />
                   </Segment>
                </Grid>
@@ -132,4 +132,4 @@ class Audit_table extends Component {
    }
 }
 
-export default Audit_table;
+export default Audit_table
