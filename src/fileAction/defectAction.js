@@ -5,7 +5,9 @@ export const changeDataValues = (data) => dispatch => {
     axios.post('http://127.0.0.1:8081/api/v1/defect', data).then(response => {
         dispatch({
             type: actionTypes.ADDDEFECT,
-            payload: response
+            status: response.status,
+            payload: data
+
         })
     })
 }
