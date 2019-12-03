@@ -29,7 +29,7 @@ class AddProject extends Component {
     });
   };
 
-  // 
+  //
 
   handleSubmit = e => {
     this.props.changeDataValues(this.state);
@@ -48,14 +48,12 @@ class AddProject extends Component {
   // };
   datePick = (date, dateString, e) => {
     // e.preventDefault()
-    console.log("hfh", dateString);
     this.setState({
       license_start_date: dateString,
       license_end_date: dateString
     });
   };
   render() {
-    console.log("hi" + this.state);
     const { open, handleOpen, handleClose, width, title } = this.props;
     return (
       <div>
@@ -109,7 +107,7 @@ class AddProject extends Component {
                   <InputNumber
                     onChange={onChange}
                     placeholder="In Years"
-                     onChange={this.handleOnChange}
+                    onChange={this.handleOnChange}
                     style={{ width: "100%" }}
                   />{" "}
                 </Form.Item>
@@ -154,9 +152,9 @@ class AddProject extends Component {
               </Col>
             </Row>
 
-            {/* <button type="submit" onClick={handleClose}>
+            <button type="submit" >
               submit
-            </button> */}
+            </button>
           </Form>
         </Modal>
       </div>
