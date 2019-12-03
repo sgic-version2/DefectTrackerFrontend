@@ -1,8 +1,9 @@
 import * as actionTypes from '../constant/defectConstant';
 import axios from 'axios'
+import { defectApi } from '../Api/index'
 
 export const changeDataValues = (data) => dispatch => {
-    axios.post('http://127.0.0.1:8081/api/v1/defect', data).then(response => {
+    axios.post(`${defectApi}`, data).then(response => {
         dispatch({
             type: actionTypes.ADDDEFECT,
             status: response.status,
