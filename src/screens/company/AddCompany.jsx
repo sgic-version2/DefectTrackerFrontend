@@ -4,6 +4,7 @@ import { Icon, Form, Input, Radio, DatePicker } from "antd";
 import { InputNumber } from "antd";
 import moment from "moment";
 import { Row, Col } from "antd";
+import Axios from 'axios';
 const dateFormatList = ["DD/MM/YYYY", "DD/MM/YY"];
 
 const { TextArea } = Input;
@@ -27,7 +28,18 @@ class AddCompany extends Component {
     license_start_date: "",
     license_end_date: ""
   };
-  
+  componentDidMount() {
+    Axios.get("http://localhost:8082/test/api/v1/company")
+    .then(res=>
+        {
+            if(res.status==200){
+                console.log("data get");
+            }
+
+            this.setState({ data: res.data });
+            
+        })
+    }
   handleOnChange=(e)=>{
     this.setState({
       [e.target.name]: e.target.value
