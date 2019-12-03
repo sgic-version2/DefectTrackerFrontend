@@ -1,6 +1,5 @@
 import * as actionType from '../constant/defectConstant'
 
-
 const InitialState = {
     defectState: [],
     defectAddStatus:''
