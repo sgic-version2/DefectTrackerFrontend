@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Modal, Button } from "antd";
 import { Icon, Form, Input, Radio, DatePicker } from "antd";
 import { InputNumber } from "antd";
-import moment from "moment";
+import moment, { parseTwoDigitYear } from "moment";
 import { Row, Col } from "antd";
 import Axios from 'axios';
 const dateFormatList = ["DD/MM/YYYY", "DD/MM/YY"];
@@ -135,18 +135,25 @@ datePick =(date, dateString, e)=>{
                 </Form.Item>
               </Col>
 
-              <Col span={15} style={{ padding: "5px" }}>
+              <Col span={10} style={{ padding: "5px" }}>
                 <Form.Item
                   label="Lisence Type"
-                  className="collection-create-form_last-form-item"
+                  // className="collection-create-form_last-form-item"
                   onChange={this.handleOnChange}
                 >
-                  <Radio.Group>
+                  {/* <Radio.Group>
                     <Radio value="basic">Basic</Radio>
                     <Radio value="medium">Medium</Radio>
                     <Radio value="advanced">Advanced</Radio>
                     <Radio value="customized">Customized</Radio>
-                  </Radio.Group>
+                  </Radio.Group> */}
+                  <select  name="license_type_name">
+                                <option selected>-----Select Type-----</option>
+                                <option value="basic">Basic</option>
+                                <option value="medium">Medium</option>
+                                <option value="advanced">Advanced</option>
+                                <option value="customized">Customized</option>
+                            </select>
                 </Form.Item>
               </Col>
             </Row>
