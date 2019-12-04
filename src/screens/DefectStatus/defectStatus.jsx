@@ -4,14 +4,12 @@ import { Grid } from "@material-ui/core";
 import BreadCrumbs from "../../components/breadCrumbs/breadCrumbs";
 import Table from "../../components/tables/table";
 import { Button } from "semantic-ui-react";
-
-
 import AddButton from "./addDefectStatusButton";
 import EditDefectStatus from "./editDefectStatus";
 
 
 import { connect } from "react-redux";
-import { changeDataValues } from './../../fileAction/defectTypeAction';
+import { changeDataValuesStatus } from './../../fileAction/addDefectStatusAction';
 
 
 const mapStateToProps = (state) => ({
@@ -20,7 +18,7 @@ const mapStateToProps = (state) => ({
 
 })
 const mapDispatchToProps = {
-  changeDataValues
+  changeDataValuesStatus
 };
 
 class DefectStatus extends Component {
@@ -99,7 +97,7 @@ class DefectStatus extends Component {
           <Grid item xs={11} style={{ marginTop: "2%" }}>
             <Segment>
               <BreadCrumbs />
-              <AddButton changeDataValues={this.props.changeDataValues}/>
+              <AddButton changeDataValues={this.props.changeDataValuesStatus}/>
               <Table column={columns} data={this.props.data} />
             </Segment>
           </Grid>
