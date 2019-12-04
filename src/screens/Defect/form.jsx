@@ -1,5 +1,4 @@
 import React from 'react'
-import { Button } from 'semantic-ui-react'
 import { DatePicker } from 'antd';
 import moment from 'moment';
 
@@ -28,12 +27,6 @@ class Form extends React.Component {
     render() {
         const {
             form,
-            open,
-            handleOpen,
-            handleClose,
-            width,
-            title,
-            changeDataValues
         } = this.props;
         const { project_id, module_id, defect_type_id, severity_id, priority_id,fixed_by,found_in,fixed_in,attachment_id,status_id,created_date,udated_date, description, assignto,assignby } = this.state
         return (

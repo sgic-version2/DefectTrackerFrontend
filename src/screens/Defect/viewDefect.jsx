@@ -7,13 +7,13 @@ import More from './more';
 import EditDefect from './editDefect';
 import MoreOutlinedIcon from '@material-ui/icons/MoreOutlined';
 import { connect } from "react-redux";
-import { changeDataValues } from "../../fileAction/defectAction";
+import { changeDataValues,getDefectData } from "../../fileAction/defectAction";
 
 const mapStateToProps = (state) => ({
     data: state.defectState.defectState
  })
  const mapDispatchToProps = {
-    changeDataValues
+    changeDataValues,getDefectData
  }
  class ViewDefect extends Component {
    state={
@@ -55,7 +55,9 @@ const mapStateToProps = (state) => ({
             value: false
         });
     };
-   
+   componentDidMount(){
+       this.props.getDefectData()
+   }
 render() {
   
     const columns = [
@@ -139,6 +141,10 @@ render() {
             onFilter: (value, record) => record.typeId.indexOf(value) === 0,
             sorter: (a, b) => a.typeId.length - b.typeId.length,
             sortDirections: ['descend'],
+        },
+        {
+            title:'Description',
+            dataIndex:'description'
         },
         {
             title: 'Status',

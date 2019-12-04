@@ -1,25 +1,48 @@
-import * as actionType from '../constant/defectConstant'
-import axios from 'axios'
+import * as actionType from "../constant/defectConstant";
 
 const InitialState = {
-    defectState: [],
-    defectAddStatus:''
-}
+  defectState: [],
+  defectStatus: "",
+  errorMessage: ""
+};
 
 export const defectReducer = (state = InitialState, action) => {
-    switch (action.type) {
-        case actionType.ADDDEFECT:
-            axios.post('http://127.0.0.1:8081/api/v1/defect',action.payload).then(response=>{
-                console.log(response)
-                return {
-                    defectState:state.defectState=action.payload,
-                    defectAddStatus:state.defectAddStatus=response.status
-                }
-            }).catch(err=>{
-                console.log(err);
-                
-            })
-        default:
-            return state
-    }
-}
+  switch (action.type) {
+    case actionType.GETDEFECT:
+      return {
+        ...state,
+        defectState: action.payload
+      };
+    case actionType.ADDDEFECT:
+      return {
+        ...state,
+        defectState: state.defectState.concat(action.payload),
+        defectStatus: state.defectStatus.concat(action.status)
+      };
+    case actionType.SHOWERRORMESSAGE:
+      return {
+        ...state,
+        errorMessage: action.payload
+      };
+    case actionType.EDITDEFECT:
+      return {
+        ...state,
+        defectState: state.defectState.map(data => {
+          if (data.id == action.payload.id) {
+            return action.payload;
+          } else {
+            return data;
+          }
+        })
+      };
+    case actionType.DELETEDEFECT:
+      return {
+        ...state,
+        defectState: state.defectState.filter(
+          data => data.id !== action.payload
+        )
+      };
+    default:
+      return state;
+  }
+};
