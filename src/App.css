@@ -194,10 +194,7 @@ width : 50% !important;
 /* .ant-btn, .ant-btn:active, .ant-btn:focus{
   display: none !important;
 } */
-<<<<<<< HEAD
-.iconposition{
-   position: relative !important; 
-=======
+
 .iconposition {
   position: relative !important;
 }
@@ -208,5 +205,4 @@ width : 50% !important;
 .QaLeadPrivilage {
   padding: 10px 10px !important;
   width: 50% !important;
->>>>>>> 66c1be2cab3b0886be0a49d9b7089a39db4f9d91
 }

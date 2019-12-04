@@ -61,19 +61,19 @@ render() {
     const columns = [
         {
             title: 'Project',
-            dataIndex: 'Project',
+            dataIndex: 'project_id',
             sortDirections: ['descend'],
             sorter: (a, b) => a.defectId - b.defectId,
         },
         {
             title: 'Module Name',
-            dataIndex: 'Module',
+            dataIndex: 'module_id',
             sortDirections: ['descend'],
             sorter: (a, b) => a.moduleName - b.moduleName,
         },
         {
             title: 'Severity',
-            dataIndex: 'Severity',
+            dataIndex: 'severity_id',
             filters: [
                 {
                     text: 'Low',
@@ -96,7 +96,7 @@ render() {
         },
         {
             title: 'Priority',
-            dataIndex: 'Priority',
+            dataIndex: 'priority_id',
             filters: [
                 {
                     text: 'Low',
@@ -119,7 +119,7 @@ render() {
         },
         {
             title: 'Defect Type',
-            dataIndex: 'DefectType',
+            dataIndex: 'defect_type_id',
             filters: [
                 {
                     text: 'UI',
@@ -142,7 +142,7 @@ render() {
         },
         {
             title: 'Status',
-            dataIndex: 'defectSta',
+            dataIndex: 'status_id',
             filters: [
                 {
                     text: 'Open',
@@ -205,12 +205,12 @@ render() {
     const data = [
         {
             key: '1',
-            defectId: 'D001',
-            moduleName: 'Login',
-            severity: 'Low',
-            priority: 'Heigh',
-            typeId: 'UI',
-            defectsta: 'reOpen',
+            defect_id: 'D001',
+            module_id: 'Login',
+            severity_id: 'Low',
+            priority_id: 'Heigh',
+            defect_type_id: 'UI',
+            status_id: 'reOpen',
             action: '',
             more: '',
         },
