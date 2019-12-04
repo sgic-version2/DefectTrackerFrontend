@@ -10,6 +10,7 @@ import EditCompany from '../../screens/company/EditCompany';
 import { Popconfirm, message } from 'antd'
 import MoreDetails from './MoreDetails'
 
+
 const text = 'Are you sure delete this task?'; //Delete button
 
 function confirm() {

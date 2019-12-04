@@ -1,5 +1,7 @@
 import React from 'react'
 import { Modal } from 'antd';
+import {Button} from 'antd';
+
 
 
 const SubmitModel = ({ form, open, handleClose, width, title }) => {
@@ -15,6 +17,14 @@ const SubmitModel = ({ form, open, handleClose, width, title }) => {
                 title={title}
                 onOk={handleClose}
                 onCancel={handleClose}
+                footer={[
+                    <Button key="back" onClick={handleClose}>
+                        Return
+            </Button>,
+                    <Button key="submit" type="primary" onClick={handleClose}>
+                        Submit
+            </Button>,
+                ]}
             >
                 {form}
             </Modal>
