@@ -28,7 +28,7 @@ export const defectReducer = (state = InitialState, action) => {
       return {
         ...state,
         defectState: state.defectState.map(data => {
-          if (data.id == action.payload.id) {
+          if (data.defectId == action.payload.defectId) {
             return action.payload;
           } else {
             return data;
@@ -39,7 +39,7 @@ export const defectReducer = (state = InitialState, action) => {
       return {
         ...state,
         defectState: state.defectState.filter(
-          data => data.id !== action.payload
+          data => data.defectId !== action.payload
         )
       };
     default:
