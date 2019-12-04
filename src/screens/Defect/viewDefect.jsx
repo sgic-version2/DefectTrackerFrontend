@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 import Tables from '../../components/tables/table';
 import { Button, Segment } from 'semantic-ui-react';
 import { Grid } from '@material-ui/core';
@@ -6,63 +6,74 @@ import AddDefect from './addDefect';
 import More from './more';
 import EditDefect from './editDefect';
 import MoreOutlinedIcon from '@material-ui/icons/MoreOutlined';
+import { connect } from "react-redux";
+import { changeDataValues } from "../../fileAction/defectAction";
 
-const ViewDefect = () => {
-    const [open, setOpen] = useState({
+const mapStateToProps = (state) => ({
+    data: state.defectState.defectState
+ })
+ const mapDispatchToProps = {
+    changeDataValues
+ }
+ class ViewDefect extends Component {
+   state={
         open: false,
         value: false
-    });
-
-    const handleOpen = () => {
-        setOpen({
+   }  
+  
+     handleOpen = () => {
+        this.setState({
             open: true
         });
     };
 
-    const handleClose = () => {
-        setOpen({
+    handleClose = () => {
+        this.setState({
             open: false
         });
     };
 
-    const handleOpenmore = () => {
-        setOpen({
+    handleOpenmore = () => {
+        this.setState({
             valueMore: true
         });
     };
 
-    const handleClosemore = () => {
-        setOpen({
+    handleClosemore = () => {
+        this.setState({
             valueMore: false
         });
     };
-    const handleOpenEdit = () => {
-        setOpen({
+    handleOpenEdit = () => {
+        this.setState({
             value: true
         });
     };
 
-    const handleCloseEdit = () => {
-        setOpen({
+    handleCloseEdit = () => {
+        this.setState({
             value: false
         });
     };
+   
+render() {
+  
     const columns = [
         {
-            title: 'Defect Id',
-            dataIndex: 'defectId',
+            title: 'Project',
+            dataIndex: 'Project',
             sortDirections: ['descend'],
             sorter: (a, b) => a.defectId - b.defectId,
         },
         {
             title: 'Module Name',
-            dataIndex: 'moduleName',
+            dataIndex: 'Module',
             sortDirections: ['descend'],
             sorter: (a, b) => a.moduleName - b.moduleName,
         },
         {
             title: 'Severity',
-            dataIndex: 'severity',
+            dataIndex: 'Severity',
             filters: [
                 {
                     text: 'Low',
@@ -85,7 +96,7 @@ const ViewDefect = () => {
         },
         {
             title: 'Priority',
-            dataIndex: 'priority',
+            dataIndex: 'Priority',
             filters: [
                 {
                     text: 'Low',
@@ -107,8 +118,8 @@ const ViewDefect = () => {
             sortDirections: ['descend'],
         },
         {
-            title: 'Type Id',
-            dataIndex: 'typeId',
+            title: 'Defect Type',
+            dataIndex: 'DefectType',
             filters: [
                 {
                     text: 'UI',
@@ -131,7 +142,7 @@ const ViewDefect = () => {
         },
         {
             title: 'Status',
-            dataIndex: 'status',
+            dataIndex: 'defectSta',
             filters: [
                 {
                     text: 'Open',
@@ -175,14 +186,19 @@ const ViewDefect = () => {
         },
         {
             title: 'Action',
-            dataIndex: 'action',
-            defaultSortOrder: 'descend',
+           render: (Item)=><Button.Group>
+           <Button secondary onClick={this.handleOpenEdit}>Edit</Button>
+           <Button.Or />
+           <Button negative
+               onClick={() =>
+                   window.confirm("Are you sure you want to delete this Defect? ") &&
+                   this.deleteDefect()}>Delete
+           </Button>
+       </Button.Group>,
         },
         {
             title: 'More',
-            dataIndex: 'more',
-            defaultSortOrder: 'descend',
-            //sorter: (a, b) => a.age - b.age,
+            render: (Item)=><MoreOutlinedIcon onClick={this.handleOpenmore} />
         },
     ];
 
@@ -194,91 +210,27 @@ const ViewDefect = () => {
             severity: 'Low',
             priority: 'Heigh',
             typeId: 'UI',
-            status: 'reOpen',
-            action: <Button.Group>
-                <Button secondary onClick={handleOpenEdit}>Edit</Button>
-                <Button.Or />
-                <Button negative
-                    onClick={() =>
-                        window.confirm("Are you sure you want to delete this Defect? ") &&
-                        this.deleteDefect()}>Delete
-                </Button>
-            </Button.Group>,
-            more: <MoreOutlinedIcon onClick={handleOpenmore} />
-        },
-        {
-            key: '2',
-            defectId: 'D001',
-            moduleName: 'Form',
-            severity: 'Low',
-            priority: 'Heigh',
-            typeId: 'UI',
-            status: 'reOpen',
-            action: <Button.Group>
-                <Button secondary onClick={handleOpenEdit}>Edit</Button>
-                <Button.Or />
-                <Button negative onClick={() =>
-                    window.confirm("Are you sure you want to delete this Defect? ") &&
-                    this.deleteDefect()}>Delete
-                </Button>
-            </Button.Group>,
-            more: <MoreOutlinedIcon onClick={handleOpenmore} />
-
-        },
-        {
-            key: '3',
-            defectId: 'D001',
-            moduleName: 'Table',
-            severity: 'Low',
-            priority: 'Heigh',
-            typeId: 'UI',
-            status: 'reOpen',
-            action: <Button.Group>
-                <Button secondary onClick={handleOpenEdit}>Edit</Button>
-                <Button.Or />
-                <Button negative onClick={() =>
-                    window.confirm("Are you sure you want to delete this Defect? ") &&
-                    this.deleteDefect()}>Delete
-                </Button>
-            </Button.Group>,
-            more: <MoreOutlinedIcon onClick={handleOpenmore} />
-        },
-        {
-            key: '4',
-            defectId: 'D001',
-            moduleName: 'Defect',
-            severity: 'Low',
-            priority: 'Heigh',
-            typeId: 'UI',
-            status: 'reOpen',
-            action: <Button.Group>
-                <Button secondary onClick={handleOpenEdit}>Edit</Button>
-                <Button.Or />
-                <Button negative onClick={() =>
-                    window.confirm("Are you sure you want to delete this Defect? ") &&
-                    this.deleteDefect()}>Delete
-                </Button>
-            </Button.Group>,
-            more: <MoreOutlinedIcon onClick={handleOpenmore} />
+            defectsta: 'reOpen',
+            action: '',
+            more: '',
         },
     ];
-
     return (
         <div>
             <Grid direction="row" container>
                 <Grid item xs={11} style={{ marginTop: '2%' }}>
                     <Segment>
-                        <AddDefect open={open.open} handleClose={handleClose} handleOpen={handleOpen} />
-                        <Button color="primary" onClick={handleOpen}>AddDefect</Button>
-                        <Tables column={columns} data={data} />
-                        <EditDefect open={open.value} handleOpen={handleOpenEdit} handleClose={handleCloseEdit} />
-                        <More open={open.valueMore} handleOpen={handleOpenmore} handleClose={handleClosemore} />
+                        <AddDefect open={this.state.open} handleClose={this.handleClose} handleOpen={this.handleOpen} changeDataValues={this.props.changeDataValues}/>
+                        <Button color="primary" onClick={this.handleOpen}>AddDefect</Button>
+                        <Tables column={columns} data={this.props.data} />
+                        <EditDefect open={this.state.value} handleOpen={this.handleOpenEdit} handleClose={this.handleCloseEdit} />
+                        <More open={this.state.valueMore} handleOpen={this.handleOpenmore} handleClose={this.handleClosemore} />
                     </Segment>
                 </Grid>
             </Grid>
         </div>
     )
 }
-
-export default  ViewDefect
+}
+export default connect(mapStateToProps, mapDispatchToProps)(ViewDefect)
 

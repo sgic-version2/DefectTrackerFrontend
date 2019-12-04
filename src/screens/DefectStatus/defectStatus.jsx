@@ -41,7 +41,7 @@ class DefectStatus extends Component {
     const columns = [
       {
         title: "Defect Status",
-        dataIndex: "name"
+        dataIndex: "statusName"
       },
       {
         title: " Description",
