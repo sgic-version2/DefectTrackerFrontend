@@ -16,6 +16,9 @@ import {
   faviconReducer,
   systemLogoReducer
 } from '../screens/Settings/settingReducer';
+import { addCompanyEmployeeReducer } from '../fileReducer/addCompanyEmployeeReducer';
+import { auditReducer } from '../fileReducer/auditReducer';
+
 const rootReducer = combineReducers({
   expandSideBarStatus: expandSideBarReducer,
   addEmployeeData: addEmployeeReducer,
@@ -31,6 +34,10 @@ const rootReducer = combineReducers({
   projectDetailsData: projectDetailsReducer,
   addDefectStatusReducer: addDefectStatusReducer,
   defectState: defectReducer,
-  emplyeeState: employeeReducer
+  emplyeeState: employeeReducer,
+
+  addCompanyEmployeeData: addCompanyEmployeeReducer,
+  exportAudit: auditReducer
 });
+
 export default rootReducer;

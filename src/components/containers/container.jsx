@@ -2,11 +2,11 @@ import React from 'react';
 import 'semantic-ui-react';
 import { Grid } from '@material-ui/core';
 import DefectList from '../../screens/DefectStatus/defectStatus';
-import Dashboard from '../../screens/Dashboard/Dashboard';
+
 import CompanyDetails from '../../screens/company/CompanyDetails';
 import ProjectAllocation from '../../screens/project/allocation/ProjectAllocation';
 import { Switch, Route } from 'react-router-dom';
-import AddEmployee from './../../screens/CompanyAdministaration/AddEmployee';
+import CompanyEmployee from './../../screens/CompanyAdministaration/CompanyEmployee';
 import ViewDefect from '../../screens/Defect/viewDefect';
 import AuditTable from '../../screens/Settings/Troubleshoot and Support/Audit Log/Audit_table/Audit_table';
 import PriorityConfig from '../../screens/general_configuration/priority/PriorityConfig';
@@ -16,8 +16,9 @@ import EmployeeTable from './../../screens/employee/employee_table';
 import DefectType from '../../screens/CommonConfiguration/DefectConfig/DefectConfic';
 import DefectStatusFlow from '../../screens/WorkFlow/DefectStatus/DefectStatusFlow';
 import TeachLeadPrivilege from '../../screens/Settings/Privilege/TechLeadPrivileges';
-import ManageProject from '../../screens/ManageProject/ProjectList';
-import Severity from '../../screens/general_configuration/severity/PriorityConfig';
+
+import ManageProject from '../../screens/ManageProject/ProjectDetails';
+import Severity from '../../screens/general_configuration/severity/SeverityConfig';
 import ProfileSetting from '../../screens/profile/profile';
 import DefectRolesFlow from '../../screens/WorkFlow/DefectRoles/DefectRolesFlow';
 import DeveloperDashboard from './../../screens/dashboards/developerDashboard';
@@ -29,6 +30,8 @@ import PmDashboard from '../../screens/dashboards/PmDashboard/chart';
 import QAPrivilege from '../../screens/Settings/Privilege/QALeadPrivileges';
 import companyPrivilege from '../../screens/Settings/Privilege/CompanyPrivilege';
 import projectPrivilege from '../../screens/Settings/Privilege/CompanyPrivilege';
+import Dashboard from './../../screens/Dashboard/Dashboard';
+
 // container using material Ui
 // container has property
 //'textAlight' - left, right, center, justified
@@ -79,7 +82,7 @@ export default function Container({ textAlign }) {
             <Route path='/defect/defectDashboard' component={Dashboard} />
             <Route
               path='/defect/companyAdministration'
-              component={AddEmployee}
+              component={CompanyEmployee}
             />
             <Route path='/defect/companyCompany' component={CompanyDetails} />
             <Route path='/defect/defect' component={ViewDefect} />

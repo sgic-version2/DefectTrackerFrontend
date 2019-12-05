@@ -1,27 +1,27 @@
 import React, { Component } from "react";
 import { Segment } from "semantic-ui-react";
 import { Grid } from "@material-ui/core";
-// import BreadCrumbs from "../../../components/breadCrumbs/breadCrumbs";
 
+import BreadCrumbs from '../../components/breadCrumbs/breadCrumbs'
+
+import Table from '../../components/tables/table'
 import { Button } from "semantic-ui-react";
-import AddButton from "./AddButton";
-import EditProject from "./EditProject";
+import AddEmployeeButton from "./AddEmployeeButton";
+import EditEmployee from "./EditEmployee";
 import { connect } from "react-redux";
 import { changeDataValues } from './../../fileAction/defectTypeAction';
-import IconBreadcrumbs from "../../components/breadCrumbs/breadCrumbs";
-import Table from './../../components/tables/table';
 
 
 const mapStateToProps = (state) => ({
   data: state.defectTypeData.defectTypeDetailsFromState
- 
+
 
 })
 const mapDispatchToProps = {
   changeDataValues
 };
 
-class ProjectDetails extends Component {
+class CompanyEmployee extends Component {
   state = {
     open: false
   };
@@ -40,33 +40,38 @@ class ProjectDetails extends Component {
   render() {
     const columns = [
       {
-        title: "Defect Type",
-        dataIndex: "name"
+        title: "User Name",
+        dataIndex: "username"
       },
       {
-        title: " Description",
-        dataIndex: "description"
+        title: "First Name",
+        dataIndex: "firstname"
       },
       {
-        title: " DefectValue",
-        dataIndex: "defectValue"
+        title: " Middle Name",
+        dataIndex: "middlename"
+      },
+      {
+        title: " Last Name",
+        dataIndex: "lastname"
       },
 
       {
         title: "Action",
-        render:item=>  <Button.Group>
-        <EditProject
-          open={this.state.open}
-          handleOpen={this.handleOpen}
-          handleClose={this.handleClose}
-        />
-        <Button onClick={this.handleOpen} secondary>
-          Edit
+        render: item => <Button.Group>
+          <EditEmployee
+            open={this.state.open}
+            handleOpen={this.handleOpen}
+            handleClose={this.handleClose}
+          />
+          <Button onClick={this.handleOpen} secondary>
+            Edit
         </Button>
 
-        <Button.Or />
-        <Button negative>Delete</Button>
-      </Button.Group>    }
+          <Button.Or />
+          <Button negative>Delete</Button>
+        </Button.Group>
+      }
     ];
     // const data = [
     //   {
@@ -75,7 +80,7 @@ class ProjectDetails extends Component {
     //     description: "High",
     //     action: (
     //       <Button.Group>
-    //         <EditDefectType
+    //         <EditEmployee
     //           open={this.state.open}
     //           handleOpen={this.handleOpen}
     //           handleClose={this.handleClose}
@@ -90,14 +95,14 @@ class ProjectDetails extends Component {
     //     )
     //   }
     // ];
-    console.log("hg"+this.props.data);
+    console.log("hg" + this.props.data);
     return (
       <div>
         <Grid direction="row" container>
           <Grid item xs={11} style={{ marginTop: "2%" }}>
             <Segment>
-              <IconBreadcrumbs/>
-              <AddButton changeDataValues={this.props.changeDataValues}/>
+              <BreadCrumbs />
+              <AddEmployeeButton changeDataValues={this.props.changeDataValues} />
               <Table column={columns} data={this.props.data} />
             </Segment>
           </Grid>
@@ -106,4 +111,4 @@ class ProjectDetails extends Component {
     );
   }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(ProjectDetails);
+export default connect(mapStateToProps, mapDispatchToProps)(CompanyEmployee);
