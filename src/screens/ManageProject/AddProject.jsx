@@ -14,7 +14,6 @@ function onChange(value) {
 
 class AddProject extends Component {
   state = {
-    project_id: "",
     project_name: "",
     project_type: "",
     duration: "",
@@ -26,27 +25,32 @@ class AddProject extends Component {
     this.setState({
       [e.target.name]: e.target.value
     });
-    console.log(e.target.name);
   };
   handleSubmit = e => {
-    // e.preventDefault();
-    this.props.changeDataValues(this.state);
-    // this.setState({ formOpen: !this.state.formOpen });
-    console.log(e)
-    e();
-
+     e.preventDefault();
+    if (this.state.project_id) {
+        this.props.upateProject(this.state)
+    } else {
+      this.props.changeDataValues(this.state);
+    }
+    console.log("jjjjjjjjj",this.props.changeDataValues);
   };
+  componentWillReceiveProps() {
+    setTimeout(
+      function() {
+        this.componentDidMount();
+      }.bind(this),
+      10
+    );
+  }
+  componentDidMount() {
+    if (this.props.selectedID !== null) {
+      this.setState({
+        ...this.props.selectedID
+      });
+    }
+  }
 
-  // handleOnChange = e => {
-  //   this.setState({
-  //     [e.target.name]: e.target.value
-  //   });
-  //   console.log(e.target.name);
-  // };
-  // handleSubmit = e => {
-  //   e.preventDefault();
-  //   this.props.changeDataValues(this.state);
-  // };
   datePick = (date, dateString, e) => {
     // e.preventDefault()
     // console.log("hfh", dateString);
@@ -58,32 +62,14 @@ class AddProject extends Component {
   render() {
     // console.log("hi"+this.state);
     const {
-   
-      open,
-      handleOpen,
       handleClose,
-      width,
-      title,
-      
     } = this.props;
+  
+    
     return (
       <div>
-        <Modal
-          width={`${width ? width : "50"}%`}
-          visible={open}
-          title={title}
-          onOk={handleOpen}
-          onCancel={handleClose}
-          footer={[
-            <Button key="back" onClick={handleClose}>
-              Return
-            </Button>,
-             <Button key="submit" type="primary" onClick={()=>this.handleSubmit(handleClose)}>
-             Submit
-           </Button>
-          ]}
-        >
-          <Form layout="vertical" >
+      
+          <Form layout="vertical" onSubmit={this.handleSubmit} >
             <Row>
               <Col span={12} style={{ padding: "5px" }}>
                 <Form.Item label="Project Name">
@@ -166,11 +152,10 @@ class AddProject extends Component {
             </Row>
           
 
-            {/* <button type="submit" onClick={handleClose}>
+            <button type="submit" onClick={handleClose}>
               submit
-            </button> */}
+            </button>
           </Form>
-        </Modal>
       </div>
     );
   }

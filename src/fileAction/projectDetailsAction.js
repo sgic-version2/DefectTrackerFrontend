@@ -27,3 +27,28 @@ export const getProjectDetailsByID = (id) => dispatch => {
         payload: res.data
     }))
 }
+export const upateProject = data => dispatch => {
+    axios
+      .put(`${projectApi}/${data.project_id}`, data)
+      .then(response =>
+        dispatch({
+          type: actionTypes.UPDATEPROJECT,
+          projectStatus:response,
+          payload: data
+        })
+      )
+      .catch(err =>
+        dispatch({
+          type: actionTypes.ERRORMESSAGE,
+          payload: err
+        })
+      );
+  };
+  export const deleteProject = id => dispatch => {
+    axios.delete(`${projectApi}/${id}`).then(response =>
+      dispatch({
+        type: actionTypes.DELETEPROJECT,
+        payload: id
+      })
+    );
+  };

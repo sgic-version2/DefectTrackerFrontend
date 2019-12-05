@@ -1,25 +1,21 @@
 import React, { Component } from "react";
 import { Segment } from "semantic-ui-react";
 import { Grid } from "@material-ui/core";
-// import BreadCrumbs from "../../../components/breadCrumbs/breadCrumbs";
-
 import { Button } from "semantic-ui-react";
-import AddButton from "./AddButton";
-import EditProject from "./EditProject";
 import { connect } from "react-redux";
-
 import IconBreadcrumbs from "../../components/breadCrumbs/breadCrumbs";
 import Table from '../../components/tables/table';
-import { changeDataValues, getProjectDetails } from '../../fileAction/projectDetailsAction';
+import { changeDataValues, getProjectDetails, upateProject, deleteProject } from '../../fileAction/projectDetailsAction';
+import EditDefect from './SubmitModel'
+import { Popconfirm, message } from "antd";
+import AddProject from './AddButton'
 
 
 const mapStateToProps = (state) => ({
   data: state.projectDetailsData.projectDetailsFromState
-
-
 })
 const mapDispatchToProps = {
-  changeDataValues, getProjectDetails
+  changeDataValues, getProjectDetails, upateProject, deleteProject
 };
 
 class ProjectDetails extends Component {
@@ -32,6 +28,7 @@ class ProjectDetails extends Component {
       open: true,
       selectedID: id
     });
+    console.log(this.state.open);
     
   };
 
@@ -42,8 +39,10 @@ class ProjectDetails extends Component {
   };
   componentDidMount() {
     this.props.getProjectDetails()
-
-
+  }
+  confirm = (id) => {
+    this.props.deleteProject(id)
+    message.error('Deleted SuccessFully');
   }
   render() {
     const columns = [
@@ -76,31 +75,47 @@ class ProjectDetails extends Component {
       {
         title: "Action",
         render: (item, key) => <Button.Group>
-          <EditProject
-            open={this.state.open}
-            handleOpen={this.handleOpen}
-            handleClose={this.handleClose}
-            selectedId={this.state.selectedID}
-          />
-          <Button onClick={()=>this.handleOpen(key)} secondary>
+          <Button onClick={() => this.handleOpen(key)} secondary>
             Edit
         </Button>
 
           <Button.Or />
-          <Button negative>Delete</Button>
+          <Popconfirm
+            placement="bottomRight"
+            title='Are you sure to delete this Project?'
+            onConfirm={() => this.confirm(key.project_id)}
+            okText="Yes"
+            cancelText="No"
+          >
+            <Button
+              negative>Delete</Button>
+          </Popconfirm>
         </Button.Group>
       }
     ];
-  
-   
+
+    
+
     return (
       <div>
         <Grid direction="row" container>
           <Grid item xs={11} style={{ marginTop: "2%" }}>
             <Segment>
               <IconBreadcrumbs />
-              <AddButton changeDataValues={this.props.changeDataValues} />
+              <Button primary onClick={this.handleOpen}>Add Project</Button>
+              <AddProject
+                changeDataValues={this.props.changeDataValues} 
+                open={this.state.open}
+                handleOpen={this.handleOpen}
+                handleClose={this.handleClose} />
               <Table column={columns} data={this.props.data} />
+              <EditDefect
+                open={this.state.open}
+                handleOpen={this.handleOpen}
+                handleClose={this.handleClose}
+                selectedID={this.state.selectedID}
+                // selectedData={this.state.selectedData}
+                upateProject={this.props.upateProject} />
             </Segment>
           </Grid>
         </Grid>
