@@ -1,8 +1,6 @@
 import React from "react";
 import "./Form.css";
-import { Modal, Button } from "antd";
 import { ChromePicker } from "react-color"; //color picker
-import { PriorityHighIcon } from "@material-ui/icons/PriorityHigh";
 class Form extends React.Component {
   state = {
     anchorE1: null,
@@ -46,12 +44,6 @@ class Form extends React.Component {
    console.log ("haiii"+this.state)
     const {
       form,
-      open,
-      handleOpen,
-      handleClose,
-      width,
-      title,
-      changeDataValues
     } = this.props;
     console.log("hh" + this.state);
     const { selectedColor, displayColorPicker } = this.state;

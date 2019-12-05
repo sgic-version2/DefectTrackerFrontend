@@ -5,6 +5,11 @@ import { modelReducer } from '../fileReducer/modelReducer';
 import { projectReducer } from '../fileReducer/projectReducer';
 import { moduleReducer } from '../fileReducer/moduleReducer';
 import { priorityConfigReducer } from './../fileReducer/priorityConfigReducer';
+import { companyReducer } from './../fileReducer/companyReducer';
+import { defectTypeReducer } from './../fileReducer/defectTypeReducer';
+import { projectDetailsReducer } from './../fileReducer/projectDeatilsReducer'
+import { addDefectStatusReducer } from './../fileReducer/addDefectStatusReducer';
+import { defectReducer } from '../fileReducer/defectReducer'
 import {
   showOnDashboardReducer,
   faviconReducer,
@@ -19,7 +24,11 @@ const rootReducer = combineReducers({
   priorityConfigData: priorityConfigReducer,
   lookAndFeelData: systemLogoReducer,
   showOnDashboard: showOnDashboardReducer,
-  favicon: faviconReducer
+  favicon: faviconReducer,
+  companyData: companyReducer,
+  defectTypeData: defectTypeReducer,
+  projectDetailsData: projectDetailsReducer,
+  addDefectStatusReducer: addDefectStatusReducer,
+  defectState: defectReducer,
 });
-
 export default rootReducer;
