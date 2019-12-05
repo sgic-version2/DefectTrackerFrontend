@@ -1,12 +1,10 @@
-import React ,{useState}from 'react'
-import { Button } from 'semantic-ui-react'
+import React, { useState } from "react";
+import { Button } from "semantic-ui-react";
 
+import AddDefectType from "./AddDefectType";
 
-import AddDefectType from './AddDefectType';
-
-
-const AddButton = () => {
-const [open, setOpen] = useState(false);
+const AddButton = ({ changeDataValues }) => {
+  const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
     setOpen(true);
@@ -16,13 +14,19 @@ const [open, setOpen] = useState(false);
     setOpen(false);
   };
 
-    return (
-        <div>
-           <AddDefectType open={open} handleOpen={handleOpen} handleClose={handleClose}/> 
-             <Button onClick={handleOpen} color="primary">Add Company</Button> 
-           
-        </div>
-    )
-}
+  return (
+    <div>
+      <AddDefectType
+        open={open}
+        handleOpen={handleOpen}
+        handleClose={handleClose}
+        changeDataValues={changeDataValues}
+      />
+      <Button onClick={handleOpen} color="primary">
+        Add DefectType
+      </Button>
+    </div>
+  );
+};
 
-export default AddButton
+export default AddButton;

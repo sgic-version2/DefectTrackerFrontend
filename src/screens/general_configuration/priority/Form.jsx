@@ -1,9 +1,8 @@
 import React from "react";
 import "./Form.css";
-import { SketchPicker } from "react-color";
-import Button from "@material-ui/core/Button";
-import { Divider, Dialog, DialogActions } from "@material-ui/core";
+
 import Picker from "./Picker";
+
 class Form extends React.Component {
   state = {
     priorityID: "",
@@ -52,9 +51,15 @@ class Form extends React.Component {
   };
 
   render() {
-    const { displayColorPicker, tempColor } = this.state;
-    console.log("jj" + this.state);
+  
+    
 
+  
+    // const {
+    //   form,
+    // } = this.props;
+    
+    const { selectedColor, displayColorPicker } = this.state;
     return (
       <div>
         <form onSubmit={this.handleSubmit}>

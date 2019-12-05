@@ -35,92 +35,90 @@ const DeveloperDashboard = () => {
   };
   const classes = useStyles();
   return (
-    <div className={classes.root}>
-      <Paper className={classes.paper}>
-        <Grid>
-          <FormGroup row>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={state.BarChart}
-                  onChange={handleChange("BarChart")}
-                  value="BarChart"
-                  color="primary"
-                />
-              }
-              label="Bar Chart"
-            />
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={state.DoughnutChart}
-                  onChange={handleChange("DoughnutChart")}
-                  value="DoughnutChart"
-                  color="primary"
-                />
-              }
-              label="Doughnut Chart"
-            />
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={state.RadarChart}
-                  onChange={handleChange("RadarChart")}
-                  value="RadarChart"
-                  color="primary"
-                />
-              }
-              label="RadarChart"
-            />
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={state.LineChart}
-                  onChange={handleChange("LineChart")}
-                  value="LineChart"
-                  color="primary"
-                />
-              }
-              label="LineChart"
-            />
-          </FormGroup>
+    <div >
+      <Grid direction='row' container>
+        <Grid item xs={11} style={{ marginTop: '2%' }}>
+          <Segment >
+            <FormGroup row>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={state.BarChart}
+                    onChange={handleChange('BarChart')}
+                    value="BarChart"
+                    color="primary"
+                  />
+                }
+                label="Bar Chart"
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={state.DoughnutChart}
+                    onChange={handleChange('DoughnutChart')}
+                    value="DoughnutChart"
+                    color="primary"
+                  />
+                }
+                label="Doughnut Chart"
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={state.RadarChart}
+                    onChange={handleChange('RadarChart')}
+                    value="RadarChart"
+                    color="primary"
+                  />
+                }
+                label="RadarChart"
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={state.LineChart}
+                    onChange={handleChange('LineChart')}
+                    value="LineChart"
+                    color="primary"
+                  />
+                }
+                label="LineChart"
+              />
+            </FormGroup>
+          </Segment>
         </Grid>
-        <Grid container spacing={2}>
-          {state.BarChart && (
-            <Grid item xs={6}>
-              <Paper className={classes.paper}>
-                <BarChart />
-              </Paper>
-            </Grid>
-          )}
+        {state.BarChart &&
+          <Grid item xs={6} style={{ marginTop: '2%' }}>
+            <Segment style={{ width: '98%' }}>
+              <BarChart />
+            </Segment>
+          </Grid>
+        }
 
-          {state.DoughnutChart && (
-            <Grid item xs={6}>
-              <Paper className={classes.paper}>
-                <Doughtnut />
-              </Paper>
-            </Grid>
-          )}
+        {state.DoughnutChart &&
+          <Grid item xs={5} style={{ marginTop: '2%' }}>
+            <Segment >
+              <Doughtnut />
+            </Segment>
+          </Grid>
+        }
 
-          {state.RadarChart && (
-            <Grid item xs={6}>
-              <Paper className={classes.paper}>
-                <Radar />
-              </Paper>
-            </Grid>
-          )}
+        {state.RadarChart &&
+          <Grid item xs={6} style={{ marginTop: '2%' }}>
+            <Segment style={{ width: '98%' }}>
+              <Radar />
+            </Segment>
+          </Grid>
+        }
 
-          {state.LineChart && (
-            <Grid item xs={6}>
-              <Paper className={classes.paper}>
-                <LineChart />
-              </Paper>
-            </Grid>
-          )}
-        </Grid>
-      </Paper>
+        {state.LineChart && <Grid item xs={5} style={{ marginTop: '2%' }}>
+          <Segment>
+            <LineChart />
+          </Segment>
+        </Grid>}
+      </Grid>
     </div>
   );
-};
+}
 
 export default DeveloperDashboard;
