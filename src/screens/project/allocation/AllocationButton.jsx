@@ -53,7 +53,7 @@ const AllocationButton = ({
       roleAllocation: false
     });
   };
-
+  console.log('poda punda', moduleAllocationData);
   return (
     <div>
       <Button primary onClick={handleOpenRole}>
