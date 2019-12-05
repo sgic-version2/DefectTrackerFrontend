@@ -1,32 +1,21 @@
 import React from "react";
 import "./Form.css";
 import { SketchPicker } from "react-color";
-
+import Button from "@material-ui/core/Button";
+import { Divider, Dialog, DialogActions } from "@material-ui/core";
+import Picker from "./Picker";
 class Form extends React.Component {
   state = {
-    // anchorE1: null,
     priorityID: "",
     priorityName: "",
     priorityDescription: "",
-    //priorityIcon: "",
-    // selectedColor: "",
     displayColorPicker: false,
-    selectedColor: null,
+    selectedColor: "",
     open: true,
-    tempColor: "#22194D"
+    tempColor: ""
   };
 
-  handleColor = e => {
-    this.setState({
-      selectedColor: (
-        <span style={{ backgroundColor: e.hex, borderRadius: 20, width: 10 }}>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        </span>
-      )
-    });
-    // console.log(e.hex);
-    this.setState({ tempColor: e.hex });
-  };
+  handleColor = e => {};
 
   handleClick = () => {
     this.setState({ displayColorPicker: !this.state.displayColorPicker });
@@ -35,9 +24,22 @@ class Form extends React.Component {
   handleClose = () => {
     this.setState({ displayColorPicker: false });
   };
-  // handleClose1 = () => {
-  //   this.setState({ anchorE1: null });
-  // };
+  handleChangeColor = color => {
+    this.setState({
+      selectedColor: color.hex,
+      tempColor: (
+        <span
+          style={{
+            backgroundColor: color.hex,
+            borderRadius: 20,
+            width: 10
+          }}
+        >
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+      )
+    });
+  };
   handleOnChange = e => {
     this.setState({
       [e.target.name]: e.target.value
@@ -46,41 +48,15 @@ class Form extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.changeDataValues(this.state);
+    console.log("test" + e);
   };
 
-  // handlexyz = e => {
-  //   console.log("voz", e);
-  // };
-
   render() {
-    // const {
-    //   form,
-    //   open,
-    //   handleOpen,
-    //   handleClose,
-    //   width,
-    //   title,
-    //   changeDataValues
-    // } = this.props;
-    const {  displayColorPicker, tempColor } = this.state;
+    const { displayColorPicker, tempColor } = this.state;
+    console.log("jj" + this.state);
+
     return (
       <div>
-        {/* <Modal
-          width={`${width ? width : "50"}%`}
-          visible={open}
-          title={title}
-          onOk={handleOpen}
-          onCancel={handleClose}
-          footer={[
-            <Button key="back" onClick={handleClose}>
-              Return
-            </Button>,
-            <button  type="submit" onClick={handleClose}>
-              Submit
-            </button>
-          ]}
-        > */}
-
         <form onSubmit={this.handleSubmit}>
           <label>Name:</label>
           <input
@@ -106,8 +82,17 @@ class Form extends React.Component {
           ></input>
           <br />
 
-          <label>Colour:</label>
-          <div>
+         
+
+          <Picker
+            handleChangeColor={this.handleChangeColor}
+            selectedColor={this.state.selectedColor}
+          />
+
+          {/* <label>Colour:</label>
+          <div
+          
+          >
             <div
               name="selectedColor"
               onClick={this.handleClick}
@@ -116,15 +101,19 @@ class Form extends React.Component {
             ></div>
             <div onClick={this.handleClose} />
             {displayColorPicker && (
-              <SketchPicker onChangeComplete={this.handleColor} />
+              <div>
+                <SketchPicker onChange={this.handleColor} />
+               
+                 
+              </div>
             )}
-          </div>
+          </div> */}
 
           {/* </form> */}
           <div>
             <br />
 
-            <button type="submit" onClick={this.props.openFormClose}>
+            <button color="primary" type="submit"  onClick={this.props.openFormClose}>
               Submit
             </button>
           </div>

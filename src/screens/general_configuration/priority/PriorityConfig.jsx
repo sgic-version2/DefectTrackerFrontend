@@ -83,7 +83,7 @@ class PriorityConfig extends Component {
 
       {
         title: "Color",
-        dataIndex: "selectedColor",
+        dataIndex: "tempColor",
         defaultSortOrder: "descend",
         sorter: (a, b) => a.age - b.age
       },
@@ -110,86 +110,86 @@ class PriorityConfig extends Component {
         )
       }
     ];
-   //  const data = [
-   //    {
-   //      key: "1",
-   //      priority: "High",
-   //      description: "High Priority",
-   //      icon: <Icon name="arrow up" />,
+    //  const data = [
+    //    {
+    //      key: "1",
+    //      priority: "High",
+    //      description: "High Priority",
+    //      icon: <Icon name="arrow up" />,
 
-   //      color: "New York No. 1 Lake Park",
-   //      action: (
-   //        <Button.Group>
-   //          <Button secondary onClick={this.handleOpenedit}>
-   //            Edit
-   //          </Button>
-   //          <Button.Or />
+    //      color: "New York No. 1 Lake Park",
+    //      action: (
+    //        <Button.Group>
+    //          <Button secondary onClick={this.handleOpenedit}>
+    //            Edit
+    //          </Button>
+    //          <Button.Or />
 
-   //          <Popconfirm
-   //            placement="topRight"
-   //            title={text}
-   //            onConfirm={confirm}
-   //            okText="Yes"
-   //            cancelText="No"
-   //          >
-   //            <Button negative>Delete</Button>
-   //          </Popconfirm>
-   //        </Button.Group>
-   //      )
-   //    },
-   //    {
-   //      key: "2",
-   //      priority: "Medium ",
-   //      description: "Medium Priority",
+    //          <Popconfirm
+    //            placement="topRight"
+    //            title={text}
+    //            onConfirm={confirm}
+    //            okText="Yes"
+    //            cancelText="No"
+    //          >
+    //            <Button negative>Delete</Button>
+    //          </Popconfirm>
+    //        </Button.Group>
+    //      )
+    //    },
+    //    {
+    //      key: "2",
+    //      priority: "Medium ",
+    //      description: "Medium Priority",
 
-   //      icon: <Icon name="exchange" />,
-   //      color: tempcolor,
-   //      action: (
-   //        <Button.Group>
-   //          <Button secondary onClick={this.handleOpenedit}>
-   //            Edit
-   //          </Button>
-   //          <Button.Or />
-   //          <Popconfirm
-   //            placement="topRight"
-   //            type="danger"
-   //            title={text}
-   //            onConfirm={confirm}
-   //            okText="Yes"
-   //            cancelText="No"
-   //          >
-   //            <Button negative>Delete</Button>
-   //          </Popconfirm>
-   //        </Button.Group>
-   //      )
-   //    }
-   //    // {
-   //    //    key: '3',
-   //    //    priority: 'Low',
-   //    //    description: 'Low Priority',
-   //    //    icon: <Icon name='arrow down' />,
-   //    //    color: <span>hfd</span>,
-   //    //    action: <Button.Group>
-   //    //       <Button secondary onClick={this.handleOpenedit}>Edit</Button>
-   //    //       <Button.Or />
-   //    //       {/* <Button negative>Delete</Button> */}
-   //    //       <Popconfirm placement="topRight" title={text} onConfirm={confirm} okText="Yes" cancelText="No">
-   //    //          <Button negative>Delete</Button>
-   //    //       </Popconfirm>
-   //    //    </Button.Group>
-   //    // },
-   //    // {
-   //    //    key: '4',
-   //    //    name: 'Jim Red',
-   //    //    age: 32,
-   //    //    address: 'London No. 2 Lake Park',
-   //    //    action: <Button.Group>
-   //    //       <Button secondary>Edit</Button>
-   //    //       <Button.Or />
-   //    //       <Button negative>Delete</Button>
-   //    //    </Button.Group>
-   //    // },
-   //  ];
+    //      icon: <Icon name="exchange" />,
+    //      color: tempcolor,
+    //      action: (
+    //        <Button.Group>
+    //          <Button secondary onClick={this.handleOpenedit}>
+    //            Edit
+    //          </Button>
+    //          <Button.Or />
+    //          <Popconfirm
+    //            placement="topRight"
+    //            type="danger"
+    //            title={text}
+    //            onConfirm={confirm}
+    //            okText="Yes"
+    //            cancelText="No"
+    //          >
+    //            <Button negative>Delete</Button>
+    //          </Popconfirm>
+    //        </Button.Group>
+    //      )
+    //    }
+    //    // {
+    //    //    key: '3',
+    //    //    priority: 'Low',
+    //    //    description: 'Low Priority',
+    //    //    icon: <Icon name='arrow down' />,
+    //    //    color: <span>hfd</span>,
+    //    //    action: <Button.Group>
+    //    //       <Button secondary onClick={this.handleOpenedit}>Edit</Button>
+    //    //       <Button.Or />
+    //    //       {/* <Button negative>Delete</Button> */}
+    //    //       <Popconfirm placement="topRight" title={text} onConfirm={confirm} okText="Yes" cancelText="No">
+    //    //          <Button negative>Delete</Button>
+    //    //       </Popconfirm>
+    //    //    </Button.Group>
+    //    // },
+    //    // {
+    //    //    key: '4',
+    //    //    name: 'Jim Red',
+    //    //    age: 32,
+    //    //    address: 'London No. 2 Lake Park',
+    //    //    action: <Button.Group>
+    //    //       <Button secondary>Edit</Button>
+    //    //       <Button.Or />
+    //    //       <Button negative>Delete</Button>
+    //    //    </Button.Group>
+    //    // },
+    //  ];
 
     return (
       <div style={{ marginRight: "2%" }}>

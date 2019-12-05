@@ -25,8 +25,9 @@ import LookAndFeel from '../../screens/Settings/settings'
 import QADashboard from '../../screens/dashboards/QADashboard/chart'
 import Module from '../../screens/Module/ModuleList'
 import PmDashboard from '../../screens/dashboards/PmDashboard/chart'
-
-
+import QAPrivilege from '../../screens/Settings/Privilege/QALeadPrivileges'
+import companyPrivilege from '../../screens/Settings/Privilege/CompanyPrivilege'
+import projectPrivilege from '../../screens/Settings/Privilege/CompanyPrivilege'
 // container using material Ui
 // container has property
 //'textAlight' - left, right, center, justified
@@ -80,7 +81,7 @@ export default function Container({ textAlign }) {
             <Route path='/defect/companyEmployee' component={EmployeeTable} />
             <Route path='/defect/defectType' component={DefectType} />
             <Route path='/defect/defectStatusFlow' component={DefectStatusFlow} />
-            <Route path='/defect/techLeadPrivilege' component={TeachLeadPrivilege} />
+            <Route path='/defect/TeachLeadPrivileges' component={TeachLeadPrivilege} />
             <Route path='/defect/manageProject' component={ManageProject} />
             <Route path='/defect/severity' component={Severity} />
             <Route path='/defect/profileSetting' component={ProfileSetting} />
@@ -90,6 +91,10 @@ export default function Container({ textAlign }) {
             <Route path='/defect/qa' component={QADashboard} />
             <Route path='/defect/module' component={Module} />
             <Route path='/defect/projectManager' component={PmDashboard} />
+            <Route path='/defect/qaLeadPrivilege' component={QAPrivilege} />
+            <Route path='/defect/CompanyPrivilege' component={companyPrivilege} />
+            <Route path='/defect/ProjectPrivilege' component={projectPrivilege} />
+
           </Switch>
         </Grid>
       </Grid>
