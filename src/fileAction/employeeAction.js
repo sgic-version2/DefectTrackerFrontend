@@ -1,21 +1,22 @@
-import * as actionTypes from '../constant/defectConstant';
+import * as actionTypes from '../constant/emplyeeConstant';
 import axios from 'axios';
-import { defectApi } from '../Api/index';
+import { employeeApi } from '../Api/index';
 
-export const getDefectData = () => dispatch => {
-  axios.get(`${defectApi}`).then(response =>
+export const getEmployeeData = () => dispatch => {
+  axios.get(`${employeeApi}`).then(response =>
     dispatch({
-      type: actionTypes.GETDEFECT,
+      type: actionTypes.GETEMPLOYEE,
       payload: response.data
     })
   );
 };
+
 export const changeDataValues = data => dispatch => {
   axios
-    .post(`${defectApi}`, data)
+    .post(`${employeeApi}`, data)
     .then(response =>
       dispatch({
-        type: actionTypes.ADDDEFECT,
+        type: actionTypes.ADDEMPLOYEE,
         status: response.status,
         payload: data
       })
@@ -27,12 +28,13 @@ export const changeDataValues = data => dispatch => {
       })
     );
 };
-export const upateDefect = data => dispatch => {
+
+export const upateEmployee = data => dispatch => {
   axios
-    .put(`${defectApi}/${data.defectId}`, data)
+    .put(`${employeeApi}/${data.employeeId}`, data)
     .then(response =>
       dispatch({
-        type: actionTypes.EDITDEFECT,
+        type: actionTypes.EDITEMPLOYEE,
         payload: response.data
       })
     )
@@ -43,10 +45,11 @@ export const upateDefect = data => dispatch => {
       })
     );
 };
-export const deleteDefect = id => dispatch => {
-  axios.delete(`${defectApi}/${id}`).then(response =>
+
+export const deleteEmployee = id => dispatch => {
+  axios.delete(`${employeeApi}/${id}`).then(response =>
     dispatch({
-      type: actionTypes.DELETEDEFECT,
+      type: actionTypes.DELETEEMPLOYEE,
       payload: id
     })
   );
