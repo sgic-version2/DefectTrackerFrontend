@@ -10,26 +10,29 @@ import { connect } from "react-redux";
 
 import IconBreadcrumbs from "../../components/breadCrumbs/breadCrumbs";
 import Table from '../../components/tables/table';
-import { changeDataValues } from '../../fileAction/projectDetailsAction';
+import { changeDataValues, getProjectDetails } from '../../fileAction/projectDetailsAction';
 
 
 const mapStateToProps = (state) => ({
   data: state.projectDetailsData.projectDetailsFromState
- 
+
 
 })
 const mapDispatchToProps = {
-  changeDataValues
+  changeDataValues, getProjectDetails
 };
 
 class ProjectDetails extends Component {
   state = {
-    open: false
+    open: false,
+    selectedID: ''
   };
-  handleOpen = () => {
+  handleOpen = (id) => {
     this.setState({
-      open: true
+      open: true,
+      selectedID: id
     });
+    
   };
 
   handleClose = () => {
@@ -37,7 +40,11 @@ class ProjectDetails extends Component {
       open: false
     });
   };
+  componentDidMount() {
+    this.props.getProjectDetails()
 
+
+  }
   render() {
     const columns = [
       {
@@ -46,64 +53,53 @@ class ProjectDetails extends Component {
       },
       {
         title: " Type",
-        dataIndex: "type"
+        dataIndex: "project_type"
+      },
+      // {
+      //   title: " Duration",
+      //   dataIndex: "duration"
+      // },
+      {
+        title: " Duration",
+        dataIndex: "start_date"
       },
       {
         title: " Duration",
-        dataIndex: "duration"
+        dataIndex: "end_date"
       },
       {
         title: " status",
         dataIndex: "status"
       },
-      
+
 
       {
         title: "Action",
-        render:item=>  <Button.Group>
-        <EditProject
-          open={this.state.open}
-          handleOpen={this.handleOpen}
-          handleClose={this.handleClose}
-        />
-        <Button onClick={this.handleOpen} secondary>
-          Edit
+        render: (item, key) => <Button.Group>
+          <EditProject
+            open={this.state.open}
+            handleOpen={this.handleOpen}
+            handleClose={this.handleClose}
+            selectedId={this.state.selectedID}
+          />
+          <Button onClick={()=>this.handleOpen(key)} secondary>
+            Edit
         </Button>
 
-        <Button.Or />
-        <Button negative>Delete</Button>
-      </Button.Group>    }
+          <Button.Or />
+          <Button negative>Delete</Button>
+        </Button.Group>
+      }
     ];
-    // const data = [
-    //   {
-    //     key: "1",
-    //     project_name: "Arithmetic Defects",
-    //     description: "High",
-    //     action: (
-    //       <Button.Group>
-    //         <EditProject
-    //           open={this.state.open}
-    //           handleOpen={this.handleOpen}
-    //           handleClose={this.handleClose}
-    //         />
-    //         <Button onClick={this.handleOpen} secondary>
-    //           Edit
-    //         </Button>
-
-    //         <Button.Or />
-    //         <Button negative>Delete</Button>
-    //       </Button.Group>
-    //     )
-    //   }
-    // ];
-    console.log("hg"+this.props.data);
+  
+   
     return (
       <div>
         <Grid direction="row" container>
           <Grid item xs={11} style={{ marginTop: "2%" }}>
             <Segment>
-              <IconBreadcrumbs/>
-              <AddButton changeDataValues={this.props.changeDataValues}/>
+              <IconBreadcrumbs />
+              <AddButton changeDataValues={this.props.changeDataValues} />
               <Table column={columns} data={this.props.data} />
             </Segment>
           </Grid>

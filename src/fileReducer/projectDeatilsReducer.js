@@ -2,14 +2,32 @@ import * as actionType from '../constant/projectDetailsConstant'
 
 
 const InitialState = {
-    projectDetailsFromState: []
+    projectDetailsFromState: [],
+    errorMessage: '',
+    projectDetailsByID: []
 }
 
 export const projectDetailsReducer = (state = InitialState, action) => {
     switch (action.type) {
+        case actionType.GETPROJECT:
+            return {
+                ...state,
+                projectDetailsFromState: action.payload
+            }
         case actionType.CREATENEWPROJECT:
             return {
-                projectDetailsFromState: [...state.projectDetailsFromState, action.payload]
+                ...state,
+                projectDetailsFromState: state.projectDetailsFromState.concat(action.payload)
+            }
+        case actionType.ERRORMESSAGE:
+            return {
+                ...state,
+                errorMessage: action.payload
+            };
+        case actionType.GETPROJECTBYID:
+            return {
+                ...state,
+                projectDetailsByID: action.payload
             }
         default:
             return state

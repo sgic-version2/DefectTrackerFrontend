@@ -9,18 +9,18 @@ const dateFormatList = ["DD/MM/YYYY", "DD/MM/YY"];
 
 //dropdown for Lisence period s Function
 function onChange(value) {
-  console.log("changed", value);
+  
 }
 
 class AddProject extends Component {
   state = {
     project_id: "",
     project_name: "",
-    type: "",
+    project_type: "",
     duration: "",
     status: "",
-    project_start_date: "",
-    project_end_date: ""
+    start_date: "",
+    end_date: ""
   };
   handleOnChange = e => {
     this.setState({
@@ -49,14 +49,14 @@ class AddProject extends Component {
   // };
   datePick = (date, dateString, e) => {
     // e.preventDefault()
-    console.log("hfh", dateString);
+    // console.log("hfh", dateString);
     this.setState({
       license_start_date: dateString,
       license_end_date: dateString
     });
   };
   render() {
-    console.log("hi"+this.state);
+    // console.log("hi"+this.state);
     const {
    
       open,
@@ -99,8 +99,8 @@ class AddProject extends Component {
               <Col span={12} style={{ padding: "5px" }}>
                 <Form.Item label="Project Type">
                   <Input
-                    value={this.state.type}
-                    name="type"
+                    value={this.state.project_type}
+                    name="project_type"
                     placeholder="Project Type...."
                     onChange={this.handleOnChange}
                   />
@@ -138,13 +138,13 @@ class AddProject extends Component {
             </Row>
             <Row>
               <Col span={12} style={{ padding: "5px" }}>
-                <Form.Item label="Start Date">
+                <Form.Item label="start_date">
                   <DatePicker
                     defaultValue={moment("01/01/2015", dateFormatList[0])}
                     format={dateFormatList}
                     style={{ width: "100%" }}
-                    name="project_start_date"
-                    // value={this.state.license_start_date}
+                    name="start_date"
+                    // value={this.state.start_date}
                     onChange={this.datePick}
                   />
                 </Form.Item>
@@ -156,8 +156,8 @@ class AddProject extends Component {
                     defaultValue={moment("01/01/2016", dateFormatList[0])}
                     format={dateFormatList}
                     style={{ width: "100%" }}
-                    name="project_end_date"
-                    // value={this.state.license_end_date}
+                    name="end_date"
+                    //  value={this.state.end_date}
                     onChange={this.datePick}
                   />
                 </Form.Item>
