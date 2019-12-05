@@ -4,9 +4,11 @@ import { Button } from 'semantic-ui-react';
 class add_employee_form extends React.Component {
   state = {
     employeeID: '',
-    employeeName: '',
+    firstname: '',
+    lastname: '',
     employeeDesignation: '',
-    employeeEmail: ''
+    employeeEmail: '',
+    phonenumber: ''
   };
 
   handleChange = e => {
@@ -19,30 +21,43 @@ class add_employee_form extends React.Component {
     this.props.changeDataValues(this.state);
   };
   render() {
-    const {
-      employeeID,
-      employeeName,
-      employeeDesignation,
-      employeeEmail
-    } = this.state;
+    // const { employeeID, employeeName, employeeDesignation,employeeEmail } = this.state
     return (
       <div>
         <div>
           <form onSubmit={this.handleSubmit}>
             <div style={{ textAlign: 'center' }}>
-              <label>Employee Name:</label>
+              <label>First Name:</label>
               <input
                 type='text'
-                placeholder='Employee Name'
-                value={employeeName}
+                value={this.state.firstname}
+                placeholder='Employee First Name'
                 onChange={this.handleChange}
-                name='employeeName'
+                name='firstname'
+              />
+              <br />
+              <label>Last Name:</label>
+              <input
+                type='text'
+                placeholder='Employee Last Name'
+                value={this.state.lastname}
+                onChange={this.handleChange}
+                name='lastname'
+              />
+              <br />
+              <label>Phone Number:</label>
+              <input
+                type='text'
+                placeholder='Phone Number'
+                value={this.state.phonenumber}
+                onChange={this.handleChange}
+                name='phonenumber'
               />
               <br />
               <label>Designation:</label>
               <select
                 onChange={this.handleChange}
-                value={employeeDesignation}
+                value={this.state.employeeDesignation}
                 name='employeeDesignation'
               >
                 <option selected>-----Select One-----</option>
@@ -61,10 +76,12 @@ class add_employee_form extends React.Component {
                 type='text'
                 placeholder='Email'
                 name='employeeEmail'
-                value={employeeEmail}
+                value={this.state.employeeEmail}
                 onChange={this.handleChange}
               />
-              <Button positive>Save Data</Button>
+              <Button positive onClick={this.props.openFormClose}>
+                Save Data{' '}
+              </Button>
             </div>
           </form>
         </div>

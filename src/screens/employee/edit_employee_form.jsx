@@ -6,12 +6,33 @@ const edit_employee_form = () => {
       <div>
         <form className=' '>
           <div>
-            <label>Employee Name:</label>
+            <br />
+
+            <label>First Name:</label>
             <input
               type='text'
               id=''
               className=''
-              placeholder='Employee Name'
+              value=''
+              placeholder='First Name'
+            ></input>
+            <br />
+
+            <label>Last Name:</label>
+            <input
+              type='text'
+              id=''
+              className=''
+              placeholder='Last Name'
+            ></input>
+            <br />
+
+            <label>Phone Number:</label>
+            <input
+              type='text'
+              id=''
+              className=''
+              placeholder='Phone Number'
             ></input>
             <br />
 
