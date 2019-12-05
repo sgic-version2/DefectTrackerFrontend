@@ -1,0 +1,3 @@
+export const CHANGE_TIME_FORMAT = "TIME_FORMAT";
+export const CHANGE_DATE_FORMAT = "DATE_FORMAT";
+export const CHANGE_DAY_FORMAT = "DAY_FORMAT";

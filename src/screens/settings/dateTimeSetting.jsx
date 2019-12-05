@@ -6,6 +6,18 @@ import { Divider, Select, MenuItem } from "@material-ui/core";
 import * as moment from "moment";
 import InputBase from "@material-ui/core/InputBase";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
+import { connect } from "react-redux";
+import { changeTime, changeDate, changeDay } from "./dateTimeSettingAction";
+
+const mapState = state => ({
+  dayTimeFormat: state.dateTimeSetting
+});
+
+const actions = {
+  changeTime,
+  changeDate,
+  changeDay
+};
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -70,16 +82,19 @@ const BootstrapInput = withStyles(theme => ({
   }
 }))(InputBase);
 
-export default function DateTimeSetting() {
+function DateTimeSetting({ dayTimeFormat, changeTime, changeDate, changeDay }) {
   const handleChangeTime = e => {
     setTFormat(e.target.value);
+    changeTime(e.target.value);
   };
 
   const handleChangeDate = e => {
     setDFormat(e.target.value);
+    changeDate(e.target.value);
   };
   const handleChangeFullDate = e => {
     setFullFormat(e.target.value);
+    changeDay(e.target.value);
   };
 
   const [tFormat, setTFormat] = useState("--");
@@ -87,6 +102,8 @@ export default function DateTimeSetting() {
   const [fullFormat, setFullFormat] = useState("--");
 
   const classes = useStyles();
+
+  console.log("day  actions", dayTimeFormat);
 
   return (
     <div className={classes.root}>
@@ -103,7 +120,7 @@ export default function DateTimeSetting() {
                   <Grid xs={2}>Time Format</Grid>
                   <Grid xs={2}>
                     <Select
-                      value={tFormat}
+                      value={changeTime}
                       onChange={handleChangeTime}
                       input={
                         <BootstrapInput
@@ -139,9 +156,11 @@ export default function DateTimeSetting() {
                     </Select>
                   </Grid>
                   <Grid xs={2}>
-                    {dFormat === "YYYY MM DD"
-                      ? moment().format("YYYY MM DD")
-                      : moment().format("DD MM YYYY")}
+                    {// dFormat === "YYYY MM DD"
+                    // ?
+                    moment().format(dayTimeFormat.dateFormat)
+                    // : moment().format("DD MM YYYY")
+                    }
                   </Grid>
                 </Grid>
 
@@ -162,11 +181,7 @@ export default function DateTimeSetting() {
                       <MenuItem value={"DD MM YYYY"}>DD MM YYYY</MenuItem>
                     </Select>
                   </Grid>
-                  <Grid xs={2}>
-                    {fullFormat === "MMMM Do YYYY, h:mm:ss a"
-                      ? moment().format("MMMM Do YYYY, h:mm:ss a")
-                      : moment().format("DD MM YYYY")}
-                  </Grid>
+                  <Grid xs={2}>{moment().format(dayTimeFormat.dayFormat)}</Grid>
                 </Grid>
               </Grid>
               <br />
@@ -176,7 +191,9 @@ export default function DateTimeSetting() {
           </Grid>
         </Grid>
       </Paper>
-        {/* </Container> */}
+      {/* </Container> */}
     </div>
   );
 }
+
+export default connect(mapState, actions)(DateTimeSetting);

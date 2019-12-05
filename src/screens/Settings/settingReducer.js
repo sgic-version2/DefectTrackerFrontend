@@ -20,24 +20,24 @@ export const systemLogoReducer = (state = initialState, action) => {
   }
 };
 
-export const showOnDashboardReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case SHOW_ON_DASHBOARD_SIDEBAR:
-      return {
-        showOnDashboard: !state.showOnDashboard
-      };
-    default:
-      return state;
-  }
-};
+// export const showOnDashboardReducer = (state = initialState, action) => {
+//   switch (action.type) {
+//     case SHOW_ON_DASHBOARD_SIDEBAR:
+//       return {
+//         showOnDashboard: !state.showOnDashboard
+//       };
+//     default:
+//       return state;
+//   }
+// };
 
-export const faviconReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case FAVICON_CHANGE:
-      return {
-        favicon: (state.favicon = action.payload)
-      };
-    default:
-      return state;
-  }
-};
+// export const faviconReducer = (state = initialState, action) => {
+//   switch (action.type) {
+//     case FAVICON_CHANGE:
+//       return {
+//         favicon: (state.favicon = action.payload)
+//       };
+//     default:
+//       return state;
+//   }
+// };

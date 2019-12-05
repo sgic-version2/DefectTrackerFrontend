@@ -1,15 +1,25 @@
 import React from "react";
+import { Divider, Dialog, DialogActions } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import { Divider, Dialog, DialogActions } from "@material-ui/core";
 import { SketchPicker } from "react-color";
+import { connect } from "react-redux";
+import { changeSidebarColor } from './sideBarColorAction';
+
+const mapState = state => ({
+  sidBarColor: state.sideBarColor.sideBarColor
+});
+
+const actions = {
+  changeSidebarColor: changeSidebarColor
+};
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1 
+    flexGrow: 1
   },
   paper: {
     padding: theme.spacing(2),
@@ -36,10 +46,9 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function SideBarColorSettings() {
+function SideBarColorSettings({ sidBarColor, changeSidebarColor }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  const [selectedColor, setSelectedColor] = React.useState("");
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -54,8 +63,8 @@ export default function SideBarColorSettings() {
   };
 
   const handleChangeColor = color => {
-    console.log(color.hex);
-    setSelectedColor(color.hex);
+    changeSidebarColor(color.hex);
+    
   };
 
   return (
@@ -73,7 +82,7 @@ export default function SideBarColorSettings() {
                   <Grid xs={2}>
                     <button
                       onClick={handleClickOpen}
-                      style={{ backgroundColor: selectedColor }}
+                      style={{ backgroundColor: sidBarColor }}
                       className="colorbox"
                     ></button>
                   </Grid>
@@ -124,3 +133,5 @@ export default function SideBarColorSettings() {
     </div>
   );
 }
+
+export default connect(mapState, actions)(SideBarColorSettings);

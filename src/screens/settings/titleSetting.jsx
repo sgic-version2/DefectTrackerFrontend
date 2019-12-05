@@ -34,10 +34,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function TitleSettings({
-  showOnDashboard,
-  showOnDashboardEvent
-}) {
+export default function TitleSettings({}) {
   const classes = useStyles();
 
   return (
@@ -58,21 +55,20 @@ export default function TitleSettings({
               </Grid>
 
               <Grid>
+                
                 <Checkbox
-                  onClick={showOnDashboardEvent}
-                  value={showOnDashboard}
+                  // onClick={showOnDashboardEvent}
+                  // value={showOnDashboard}
                   // onChange={handleChange('checkedB')}
-                  // value="checkedB"
-                  checked={showOnDashboard}
+                  value="checkedB"
+                   checked={true}
                   color="primary"
                 />
                 Show on dashboard sidebar
               </Grid>
               <Grid>When enabled, the title will appear below the logo.</Grid>
 
-              <Grid>
-                <Link>Update</Link>
-              </Grid>
+
 
               <br />
               <Divider />

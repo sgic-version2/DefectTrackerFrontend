@@ -1,35 +1,26 @@
 import React, { Component, Fragment } from "react";
 import SystemSettings from "./systemSetting";
 import TitleSettings from "./titleSetting";
-import FaviconSettings from "./faviconSetting";
 import SideBarColorSettings from "./sideBarColorSetting";
 import DateTimeSetting from "./dateTimeSetting";
 import ThemeSetting from "./themeSetting";
 import { Segment } from "semantic-ui-react";
 import { Grid } from "@material-ui/core";
 import { connect } from "react-redux";
-import {
-  systemLogoChange,
-  showOnDashboard,
-  faviconChange
-} from "./settingAction";
+import { systemLogoChange } from "./settingAction";
 
 const mapStateToProps = state => ({
-  data: state.lookAndFeelData.systemLogo,
-  showOnDashboardData: state.lookAndFeelData.showOnDashboard,
-  favicon: state.favicon.favicon
+  data: state.lookAndFeelData.systemLogo
 });
 
 const actions = {
   systemLogoChange,
-  showOnDashboard,
-  faviconChange
+
 };
 
 class AllSetting extends Component {
   state = {};
   render() {
-    // console.log("propsczv", this.props.favicon);
     return (
       <Fragment>
         <Grid direction="row" container>
@@ -44,11 +35,7 @@ class AllSetting extends Component {
                 showOnDashboard={this.props.showOnDashboardData}
                 showOnDashboardEvent={this.props.showOnDashboard}
               />
-              {/* <br />
-              <FaviconSettings
-                systemLogoFavicon={this.props.favicon}
-                faviconChange={this.props.faviconChange}
-              /> */}
+
               <br />
               <SideBarColorSettings />
               <br />
