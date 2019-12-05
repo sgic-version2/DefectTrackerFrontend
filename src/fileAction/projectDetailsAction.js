@@ -10,7 +10,7 @@ export const getProjectDetails = () => dispatch => {
         })
     )
 }
-export const changeDataValues = (data) => dispatch => {
+export const postProject = (data) => dispatch => {
     axios.post(`${projectApi}`, data).then(res =>
         dispatch({
             type: actionTypes.CREATENEWPROJECT,

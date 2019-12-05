@@ -3,11 +3,11 @@ import Form from './AddProject'
 import Model from '../../components/model/submitModel'
 
 
-const AddButton = ({ changeDataValues, handleOpen, handleClose, open }) => {
+const AddButton = ({ postProject, handleOpen, handleClose, open }) => {
   
   return (
-    <div>
-      <Model handleOpen={handleOpen} handleClose={handleClose} open={open} form={<Form changeDataValues={changeDataValues} />} />
+    <div style={{marginBottom:40}}>
+      <Model handleOpen={handleOpen} handleClose={handleClose} open={open} form={<Form postProject={postProject} />} />
     </div>
   );
 };

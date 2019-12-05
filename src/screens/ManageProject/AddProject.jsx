@@ -31,9 +31,9 @@ class AddProject extends Component {
     if (this.state.project_id) {
         this.props.upateProject(this.state)
     } else {
-      this.props.changeDataValues(this.state);
+      this.props.postProject(this.state);
     }
-    console.log("jjjjjjjjj",this.props.changeDataValues);
+   
   };
   componentWillReceiveProps() {
     setTimeout(
@@ -52,24 +52,21 @@ class AddProject extends Component {
   }
 
   datePick = (date, dateString, e) => {
-    // e.preventDefault()
-    // console.log("hfh", dateString);
     this.setState({
       license_start_date: dateString,
       license_end_date: dateString
     });
   };
   render() {
-    // console.log("hi"+this.state);
-    const {
+  const {
       handleClose,
-    } = this.props;
-  
+    } = this.props  
+    console.log("tfdft5rty",this.props.postProject);
     
     return (
       <div>
       
-          <Form layout="vertical" onSubmit={this.handleSubmit} >
+          <form layout="vertical" onSubmit={this.handleSubmit} >
             <Row>
               <Col span={12} style={{ padding: "5px" }}>
                 <Form.Item label="Project Name">
@@ -155,7 +152,7 @@ class AddProject extends Component {
             <button type="submit" onClick={handleClose}>
               submit
             </button>
-          </Form>
+          </form>
       </div>
     );
   }
