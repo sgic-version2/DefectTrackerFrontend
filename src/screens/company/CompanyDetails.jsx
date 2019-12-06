@@ -18,7 +18,7 @@ function confirm() {
    message.info('Click on Yes.');
 }
 const mapStateToProps = state => ({
-   data: state.comanyState.comanyState
+   data: state.companyState.companyState
 })
 const mapDispatchToProps = {
    changeDataValues,

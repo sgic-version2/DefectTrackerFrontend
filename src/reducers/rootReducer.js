@@ -27,7 +27,7 @@ const rootReducer = combineReducers({
     addCompanyEmployeeData: addCompanyEmployeeReducer,
     exportAudit:auditReducer,
     
-    comanyState: companyReducer,
+    companyState: companyReducer,
     defectTypeData: defectTypeReducer,
     projectDetailsData: projectDetailsReducer,
     addDefectStatusReducer:addDefectStatusReducer,
