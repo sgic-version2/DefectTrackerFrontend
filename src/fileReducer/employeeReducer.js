@@ -20,7 +20,7 @@ export const employeeReducer = (state = InitialState, action) => {
         employeeState: state.employeeState.concat(action.payload),
         employeeStatus: state.employeeStatus.concat(action.status)
       };
-    case actionType.SHOWERROEMESSAGE:
+    case actionType.SHOWERROREMESSAGE:
       return {
         ...state,
         errorMessage: action.payload

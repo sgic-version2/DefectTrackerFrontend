@@ -1,8 +1,7 @@
-import React, { Component } from "react";
-import { Modal, Button } from "antd";
-import { Form, Input } from "antd";
-import { Divider } from "@material-ui/core";
-
+import React, { Component } from 'react';
+import { Modal, Button } from 'antd';
+import { Form, Input } from 'antd';
+import { Divider } from '@material-ui/core';
 
 const formItemLayout = {
   labelCol: { span: 4 },
@@ -11,10 +10,10 @@ const formItemLayout = {
 
 class AddEmpolyee extends Component {
   state = {
-    username: "",
-    firstname: "",
-    middlename: "",
-    lastname: "",
+    firstname: '',
+    lastname: '',
+    email: '',
+    phone: ''
   };
   handleOnChange = e => {
     this.setState({
@@ -23,72 +22,77 @@ class AddEmpolyee extends Component {
     console.log(e.target.name);
   };
 
-  handleSubmit = () => {
-    this.props.changeDataValues(this.state);
+  handleSubmit = e => {
+    e.preventDefault();
+    if (this.state.employeeId) {
+      this.props.updateEmployee(this.state);
+    } else {
+      this.props.changeDataValues(this.state);
+    }
   };
 
-  render() {
-    const { open, handleOpen, handleClose, width, title } = this.props;
+  componentWillReceiveProps() {
+    setTimeout(
+      function() {
+        this.componentDidMount();
+      }.bind(this),
+      10
+    );
+  }
+  componentDidMount() {
+    if (this.props.selectedData !== null) {
+      this.setState({
+        ...this.props.selectedData
+      });
+    }
+  }
 
+  render() {
     return (
       <div>
+        <Form onSubmit={this.handleSubmit}>
+          <p>Add Employee </p>
+          <Divider></Divider>
 
-        <Modal
-          width={`${width ? width : "50"}%`}
-          visible={open}
-          title={title}
-          onOk={handleOpen}
-          onCancel={handleClose}
-          footer={[
-            <Button key="back" onClick={handleClose}>
-              Return
-              </Button>,
-            <Button key="submit" type="primary" onClick={() => this.handleSubmit(handleClose)}>
-              Submit
-              </Button>
-          ]}
-        >
-          <Form>
-            <p>Add Employee </p>
-            <Divider></Divider>
-            <Form.Item {...formItemLayout} label="User Name">
-              <Input
-                value={this.state.username}
-                name="username"
-                placeholder="Please input your username "
-                onChange={this.handleOnChange}
-              />
-            </Form.Item>
-            <Form.Item {...formItemLayout} label="First Name">
-              <Input
-                value={this.state.firstname}
-                name="firstname"
-                placeholder="Please input firstname "
-                onChange={this.handleOnChange}
-              />
-            </Form.Item>
-            <Form.Item {...formItemLayout} label="Middle Name">
-              <Input
-                value={this.state.middlename}
-                name="middlename"
-                placeholder="Please input middlename"
-                onChange={this.handleOnChange}
-              />
-            </Form.Item>
-            <Form.Item {...formItemLayout} label="Last Name">
-              <Input
-                value={this.state.lastname}
-                name="lastname"
-                placeholder="Please input your lastname"
-                onChange={this.handleOnChange}
-              />
-            </Form.Item>
-            {/* <button type="submit" onClick={handleClose}>
-                submit
-              </button> */}
-          </Form>
-        </Modal>
+          <Form.Item {...formItemLayout} label='First Name'>
+            <Input
+              value={this.state.firstname}
+              name='firstname'
+              placeholder='Please input firstname '
+              onChange={this.handleOnChange}
+            />
+          </Form.Item>
 
+          <Form.Item {...formItemLayout} label='Last Name'>
+            <Input
+              value={this.state.lastname}
+              name='lastname'
+              placeholder='Please input your lastname'
+              onChange={this.handleOnChange}
+            />
+          </Form.Item>
+
+          <Form.Item {...formItemLayout} label='Email'>
+            <Input
+              value={this.state.email}
+              name='email'
+              placeholder='Please input Email'
+              onChange={this.handleOnChange}
+            />
+          </Form.Item>
+
+          <Form.Item {...formItemLayout} label='Phone Number'>
+            <Input
+              value={this.state.phone}
+              name='phone'
+              placeholder='Please input Phone Number'
+              onChange={this.handleOnChange}
+            />
+          </Form.Item>
+          <button type='submit' onClick={this.props.handleClose}>
+            submit
+          </button>
+        </Form>
       </div>
     );
   }

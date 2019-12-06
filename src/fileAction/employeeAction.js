@@ -2,7 +2,7 @@ import * as actionTypes from '../constant/emplyeeConstant';
 import axios from 'axios';
 import { employeeApi } from '../Api/index';
 
-export const getEmployeeData = () => dispatch => {
+export const getEmployeeDetails = () => dispatch => {
   axios.get(`${employeeApi}`).then(response =>
     dispatch({
       type: actionTypes.GETEMPLOYEE,
@@ -23,24 +23,24 @@ export const changeDataValues = data => dispatch => {
     )
     .catch(err =>
       dispatch({
-        type: actionTypes.SHOWERRORMESSAGE,
+        type: actionTypes.SHOWERROREMESSAGE,
         payload: err
       })
     );
 };
 
-export const upateEmployee = data => dispatch => {
+export const updateEmployee = data => dispatch => {
   axios
     .put(`${employeeApi}/${data.employeeId}`, data)
     .then(response =>
       dispatch({
         type: actionTypes.EDITEMPLOYEE,
-        payload: response.data
+        payload: data
       })
     )
     .catch(err =>
       dispatch({
-        type: actionTypes.SHOWERRORMESSAGE,
+        type: actionTypes.SHOWERROREMESSAGE,
         payload: err
       })
     );

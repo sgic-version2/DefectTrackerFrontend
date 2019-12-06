@@ -1,27 +1,28 @@
 import React, { useState } from 'react';
 import { Button } from 'semantic-ui-react';
-
+import Model from '../../components/model/submitModel';
 import AddEmployee from './AddEmployee';
 
-const AddEmployeeButton = ({ changeDataValues }) => {
-  const [open, setOpen] = useState(false);
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
+const AddEmployeeButton = ({
+  changeDataValues,
+  open,
+  handleClose,
+  handleOpen
+}) => {
   return (
     <div>
-      <AddEmployee
+      <Model
         open={open}
         handleOpen={handleOpen}
         handleClose={handleClose}
-        changeDataValues={changeDataValues}
+        form={
+          <AddEmployee
+            changeDataValues={changeDataValues}
+            handleClose={handleClose}
+          />
+        }
       />
+
       <Button onClick={handleOpen} color='primary'>
         Add Emplyee
       </Button>
