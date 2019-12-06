@@ -1,25 +1,39 @@
 import React, { Component } from "react";
 import { Segment } from "semantic-ui-react";
 import { Grid } from "@material-ui/core";
-
 import BreadCrumbs from "../../components/breadCrumbs/breadCrumbs";
-
 import { Button } from "semantic-ui-react";
 import AddCircleOutlineRoundedIcon from "@material-ui/icons/AddCircleOutlineRounded";
 // import EditCompany from '../../screens/company/EditCompany';
 import { Popconfirm, message } from "antd";
-
 import AddButton from "./AddButton";
 import AddSubModule from "./AddSubModule";
 import EditModule from "./EditModule";
 import SubContentable from "../../components/tables/SubContentable";
+import { connect } from "react-redux";
+import {
+  changeDataValues,
+  getModuleData,
+  upateModule,
+  deleteModule
+} from "../../fileAction/moduleAction";
+
+const mapStateToProps = state => ({
+  data: state.moduleState.moduleState
+});
+const mapDispatchToProps = {
+  changeDataValues,
+  getModuleData,
+  upateModule,
+  deleteModule
+};
 
 const text = "Are you sure delete this task?"; //Delete button
 
 function confirm() {
   message.info("Click on Yes.");
 }
-export default class ModuleList extends Component {
+class ModuleList extends Component {
   state = {
     open: false,
     open1: false
@@ -36,8 +50,10 @@ export default class ModuleList extends Component {
       open: false
     });
   };
-  handleOpen1 = () => {
+  handleOpen1 = (e) => {
     console.log(this.state.open1);
+    console.log("voraanzz",e);
+    
     this.setState({
       open1: true
     });
@@ -48,11 +64,18 @@ export default class ModuleList extends Component {
       open1: false
     });
   };
+
+  componentDidMount() {
+    this.props.getModuleData();
+  }
+
   render() {
+    console.log("alaki raatha", this.props);
+
     const columns = [
       {
         title: "Module Id",
-        dataIndex: "regid",
+        dataIndex: "module_id",
         key: "regid",
         filters: [
           {
@@ -72,7 +95,7 @@ export default class ModuleList extends Component {
       },
       {
         title: "Module Name",
-        dataIndex: "companyname",
+        dataIndex: "module_name",
         key: "companyname",
         defaultSortOrder: "descend",
         sorter: (a, b) => a.age - b.age
@@ -82,122 +105,91 @@ export default class ModuleList extends Component {
         title: "Add Sub Module",
         key: "addsubmodule",
         defaultSortOrder: "descend",
-        sorter: (a, b) => a.more - b.more
+        sorter: (a, b) => a.more - b.more,
+        render:(item, key)=>( 
+          <AddCircleOutlineRoundedIcon onClick={()=>this.handleOpen1(key)} />
+        )
       },
       {
         title: "Action",
-        key: "action",
+        render:(item, key)=>( 
+          // <AddCircleOutlineRoundedIcon onClick={this.handleOpen1} />
+          
+          <Button.Group>
+             <EditModule
+              open={this.state.open}
+              handleOpen={this.handleOpen}
+              handleClose={this.handleClose}
+            />
+            <Button onClick={()=>this.handleOpen(key)} secondary>
+              Edit
+            </Button>
+            <Button.Or />
+            <Popconfirm
+              placement="topRight"
+              title={text}
+              onConfirm={confirm}
+              okText="yes"
+              cancelText="No"
+            >
+              <Button negative>Delete</Button>
+            </Popconfirm>
+          </Button.Group>
+          
+        )
+        // key: "action",
 
-        dataIndex: "action",
-        defaultSortOrder: "descend"
+        // dataIndex: "action",
+        // defaultSortOrder: "descend"
       }
     ];
-    const data = [
-      {
-        key: "1",
-        regid: "SGIC-001",
-        companyname: "Admin",
-        addsubmodule: (
-          <AddCircleOutlineRoundedIcon onClick={this.handleOpen1} />
-        ),
+    // const data = [
+    //   {
+    //     key: "1",
+    //     regid: "SGIC-001",
+    //     companyname: "Admin",
+    //     addsubmodule: (
+    //       <AddCircleOutlineRoundedIcon onClick={this.handleOpen1} />
+    //     ),
 
-        action: (
-          <Button.Group>
-            <EditModule
-              open={this.state.open}
-              handleOpen={this.handleOpen}
-              handleClose={this.handleClose}
-            />
-            <Button onClick={this.handleOpen} secondary>
-              Edit
-            </Button>
-            <Button.Or />
-            <Popconfirm
-              placement="topRight"
-              title={text}
-              onConfirm={confirm}
-              okText="yes"
-              cancelText="No"
-            >
-              <Button negative>Delete</Button>
-            </Popconfirm>
-          </Button.Group>
-        )
-      },
-      {
-        key: "2",
-        regid: "SGIC-001",
-        companyname: "Admin",
-        addsubmodule: (
-          <AddCircleOutlineRoundedIcon onClick={this.handleOpen1} />
-        ),
-
-        action: (
-          <Button.Group>
-            <EditModule
-              open={this.state.open}
-              handleOpen={this.handleOpen}
-              handleClose={this.handleClose}
-            />
-            <Button onClick={this.handleOpen} secondary>
-              Edit
-            </Button>
-            <Button.Or />
-            <Popconfirm
-              placement="topRight"
-              title={text}
-              onConfirm={confirm}
-              okText="yes"
-              cancelText="No"
-            >
-              <Button negative>Delete</Button>
-            </Popconfirm>
-          </Button.Group>
-        )
-      },
-      {
-        key: "3",
-        regid: "SGIC-002",
-        companyname: "Login",
-        addsubmodule: (
-          <AddCircleOutlineRoundedIcon onClick={this.handleOpen1} />
-        ),
-
-        action: (
-          <Button.Group>
-            <EditModule
-              open={this.state.open}
-              handleOpen={this.handleOpen}
-              handleClose={this.handleClose}
-            />
-            <Button onClick={this.handleOpen} secondary>
-              Edit
-            </Button>
-            <Button.Or />
-            <Popconfirm
-              placement="topRight"
-              title={text}
-              onConfirm={confirm}
-              okText="yes"
-              cancelText="No"
-            >
-              <Button negative>Delete</Button>
-            </Popconfirm>
-          </Button.Group>
-        )
-      }
-    ];
-    const subtabledata = [
+    //     action: (
+    //       <Button.Group>
+    //         <EditModule
+    //           open={this.state.open}
+    //           handleOpen={this.handleOpen}
+    //           handleClose={this.handleClose}
+    //         />
+    //         <Button onClick={this.handleOpen} secondary>
+    //           Edit
+    //         </Button>
+    //         <Button.Or />
+    //         <Popconfirm
+    //           placement="topRight"
+    //           title={text}
+    //           onConfirm={confirm}
+    //           okText="yes"
+    //           cancelText="No"
+    //         >
+    //           <Button negative>Delete</Button>
+    //         </Popconfirm>
+    //       </Button.Group>
+    //     )
+    //   },
      
-      
-    ];
+
+    // ];
+    const subtabledata = [];
     return (
       <div>
         <Grid item xs={11} style={{ marginTop: "2%" }}>
           <Segment>
             <BreadCrumbs />
             <AddButton />
-            <SubContentable column={columns} data={data} TableData={subtabledata}/>
+            <SubContentable
+              column={columns}
+              data={this.props.data}
+              TableData={subtabledata}
+            />
             {/* {this.state.open1 && <AddSubModule open={this.state.open1} handleOpen1={this.handleOpen1} handleClose1={this.handleClose1} />} */}
             <AddSubModule
               open1={this.state.open1}
@@ -210,3 +202,5 @@ export default class ModuleList extends Component {
     );
   }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(ModuleList);

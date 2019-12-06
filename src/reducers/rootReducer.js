@@ -38,5 +38,6 @@ const rootReducer = combineReducers({
   projectDetailsData: projectDetailsReducer,
   addDefectStatusReducer: addDefectStatusReducer,
   defectState: defectReducer,
+  moduleState:moduleReducer
 });
 export default rootReducer;

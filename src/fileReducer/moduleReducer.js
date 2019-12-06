@@ -1,29 +1,47 @@
-import * as actionType from '../constant/muduleAllocation';
+import * as actionType from "../constant/moduleConstant";
 
 const InitialState = {
-  moduleAllocationData: [
-    {
-      key: '1',
-      empname: 'ravi',
-      module: 'login',
-      role: 'ASE'
-    },
-    {
-      key: '2',
-      empname: 'mala',
-      module: 'login',
-      role: 'SE'
-    }
-  ]
+  moduleState: [],
+  moduleStatus: "",
+  errorMessage: ""
 };
 
 export const moduleReducer = (state = InitialState, action) => {
   switch (action.type) {
-    case actionType.MODULEALLOCATION:
+    case actionType.GET_MODULE:
       return {
-        moduleAllocationData: [...state.moduleAllocationData, action.payload]
+        ...state,
+        moduleState: action.payload
       };
-
+    case actionType.ADD_MODULE:
+      return {
+        ...state,
+        moduleState: state.moduleState.concat(action.payload),
+        moduleState: state.moduleStatus.concat(action.status)
+      };
+    case actionType.SHOWERRORMESSAGE:
+      return {
+        ...state,
+        errorMessage: action.payload
+      };
+    case actionType.EDIT_MODULE:
+      return {
+        ...state,
+        moduleState: state.moduleState.map(data => {
+          if (data.moduleId == action.payload.moduleId) {
+            return action.payload;
+          } else {
+            return data;
+          }
+        })
+      };
+    case actionType.DELETE_MODULE:
+      return {
+        ...state,
+        moduleState: state.moduleState.filter(
+          data => data.moduleId !== action.payload
+        )
+      };
     default:
       return state;
   }
