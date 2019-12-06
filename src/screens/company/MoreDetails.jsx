@@ -25,36 +25,52 @@ const MoreDetails = ({ open, handleOpen1, handleClose1, width, title }) => {
           <Row>
             <Col span={9} style={{ padding: '5px' }}>
               <p>
-                <b>Registration Id</b>
+                <b> project_id</b>
               </p>
               <p>
-                <b>Company Name</b>
+                <b> module_id</b>
               </p>
               <p>
-                <b>Abbreviation</b>
+                <b>defect_type_id</b>
               </p>
               <p>
-                <b>IT InCharge</b>
+                <b>severity_id </b>
               </p>
               <p>
-                <b>License Period</b>
+                <b> priority_id</b>
               </p>
               <p>
-                <b>Lisence Type</b>
+                <b> fixed_by</b>
               </p>
               <p>
-                <b>Start Date</b>
+                <b> found_in</b>
               </p>
 
               <p>
-                <b>End Date</b>
+                <b> fixed_in</b>
               </p>
               <p>
-                <b>E-mail</b>
+                <b>attachment_id</b>
               </p>
               <p>
-                <b>Description</b>
+                <b>status_id</b>
               </p>
+              <p>
+                <b>created_date</b>
+              </p>
+              <p>
+                <b>udated_date</b>
+              </p>
+              <p>
+                <b>description</b>
+              </p>
+              <p>
+                <b>assignto</b>
+              </p>
+              <p>
+                <b>assignby</b>
+              </p>
+            
               {/* <p label="Priority: "> </p>
               <br />
               <br />
@@ -63,6 +79,21 @@ const MoreDetails = ({ open, handleOpen1, handleClose1, width, title }) => {
               <p label="Status: "></p> */}
             </Col>
             <Col span={1} style={{ padding: '5px' }}>
+              <p>
+                <b>:</b>
+              </p>
+              <p>
+                <b>:</b>
+              </p>
+              <p>
+                <b>:</b>
+              </p>
+              <p>
+                <b>:</b>
+              </p>
+              <p>
+                <b>:</b>
+              </p>
               <p>
                 <b>:</b>
               </p>
@@ -104,6 +135,11 @@ const MoreDetails = ({ open, handleOpen1, handleClose1, width, title }) => {
               <p>Gold</p>
               <p>25.10.2019</p>
               <p>25.01.2020</p>
+              <p>jhonk@gmail.com</p>
+              <p>jhonk@gmail.com</p>
+              <p>jhonk@gmail.com</p>
+              <p>jhonk@gmail.com</p>
+              <p>jhonk@gmail.com</p>
               <p>jhonk@gmail.com</p>
               <p>ohn Keells Holdings PLC is the largest conglomerate in Sri Lanka, focused on seven industry sectors, offering the best opportunities for investment and ...</p>
             </Col>
