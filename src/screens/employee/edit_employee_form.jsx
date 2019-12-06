@@ -1,40 +1,61 @@
-import React from 'react'
+import React from 'react';
 
 const edit_employee_form = () => {
-    return (
-        <div>
-            <div>
-                <form className=" "  >
-                    <div >
+  return (
+    <div>
+      <div>
+        <form className=' '>
+          <div>
+            <br />
 
-                        <label>Employee Id:</label>
-                        <input type="text" id="" className="" value="" placeholder="Employee Id"></input>
-                        <br />
+            <label>First Name:</label>
+            <input
+              type='text'
+              id=''
+              className=''
+              value=''
+              placeholder='First Name'
+            ></input>
+            <br />
 
-                        <label>Employee Name:</label>
-                        <input type="text" id="" className="" placeholder="Employee Name"></input>
-                        <br />
+            <label>Last Name:</label>
+            <input
+              type='text'
+              id=''
+              className=''
+              placeholder='Last Name'
+            ></input>
+            <br />
 
-                        <label>Designation:</label>
-                        <select id="" className="">
-                            <option value="ADMIN">ADMIN</option>
-                            <option value="USER">USER</option>
-                            <option value="HR">HR</option>
-                            <option value="PM">PM</option>
-                            <option value="QAL">QAL</option>
-                            <option value="TECL">TECL</option>
-                            <option value="QA">QA</option>
-                            <option value="DEV">DEV</option>
-                        </select>
-                        <br />
+            <label>Phone Number:</label>
+            <input
+              type='text'
+              id=''
+              className=''
+              placeholder='Phone Number'
+            ></input>
+            <br />
 
-                        <label>Email:</label>
-                        <input type="text" id="" className="" placeholder="Email"></input>
-                         </div>
-                </form>
-                </div>
-            </div>
-    )
-}
+            <label>Designation:</label>
+            <select id='' className=''>
+              <option value='ADMIN'>ADMIN</option>
+              <option value='USER'>USER</option>
+              <option value='HR'>HR</option>
+              <option value='PM'>PM</option>
+              <option value='QAL'>QAL</option>
+              <option value='TECL'>TECL</option>
+              <option value='QA'>QA</option>
+              <option value='DEV'>DEV</option>
+            </select>
+            <br />
 
-export default edit_employee_form
+            <label>Email:</label>
+            <input type='text' id='' className='' placeholder='Email'></input>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default edit_employee_form;

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SubmitModel from "./../../../components/model/submitModel";
 import Form from "./Form";
-import { changeDataValues } from "./../../../fileAction/priorityConfigAction";
+
 
 const AllocationButton = ({
   open,
@@ -9,17 +9,24 @@ const AllocationButton = ({
   handleClose,
   changeDataValues
 }) => {
-  const [openForm, setOpen] = useState(true);
+  const [openForm] = useState(true);
   // console.log("gfjgfj",open);
   return (
     <div>
-       {openForm && <SubmitModel
+      {openForm && (
+        <SubmitModel
           open={open}
           handleOpen={handleOpen}
           handleClose={handleClose}
-          form={<Form changeDataValues={changeDataValues} openFormClose={handleClose} />}
+          form={
+            <Form
+              changeDataValues={changeDataValues}
+              openFormClose={handleClose}
+            />
+          }
           // onClick={()=>setOpen(false)}
-        />}
+        />
+      )}
     </div>
   );
 };

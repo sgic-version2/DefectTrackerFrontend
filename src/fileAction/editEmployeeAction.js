@@ -1,8 +1,8 @@
-import * as actionTypes from '../constant/addDefectConstant';
+import * as actionTypes from '../constant/editEmployeeConstant';
 
 export const changeDataValues = (data) => {
     return {
-        type: actionTypes.CREATEDEFECT,
+        type: actionTypes.EDITNEWEMPLOYEE,
         payload: {
             data
         }

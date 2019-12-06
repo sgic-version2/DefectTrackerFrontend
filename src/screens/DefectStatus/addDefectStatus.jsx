@@ -57,8 +57,8 @@ class AddDefectStatus extends Component {
               <Divider></Divider>
               <Form.Item {...formItemLayout} label="Defect Status">
                 <Input
-                  value={this.state.name}
-                  name="statusname"
+                  value={this.state.statusName}
+                  name="statusName"
                   placeholder="Please input Defect Status "
                   onChange={this.handleOnChange}
                 />

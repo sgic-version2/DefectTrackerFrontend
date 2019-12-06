@@ -1,40 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
+import AddEmployee from './AddEmployee';
+import Model from '../../components/model/submitModel';
 
-class EditForm extends Component {
-    render() {
-        return (
-            <div>
-                <div class="ui equal width form"/>
-  <div class="fields">
-    <div class="field">
-      <label>Username</label>
-      <input type="text" placeholder="Username"/>
+export const EditForm = ({
+  open,
+  handleOpen,
+  handleClose,
+  updateEmployee,
+  selectedData
+}) => {
+  return (
+    <div>
+      <Model
+        open={open}
+        handleOpen={handleOpen}
+        handleClose={handleClose}
+        form={
+          <AddEmployee
+            updateEmployee={updateEmployee}
+            handleClose={handleClose}
+            selectedData={selectedData}
+          />
+        }
+      />
     </div>
-    <div class="field">
-      <label>Password</label>
-      <input type="password"/>
-    </div>
-  </div>
-  <div class="fields">
-    <div class="field">
-      <label>First name</label>
-      <input type="text" placeholder="First Name"/>
-    </div>
-    <div class="field">
-      <label>Middle name</label>
-      <input type="text" placeholder="Middle Name"/>
-    </div>
-    <div class="field">
-      <label>Last name</label>
-      <input type="text" placeholder="Last Name"/>
-    </div>
-    
-  </div>
-</div>
-           
-            
-        );
-    }
-}
-
+  );
+};
 export default EditForm;
