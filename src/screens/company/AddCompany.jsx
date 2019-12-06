@@ -16,7 +16,7 @@ function onChange(value) {
 class AddCompany extends Component {
   state = {
     companyID: "",
-    companyName: "",
+    company_name: "",
     abbreviation: "",
     company_description: "",
     reg_no: "",
@@ -28,18 +28,7 @@ class AddCompany extends Component {
     license_start_date: "",
     license_end_date: ""
   };
-  componentDidMount() {
-    Axios.get("http://localhost:8082/test/api/v1/company")
-    .then(res=>
-        {
-            if(res.status==200){
-                console.log("data get");
-            }
 
-            this.setState({ data: res.data });
-            
-        })
-    }
   handleOnChange=(e)=>{
     this.setState({
       [e.target.name]: e.target.value
@@ -93,7 +82,7 @@ datePick =(date, dateString, e)=>{
               <Col span={12} style={{ padding: "5px" }}>
                 <Form.Item label="Company Name">
                   <Input
-                   value={this.state.companyName} name="companyName"
+                   value={this.state.company_name} name="company_name"
                     placeholder="eg: Samuel Gnanam IT Centre" onChange={this.handleOnChange}
                   />
                 </Form.Item>{" "}

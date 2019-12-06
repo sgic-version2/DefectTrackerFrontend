@@ -20,7 +20,6 @@ import DevicesOutlinedIcon from '@material-ui/icons/DevicesOutlined';
 import DevicesOtherOutlinedIcon from '@material-ui/icons/DevicesOtherOutlined';
 import BugReportOutlinedIcon from '@material-ui/icons/BugReportOutlined';
 import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
-import SpeakerNotesOutlinedIcon from '@material-ui/icons/SpeakerNotesOutlined';
 import BubbleChartOutlinedIcon from '@material-ui/icons/BubbleChartOutlined';
 import ContactPhoneOutlinedIcon from '@material-ui/icons/ContactPhoneOutlined';
 import ContactSupportOutlinedIcon from '@material-ui/icons/ContactSupportOutlined';
@@ -149,12 +148,6 @@ const sideBarContent = [{
     status: 1,
     subMenu: [
         {
-            name: 'General Configuration',
-            url: '/defect/generalConfiguration',
-            status: 0,
-            icon: <SpeakerNotesOutlinedIcon />
-        },
-        {
             name: 'Look and Feel',
             url: '/defect/lookandfeel',
             status: 0,
@@ -281,10 +274,10 @@ class SideBar extends Component {
                 >
                     <div style={{ height: '20vh', background: 'transparent', textAlign: 'center', justifyContent: 'center', marginBottom: '25%' }}>
                         <div style={{ textAlign: 'center' }}>
-                            <Avatar style={{ marginTop: '25%', transition: 'width,0.5s', border: `${!collapsed ? '5px solid #2d323e' : 'none'}` }} size={!collapsed ? 90 : 70} src="http://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg" >
+                            <Avatar style={{ marginTop: '25%', transition: 'width,0.5s', border: `${!collapsed ? '0px solid #2d323e' : 'none'}` }} size={!collapsed ? 90 : 70} src="https://image.flaticon.com/icons/png/512/1769/1769083.png" >
                             </Avatar>
-                            <Typography variant="h6" style={{ color: '#048063', display: display }}>
-                                User Name
+                            <Typography variant="h6" style={{ color: '#048063', display: display ,opacity:'0.5',transition:'display,5s'}}>
+                                Defect Analyzer
                             </Typography>
                         </div>
                     </div>

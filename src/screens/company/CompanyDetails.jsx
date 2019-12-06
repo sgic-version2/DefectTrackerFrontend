@@ -11,18 +11,27 @@ import { Popconfirm, message } from 'antd'
 import MoreDetails from './MoreDetails'
 import { connect } from "react-redux";
 import { changeDataValues } from "../../fileAction/companyAction";
-
+import {getCompanyData} from './../../fileAction/companyAction'
 const text = 'Are you sure delete this task?'; //Delete button
 
 function confirm() {
    message.info('Click on Yes.');
 }
-const mapStateToProps = (state) => ({
-   data: state.companyData.companyDetailsFromState
+const mapStateToProps = state => ({
+   data: state.comanyState.comanyState
 })
 const mapDispatchToProps = {
-   changeDataValues
+   changeDataValues,
+   getCompanyData
 }
+// const mapStateToProps = state => ({
+//    data: state.defectState.defectState
+//  });
+//  const mapDispatchToProps = {
+//    changeDataValues,
+//    getDefectData,
+//    upateDefect,deleteDefect
+//  };
  class CompanyDetails extends Component {
    state = {
       open: false,
@@ -53,6 +62,9 @@ const mapDispatchToProps = {
          open1: false
       })
    };
+   componentDidMount() {
+      this.props.getCompanyData();
+    }
    render() {
       
       
@@ -78,7 +90,7 @@ const mapDispatchToProps = {
          },
          {
             title: 'Company Name',
-            dataIndex: 'companyName',
+            dataIndex: 'company_name',
             defaultSortOrder: 'descend',
             sorter: (a, b) => a.age - b.age,
          },

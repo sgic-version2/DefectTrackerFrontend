@@ -18,6 +18,8 @@ import DefectStatusFlow from '../../screens/WorkFlow/DefectStatus/DefectStatusFl
 import TeachLeadPrivilege from '../../screens/Settings/Privilege/TechLeadPrivileges';
 import ManageProject from '../../screens/ManageProject/ProjectDetails';
 import Severity from '../../screens/general_configuration/severity/SeverityConfig';
+// import ManageProject from '../../screens/ManageProject/ProjectList';
+// import Severity from '../../screens/general_configuration/severity/PriorityConfig';
 import ProfileSetting from '../../screens/profile/profile';
 import DefectRolesFlow from '../../screens/WorkFlow/DefectRoles/DefectRolesFlow';
 import DeveloperDashboard from './../../screens/dashboards/developerDashboard';
