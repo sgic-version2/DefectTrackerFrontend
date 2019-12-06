@@ -18,16 +18,8 @@ import { Segment } from 'semantic-ui-react';
 export default class Profile extends Component {
     render() {
         return (
-            <Grid direction="row" container>
-                <Grid item xs={11} style={{ marginTop: '2%' }}>
-                    <Segment>
-                        <div className="form-background">
-                        </div>
-                        <div className="profile-model">
-                            <div className="basicInfo">
-                                <label className="txt-profile-photo">Profile Photo</label>
-                                <label className="txt-upload-photo">Upload Photo</label>
-                                <img className="avatar" src={User} alt='userimage' />
+            <div>
+                <div className="form-background">
 
                                 <input type="file" id="fileUplaod" className="uploadFile" />
                                 <label className="imageUpload" for="fileUplaod">
@@ -53,16 +45,23 @@ export default class Profile extends Component {
                                     <i className="pwd-icon-3"><LockOutlinedIcon /></i>
                                     <input type="password" className="txt-pwd-3" placeholder="Confirm New Password" />
 
-                                    <i className="pwd-update-icon"><PublishOutlinedIcon /></i>
-                                    <button className="btn-pwd-update">Update</button>
-                                </form>
-                            </div>
-                            <div className="otherField">
-                                <label className="txt-basicInfo">Basic Information</label>
-                                <form className="" action="">
+                            <i className="pwd-icon-2"><LockOutlinedIcon /></i>
+                            <input type="password" className="txt-pwd-2" placeholder="New Password" />
+                            <Link id="generatePassword" href="/hghg">Generate Strong Password</Link>
 
-                                    <i className="user-icon"><PersonOutlineOutlinedIcon /></i>
-                                    <input type="text" id="txt-username" placeholder="Username" />
+                            <i className="pwd-icon-3"><LockOutlinedIcon /></i>
+                            <input type="password" className="txt-pwd-3" placeholder="Confirm New Password" />
+
+                            <i className="pwd-update-icon"><PublishOutlinedIcon /></i>
+                            <button className="btn-pwd-update">Update</button>
+                        </form>
+                    </div>
+                    <div className="otherField">
+                        <label className="txt-basicInfo">Basic Information</label>
+                        <form className="" action="">
+
+                            <i className="user-icon"><PersonOutlineOutlinedIcon /></i>
+                            <input type="text" id="txt-username" placeholder="Username" />
 
                                     <i className="fname-icon"><AccountBoxOutlinedIcon /></i>
                                     <input type="text" id="txt-firstname" placeholder="First Name" />
@@ -76,14 +75,12 @@ export default class Profile extends Component {
                                     <i className="website-icon"><LanguageOutlinedIcon /></i>
                                     <input type="text" id="txt-website" placeholder="WebSite" />
 
-                                    <i className="update-icon"><PublishOutlinedIcon /></i>
-                                    <button className="btn-update">Update</button>
-                                </form>
-                            </div>
-                        </div>
-                    </Segment>
-                </Grid>
-            </Grid>
+                            <i className="update-icon"><PublishOutlinedIcon /></i>
+                            <button className="btn-update">Update</button>
+                        </form>
+                    </div>
+                </div>
+            // </div>
         )
     }
 }

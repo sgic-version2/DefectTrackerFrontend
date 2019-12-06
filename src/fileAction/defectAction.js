@@ -29,7 +29,7 @@ export const changeDataValues = data => dispatch => {
 };
 export const upateDefect = data => dispatch => {
   axios
-    .put(`${defectApi}/${data.id}`, data)
+    .put(`${defectApi}/${data.defectId}`, data)
     .then(response =>
       dispatch({
         type: actionTypes.EDITDEFECT,

@@ -16,8 +16,8 @@ import EmployeeTable from './../../screens/employee/EmployeeTable';
 import DefectType from '../../screens/CommonConfiguration/DefectConfig/DefectConfic';
 import DefectStatusFlow from '../../screens/WorkFlow/DefectStatus/DefectStatusFlow';
 import TeachLeadPrivilege from '../../screens/Settings/Privilege/TechLeadPrivileges';
-import ManageProject from '../../screens/ManageProject/ProjectList';
-import Severity from '../../screens/general_configuration/severity/PriorityConfig';
+import ManageProject from '../../screens/ManageProject/ProjectDetails';
+import Severity from '../../screens/general_configuration/severity/SeverityConfig';
 import ProfileSetting from '../../screens/profile/profile';
 import DefectRolesFlow from '../../screens/WorkFlow/DefectRoles/DefectRolesFlow';
 import DeveloperDashboard from './../../screens/dashboards/developerDashboard';
@@ -36,35 +36,35 @@ import projectPrivilege from '../../screens/Settings/Privilege/CompanyPrivilege'
 export default function Container({ textAlign }) {
   const useStyles = {
     root: {
-      marginTop: '5%',
+      marginTop: "5%",
       // marginLeft: `${!collapsed ? '250px' : '80px'}`,
-      marginLeft: '80px',
-      background: 'transparent',
-      width: '100%',
-      height: '100vh',
+      marginLeft: "80px",
+      background: "transparent",
+      width: "100%",
+      height: "100vh",
       zIndex: -1000,
-      transition: 'left,0.5s',
-      overflowX: 'auto'
+      transition: "left,0.5s",
+      overflowX: "auto"
     },
     gridContainer: {
-      overflowY: 'auto'
+      overflowY: "auto"
     },
     subContainer: {
       // marginLeft: `${collapsed ? '2%' : '-10%'}`,
-      marginLeft: '1%',
-      transition: 'marginLeft,0.5s',
-      overflow: 'auto !important',
-      marginBottom: '10%'
+      marginLeft: "1%",
+      transition: "marginLeft,0.5s",
+      overflow: "auto !important",
+      marginBottom: "10%"
     }
   };
 
   return (
     <div style={useStyles.root}>
       <Grid
-        direction='row'
+        direction="row"
         container
-        justify='center'
-        alignItems={textAlign ? textAlign : 'center'}
+        justify="center"
+        alignItems={textAlign ? textAlign : "center"}
         style={useStyles.gridContainer}
         spacing={4}
       >
