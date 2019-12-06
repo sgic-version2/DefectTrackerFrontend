@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Modal, Button } from "antd";
 import { Form, Input, DatePicker } from "antd";
 import { InputNumber } from "antd";
 import moment from "moment";
@@ -61,7 +60,7 @@ class AddProject extends Component {
   const {
       handleClose,
     } = this.props  
-    console.log("tfdft5rty",this.props.postProject);
+    console.log("method form",this.props);
     
     return (
       <div>

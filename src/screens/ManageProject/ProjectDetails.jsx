@@ -108,6 +108,7 @@ class ProjectDetails extends Component {
       }
     ];
 
+
     return (
       <div>
         <Grid direction="row" container>
@@ -115,12 +116,12 @@ class ProjectDetails extends Component {
             <Segment>
               <IconBreadcrumbs />
               <AddProject
-                postProject={this.props.postProject}
                 open={this.state.openAddProject}
                 handleOpen={this.handleOpenAddProject}
                 handleClose={this.handleCloseAddProject}
+                postProject={this.props.postProject}
               />
-              <Button primary onClick={this.handleOpen}>
+              <Button primary onClick={this.handleOpenAddProject}>
                 Add Project
               </Button>
               <Table column={columns} data={this.props.data} />
