@@ -1,0 +1,5 @@
+export const ADD_MODULE = "ADD_MODULE";
+export const EDIT_MODULE = "EDIT_MODULE";
+export const DELETE_MODULE = "DELETE_MODULE";
+export const GET_MODULE = "GET_MODULE";
+export const SHOWERRORMESSAGE = "SHOWERRORMESSAGE";

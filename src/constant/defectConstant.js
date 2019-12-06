@@ -1,0 +1,5 @@
+export const ADDDEFECT = "ADDDEFECT";
+export const EDITDEFECT = "EDITDEFECT";
+export const DELETEDEFECT = "DELETEDEFECT";
+export const GETDEFECT = "GETDEFECT";
+export const SHOWERRORMESSAGE = "SHOWERRORMESSAGE";

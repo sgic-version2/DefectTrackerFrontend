@@ -5,7 +5,7 @@ import BreadCrumbs from '../../components/breadCrumbs/breadCrumbs'
 import EmployeeButton from './EmployeeButton';
 import Ntable from './employee_new_table'
 import { connect } from "react-redux";
-import { changeDataValues } from "./addEmployeeAction";
+import { changeDataValues } from "../../fileAction/addEmployeeAction";
 
 const mapStateToProps = (state) => ({
    data: state.addEmployeeData.employeeDetailsFromState
