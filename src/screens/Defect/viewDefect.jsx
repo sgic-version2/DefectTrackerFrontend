@@ -221,19 +221,7 @@ class ViewDefect extends Component {
       }
     ];
 
-    const data = [
-      {
-        key: '1',
-        defectId: 'D001',
-        moduleName: 'Login',
-        severity: 'Low',
-        priority: 'Heigh',
-        typeId: 'UI',
-        defectsta: 'reOpen',
-        action: '',
-        more: ''
-      }
-    ];
+  
     return (
       <div>
         <Grid direction='row' container>
@@ -253,6 +241,8 @@ class ViewDefect extends Component {
                 open={this.state.value}
                 handleOpen={this.handleOpenEdit}
                 handleClose={this.handleCloseEdit}
+                selectedData={this.state.selectedData}
+                upateDefect={this.props.upateDefect}
               />
               <More
                 open={this.state.valueMore}
