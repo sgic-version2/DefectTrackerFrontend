@@ -72,19 +72,19 @@ class ViewDefect extends Component {
     const columns = [
       {
         title: 'Project',
-        dataIndex: 'Project',
+        dataIndex: 'project.project_name',
         sortDirections: ['descend'],
         sorter: (a, b) => a.defectId - b.defectId
       },
       {
         title: 'Module Name',
-        dataIndex: 'Module',
+        dataIndex: 'module.module_name',
         sortDirections: ['descend'],
         sorter: (a, b) => a.moduleName - b.moduleName
       },
       {
         title: 'Severity',
-        dataIndex: 'Severity',
+        dataIndex: 'severity.severityId',
         filters: [
           {
             text: 'Low',
@@ -107,7 +107,7 @@ class ViewDefect extends Component {
       },
       {
         title: 'Priority',
-        dataIndex: 'Priority',
+        dataIndex: 'priority.name',
         filters: [
           {
             text: 'Low',
@@ -130,7 +130,7 @@ class ViewDefect extends Component {
       },
       {
         title: 'Defect Type',
-        dataIndex: 'DefectType',
+        dataIndex: 'defectType.name',
         filters: [
           {
             text: 'UI',
@@ -157,7 +157,7 @@ class ViewDefect extends Component {
       },
       {
         title: 'Status',
-        dataIndex: 'defectSta',
+        dataIndex: 'defectStatus.name',
         filters: [
           {
             text: 'Open',

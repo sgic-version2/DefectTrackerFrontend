@@ -1,7 +1,7 @@
 import * as actionTypes from '../constant/defectConstant';
 import axios from 'axios';
 import { defectApi } from '../Api/index';
-
+import api from '../config/axiosConfig';
 export const getDefectData = () => dispatch => {
   axios.get(`${defectApi}`).then(response =>
     dispatch({
@@ -33,7 +33,7 @@ export const upateDefect = data => dispatch => {
     .then(response =>
       dispatch({
         type: actionTypes.EDITDEFECT,
-        payload: response.data
+        payload: data
       })
     )
     .catch(err =>
@@ -42,6 +42,14 @@ export const upateDefect = data => dispatch => {
         payload: err
       })
     );
+
+
+    // api(method, service, endpoint, token, body, params)
+    // .then(response => {
+
+    // }).catch(err => {
+
+    // })
 };
 export const deleteDefect = id => dispatch => {
   axios.delete(`${defectApi}/${id}`).then(response =>

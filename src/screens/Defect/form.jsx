@@ -28,12 +28,13 @@ class Form extends React.Component {
       defectType: {
         typeId: this.state.defectType
       },
-      severity: {
-        serverityId: this.state.severity
-      },
-      priority: {
-        priorityId: this.state.priority
-      }
+      description:this.state.description,
+      // severity: {
+      //   serverityId: this.state.severity
+      // },
+      // priority: {
+      //   priorityId: this.state.priority
+      // }
     };
     const stateDataUpdate = {
       projectId: this.state.projectId,
@@ -51,9 +52,7 @@ class Form extends React.Component {
       // }
     };
     if (this.state.defectId) {
-      this.props.upateDefect(stateDataUpdate);
-      console.log(stateDataUpdate);
-      
+      this.props.upateDefect(stateDataUpdate); 
     } else {
       this.props.changeDataValues(stateDataInsert);
     }

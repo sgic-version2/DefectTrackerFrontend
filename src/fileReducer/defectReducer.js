@@ -28,7 +28,7 @@ export const defectReducer = (state = InitialState, action) => {
       return {
         ...state,
         defectState: state.defectState.map(data => {
-          if (data.defectId == action.payload.defectId) {
+          if (data.defectId === action.payload.defectId) {
             return action.payload;
           } else {
             return data;
