@@ -7,12 +7,16 @@ const edit_employee_form = () => {
                 <form className=" "  >
                     <div >
 
-                        <label>Employee Id:</label>
-                        <input type="text" id="" className="" value="" placeholder="Employee Id"></input>
+                        <label>First Name:</label>
+                        <input type="text" id="" className="" value="" placeholder="First Name"></input>
                         <br />
 
-                        <label>Employee Name:</label>
-                        <input type="text" id="" className="" placeholder="Employee Name"></input>
+                        <label>Last Name:</label>
+                        <input type="text" id="" className="" placeholder="Last Name"></input>
+                        <br />
+
+                        <label>Phone Number:</label>
+                        <input type="text" id="" className="" placeholder="Phone Number"></input>
                         <br />
 
                         <label>Designation:</label>
@@ -30,10 +34,15 @@ const edit_employee_form = () => {
 
                         <label>Email:</label>
                         <input type="text" id="" className="" placeholder="Email"></input>
+
+
+
                          </div>
                 </form>
+               
                 </div>
             </div>
+            
     )
 }
 

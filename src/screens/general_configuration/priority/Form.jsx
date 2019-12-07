@@ -6,10 +6,10 @@ import Picker from "./Picker";
 class Form extends React.Component {
   state = {
     priorityID: "",
-    priorityName: "",
-    priorityDescription: "",
+    name: "",
+    description: "",
     displayColorPicker: false,
-    selectedColor: "",
+    color: "",
     open: true,
     tempColor: ""
   };
@@ -25,7 +25,7 @@ class Form extends React.Component {
   };
   handleChangeColor = color => {
     this.setState({
-      selectedColor: color.hex,
+      color: color.hex,
       tempColor: (
         <span
           style={{
@@ -51,14 +51,10 @@ class Form extends React.Component {
   };
 
   render() {
-  
-    
-
-  
     // const {
     //   form,
     // } = this.props;
-    
+
     const { selectedColor, displayColorPicker } = this.state;
     return (
       <div>
@@ -69,8 +65,8 @@ class Form extends React.Component {
             id=""
             className=""
             placeholder="Name"
-            name="priorityName"
-            value={this.state.priorityName}
+            name="name"
+            value={this.state.name}
             onChange={this.handleOnChange}
           ></input>
           <br />
@@ -81,17 +77,15 @@ class Form extends React.Component {
             id=""
             className=""
             placeholder="Description"
-            name="priorityDescription"
-            value={this.state.priorityDescription}
+            name="description"
+            value={this.state.description}
             onChange={this.handleOnChange}
           ></input>
           <br />
 
-         
-
           <Picker
             handleChangeColor={this.handleChangeColor}
-            selectedColor={this.state.selectedColor}
+            color={this.state.color}
           />
 
           {/* <label>Colour:</label>
@@ -118,7 +112,7 @@ class Form extends React.Component {
           <div>
             <br />
 
-            <button color="primary" type="submit"  onClick={this.props.openFormClose}>
+            <button type="submit" onClick={this.props.openFormClose}>
               Submit
             </button>
           </div>

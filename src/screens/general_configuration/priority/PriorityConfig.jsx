@@ -8,13 +8,21 @@ import { Button } from "semantic-ui-react";
 import { Popconfirm, message } from "antd";
 import EditPriority from "./EditPriority";
 import { connect } from "react-redux";
-import { changeDataValues } from "./../../../fileAction/priorityConfigAction";
+import {
+  changeDataValues,
+  getprioityData,
+  updatePriority,
+  deletePriority
+} from "../../../fileAction/priorityConfigAction";
 
 const mapStateToProps = state => ({
-  data: state.priorityConfigData.priorityConfigDetailsFromState
+  data: state.priorityState.priorityState
 });
 const mapDispatchToProps = {
-  changeDataValues
+  changeDataValues,
+  getprioityData,
+  updatePriority,
+  deletePriority
 };
 class PriorityConfig extends Component {
   state = { open: false, value: false };
@@ -29,16 +37,40 @@ class PriorityConfig extends Component {
       open: false
     });
   };
-  handleOpenedit = () => {
+  handleOpenedit = Data => {
     this.setState({
       value: true
     });
   };
+  // handleChangeColor = color => {
+  //   this.setState({
+  //     color: color.hex,
+  //     tempColor: (
+  //       <span
+  //         style={{
+  //           backgroundColor: color.hex,
+  //           borderRadius: 20,
+  //           width: 10
+  //         }}
+  //       >
+  //         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  //       </span>
+  //     )
+  //   });
+  // };
 
   handleCloseedit = () => {
     this.setState({
       value: false
     });
+  };
+
+  componentDidMount() {
+    this.props.getprioityData();
+  }
+  confirm = id => {
+    this.props.deletePriority(id);
+    message.error("Deleted CuccessFully");
   };
   render() {
     // const ProjectAllocation = () => {
@@ -47,16 +79,16 @@ class PriorityConfig extends Component {
     //        value: false
     //     });
 
-    const text = "Are you sure delete this task?"; //Delete button
+    //const text = "Are you sure delete this task?"; //Delete button
 
-    function confirm() {
-      message.info("Click on Yes.");
-    }
+    // function confirm(id) {
+    //   message.info("Click on Yes.");
+    // }
 
     const columns = [
       {
         title: "Priority",
-        dataIndex: "priorityName",
+        dataIndex: "name",
 
         //    filters: [
         //       {
@@ -76,31 +108,43 @@ class PriorityConfig extends Component {
       },
       {
         title: "Description",
-        dataIndex: "priorityDescription",
+        dataIndex: "description",
         defaultSortOrder: "descend",
         sorter: (a, b) => a.age - b.age
       },
 
       {
         title: "Color",
-        dataIndex: "tempColor",
+        dataIndex: "color",
+        render: tag => (
+          <p
+            style={{
+              backgroundColor: `${tag}`,
+              borderRadius: "50%",
+              width: "20px",
+              height: "20px",
+              marginLeft: "40%"
+            }}
+          ></p>
+        ),
         defaultSortOrder: "descend",
+
         sorter: (a, b) => a.age - b.age
       },
 
       {
         title: "Action",
-        render: item => (
+        render: (Item, key) => (
           <Button.Group>
-            <Button secondary onClick={this.handleOpenedit}>
+            <Button secondary onClick={() => this.handleOpenedit(key)}>
               Edit
             </Button>
             <Button.Or />
 
             <Popconfirm
               placement="topRight"
-              title={text}
-              onConfirm={confirm}
+              title="Are You sure To delete this prioirty"
+              onConfirm={() => this.confirm(key.priorityId)}
               okText="Yes"
               cancelText="No"
             >
@@ -110,86 +154,6 @@ class PriorityConfig extends Component {
         )
       }
     ];
-    //  const data = [
-    //    {
-    //      key: "1",
-    //      priority: "High",
-    //      description: "High Priority",
-    //      icon: <Icon name="arrow up" />,
-
-    //      color: "New York No. 1 Lake Park",
-    //      action: (
-    //        <Button.Group>
-    //          <Button secondary onClick={this.handleOpenedit}>
-    //            Edit
-    //          </Button>
-    //          <Button.Or />
-
-    //          <Popconfirm
-    //            placement="topRight"
-    //            title={text}
-    //            onConfirm={confirm}
-    //            okText="Yes"
-    //            cancelText="No"
-    //          >
-    //            <Button negative>Delete</Button>
-    //          </Popconfirm>
-    //        </Button.Group>
-    //      )
-    //    },
-    //    {
-    //      key: "2",
-    //      priority: "Medium ",
-    //      description: "Medium Priority",
-
-    //      icon: <Icon name="exchange" />,
-    //      color: tempcolor,
-    //      action: (
-    //        <Button.Group>
-    //          <Button secondary onClick={this.handleOpenedit}>
-    //            Edit
-    //          </Button>
-    //          <Button.Or />
-    //          <Popconfirm
-    //            placement="topRight"
-    //            type="danger"
-    //            title={text}
-    //            onConfirm={confirm}
-    //            okText="Yes"
-    //            cancelText="No"
-    //          >
-    //            <Button negative>Delete</Button>
-    //          </Popconfirm>
-    //        </Button.Group>
-    //      )
-    //    }
-    //    // {
-    //    //    key: '3',
-    //    //    priority: 'Low',
-    //    //    description: 'Low Priority',
-    //    //    icon: <Icon name='arrow down' />,
-    //    //    color: <span>hfd</span>,
-    //    //    action: <Button.Group>
-    //    //       <Button secondary onClick={this.handleOpenedit}>Edit</Button>
-    //    //       <Button.Or />
-    //    //       {/* <Button negative>Delete</Button> */}
-    //    //       <Popconfirm placement="topRight" title={text} onConfirm={confirm} okText="Yes" cancelText="No">
-    //    //          <Button negative>Delete</Button>
-    //    //       </Popconfirm>
-    //    //    </Button.Group>
-    //    // },
-    //    // {
-    //    //    key: '4',
-    //    //    name: 'Jim Red',
-    //    //    age: 32,
-    //    //    address: 'London No. 2 Lake Park',
-    //    //    action: <Button.Group>
-    //    //       <Button secondary>Edit</Button>
-    //    //       <Button.Or />
-    //    //       <Button negative>Delete</Button>
-    //    //    </Button.Group>
-    //    // },
-    //  ];
 
     return (
       <div style={{ marginRight: "2%" }}>

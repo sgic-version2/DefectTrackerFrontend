@@ -1,24 +1,59 @@
 import * as actionType from "../constant/priorityConfigConstant";
 
 const InitialState = {
-  priorityConfigDetailsFromState: [
-    {
-      id: "001",
-      priorityName: "fddf",
-      tempColor: "fgdfg",
-      priorityDescription: "priorityDescription"
-    }
-  ]
+  priorityState: [],
+  priorityStatus: "",
+  errorMessage: ""
 };
 
+// export const priorityConfigReducer = (state = InitialState, action) => {
+//   switch (action.type) {
+//     case actionType.CREATEPRIORITY:
+//       return {
+//         priorityConfigDetailsFromState: [
+//           ...state.priorityConfigDetailsFromState,
+//           action.payload
+//         ]
+//       };
+//     default:
+//       return state;
+//   }
+// };
 export const priorityConfigReducer = (state = InitialState, action) => {
   switch (action.type) {
-    case actionType.CREATEPRIORITY:
+    case actionType.GETPRIORITY:
       return {
-        priorityConfigDetailsFromState: [
-          ...state.priorityConfigDetailsFromState,
-          action.payload
-        ]
+        ...state,
+        priorityState: action.payload
+      };
+    case actionType.ADDPRIORITY:
+      return {
+        ...state,
+        priorityState: state.priorityState.concat(action.payload),
+        priorityStatus: state.priorityState.concat(action.status)
+      };
+    case actionType.SHOWERRORMESSAGE:
+      return {
+        ...state,
+        errorMessage: action.payload
+      };
+    case actionType.EDITPRIORITY:
+      return {
+        ...state,
+        priorityState: state.priorityState.map(data => {
+          if (data.priorityId == action.payload.priorityId) {
+            return action.payload;
+          } else {
+            return data;
+          }
+        })
+      };
+    case actionType.DELETEPRIORITY:
+      return {
+        ...state,
+        priorityState: state.priorityState.filter(
+          data => data.priorityId !== action.payload
+        )
       };
     default:
       return state;

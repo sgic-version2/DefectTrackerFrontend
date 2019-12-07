@@ -21,7 +21,7 @@ const rootReducer = combineReducers({
   modelOpen: modelReducer,
   roleAllocationData: projectReducer,
   moduleAllocationData: moduleReducer,
-  priorityConfigData: priorityConfigReducer,
+  
   lookAndFeelData: systemLogoReducer,
   showOnDashboard: showOnDashboardReducer,
   favicon: faviconReducer,
@@ -30,5 +30,6 @@ const rootReducer = combineReducers({
   projectDetailsData: projectDetailsReducer,
   addDefectStatusReducer: addDefectStatusReducer,
   defectState: defectReducer,
+  priorityState:priorityConfigReducer
 });
 export default rootReducer;
