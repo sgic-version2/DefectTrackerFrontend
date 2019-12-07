@@ -56,7 +56,7 @@ export default function SignIn() {
     if (event.target.password.value === "sgic" && event.target.name.value === "sgic") {
       window.location.href = "/defect/company"
     }
-    else alert("something went work");
+    else alert("Invalid username or password");
   }
   // const userName = 'sgic';
   // const pass = 'sgic';

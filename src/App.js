@@ -7,6 +7,7 @@ import SideBar from './components/sideBar/SideBar';
 import { Route } from 'react-router-dom'
 import Login from './screens/Login/login'
 import ForgetPassword from './screens/Login/forgotpass'
+import Findyourpass from './screens/Login/findyourpass'
 import * as theme from './components/themes/theme'
 import { backgroundImage, darkOrLight } from './themesAction'
 import { expandWithButton, expandWithOutButton } from './expandAction'
@@ -34,6 +35,7 @@ class App extends Component {
       <Fragment>
         <Route exact path='/' component={Login} />
         <Route path="/forgetPassword" component={ForgetPassword} />
+        <Route path="/findyourpass" component={Findyourpass} />
         <Route path='/defect(.+)' render={() => (
           <Fragment>
             <div style={{ background: this.props.themesStatus ? backgroundDrakColorBody : 'transparent', backgroundSize: !this.props.themesStatus?'cover':'none', backgroundImage: !this.props.themesStatus ? `url(${backgroundImageOne})` : 'none' }}>
