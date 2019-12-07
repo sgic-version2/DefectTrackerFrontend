@@ -182,6 +182,16 @@ const sideBarContent = [{
                     url: '/defect/defectStatus',
                     icon: <HourglassEmptyIcon />
                 },
+                {
+                    name: 'Role',
+                    url: '/defect/role',
+                    icon: <LowPriorityIcon />
+                },
+                {
+                    name: 'Designation',
+                    url: '/defect/designation',
+                    icon: <LowPriorityIcon />
+                },
 
             ],
             status: 1,
