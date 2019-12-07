@@ -123,7 +123,7 @@ input[type='checkbox'] {
   top: 0;
   width: 50%;
   height: 100%;
-  line-height: 30px; 
+  line-height: 30px;
   height: 30px;
   text-align: center;
   text-transform: uppercase;
@@ -204,4 +204,7 @@ width : 50% !important;
 .QaLeadPrivilage {
   padding: 10px 10px !important;
   width: 50% !important;
+}
+.iconposition {
+  position: relative !important;
 }

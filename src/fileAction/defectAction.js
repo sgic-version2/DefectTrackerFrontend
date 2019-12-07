@@ -1,6 +1,6 @@
-import * as actionTypes from "../constant/defectConstant";
-import axios from "axios";
-import { defectApi } from "../Api/index";
+import * as actionTypes from '../constant/defectConstant';
+import axios from 'axios';
+import { defectApi } from '../Api/index';
 
 export const getDefectData = () => dispatch => {
   axios.get(`${defectApi}`).then(response =>

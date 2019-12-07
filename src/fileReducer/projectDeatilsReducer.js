@@ -34,7 +34,7 @@ export const projectDetailsReducer = (state = InitialState, action) => {
       return {
         ...state,
         projectDetailsFromState: state.projectDetailsFromState.map(data => {
-          if (data.project_id == action.payload.project_id) {
+          if (data.project_id === action.payload.project_id) {
             return action.payload;
           } else {
             return data;

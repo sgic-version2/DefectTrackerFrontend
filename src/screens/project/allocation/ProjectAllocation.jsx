@@ -30,61 +30,49 @@ const mapDispatchToProps = {
   moduleAllocation
 };
 const columns = [
-  {
-    title: 'Project',
-    dataIndex: 'projectName'
-    //  filters: [
-    //     {
-    //        text: 'Joe',
-    //        value: 'Joe',
-    //     },
-    //     {
-    //        text: 'Jim',
-    //        value: 'Jim',
-    //     },
-    //  ],
-    // specify the condition of filtering result
-    // here is that finding the name started with `value`
-    //  onFilter: (value, record) => record.name.indexOf(value) === 0,
-    //  sorter: (a, b) => a.name.length - b.name.length,
-    //  sortDirections: ['descend'],
-  },
-  {
-    title: 'Software Engineer',
-    dataIndex: 'softwareEngineer'
-    // defaultSortOrder: 'descend',
-    // sorter: (a, b) => a.age - b.age,
-  },
-  {
-    title: 'Associate Software Engineer',
-    dataIndex: 'associateSoftwareEngineer'
-    // defaultSortOrder: 'descend',
-    // sorter: (a, b) => a.age - b.age,
-  },
-  {
-    title: 'Teach Lead',
-    dataIndex: 'teachLead'
-    // defaultSortOrder: 'descend',
-    // sorter: (a, b) => a.age - b.age,
-  },
-  {
-    title: 'QA Teach Lead',
-    dataIndex: 'QAteachLead'
-    // defaultSortOrder: 'descend',
-    // sorter: (a, b) => a.age - b.age,
-  },
-  {
-    title: 'Senior QA',
-    dataIndex: 'seniorQA'
-    // defaultSortOrder: 'descend',
-    // sorter: (a, b) => a.age - b.age,
-  },
-  {
-    title: 'Associate QA',
-    dataIndex: 'associateQA'
-    // defaultSortOrder: 'descend',
-    // sorter: (a, b) => a.age - b.age,
-  }
+   {
+      title: 'Project',
+      dataIndex: 'projectName',
+      //  filters: [
+      
+   },
+   {
+      title: 'Software Engineer',
+      dataIndex: 'softwareEngineer',
+      // defaultSortOrder: 'descend',
+      // sorter: (a, b) => a.age - b.age,
+   },
+   {
+      title: 'Associate Software Engineer',
+      dataIndex: 'associateSoftwareEngineer',
+      // defaultSortOrder: 'descend',
+      // sorter: (a, b) => a.age - b.age,
+   },
+   {
+      title: 'Teach Lead',
+      dataIndex: 'teachLead',
+      // defaultSortOrder: 'descend',
+      // sorter: (a, b) => a.age - b.age,
+   },
+   {
+      title: 'QA Teach Lead',
+      dataIndex: 'QAteachLead',
+      // defaultSortOrder: 'descend',
+      // sorter: (a, b) => a.age - b.age,
+   },
+   {
+      title: 'Senior QA',
+      dataIndex: 'seniorQA',
+      // defaultSortOrder: 'descend',
+      // sorter: (a, b) => a.age - b.age,
+   },
+   {
+      title: 'Associate QA',
+      dataIndex: 'associateQA',
+      // defaultSortOrder: 'descend',
+      // sorter: (a, b) => a.age - b.age,
+
+   },
 ];
 const data = [
   {

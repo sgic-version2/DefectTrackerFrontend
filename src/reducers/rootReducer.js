@@ -1,22 +1,24 @@
-import { combineReducers } from "redux";
-import { expandSideBarReducer } from "../themesReducer";
-import { addEmployeeReducer } from "../fileReducer/addEmployeeReducer";
-import { companyReducer } from "./../fileReducer/companyReducer";
-import { defectTypeReducer } from "./../fileReducer/defectTypeReducer";
-import { projectDetailsReducer } from "./../fileReducer/projectDeatilsReducer";
-import { severityConfigReducer } from './../fileReducer/severityConfigReducer';
-import { modelReducer } from './../fileReducer/modelReducer';
-import { projectReducer } from './../fileReducer/projectReducer';
-import { editCompanyReducer } from './../fileReducer/editCompanyReducer';
+import { combineReducers } from 'redux';
+import { expandSideBarReducer } from '../themesReducer';
+import { addEmployeeReducer } from '../fileReducer/addEmployeeReducer';
+import { modelReducer } from '../fileReducer/modelReducer';
+import { projectReducer } from '../fileReducer/projectReducer';
 import { priorityConfigReducer } from './../fileReducer/priorityConfigReducer';
+import { companyReducer } from './../fileReducer/companyReducer';
+import { defectTypeReducer } from './../fileReducer/defectTypeReducer';
+import { projectDetailsReducer } from './../fileReducer/projectDeatilsReducer';
+import { severityConfigReducer } from './../fileReducer/severityConfigReducer';
+import { editCompanyReducer } from './../fileReducer/editCompanyReducer';
 import { addDefectStatusReducer } from './../fileReducer/addDefectStatusReducer';
 import { defectReducer } from '../fileReducer/defectReducer';
-
+import { employeeReducer } from '../fileReducer/employeeReducer';
 import {
   showOnDashboardReducer,
   faviconReducer,
   systemLogoReducer
 } from '../screens/Settings/settingReducer';
+import { addCompanyEmployeeReducer } from '../fileReducer/addCompanyEmployeeReducer';
+import { auditReducer } from '../fileReducer/auditReducer';
 import { moduleReducer } from './../fileReducer/moduleReducer';
 
 const rootReducer = combineReducers({
@@ -25,7 +27,7 @@ const rootReducer = combineReducers({
   companyData: companyReducer,
   defectTypeData: defectTypeReducer,
   projectDetailsData: projectDetailsReducer,
-  editCompanyData:editCompanyReducer,
+  editCompanyData: editCompanyReducer,
   severityConfigData: severityConfigReducer,
   modelOpen: modelReducer,
   roleAllocationData: projectReducer,
@@ -37,5 +39,10 @@ const rootReducer = combineReducers({
   companyData: companyReducer,
   addDefectStatusReducer: addDefectStatusReducer,
   defectState: defectReducer,
+  emplyeeState: employeeReducer,
+
+  addCompanyEmployeeData: addCompanyEmployeeReducer,
+  exportAudit: auditReducer
 });
+
 export default rootReducer;

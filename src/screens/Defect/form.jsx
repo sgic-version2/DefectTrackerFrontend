@@ -5,15 +5,15 @@ import moment from "moment";
 const dateFormatList = ["DD/MM/YYYY", "DD/MM/YY"];
 class Form extends React.Component {
   state = {
-    Project: "",
-    Module: "",
-    Type: "",
-    Severity: "",
-    Priority: "",
-    description: "",
-    StepsToRecreate: "",
-    AssignTo: "",
-    AssignBy: ""
+    projectId: "",
+    moduleId: "",
+    defectType: "",
+    severity: "",
+    priority: "",
+    description: '',
+    // created_date: '',
+    // assignto: '',
+    // assignby:''
   };
   handleChange = e => {
     this.setState({
@@ -22,10 +22,40 @@ class Form extends React.Component {
   };
   handleSubmit = e => {
     e.preventDefault();
+    const stateDataInsert = {
+      projectId: this.state.projectId,
+      moduleId: this.state.moduleId,
+      defectType: {
+        typeId: this.state.defectType
+      },
+      severity: {
+        serverityId: this.state.severity
+      },
+      priority: {
+        priorityId: this.state.priority
+      }
+    };
+    const stateDataUpdate = {
+      projectId: this.state.projectId,
+      moduleId: this.state.moduleId,
+      defectType: {
+        typeId: this.state.defectType.typeId
+      },
+      description:this.state.description,
+      defectId:this.state.defectId
+      // severity: {
+      //   serverityId: this.state.severity.serverityId
+      // },
+      // priority: {
+      //   priorityId: this.state.priority.priorityId
+      // }
+    };
     if (this.state.defectId) {
-        this.props.upateDefect(this.state)
+      this.props.upateDefect(stateDataUpdate);
+      console.log(stateDataUpdate);
+      
     } else {
-      this.props.changeDataValues(this.state);
+      this.props.changeDataValues(stateDataInsert);
     }
   };
   componentWillReceiveProps() {
@@ -43,24 +73,26 @@ class Form extends React.Component {
       });
     }
   }
+
   render() {
-    const { form } = this.props;
+    console.log("checking",this.props);
+    
     const {
-      Project,
-      Module,
-      DefectType,
-      Severity,
-      Priority,
+      projectId,
+      moduleId,
+      defectType,
+      severity,
+      priority,
       fixedBy,
       foundIn,
       fixedIn,
-      attachment,
-      defectSta,
+      attachmentId,
+      defectStatus,
       createdDate,
-      updatedDate,
+      udatedDate,
       description,
-      AssignTo,
-      AssignBy
+      assignto,
+      assignby
     } = this.state;
     return (
       <div>
@@ -70,23 +102,38 @@ class Form extends React.Component {
             <div class="two fields">
               <div class="field">
                 <label>Project :</label>
-                <input
-                  type="text"
-                  name="Project"
+                <select
+                  class="ui fluid dropdown"
+                  name="projectId"
                   placeholder="Project"
-                  value={this.state.Project}
+                  value={projectId}
                   onChange={this.handleChange}
-                />
+                >
+                  <option selected disabled>
+                    Select
+                  </option>
+                  <option value={1}>Project 1</option>
+                  <option value={2}>Project 2</option>
+                  <option value={3}>Project 3</option>
+                </select>
               </div>
+
               <div class="field">
                 <label>Module:</label>
-                <input
-                  type="text"
-                  name="Module"
+                <select
+                  class="ui fluid dropdown"
+                  name="moduleId"
                   placeholder="Module"
-                  value={this.state.Module}
+                  value={moduleId}
                   onChange={this.handleChange}
-                />
+                >
+                  <option selected disabled>
+                    Select
+                  </option>
+                  <option value={1}>module 1</option>
+                  <option value={2}>module 2</option>
+                  <option value={3}>module 3</option>
+                </select>
               </div>
             </div>
           </div>
@@ -95,45 +142,51 @@ class Form extends React.Component {
               <label>Defect Type:</label>
               <select
                 class="ui fluid dropdown"
-                name="DefectType"
+                name="defectType"
                 placeholder="DefectType"
-                value={this.state.DefectType}
+                value={defectType}
                 onChange={this.handleChange}
               >
-                <option value="">Select</option>
-                <option value="AL">UI</option>
-                <option value="Functionality">Functionality</option>
-                <option value="Enhancement">Enhancement</option>
+                <option selected disabled>
+                  Select
+                </option>
+                <option value={1}>UI</option>
+                <option value={2}>Functionality</option>
+                <option value={3}>Enhancement</option>
               </select>
             </div>
             <div class="field">
               <label>Severity:</label>
               <select
                 class="ui fluid dropdown"
-                name="Severity"
+                name="severity"
                 placeholder="Severity"
-                value={this.state.Severity}
+                value={severity}
                 onChange={this.handleChange}
               >
-                <option value="">Select</option>
-                <option value="Low">Low</option>
-                <option value="Medium">Medium</option>
-                <option value="Heigh">Heigh</option>
+                <option selected disabled>
+                  Select
+                </option>
+                <option value={1}>Low</option>
+                <option value={2}>Medium</option>
+                <option value={3}>Heigh</option>
               </select>
             </div>
             <div class="field">
               <label>Priority:</label>
               <select
                 class="ui fluid dropdown"
-                name="Priority"
+                name="priority"
                 placeholder="Priority"
-                value={this.state.Priority}
+                value={priority}
                 onChange={this.handleChange}
               >
-                <option value="">Select</option>
-                <option value="Low">Low</option>
-                <option value="Medium">Medium</option>
-                <option value="Heigh">Heigh</option>
+                <option selected disabled>
+                  Select
+                </option>
+                <option value={1}>Low</option>
+                <option value={2}>Medium</option>
+                <option value={3}>Heigh</option>
               </select>
             </div>
           </div>
@@ -144,13 +197,15 @@ class Form extends React.Component {
                 class="ui fluid dropdown"
                 name="fixedBy"
                 placeholder="fixedBy"
-                value={this.state.fixedBy}
+                value={fixedBy}
                 onChange={this.handleChange}
               >
-                <option value="">Select</option>
-                <option value="User-1">User 1</option>
-                <option value="User-2">User 2</option>
-                <option value="User-3">User 3</option>
+                <option selected disabled>
+                  Select
+                </option>
+                <option value={1}>User 1</option>
+                <option value={2}>User 2</option>
+                <option value={3}>User 3</option>
               </select>
             </div>
             <div class="field">
@@ -159,7 +214,7 @@ class Form extends React.Component {
                 rows="1"
                 placeholder="foundIn"
                 name="foundIn"
-                value={this.state.foundIn}
+                value={foundIn}
                 onChange={this.handleChange}
               />
             </div>
@@ -169,7 +224,7 @@ class Form extends React.Component {
                 rows="1"
                 placeholder="fixedIn"
                 name="fixedIn"
-                value={this.state.fixedIn}
+                value={fixedIn}
                 onChange={this.handleChange}
               />
             </div>
@@ -178,11 +233,11 @@ class Form extends React.Component {
             <div class="two fields">
               <div class="field">
                 <label>Attachment :</label>
-                <input
-                  type="text"
-                  name="attachment"
+                <textarea
+                  rows="1"
+                  name="attachmentId"
                   placeholder="attachment"
-                  value={this.state.attachment}
+                  value={attachmentId}
                   onChange={this.handleChange}
                 />
               </div>
@@ -190,51 +245,34 @@ class Form extends React.Component {
                 <label>Defect Status:</label>
                 <select
                   class="ui fluid dropdown"
-                  name="defectSta"
+                  name="defectStatus"
                   placeholder="defectSta"
-                  value={this.state.defectSta}
+                  value={defectStatus}
                   onChange={this.handleChange}
                 >
-                  <option value="">Select</option>
-                  <option value="Open">Open</option>
-                  <option value="Close">Close</option>
-                  <option value="InProgress">InProgress </option>,,,,
-                  <option value="Resolved">Resolved </option>
-                  <option value="ReOpen">ReOpen </option>
-                  <option value="Rejected">Rejected </option>
-                  <option value="ReadyForTesting">ReadyForTesting </option>
-                  <option value="OnHold">OnHold </option>
+                  <option selected disabled>
+                    Select
+                  </option>
+                  <option value={1}>Open</option>
+                  <option value={2}>Close</option>
+                  <option value={3}>InProgress </option>,,,,
+                  <option value={4}>Resolved </option>
+                  <option value={5}>ReOpen </option>
+                  <option value={6}>Rejected </option>
+                  <option value={7}>ReadyForTesting </option>
+                  <option value={8}>OnHold </option>
                 </select>
               </div>
             </div>
           </div>
-          <div class="field">
-            <div class="two fields">
-              <div class="field">
-                <label>Created Date :</label>
-                <DatePicker
-                  defaultValue={moment("01/01/2015", dateFormatList[0])}
-                  format={dateFormatList}
-                  style={{ width: "100%" }}
-                />
-              </div>
-              <div class="field">
-                <label>Updated Date:</label>
-                <DatePicker
-                  defaultValue={moment("01/01/2015", dateFormatList[0])}
-                  format={dateFormatList}
-                  style={{ width: "100%" }}
-                />
-              </div>
-            </div>
-          </div>
+
           <div class="field">
             <label>Description</label>
             <textarea
               rows="1"
               placeholder="description"
               name="description"
-              value={this.state.description}
+              value={description}
               onChange={this.handleChange}
             />
           </div>
@@ -242,34 +280,34 @@ class Form extends React.Component {
             <label>Assign To:</label>
             <select
               class="ui fluid dropdown"
-              name="AssignTo"
+              name="assignto"
               placeholder="AssignTo"
-              value={this.state.AssignTo}
+              value={assignto}
               onChange={this.handleChange}
             >
               <option value="">Select</option>
-              <option value="User-1">User 1</option>
-              <option value="User-2">User 2</option>
-              <option value="User-3">User 3</option>
+              <option value={1}>User 1</option>
+              <option value={2}>User 2</option>
+              <option value={3}>User 3</option>
             </select>
           </div>
           <div class="field">
             <label>Assign By:</label>
             <select
               class="ui fluid dropdown"
-              name="AssignBy"
+              name="assignby"
               placeholder="AssignBy"
-              value={this.state.AssignBy}
+              value={assignby}
               onChange={this.handleChange}
             >
               <option value="">Select</option>
-              <option value="User-1">User 1</option>
-              <option value="User-2">User 2</option>
-              <option value="User-3">User 3</option>
+              <option value={1}>User 1</option>
+              <option value={2}>User 2</option>
+              <option value={3}>User 3</option>
             </select>
           </div>
           {/* <Button positive >Save Data</Button> */}
-          <button type="submit" onClick={this.props.openFormClose}>
+          <button type="submit" onClick={this.props.handleClose}>
             {" "}Submit{" "}
           </button>
         </form>

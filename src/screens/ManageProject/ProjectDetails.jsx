@@ -62,28 +62,28 @@ class ProjectDetails extends Component {
   render() {
     const columns = [
       {
-        title: "Project Name",
-        dataIndex: "project_name"
+        title: 'Project Name',
+        dataIndex: 'project_name'
       },
       {
-        title: " Type",
-        dataIndex: "project_type"
+        title: ' Type',
+        dataIndex: 'project_type'
       },
       // {
       //   title: " Duration",
       //   dataIndex: "duration"
       // },
       {
-        title: " Duration",
-        dataIndex: "start_date"
+        title: ' Duration',
+        dataIndex: 'start_date'
       },
       {
-        title: " Duration",
-        dataIndex: "end_date"
+        title: ' Duration',
+        dataIndex: 'end_date'
       },
       {
-        title: " status",
-        dataIndex: "status"
+        title: ' status',
+        dataIndex: 'status'
       },
 
       {
@@ -108,19 +108,20 @@ class ProjectDetails extends Component {
       }
     ];
 
+
     return (
       <div>
-        <Grid direction="row" container>
-          <Grid item xs={11} style={{ marginTop: "2%" }}>
+        <Grid direction='row' container>
+          <Grid item xs={11} style={{ marginTop: '2%' }}>
             <Segment>
               <IconBreadcrumbs />
               <AddProject
-                postProject={this.props.postProject}
                 open={this.state.openAddProject}
                 handleOpen={this.handleOpenAddProject}
                 handleClose={this.handleCloseAddProject}
+                postProject={this.props.postProject}
               />
-              <Button primary onClick={this.handleOpen}>
+              <Button primary onClick={this.handleOpenAddProject}>
                 Add Project
               </Button>
               <Table column={columns} data={this.props.data} />

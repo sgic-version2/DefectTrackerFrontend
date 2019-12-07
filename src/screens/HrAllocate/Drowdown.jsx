@@ -40,9 +40,9 @@ class DropDown extends Component {
       option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
     }
   >
-    <Option value="">HRM</Option>
-    <Option value="">Hostel</Option>
-    <Option value="">Hp</Option>
+    <Option value="HRM">HRM</Option>
+    <Option value="Hotel">Hostel</Option>
+    <Option value="Hp">Hp</Option>
   </Select>
 
 

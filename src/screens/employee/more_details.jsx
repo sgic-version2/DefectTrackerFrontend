@@ -68,11 +68,13 @@ export default function MoreModal() {
 <form className=" "  >
     <div >
 
-<label>Employee Id: 1</label>
+<label>First Name: Vikines</label>
 <br/>
 
-<label>Employee Name: Vithujan</label>
+<label>Last Name: Vithujan</label>
 {/* <input type="text" id=""  className="" placeholder="Employee Name"></input> */}
+<br/>
+<label>Phone Number: 0777123456</label>
 <br/>
 
 <label>Designation: Admin</label>
