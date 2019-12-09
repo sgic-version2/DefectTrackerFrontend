@@ -34,7 +34,7 @@ const rootReducer = combineReducers({
   showOnDashboard: showOnDashboardReducer,
   favicon: faviconReducer,
   companyData: companyReducer,
-  addDefectStatusReducer: addDefectStatusReducer,
+  defectStatusData: addDefectStatusReducer,
   defectState: defectReducer,
 });
 export default rootReducer;
