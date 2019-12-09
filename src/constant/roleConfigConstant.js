@@ -1,0 +1,6 @@
+export const CREATEROLE="CREATEROLE";
+export const UPDATEROLE="UPDATEROLE";
+export const DELETEROLE="DELETEROLE";
+export const GETROLE="GETROLE";
+export const ERRORMESSAGE="ERRORMESSAGE";
+export const GETROLEBYID="GETROLEBYID";

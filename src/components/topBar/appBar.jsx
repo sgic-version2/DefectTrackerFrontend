@@ -4,6 +4,7 @@ import { Toolbar, Typography } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
 import { Icon, Button, Divider, Avatar, Badge, Popover } from 'antd';
 import Notification from './Notification';
+import Chat from './chat';
 
 /* App bar using Material-ui 
 * app bar have 3 properties
@@ -35,9 +36,13 @@ const appBar = ({ position, color, backgroundColor, iconFontColor, marginSize, a
                         </IconButton>
                     </Popover>
                     <Divider type="vertical" style={{ height: '50px' }} />
-                    <IconButton onClick={drakLightButton}>
-                            <Avatar size={30} icon="bulb" theme="filled" style={{ color: `#${iconFontColor ? iconFontColor : '048691'}` }} />
+                    <Popover placement="bottomRight" content={<Chat />} trigger="click">
+                    <IconButton>
+                        <Badge count={5}>
+                            <Avatar size={30} icon="message" style={{ color: `#${iconFontColor ? iconFontColor : '048691'}` }} />
+                        </Badge>
                     </IconButton>
+                    </Popover>
                     <Divider type="vertical" style={{ height: '50px' }} />
                     <IconButton>
                         <Avatar size={30} icon="logout" style={{ color: `#${iconFontColor ? iconFontColor : '048691'}` }} />

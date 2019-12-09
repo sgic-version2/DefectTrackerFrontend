@@ -1,22 +1,29 @@
-import React from "react";
-import "./Form.css";
-import { ChromePicker } from "react-color"; //color picker
+import React from 'react';
+import './Form.css';
+import { ChromePicker } from 'react-color'; //color picker
+import { SketchPicker } from 'react-color';
+
 class Form extends React.Component {
   state = {
-    anchorE1: null,
-    priorityID: "",
-    priorityName: "",
-    priorityDescription: "",
-    //priorityIcon: "",
-    selectedColor: "",
+    priorityID: '',
+    priorityName: '',
+    priorityDescription: '',
     displayColorPicker: false,
     selectedColor: null,
-    open:true,
+    open: true,
+    tempColor: '#22194D'
   };
 
   handleColor = e => {
-    this.setState({ selectedColor: e.hex });
-    console.log(e.hex);
+    this.setState({
+      selectedColor: (
+        <span style={{ backgroundColor: e.hex, borderRadius: 20, width: 10 }}>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+      )
+    });
+
+    this.setState({ tempColor: e.hex });
   };
 
   handleClick = () => {
@@ -26,9 +33,7 @@ class Form extends React.Component {
   handleClose = () => {
     this.setState({ displayColorPicker: false });
   };
-  handleClose1 = () => {
-    this.setState({ anchorE1: null });
-  };
+
   handleOnChange = e => {
     this.setState({
       [e.target.name]: e.target.value
@@ -37,42 +42,22 @@ class Form extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.changeDataValues(this.state);
-    console.log("vorannsd", this.props.openFormClose);
   };
 
   render() {
-   console.log ("haiii"+this.state)
-    const {
-      form,
-    } = this.props;
-    console.log("hh" + this.state);
-    const { selectedColor, displayColorPicker } = this.state;
+    const { form } = this.props;
+
+    const { displayColorPicker, tempColor } = this.state;
     return (
       <div>
-        {/* <Modal
-          width={`${width ? width : "50"}%`}
-          visible={open}
-          title={title}
-          onOk={handleOpen}
-          onCancel={handleClose}
-          footer={[
-            <Button key="back" onClick={handleClose}>
-              Return
-            </Button>,
-            <button  type="submit" onClick={handleClose}>
-              Submit
-            </button>
-          ]}
-        > */}
-       
         <form onSubmit={this.handleSubmit}>
           <label>Name:</label>
           <input
-            type="text"
-            id=""
-            className=""
-            placeholder="Name"
-            name="priorityName"
+            type='text'
+            id=''
+            className=''
+            placeholder='Name'
+            name='priorityName'
             value={this.state.priorityName}
             onChange={this.handleOnChange}
           ></input>
@@ -80,11 +65,11 @@ class Form extends React.Component {
 
           <label>Description:</label>
           <input
-            type="text"
-            id=""
-            className=""
-            placeholder="Description"
-            name="priorityDescription"
+            type='text'
+            id=''
+            className=''
+            placeholder='Description'
+            name='priorityDescription'
             value={this.state.priorityDescription}
             onChange={this.handleOnChange}
           ></input>
@@ -93,25 +78,25 @@ class Form extends React.Component {
           <label>Colour:</label>
           <div>
             <div
-            name="selectedColor"
+              name='selectedColor'
               onClick={this.handleClick}
-              style={{ backgroundColor: selectedColor }}
-              className="colorbox"
+              style={{ backgroundColor: tempColor }}
+              className='colorbox'
             ></div>
             <div onClick={this.handleClose} />
-            {displayColorPicker && <ChromePicker onChange={this.handleColor} />}
+            {displayColorPicker && (
+              <SketchPicker onChangeComplete={this.handleColor} />
+            )}
           </div>
 
-          {/* </form> */}
           <div>
             <br />
-         
-            <button  type="submit"  onClick={this.props.openFormClose} >
+
+            <button type='submit' onClick={this.props.openFormClose}>
               Submit
             </button>
-              </div>
+          </div>
         </form>
-      
       </div>
     );
   }

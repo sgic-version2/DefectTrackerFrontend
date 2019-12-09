@@ -1,6 +1,6 @@
-import * as actionTypes from "../constant/defectConstant";
-import axios from "axios";
-import { defectApi } from "../Api/index";
+import * as actionTypes from '../constant/defectConstant';
+import axios from 'axios';
+import { defectApi } from '../Api/index';
 
 export const getDefectData = () => dispatch => {
     axios.get(`${defectApi}`).then(response =>
@@ -28,20 +28,20 @@ export const changeDataValues = data => dispatch => {
         );
 };
 export const upateDefect = data => dispatch => {
-    axios
-        .put(`${defectApi}/${data.id}`, data)
-        .then(response =>
-            dispatch({
-                type: actionTypes.EDITDEFECT,
-                payload: response.data
-            })
-        )
-        .catch(err =>
-            dispatch({
-                type: actionTypes.SHOWERRORMESSAGE,
-                payload: err
-            })
-        );
+  axios
+    .put(`${defectApi}/${data.defectId}`, data)
+    .then(response =>
+      dispatch({
+        type: actionTypes.EDITDEFECT,
+        payload: response.data
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: actionTypes.SHOWERRORMESSAGE,
+        payload: err
+      })
+    );
 };
 export const deleteDefect = id => dispatch => {
     axios.delete(`${defectApi}/${id}`).then(response =>

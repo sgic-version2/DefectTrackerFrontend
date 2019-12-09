@@ -61,7 +61,6 @@ class DefectConfic extends Component {
         <Button onClick={this.handleOpen} secondary>
           Edit
         </Button>
-
         <Button.Or />
         <Button negative>Delete</Button>
       </Button.Group>    }

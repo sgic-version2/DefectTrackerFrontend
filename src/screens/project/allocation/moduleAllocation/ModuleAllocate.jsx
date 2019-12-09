@@ -167,6 +167,9 @@ export default class ModuleAllocate extends React.Component {
         )
       }
     ];
+
+    console.log(this.props);
+
     return (
       <div>
         <TableTransfer
