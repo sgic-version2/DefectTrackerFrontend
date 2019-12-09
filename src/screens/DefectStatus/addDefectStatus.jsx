@@ -1,4 +1,7 @@
+
+
 import React, { Component } from "react";
+import { Row, Col } from "antd";
 import { Modal, Button } from "antd";
 import { Form, Input } from "antd";
 import { Divider } from "@material-ui/core";
@@ -9,11 +12,14 @@ const formItemLayout = {
   wrapperCol: { span: 8 }
 };
 
+
+
+
 class AddDefectStatus extends Component {
   state = {
-    statusId: "1",
-    statusName: "",
-    defectValue: "",
+ 
+    name: "",
+   
     description: "",
     formOpen: true
   };
@@ -21,40 +27,46 @@ class AddDefectStatus extends Component {
     this.setState({
       [e.target.name]: e.target.value
     });
-    console.log(e.target.name);
   };
   handleSubmit = e => {
-    // e.preventDefault();
-    this.props.changeDataValues(this.state);
-    // this.setState({ formOpen: !this.state.formOpen });
-    console.log(e)
-    e();
-
+     e.preventDefault();
+    if (this.state.statusId) {
+        this.props.upateDefectStatus(this.state)
+    } else {
+      this.props.changeDataValuesStatus(this.state);
+    }
+   
   };
-  render() {
-    const {  open, handleOpen, handleClose, width, title } = this.props;
+  componentWillReceiveProps() {
+    setTimeout(
+      function() {
+        this.componentDidMount();
+      }.bind(this),
+      10
+    );
+  }
+  componentDidMount() {
+    if (this.props.selectedID !== null) {
+      this.setState({
+        ...this.props.selectedID
+      });
+    }
+  }
 
+  
+  render() {
+  const {
+      handleClose,
+    } = this.props  
+    console.log("method form",this.props);
+    
     return (
       <div>
-        {this.state.formOpen && (
-          <Modal
-            width={`${width ? width : "50"}%`}
-            visible={open}
-            title={title}
-            onOk={handleOpen}
-            onCancel={handleClose}
-            footer={[
-              <Button key="back" onClick={handleClose}>
-                Return
-              </Button>,
-              <Button key="submit" type="primary" onClick={()=>this.handleSubmit(handleClose)}>
-                Submit
-              </Button>
-            ]}
-          >
-            <Form>
-              <p>Add Defect Status</p>
+      
+          <form layout="vertical" onSubmit={this.handleSubmit} >
+          <p>Add Defect Status</p>
               <Divider></Divider>
+<<<<<<< HEAD
               <Form.Item {...formItemLayout} label="Defect Status">
                 <Input
                   value={this.state.statusName}
@@ -85,6 +97,41 @@ class AddDefectStatus extends Component {
             </Form>
           </Modal>
         )}
+=======
+              <Row>
+              <Col span={12} style={{ padding: "5px" }}>
+                <Form.Item label="Status Name">
+                  <Input
+                    value={this.state.name}
+                    name="name"
+                    placeholder="Status Name....."
+                    onChange={this.handleOnChange}
+                  />
+                </Form.Item>{" "}
+              </Col>
+
+              
+            </Row>
+            <Row></Row>
+            <Row>
+            <Col span={20} style={{ padding: "5px" }}>
+                <Form.Item label="Description ">
+                  <TextArea
+                    value={this.state.description}
+                    name="description"
+                    placeholder="Description...."
+                    onChange={this.handleOnChange}
+                  />
+                </Form.Item>
+              </Col>
+              </Row>
+          
+
+            <button type="submit" onClick={handleClose}>
+              submit
+            </button>
+          </form>
+>>>>>>> jeyaamuthan
       </div>
     );
   }

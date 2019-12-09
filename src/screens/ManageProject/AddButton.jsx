@@ -1,31 +1,12 @@
-import React, { useState } from "react";
-import { Button } from "semantic-ui-react";
+import React from "react";
+import Forms from './AddProject'
+import Model from '../../components/model/submitModel'
 
-import AddProject from "./AddProject";
 
-
-const AddButton = ({ changeDataValues }) => {
-  const [open, setOpen] = useState(false);
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
+const AddButton = ({ postProject, handleOpen, handleClose, open }) => {
   return (
-    <div>
-      <AddProject
-        open={open}
-        handleOpen={handleOpen}
-        handleClose={handleClose}
-        changeDataValues={changeDataValues}
-      />
-      <Button onClick={handleOpen} color="primary">
-        Add Project
-      </Button>
+    <div style={{marginBottom:40}}>
+      <Model handleOpen={handleOpen} handleClose={handleClose} open={open} form={<Forms postProject={postProject}handleClose={handleClose}/>} />
     </div>
   );
 };
