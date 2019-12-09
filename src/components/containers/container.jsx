@@ -17,6 +17,8 @@ import DefectType from '../../screens/CommonConfiguration/DefectConfig/DefectCon
 import DefectStatusFlow from '../../screens/WorkFlow/DefectStatus/DefectStatusFlow';
 import TeachLeadPrivilege from '../../screens/Settings/Privilege/TechLeadPrivileges';
 import ManageProject from '../../screens/ManageProject/ProjectDetails';
+//import Severity from '../../screens/general_configuration/severity/SeverityConfig';
+//import ManageProject from '../../screens/ManageProject/ProjectList';
 import Severity from '../../screens/general_configuration/severity/SeverityConfig';
 import ProfileSetting from '../../screens/profile/profile';
 import DefectRolesFlow from '../../screens/WorkFlow/DefectRoles/DefectRolesFlow';
@@ -30,6 +32,7 @@ import QAPrivilege from '../../screens/Settings/Privilege/QALeadPrivileges';
 import companyPrivilege from '../../screens/Settings/Privilege/CompanyPrivilege';
 import projectPrivilege from '../../screens/Settings/Privilege/CompanyPrivilege';
 import Dashboard from './../../screens/Dashboard/Dashboard';
+import Role from './../../screens/Role/AddRole';
 
 // container using material Ui
 // container has property
@@ -72,10 +75,7 @@ export default function Container({ textAlign }) {
       >
         <Grid item xs={12} style={useStyles.subContainer}>
           <Switch>
-            <Route
-              path='/defect/projectAllocation'
-              component={ProjectAllocation}
-            />
+            <Route path='/defect/projectAllocation' component={ProjectAllocation} />
             <Route path='/defect/hrAllocation' component={AllocationTable} />
             <Route path='/defect/defectStatus' component={DefectList} />
             <Route path='/defect/defectDashboard' component={Dashboard} />
@@ -86,14 +86,8 @@ export default function Container({ textAlign }) {
             <Route path='/defect/priority' component={PriorityConfig} />
             <Route path='/defect/companyEmployee' component={EmployeeTable} />
             <Route path='/defect/defectType' component={DefectType} />
-            <Route
-              path='/defect/defectStatusFlow'
-              component={DefectStatusFlow}
-            />
-            <Route
-              path='/defect/TeachLeadPrivileges'
-              component={TeachLeadPrivilege}
-            />
+            <Route path='/defect/defectStatusFlow' component={DefectStatusFlow} />
+            <Route path='/defect/TeachLeadPrivileges' component={TeachLeadPrivilege}/>
             <Route path='/defect/manageProject' component={ManageProject} />
             <Route path='/defect/severity' component={Severity} />
             <Route path='/defect/profileSetting' component={ProfileSetting} />
@@ -104,14 +98,9 @@ export default function Container({ textAlign }) {
             <Route path='/defect/module' component={Module} />
             <Route path='/defect/projectManager' component={PmDashboard} />
             <Route path='/defect/qaLeadPrivilege' component={QAPrivilege} />
-            <Route
-              path='/defect/CompanyPrivilege'
-              component={companyPrivilege}
-            />
-            <Route
-              path='/defect/ProjectPrivilege'
-              component={projectPrivilege}
-            />
+            <Route path='/defect/CompanyPrivilege' component={companyPrivilege} />
+            <Route path='/defect/ProjectPrivilege' component={projectPrivilege} />
+            <Route path='/defect/Role' component={Role} />
           </Switch>
         </Grid>
       </Grid>
