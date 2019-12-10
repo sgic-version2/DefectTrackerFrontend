@@ -91,7 +91,7 @@ export default function SideBarColorSettings({
               aria-describedby="alert-dialog-description"
             >
               {/* <DialogTitle id="alert-dialog-title">"Pick Color"</DialogTitle> */}
-              <SketchPicker color={"blue"} onChange={handleChangeColor} />
+              <SketchPicker color={selectedColor} onChange={handleChangeColor} />
               <DialogActions>
                 <Button onClick={handleClose} color="primary">
                   Cancel
