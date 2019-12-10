@@ -2,10 +2,11 @@ import React from "react";
 import "./Form.css";
 
 import Picker from "./Picker";
+import { changeDataValues } from "./../../../fileAction/addCompanyEmployeeAction";
 
 class Form extends React.Component {
   state = {
-    priorityID: "",
+    // priorityID: "",
     name: "",
     description: "",
     displayColorPicker: false,
@@ -46,15 +47,34 @@ class Form extends React.Component {
   };
   handleSubmit = e => {
     e.preventDefault();
-    this.props.changeDataValues(this.state);
-    console.log("test" + e);
+    if (this.state.priorityId) {
+      this.props.updatePriority(this.state);
+    } else {
+      this.props.changeDataValues(this.state);
+    }
   };
+
+  componentDidMount() {
+    if (this.props.selectedData !== null) {
+      this.setState({
+        ...this.props.selectedData
+      });
+    }
+  }
+  componentWillReceiveProps() {
+    setTimeout(
+      function() {
+        this.componentDidMount();
+      }.bind(this),
+      10
+    );
+  }
 
   render() {
     // const {
     //   form,
     // } = this.props;
-
+    console.log(this.props);
     const { selectedColor, displayColorPicker } = this.state;
     return (
       <div>

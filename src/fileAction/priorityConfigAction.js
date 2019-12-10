@@ -31,11 +31,12 @@ export const changeDataValues = data => dispatch => {
 
 export const updatePriority = data => dispatch => {
   axios
-    .put(`${priorityApi} /${data.priorityId}`, data)
+    .put(`${priorityApi}/${data.priorityId}`, data)
     .then(response =>
       dispatch({
         type: actionTypes.EDITPRIORITY,
-        payload: response.data
+        priorityStatus: response,
+        payload: data
       })
     )
     .catch(err =>

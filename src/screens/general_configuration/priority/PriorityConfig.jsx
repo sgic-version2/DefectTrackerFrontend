@@ -25,7 +25,7 @@ const mapDispatchToProps = {
   deletePriority
 };
 class PriorityConfig extends Component {
-  state = { open: false, value: false };
+  state = { open: false, value: false, selectedData: "" };
   handleOpen = () => {
     this.setState({
       open: true
@@ -39,7 +39,8 @@ class PriorityConfig extends Component {
   };
   handleOpenedit = Data => {
     this.setState({
-      value: true
+      value: true,
+      selectedData: Data
     });
   };
   // handleChangeColor = color => {
@@ -171,6 +172,8 @@ class PriorityConfig extends Component {
                 open={this.state.value}
                 handleOpen={this.handleOpenedit}
                 handleClose={this.handleCloseedit}
+                selectedData={this.state.selectedData}
+                updatePriority={this.props.updatePriority}
               />
               <Button className="primary" onClick={this.handleOpen}>
                 Add Priority

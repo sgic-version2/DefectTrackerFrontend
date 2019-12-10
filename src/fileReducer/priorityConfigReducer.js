@@ -30,7 +30,7 @@ export const priorityConfigReducer = (state = InitialState, action) => {
       return {
         ...state,
         priorityState: state.priorityState.concat(action.payload),
-        priorityStatus: state.priorityState.concat(action.status)
+        priorityStatus: state.priorityStatus.concat(action.status)
       };
     case actionType.SHOWERRORMESSAGE:
       return {
@@ -41,12 +41,13 @@ export const priorityConfigReducer = (state = InitialState, action) => {
       return {
         ...state,
         priorityState: state.priorityState.map(data => {
-          if (data.priorityId == action.payload.priorityId) {
+          if (data.priorityId === action.payload.priorityId) {
             return action.payload;
           } else {
             return data;
           }
-        })
+        }),
+        priorityStatus:action.priorityStatus
       };
     case actionType.DELETEPRIORITY:
       return {
