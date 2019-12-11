@@ -1,5 +1,3 @@
-
-
 import React, { Component } from "react";
 import { Row, Col } from "antd";
 import { Modal, Button } from "antd";
@@ -11,9 +9,6 @@ const formItemLayout = {
   labelCol: { span: 4 },
   wrapperCol: { span: 8 }
 };
-
-
-
 
 class AddRole extends Component {
   state = {

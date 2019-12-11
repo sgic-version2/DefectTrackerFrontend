@@ -1,45 +1,83 @@
-import React from 'react';
-// import './Form.css';
+import React, { Component } from "react";
+import { Row, Col } from "antd";
+import { Modal, Button } from "antd";
+import { Form, Input } from "antd";
+import { Divider } from "@material-ui/core";
 
-class FormDes extends React.Component {
+const { TextArea } = Input;
+const formItemLayout = {
+  labelCol: { span: 4 },
+  wrapperCol: { span: 8 }
+};
+
+class FormDes extends Component{
   state = {
-    designationID: '',
     designationName: '',
-    open: true,
+    formOpen: true
   };
+
   handleOnChange = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
   };
   handleSubmit = e => {
-    e.preventDefault();
-    this.props.changeDataValues(this.state);
+     e.preventDefault();
+    if (this.state.designationId) {
+        this.props.updateDesignation(this.state)
+    } else {
+      this.props.changeDataValues(this.state);
+    }
+   
   };
-
+  componentWillReceiveProps() {
+    setTimeout(
+      function() {
+        this.componentDidMount();
+      }.bind(this),
+      10
+    );
+  }
+  componentDidMount() {
+    if (this.props.selectedID !== null) {
+      this.setState({
+        ...this.props.selectedID
+      });
+    }
+  }
   render() {
-    const { Form } = this.props;
+    const {
+        handleClose,
+      } = this.props  
+      console.log("method form",this.props);
+
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <label>Name:</label>
-          <input
-            type='text'
-            id=''
-            className=''
-            name='DesignationName'
-            value={this.state.designationName}
-            onChange={this.handleOnChange}
-          ></input>
-          <br />
-          <div>
-            <br />
+      
+          <form layout="vertical" onSubmit={this.handleSubmit} >
+          <p>Add Designation</p>
+              <Divider></Divider>
+              <Row>
+              <Col span={12} style={{ padding: "5px" }}>
+                <Form.Item label="Status Name">
+                  <Input
+                    value={this.state.designationName}
+                    name="designationName"
+                    placeholder="Status Name....."
+                    onChange={this.handleOnChange}
+                  />
+                </Form.Item>{" "}
+              </Col>
 
-            <button type='submit' onClick={this.props.openFormClose}>
-              Submit
+              
+            </Row>
+            
+          
+
+            <button type="submit" onClick={handleClose}>
+              submit
             </button>
-          </div>
-        </form>
+          </form>
       </div>
     );
   }

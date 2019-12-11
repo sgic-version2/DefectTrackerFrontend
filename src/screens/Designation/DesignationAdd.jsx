@@ -1,32 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import SubmitModel from "./../../components/model/submitModel";
 import Form from "./FormDes";
 
-
-const AllocationButton = ({
-  open,
+const AllocationButton = ({ open,
   handleOpen,
   handleClose,
-  changeDataValues
-}) => {
-  const [openForm] = useState(true);
-  // console.log("gfjgfj",open);
+  changeDataValues }) => {
   return (
-    <div>
-      {openForm && (
-        <SubmitModel
-          open={open}
-          handleOpen={handleOpen}
-          handleClose={handleClose}
-          form={
-            <Form
-              changeDataValues={changeDataValues}
-              openFormClose={handleClose}
-            />
-          }
-          // onClick={()=>setOpen(false)}
-        />
-      )}
+    <div style={{marginBottom:40}}>
+      <SubmitModel handleOpen={handleOpen} handleClose={handleClose} open={open} form={<Form changeDataValues={changeDataValues}handleClose={handleClose}/>} />
     </div>
   );
 };

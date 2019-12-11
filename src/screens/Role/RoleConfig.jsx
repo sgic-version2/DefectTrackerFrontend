@@ -70,9 +70,6 @@ class RoleDetails extends Component {
           title: " Description",
           dataIndex: "description"
         },
-        
-  
-
       {
         title: "Action",
         render: (item, key) =>

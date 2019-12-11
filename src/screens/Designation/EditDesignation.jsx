@@ -1,17 +1,21 @@
 import React from 'react';
-import SubmitModel from './../../components/model/submitModel';
+import Model from './../../components/model/submitModel';
 
 import Form from './FormDes';
 
-const EditDesignation = ({ open, handleOpen, handleClose }) => {
-    return (
+const EditDesignation =({handleOpen,handleClose,open,selectedID,updateDesignation})=>{
+    return(
         <div>
-
-            <SubmitModel open={open} handleOpen={handleOpen} form={<Form />} handleClose={handleClose}  />
-
+            <Model handleOpen={handleOpen} 
+                handleClose={handleClose} 
+                open={open} 
+                form={
+                    <Form selectedID={selectedID} 
+                        updateDesignation={updateDesignation} 
+                        handleClose={handleClose} 
+                />}  
+            />
         </div>
-
-        
     )
 }
 export default EditDesignation

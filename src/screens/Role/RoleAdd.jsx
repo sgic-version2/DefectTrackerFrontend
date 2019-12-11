@@ -2,12 +2,6 @@ import React from "react";
 import SubmitModel from "./../../components/model/submitModel";
 import Form from "./Form";
 
-
-
-
-
-
-  
 const AddButton = ({ open,
   handleOpen,
   handleClose,
