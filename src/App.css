@@ -188,15 +188,9 @@ text-align: center !important;
 padding: 10px 10px !important;
 width : 50% !important;
 } */
-<<<<<<< HEAD
-/* .ant-modal-footer button + button {
+.ant-modal-footer button + button {
   display: none !important;
-}  */
-=======
-/* .ant-modal-footer button + button{
-  display: none !important;
-} */
->>>>>>> gopisanth
+} 
 /* .ant-btn, .ant-btn:active, .ant-btn:focus{
   display: none !important;
 } */

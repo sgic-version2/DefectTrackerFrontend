@@ -1,226 +1,115 @@
-import React, { Component } from 'react';
-import { Transfer, Table, Tag, Progress, Icon } from 'antd';
-import difference from 'lodash/difference';
-import Model from '../../../components/model/model';
-import EditRole from './EditRole';
+import React from 'react'
+import { Table, Input, Button, Icon } from 'antd';
+import Highlighter from 'react-highlight-words';
 
-const color = ['blue', 'green', 'orange', 'red', 'olive', 'gold'];
-var dataStore = [];
-var originTargetKeys = [1];
-export default class RoleAllocation extends Component {
+
+const data=[]
+class RoleAllocation extends React.Component {
   state = {
-    targetKeys: originTargetKeys,
-    disabled: false,
-    showSearch: true,
-    open: false,
-    buttonClick: []
+    searchText: '',
+    searchedColumn: '',
   };
 
-  onChange = nextTargetKeys => {
-    this.setState({ targetKeys: nextTargetKeys });
-  };
-  handleOpen = () => {
-    this.setState({
-      open: true
-    });
-  };
-  handleClose = () => {
-    this.setState({
-      open: false
-    });
-  };
-  handlebuttonClick = data => {
-    this.props.roleAllocation(data);
-    this.handleOpen();
-    console.log(data);
-  };
-  componentDidMount() {
-    this.dataCollection();
-  }
-  dataCollection = () => {
-    var indexOfValues;
-    this.props.employeeData.map((data, index) => {
-      switch (data.employeeDesignation) {
-        case 'ASE':
-          indexOfValues = 0;
-          break;
-        case 'SE':
-          indexOfValues = 1;
-          break;
-        case 'SSE':
-          indexOfValues = 2;
-          break;
-        case 'ATL':
-          indexOfValues = 3;
-          break;
-        case 'TL':
-          indexOfValues = 4;
-          break;
-        case 'STL':
-          indexOfValues = 5;
-          break;
-        default:
-          indexOfValues = 0;
-      }
-      return (
-        dataStore.push({
-          key: index.toString(),
-          employeeID: data.employeeID,
-          employeeName: data.employeeName,
-          employeeDesignation: (
-            <Tag color={color[indexOfValues]}>{data.employeeDesignation}</Tag>
-          ),
-          employeeEmail: data.employeeEmail,
-          availability: (
-            <Progress type='circle' percent={data.availability} width={50} />
-          ),
-          role: data.role
-        }),
-        this.setState({
-          buttonClick: dataStore
-        })
-      );
-    });
-  };
-  functionRefresh = () => {
-    dataStore = [];
-    this.setState({
-      buttonClick: []
-    });
-    //   this.dataCollection()
-    setTimeout(() => {
-      this.dataCollection();
-    }, 20);
-  };
-  render() {
-    // Customize Table Transfer
-    const TableTransfer = ({ leftColumns, rightColumns, ...restProps }) => (
-      <Transfer {...restProps} showSelectAll={false}>
-        {({
-          direction,
-          filteredItems,
-          onItemSelectAll,
-          onItemSelect,
-          selectedKeys: listSelectedKeys,
-          disabled: listDisabled
-        }) => {
-          const columns = direction === 'left' ? leftColumns : rightColumns;
-
-          const rowSelection = {
-            getCheckboxProps: item => ({
-              disabled: listDisabled || item.disabled
-            }),
-            onSelectAll(selected, selectedRows) {
-              const treeSelectedKeys = selectedRows
-                .filter(item => !item.disabled)
-                .map(({ key }) => key);
-              const diffKeys = selected
-                ? difference(treeSelectedKeys, listSelectedKeys)
-                : difference(listSelectedKeys, treeSelectedKeys);
-              onItemSelectAll(diffKeys, selected);
-            },
-            onSelect({ key }, selected) {
-              onItemSelect(key, selected);
-            },
-            selectedRowKeys: listSelectedKeys
-          };
-
-          return (
-            <Table
-              rowSelection={rowSelection}
-              columns={columns}
-              dataSource={filteredItems}
-              size='small'
-              style={{ pointerEvents: listDisabled ? 'none' : null }}
-              onRow={({ key, disabled: itemDisabled }) => ({
-                onClick: () => {
-                  if (itemDisabled || listDisabled) return;
-                  onItemSelect(key, !listSelectedKeys.includes(key));
-                }
-              })}
-            />
-          );
-        }}
-      </Transfer>
-    );
-
-    const { targetKeys, disabled, showSearch, open, buttonClick } = this.state;
-    const leftTableColumns = [
-      {
-        dataIndex: 'employeeID',
-        title: 'Employee ID'
-      },
-      {
-        dataIndex: 'employeeName',
-        title: 'Full Name'
-      },
-      {
-        dataIndex: 'availability',
-        title: 'Availability'
-      },
-      {
-        dataIndex: 'employeeDesignation',
-        title: 'Designation'
-      }
-    ];
-    const rightTableColumns = [
-      {
-        dataIndex: 'employeeID',
-        title: 'Employee ID'
-      },
-      {
-        dataIndex: 'employeeName',
-        title: 'Full Name'
-      },
-      {
-        dataIndex: 'employeeDesignation',
-        title: 'Designation'
-      },
-      {
-        dataIndex: 'role',
-        title: 'Role'
-      },
-      {
-        title: 'Action',
-        render: (item, key) => (
-          <Icon
-            type='edit'
-            className='iconposition'
-            onClick={() => this.handlebuttonClick(key)}
-          />
-        )
-      }
-    ];
-    return (
-      <div>
-        <TableTransfer
-          dataSource={buttonClick}
-          targetKeys={targetKeys}
-          disabled={disabled}
-          showSearch={showSearch}
-          onChange={this.onChange}
-          filterOption={(inputValue, item) =>
-            item.title.indexOf(inputValue) !== -1 ||
-            item.tag.indexOf(inputValue) !== -1
-          }
-          leftColumns={leftTableColumns}
-          rightColumns={rightTableColumns}
+  getColumnSearchProps = dataIndex => ({
+    filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
+      <div style={{ padding: 8 }}>
+        <Input
+          ref={node => {
+            this.searchInput = node;
+          }}
+          placeholder={`Search ${dataIndex}`}
+          value={selectedKeys[0]}
+          onChange={e => setSelectedKeys(e.target.value ? [e.target.value] : [])}
+          onPressEnter={() => this.handleSearch(selectedKeys, confirm, dataIndex)}
+          style={{ width: 188, marginBottom: 8, display: 'block' }}
         />
-        <Model
-          open={open}
-          handleOpen={this.handleOpen}
-          handleClose={this.handleClose}
-          width={30}
-          form={
-            <EditRole
-              data={this.props.allocationData}
-              editRole={this.props.editRole}
-              functionRefresh={this.functionRefresh}
-            />
-          }
-          title='Edit Role'
-        />
+        <Button
+          type="primary"
+          onClick={() => this.handleSearch(selectedKeys, confirm, dataIndex)}
+          icon="search"
+          size="small"
+          style={{ width: 90, marginRight: 8 }}
+        >
+          Search
+        </Button>
+        <Button onClick={() => this.handleReset(clearFilters)} size="small" style={{ width: 90 }}>
+          Reset
+        </Button>
       </div>
-    );
+    ),
+    filterIcon: filtered => (
+      <Icon type="search" style={{ color: filtered ? '#1890ff' : undefined }} />
+    ),
+    onFilter: (value, record) =>
+      record[dataIndex]
+        .toString()
+        .toLowerCase()
+        .includes(value.toLowerCase()),
+    onFilterDropdownVisibleChange: visible => {
+      if (visible) {
+        setTimeout(() => this.searchInput.select());
+      }
+    },
+    render: text =>
+      this.state.searchedColumn === dataIndex ? (
+        <Highlighter
+          highlightStyle={{ backgroundColor: '#ffc069', padding: 0 }}
+          searchWords={[this.state.searchText]}
+          autoEscape
+          textToHighlight={text.toString()}
+        />
+      ) : (
+        text
+      ),
+  });
+
+  handleSearch = (selectedKeys, confirm, dataIndex) => {
+    confirm();
+    this.setState({
+      searchText: selectedKeys[0],
+      searchedColumn: dataIndex,
+    });
+  };
+
+  handleReset = clearFilters => {
+    clearFilters();
+    this.setState({ searchText: '' });
+  };
+
+  render() {
+    const columns = [
+      {
+        title: 'Employee Name',
+        dataIndex: 'name',
+        key: 'name',
+        ...this.getColumnSearchProps('name'),
+      },
+      {
+        title: 'Full Name',
+        dataIndex: 'fullName',
+        key: 'fullName',
+        ...this.getColumnSearchProps('fullName'),
+      },
+      {
+        title: 'Availability',
+        dataIndex: 'availability',
+        key: 'availability',
+        ...this.getColumnSearchProps('availability'),
+      },
+      {
+        title: 'Designation',
+        dataIndex: 'designation',
+        key: 'designation',
+        ...this.getColumnSearchProps('designation'),
+      },
+      {
+        title: 'Role',
+        dataIndex: 'role',
+        key: 'role',
+        ...this.getColumnSearchProps('role'),
+      },
+    ];
+    return <Table columns={columns} dataSource={data} />;
   }
 }
+export default RoleAllocation

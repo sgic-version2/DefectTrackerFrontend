@@ -57,7 +57,7 @@ const AllocationButton = ({
   return (
     <div>
       <Button primary onClick={handleOpenRole}>
-        Roll Allocation
+        Role Allocation
       </Button>
       <Button color='red' onClick={handleOpenDeallocation}>
         Deallocation
