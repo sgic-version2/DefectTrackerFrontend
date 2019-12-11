@@ -161,12 +161,21 @@ const Employeenewtable = () => {
       )
     },
     {
+<<<<<<< HEAD
       key: '4',
       name: 4,
       age: 'Mathushanth',
       address: 'HR',
       email: 'Mathushanth@gmail.com',
 
+=======
+       key: '4',
+       name: 4,
+       age: 'Mathushanth',
+       address: 'HR',
+       email: 'Mathushanth@gmail.com',
+ 
+>>>>>>> pirathajini
       //  action: <Button.Group>
       //    <EditEmployee open={open} handleOpen={handleOpen} handleClose={handleClose} />
       //     <Button secondary onClick={handleOpen}>Edit</Button>

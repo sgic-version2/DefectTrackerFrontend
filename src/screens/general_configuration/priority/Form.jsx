@@ -1,30 +1,21 @@
-import React from 'react';
-import './Form.css';
-import { ChromePicker } from 'react-color'; //color picker
-import { SketchPicker } from 'react-color';
+import React from "react";
+import "./Form.css";
+
+import Picker from "./Picker";
+import { changeDataValues } from "./../../../fileAction/addCompanyEmployeeAction";
 
 class Form extends React.Component {
   state = {
-    priorityID: '',
-    priorityName: '',
-    priorityDescription: '',
+    // priorityID: "",
+    name: "",
+    description: "",
     displayColorPicker: false,
-    selectedColor: null,
+    color: "",
     open: true,
-    tempColor: '#22194D'
+    tempColor: ""
   };
 
-  handleColor = e => {
-    this.setState({
-      selectedColor: (
-        <span style={{ backgroundColor: e.hex, borderRadius: 20, width: 10 }}>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        </span>
-      )
-    });
-
-    this.setState({ tempColor: e.hex });
-  };
+  handleColor = e => {};
 
   handleClick = () => {
     this.setState({ displayColorPicker: !this.state.displayColorPicker });
@@ -33,7 +24,22 @@ class Form extends React.Component {
   handleClose = () => {
     this.setState({ displayColorPicker: false });
   };
-
+  handleChangeColor = color => {
+    this.setState({
+      color: color.hex,
+      tempColor: (
+        <span
+          style={{
+            backgroundColor: color.hex,
+            borderRadius: 20,
+            width: 10
+          }}
+        >
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+      )
+    });
+  };
   handleOnChange = e => {
     this.setState({
       [e.target.name]: e.target.value
@@ -41,54 +47,66 @@ class Form extends React.Component {
   };
   handleSubmit = e => {
     e.preventDefault();
-    this.props.changeDataValues(this.state);
+    if (this.state.priorityId) {
+      this.props.updatePriority(this.state);
+    } else {
+      this.props.changeDataValues(this.state);
+    }
   };
 
-  render() {
-    const { form } = this.props;
+  componentDidMount() {
+    if (this.props.selectedData !== null) {
+      this.setState({
+        ...this.props.selectedData
+      });
+    }
+  }
+  componentWillReceiveProps() {
+    setTimeout(
+      function() {
+        this.componentDidMount();
+      }.bind(this),
+      10
+    );
+  }
 
-    const { displayColorPicker, tempColor } = this.state;
+  render() {
+    // const {
+    //   form,
+    // } = this.props;
+    console.log(this.props);
+    const { selectedColor, displayColorPicker } = this.state;
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
           <label>Name:</label>
           <input
-            type='text'
-            id=''
-            className=''
-            placeholder='Name'
-            name='priorityName'
-            value={this.state.priorityName}
+            type="text"
+            id=""
+            className=""
+            placeholder="Name"
+            name="name"
+            value={this.state.name}
             onChange={this.handleOnChange}
           ></input>
           <br />
 
           <label>Description:</label>
           <input
-            type='text'
-            id=''
-            className=''
-            placeholder='Description'
-            name='priorityDescription'
-            value={this.state.priorityDescription}
+            type="text"
+            id=""
+            className=""
+            placeholder="Description"
+            name="description"
+            value={this.state.description}
             onChange={this.handleOnChange}
           ></input>
           <br />
 
-          <label>Colour:</label>
-          <div>
-            <div
-              name='selectedColor'
-              onClick={this.handleClick}
-              style={{ backgroundColor: tempColor }}
-              className='colorbox'
-            ></div>
-            <div onClick={this.handleClose} />
-            {displayColorPicker && (
-              <SketchPicker onChangeComplete={this.handleColor} />
-            )}
-          </div>
-
+          <Picker
+            handleChangeColor={this.handleChangeColor}
+            color={this.state.color}
+          />
           <div>
             <br />
 
