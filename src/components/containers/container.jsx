@@ -17,11 +17,8 @@ import DefectType from '../../screens/CommonConfiguration/DefectConfig/DefectCon
 import DefectStatusFlow from '../../screens/WorkFlow/DefectStatus/DefectStatusFlow';
 import TeachLeadPrivilege from '../../screens/Settings/Privilege/TechLeadPrivileges';
 import ManageProject from '../../screens/ManageProject/ProjectDetails';
-<<<<<<< HEAD
 //import Severity from '../../screens/general_configuration/severity/SeverityConfig';
 //import ManageProject from '../../screens/ManageProject/ProjectList';
-=======
->>>>>>> jeyaamuthan
 import Severity from '../../screens/general_configuration/severity/SeverityConfig';
 import ProfileSetting from '../../screens/profile/profile';
 import DefectRolesFlow from '../../screens/WorkFlow/DefectRoles/DefectRolesFlow';
@@ -78,14 +75,7 @@ export default function Container({ textAlign }) {
       >
         <Grid item xs={12} style={useStyles.subContainer}>
           <Switch>
-<<<<<<< HEAD
             <Route path='/defect/projectAllocation' component={ProjectAllocation} />
-=======
-            <Route
-              path='/defect/projectAllocation'
-              component={ProjectAllocation}
-            />
->>>>>>> jeyaamuthan
             <Route path='/defect/hrAllocation' component={AllocationTable} />
             <Route path='/defect/defectStatus' component={DefectList} />
             <Route path='/defect/defectDashboard' component={Dashboard} />
@@ -108,20 +98,9 @@ export default function Container({ textAlign }) {
             <Route path='/defect/module' component={Module} />
             <Route path='/defect/projectManager' component={PmDashboard} />
             <Route path='/defect/qaLeadPrivilege' component={QAPrivilege} />
-<<<<<<< HEAD
             <Route path='/defect/CompanyPrivilege' component={companyPrivilege} />
             <Route path='/defect/ProjectPrivilege' component={projectPrivilege} />
             <Route path='/defect/Role' component={Role} />
-=======
-            <Route
-              path='/defect/CompanyPrivilege'
-              component={companyPrivilege}
-            />
-            <Route
-              path='/defect/ProjectPrivilege'
-              component={projectPrivilege}
-            />
->>>>>>> jeyaamuthan
           </Switch>
         </Grid>
       </Grid>

@@ -3,18 +3,9 @@ import React, { Component } from "react";
 import { Segment } from "semantic-ui-react";
 import { Grid } from "@material-ui/core";
 import { Button } from "semantic-ui-react";
-<<<<<<< HEAD
-import AddButton from "./addDefectStatusButton";
-import EditDefectStatus from "./editDefectStatus";
-
-
-import { connect } from "react-redux";
-import { changeDataValuesStatus } from './../../fileAction/addDefectStatusAction';
-=======
 import { connect } from "react-redux";
 import IconBreadcrumbs from "../../components/breadCrumbs/breadCrumbs";
 import Table from "../../components/tables/table";
->>>>>>> jeyaamuthan
 
 import EditDefect from "./SubmitModel";
 import { Popconfirm, message } from "antd";
@@ -32,15 +23,11 @@ const mapStateToProps = state => ({
   data: state.defectStatusData.defectStatusDetailsFromState
 });
 const mapDispatchToProps = {
-<<<<<<< HEAD
-  changeDataValuesStatus
-=======
   getDefectStatus,
   changeDataValuesStatus,
   getDefectStatusByID,
   upateDefectStatus,
   deleteDefectStatus
->>>>>>> jeyaamuthan
 };
 
 class DefectStatus extends Component {
@@ -78,21 +65,6 @@ class DefectStatus extends Component {
     message.error("Deleted SuccessFully");
   };
   render() {
-<<<<<<< HEAD
-    const columns = [
-      {
-        title: "Defect Status",
-        dataIndex: "statusName"
-      },
-      {
-        title: " Description",
-        dataIndex: "description"
-      },
-      {
-        title: " DefectValue",
-        dataIndex: "defectValue"
-      },
-=======
     
       const columns = [
         {
@@ -105,7 +77,6 @@ class DefectStatus extends Component {
         },
         
   
->>>>>>> jeyaamuthan
 
       {
         title: "Action",
@@ -157,10 +128,6 @@ class DefectStatus extends Component {
         <Grid direction="row" container>
           <Grid item xs={11} style={{ marginTop: "2%" }}>
             <Segment>
-<<<<<<< HEAD
-              <BreadCrumbs />
-              <AddButton changeDataValues={this.props.changeDataValuesStatus}/>
-=======
               <IconBreadcrumbs />
               <AddDefectStatus
                 open={this.state.openAddStatus}
@@ -171,7 +138,6 @@ class DefectStatus extends Component {
               <Button primary onClick={this.handleOpenAddStatus}>
                 Add Status
               </Button>
->>>>>>> jeyaamuthan
               <Table column={columns} data={this.props.data} />
               <EditDefect
                 open={this.state.open}

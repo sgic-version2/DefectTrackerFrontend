@@ -7,7 +7,7 @@ import { Button } from "semantic-ui-react";
 import AddButton from "./AddButton";
 import EditDefectType from "./EditDefectType";
 import { connect } from "react-redux";
-import { changeDataValues } from './../../../fileAction/defectTypeAction';
+import { changeDataValuesType } from './../../../fileAction/defectTypeAction';
 
 
 const mapStateToProps = (state) => ({
@@ -16,7 +16,7 @@ const mapStateToProps = (state) => ({
 
 })
 const mapDispatchToProps = {
-  changeDataValues
+  changeDataValuesType
 };
 
 class DefectConfic extends Component {

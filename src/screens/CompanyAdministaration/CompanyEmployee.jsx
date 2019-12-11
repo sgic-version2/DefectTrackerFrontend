@@ -9,7 +9,7 @@ import { Button } from "semantic-ui-react";
 import AddEmployeeButton from "./AddEmployeeButton";
 import EditEmployee from "./EditEmployee";
 import { connect } from "react-redux";
-import { changeDataValues } from './../../fileAction/defectTypeAction';
+import { changeDataValues } from './../../fileAction/defectAction';
 
 
 const mapStateToProps = (state) => ({

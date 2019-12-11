@@ -66,38 +66,6 @@ class AddDefectStatus extends Component {
           <form layout="vertical" onSubmit={this.handleSubmit} >
           <p>Add Defect Status</p>
               <Divider></Divider>
-<<<<<<< HEAD
-              <Form.Item {...formItemLayout} label="Defect Status">
-                <Input
-                  value={this.state.statusName}
-                  name="statusName"
-                  placeholder="Please input Defect Status "
-                  onChange={this.handleOnChange}
-                />
-              </Form.Item>
-              <Form.Item {...formItemLayout} label="Defect Value">
-                <Input
-                  value={this.state.defectValue}
-                  name="defectValue"
-                  placeholder="Please input Defect Status value "
-                  onChange={this.handleOnChange}
-                />
-              </Form.Item>
-              <Form.Item {...formItemLayout} label="Description">
-                <TextArea
-                  value={this.state.description}
-                  name="description"
-                  placeholder="Please input Description"
-                  onChange={this.handleOnChange}
-                />
-              </Form.Item>
-              {/* <button type="submit" onClick={handleClose}>
-                submit
-              </button> */}
-            </Form>
-          </Modal>
-        )}
-=======
               <Row>
               <Col span={12} style={{ padding: "5px" }}>
                 <Form.Item label="Status Name">
@@ -131,7 +99,6 @@ class AddDefectStatus extends Component {
               submit
             </button>
           </form>
->>>>>>> jeyaamuthan
       </div>
     );
   }
