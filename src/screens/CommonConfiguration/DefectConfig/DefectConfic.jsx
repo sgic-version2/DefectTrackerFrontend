@@ -7,7 +7,8 @@ import { Button } from "semantic-ui-react";
 import AddButton from "./AddButton";
 import EditDefectType from "./EditDefectType";
 import { connect } from "react-redux";
-import { changeDataValuesType } from './../../../fileAction/defectTypeAction';
+import { Popconfirm, message } from "antd";
+import { changeDataValuesType,getDefectType,getDefectTypeByID,upateDefectType,deleteDefectType } from './../../../fileAction/defectTypeAction';
 
 
 const mapStateToProps = (state) => ({
@@ -16,16 +17,34 @@ const mapStateToProps = (state) => ({
 
 })
 const mapDispatchToProps = {
-  changeDataValuesType
+  changeDataValuesType,
+  getDefectType,
+  getDefectTypeByID,
+  upateDefectType,
+  deleteDefectType 
+
 };
 
 class DefectConfic extends Component {
   state = {
-    open: false
+    open: false,
+    openAddType:false,
+    selectedID:""
   };
-  handleOpen = () => {
+  handleOpen = id => {
     this.setState({
-      open: true
+      open: true,
+      selectedID: id
+    });
+  };
+  handleOpenAddType = () => {
+    this.setState({
+      openAddType: true
+    });
+  };
+  handleCloseAddType = () => {
+    this.setState({
+      openAddType: false
     });
   };
 
@@ -34,6 +53,15 @@ class DefectConfic extends Component {
       open: false
     });
   };
+
+  componentDidMount() {
+    this.props.getDefectType();
+  }
+  confirm = id => {
+    this.props.deleteDefectType(id);
+    message.error("Deleted SuccessFully");
+  };
+
 
   render() {
     const columns = [
