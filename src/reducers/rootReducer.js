@@ -7,7 +7,6 @@ import { priorityConfigReducer } from './../fileReducer/priorityConfigReducer';
 import { companyReducer } from './../fileReducer/companyReducer';
 import { defectTypeReducer } from './../fileReducer/defectTypeReducer';
 import { projectDetailsReducer } from './../fileReducer/projectDeatilsReducer';
-import { severityConfigReducer } from './../fileReducer/severityConfigReducer';
 import { editCompanyReducer } from './../fileReducer/editCompanyReducer';
 import { addDefectStatusReducer } from './../fileReducer/addDefectStatusReducer';
 import { defectReducer } from '../fileReducer/defectReducer';
@@ -20,8 +19,7 @@ import {
 import { addCompanyEmployeeReducer } from '../fileReducer/addCompanyEmployeeReducer';
 import { auditReducer } from '../fileReducer/auditReducer';
 import { moduleReducer } from './../fileReducer/moduleReducer';
-
-import { serverityConfigReducer } from '../fileReducer/severityConfigReducer';
+import { severityConfigReducer } from '../fileReducer/severityConfigReducer';
 const rootReducer = combineReducers({
   expandSideBarStatus: expandSideBarReducer,
   addEmployeeData: addEmployeeReducer,
@@ -33,7 +31,7 @@ const rootReducer = combineReducers({
   modelOpen: modelReducer,
   roleAllocationData: projectReducer,
   moduleAllocationData: moduleReducer,
-  severityState: serverityConfigReducer,
+  severityState: severityConfigReducer,
   lookAndFeelData: systemLogoReducer,
   showOnDashboard: showOnDashboardReducer,
   favicon: faviconReducer,

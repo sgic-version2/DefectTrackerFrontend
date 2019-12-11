@@ -5,21 +5,7 @@ const InitialState = {
     serverityStatus: "",
     errorMessage: ""
   };
-  
-  // export const priorityConfigReducer = (state = InitialState, action) => {
-  //   switch (action.type) {
-  //     case actionType.CREATEPRIORITY:
-  //       return {
-  //         priorityConfigDetailsFromState: [
-  //           ...state.priorityConfigDetailsFromState,
-  //           action.payload
-  //         ]
-  //       };
-  //     default:
-  //       return state;
-  //   }
-  // };
-  export const serverityConfigReducer = (state = InitialState, action) => {
+  export const severityConfigReducer = (state = InitialState, action) => {
     switch (action.type) {
       case actionType.GETSERVERITY:
         return {

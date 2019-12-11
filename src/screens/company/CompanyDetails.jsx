@@ -10,14 +10,8 @@ import EditCompany from '../../screens/company/EditCompany';
 import { Popconfirm, message } from 'antd'
 import MoreDetails from './MoreDetails'
 import { connect } from "react-redux";
-<<<<<<< HEAD
 import { changeDataValues,companyDetailsChangeControl } from "../../fileAction/companyAction";
 import {changeEditDataValues} from "../../fileAction/editCompanyAction";
-=======
-import { changeDataValues } from "../../fileAction/companyAction";
-
-
->>>>>>> pirathajini
 const text = 'Are you sure delete this task?'; //Delete button
 
 function confirm() {
