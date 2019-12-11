@@ -1,5 +1,7 @@
+
 import React,{useState} from "react";
 import { Modal } from "antd";
+
 
 const SubmitModel = ({ form, open, handleClose, width, title }) => {
   //use state

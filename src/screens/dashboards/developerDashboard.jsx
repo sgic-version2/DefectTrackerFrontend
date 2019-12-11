@@ -1,28 +1,25 @@
-import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import { makeStyles } from '@material-ui/core/styles';
-import BarChart from '../../components/charts/bar';
-import Doughtnut from './../../components/charts/doughNut';
-import LineChart from '../../components/charts/line';
-import Radar from '../../components/charts/radar';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import { Segment } from 'semantic-ui-react';
-
-
-
+import React from "react";
+import Grid from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Paper";
+import { makeStyles } from "@material-ui/core/styles";
+import BarChart from "../../components/charts/bar";
+import Doughtnut from "./../../components/charts/doughNut";
+import LineChart from "../../components/charts/line";
+import Radar from "../../components/charts/radar";
+import FormGroup from "@material-ui/core/FormGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
+import { Segment } from "semantic-ui-react";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   paper: {
     padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  },
+    textAlign: "center",
+    color: theme.palette.text.secondary
+  }
 }));
 
 const DeveloperDashboard = () => {
@@ -30,7 +27,7 @@ const DeveloperDashboard = () => {
     BarChart: true,
     DoughnutChart: true,
     RadarChart: true,
-    LineChart: true,
+    LineChart: true
   });
 
   const handleChange = name => event => {
@@ -125,4 +122,3 @@ const DeveloperDashboard = () => {
 }
 
 export default DeveloperDashboard;
-

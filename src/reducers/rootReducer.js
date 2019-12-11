@@ -21,6 +21,7 @@ import { addCompanyEmployeeReducer } from '../fileReducer/addCompanyEmployeeRedu
 import { auditReducer } from '../fileReducer/auditReducer';
 import { moduleReducer } from './../fileReducer/moduleReducer';
 
+import { serverityConfigReducer } from '../fileReducer/severityConfigReducer';
 const rootReducer = combineReducers({
   expandSideBarStatus: expandSideBarReducer,
   addEmployeeData: addEmployeeReducer,
@@ -32,17 +33,17 @@ const rootReducer = combineReducers({
   modelOpen: modelReducer,
   roleAllocationData: projectReducer,
   moduleAllocationData: moduleReducer,
-  priorityConfigData: priorityConfigReducer,
+  severityState: serverityConfigReducer,
   lookAndFeelData: systemLogoReducer,
   showOnDashboard: showOnDashboardReducer,
   favicon: faviconReducer,
-  companyData: companyReducer,
   addDefectStatusReducer: addDefectStatusReducer,
   defectState: defectReducer,
   emplyeeState: employeeReducer,
 
   addCompanyEmployeeData: addCompanyEmployeeReducer,
-  exportAudit: auditReducer
+  exportAudit: auditReducer,
+  priorityState: priorityConfigReducer
 });
 
 export default rootReducer;
