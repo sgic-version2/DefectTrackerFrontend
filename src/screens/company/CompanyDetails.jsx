@@ -12,6 +12,7 @@ import MoreDetails from './MoreDetails'
 import { connect } from "react-redux";
 import { changeDataValues } from "../../fileAction/companyAction";
 
+
 const text = 'Are you sure delete this task?'; //Delete button
 
 function confirm() {

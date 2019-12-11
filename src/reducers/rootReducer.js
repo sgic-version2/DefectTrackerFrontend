@@ -15,13 +15,14 @@ import {
   faviconReducer,
   systemLogoReducer
 } from '../screens/Settings/settingReducer';
+import { serverityConfigReducer } from '../fileReducer/severityConfigReducer';
 const rootReducer = combineReducers({
   expandSideBarStatus: expandSideBarReducer,
   addEmployeeData: addEmployeeReducer,
   modelOpen: modelReducer,
   roleAllocationData: projectReducer,
   moduleAllocationData: moduleReducer,
-  
+  severityState:serverityConfigReducer,
   lookAndFeelData: systemLogoReducer,
   showOnDashboard: showOnDashboardReducer,
   favicon: faviconReducer,
@@ -33,3 +34,4 @@ const rootReducer = combineReducers({
   priorityState:priorityConfigReducer
 });
 export default rootReducer;
+
