@@ -1,7 +1,7 @@
 import * as actionTypes from '../constant/defectConstant';
 import axios from 'axios';
 import { defectApi } from '../Api/index';
-import api from '../config/axiosConfig';
+// import api from '../config/axiosConfig';
 export const getDefectData = () => dispatch => {
   axios.get(`${defectApi}`).then(response =>
     dispatch({
