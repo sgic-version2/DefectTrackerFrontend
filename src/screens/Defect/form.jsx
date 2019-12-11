@@ -307,7 +307,7 @@ class Form extends React.Component {
           </div>
           {/* <Button positive >Save Data</Button> */}
           <button type="submit" onClick={this.props.handleClose}>
-            {" "}Submit{" "}
+           Submit
           </button>
         </form>
       </div>
