@@ -1,48 +1,15 @@
 import React from 'react'
 import { Modal, Button } from 'antd';
-import { Form, Input } from 'antd';
+
 import { Divider } from '@material-ui/core';
+import Model from '../../../components/model/submitModel'
+import Forms from "./AddDefectType"
 
-const formItemLayout = {
-  labelCol: { span: 4 },
-  wrapperCol: { span: 8 },
-};
-
-
-const EditDefectType = ({ form, open, handleOpen, handleClose, width, title }) => {
-    //use state 
-   
-
-    return (
+const SubmitModel =({handleOpen,handleClose,open,selectedID,upateDefectType})=>{
+    return(
         <div>
-            <Modal
-                width={`${width?width:'50'}%`}
-      
-                visible={open}
-                title={title}
-                onOk={handleOpen}
-                onCancel={handleClose}
-                footer={[
-                    <Button key="back" onClick={handleClose}>
-                        Return
-            </Button>,
-                    <Button key="submit" type="primary" onClick={handleClose}>
-                        Submit
-            </Button>,
-                ]}
-            >
-              <Form>
-                  <p>Add Defect Type</p>
-                  <Divider></Divider>
-                   <Form.Item {...formItemLayout} label="Type Name">
-         <Input placeholder="Please input Defect Type " />
-        </Form.Item>
-        <Form.Item {...formItemLayout} label="Description">
-         <Input placeholder="Please input Description" />
-        </Form.Item></Form>
-       
-            </Modal>
+            <Model handleOpen={handleOpen} handleClose={handleClose} open={open} form={<Forms selectedID={selectedID} upateDefectType={upateDefectType} handleClose={handleClose}  />}  />
         </div>
     )
 }
-export default EditDefectType
+export default SubmitModel

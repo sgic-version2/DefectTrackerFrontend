@@ -10,19 +10,19 @@ import EditCompany from '../../screens/company/EditCompany';
 import { Popconfirm, message } from 'antd'
 import MoreDetails from './MoreDetails'
 import { connect } from "react-redux";
-import { changeDataValues } from "../../fileAction/companyAction";
-
-
+import { changeDataValues,companyDetailsChangeControl } from "../../fileAction/companyAction";
+import {changeEditDataValues} from "../../fileAction/editCompanyAction";
 const text = 'Are you sure delete this task?'; //Delete button
 
 function confirm() {
    message.info('Click on Yes.');
 }
 const mapStateToProps = (state) => ({
-   data: state.companyData.companyDetailsFromState
+   data: state.companyData.companyDetailsFromState,
+   data1:state.editCompanyData.dataStore
 })
 const mapDispatchToProps = {
-   changeDataValues
+   changeDataValues,companyDetailsChangeControl,changeEditDataValues
 }
  class CompanyDetails extends Component {
    state = {
@@ -54,6 +54,15 @@ const mapDispatchToProps = {
          open1: false
       })
    };
+   handlebuttonClick = (data) => {
+      this.props.changeDataValues(data)
+      this.handleOpen()
+    }
+    handlebuttonClick1 = (data) => {
+      this.props.changeEditDataValues(data)
+      this.handleOpen()
+      console.log("jhgyftgyuh"+data)
+    }
    render() {
       
       
@@ -103,9 +112,10 @@ const mapDispatchToProps = {
          },
          {
             title: 'Action',
-            render:item=> <Button.Group>
-            <EditCompany open={this.state.open} handleOpen={this.handleOpen} handleClose={this.handleClose} />
-            <Button onClick={this.handleOpen} secondary>Edit</Button>
+             
+            render:(item, key)=> <Button.Group>
+            <EditCompany open={this.state.open} handleOpen={this.handleOpen} handleClose={this.handleClose} companyDetailsChangeControl={this.props.companyDetailsChangeControl}changeEditDataValues={this.props.changeEditDataValues} data1={this.props.data1}/>
+            <Button onClick={() => this.handlebuttonClick1(key)}  secondary>Edit</Button>
             <Button.Or />
             <Popconfirm placement="topRight" title={text} onConfirm={confirm} okText="yes" cancelText="No">
                <Button negative>Delete</Button>

@@ -44,24 +44,24 @@ class Form extends React.Component {
     }
   }
   render() {
-    const { form } = this.props;
-    const {
-      Project,
-      Module,
-      DefectType,
-      Severity,
-      Priority,
-      fixedBy,
-      foundIn,
-      fixedIn,
-      attachment,
-      defectSta,
-      createdDate,
-      updatedDate,
-      description,
-      AssignTo,
-      AssignBy
-    } = this.state;
+    //const { form } = this.props;
+    // const {
+    //   Project,
+    //   Module,
+    //   DefectType,
+    //   Severity,
+    //   Priority,
+    //   fixedBy,
+    //   foundIn,
+    //   fixedIn,
+    //   attachment,
+    //   defectSta,
+    //   createdDate,
+    //   updatedDate,
+    //   description,
+    //   AssignTo,
+    //   AssignBy
+    // } = this.state;
     return (
       <div>
         <form class="ui form" onSubmit={this.handleSubmit}>

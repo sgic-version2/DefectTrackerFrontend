@@ -1,106 +1,152 @@
+
 import React, { Component } from "react";
 import { Segment } from "semantic-ui-react";
 import { Grid } from "@material-ui/core";
-import BreadCrumbs from "../../components/breadCrumbs/breadCrumbs";
-import Table from "../../components/tables/table";
 import { Button } from "semantic-ui-react";
-
-
-import AddButton from "./addDefectStatusButton";
-import EditDefectStatus from "./editDefectStatus";
-
-
 import { connect } from "react-redux";
-import { changeDataValues } from './../../fileAction/defectTypeAction';
+import IconBreadcrumbs from "../../components/breadCrumbs/breadCrumbs";
+import Table from "../../components/tables/table";
 
+import EditDefect from "./SubmitModel";
+import { Popconfirm, message } from "antd";
+import AddDefectStatus from "./addDefectStatusButton";
 
-const mapStateToProps = (state) => ({
-  data: state.defectTypeData.defectTypeDetailsFromState
- 
+import {
+  getDefectStatus,
+  changeDataValuesStatus,
+  getDefectStatusByID,
+  upateDefectStatus,
+  deleteDefectStatus
+} from "./../../fileAction/addDefectStatusAction";
 
-})
+const mapStateToProps = state => ({
+  data: state.defectStatusData.defectStatusDetailsFromState
+});
 const mapDispatchToProps = {
-  changeDataValues
+  getDefectStatus,
+  changeDataValuesStatus,
+  getDefectStatusByID,
+  upateDefectStatus,
+  deleteDefectStatus
 };
 
 class DefectStatus extends Component {
   state = {
-    open: false
+    open: false,
+    openAddStatus: false,
+    selectedID: ""
   };
-  handleOpen = () => {
+  handleOpen = id => {
     this.setState({
-      open: true
+      open: true,
+      selectedID: id
     });
   };
-
+  handleOpenAddStatus = () => {
+    this.setState({
+      openAddStatus: true
+    });
+  };
+  handleCloseAddStatus = () => {
+    this.setState({
+      openAddStatus: false
+    });
+  };
   handleClose = () => {
     this.setState({
       open: false
     });
   };
-
+  componentDidMount() {
+    this.props.getDefectStatus();
+  }
+  confirm = id => {
+    this.props.deleteDefectStatus(id);
+    message.error("Deleted SuccessFully");
+  };
   render() {
-    const columns = [
-      {
-        title: "Defect Status",
-        dataIndex: "name"
-      },
-      {
-        title: " Description",
-        dataIndex: "description"
-      },
-      {
-        title: " DefectValue",
-        dataIndex: "defectValue"
-      },
+    
+      const columns = [
+        {
+          title: "Defect Status",
+          dataIndex: "name"
+        },
+        {
+          title: " Description",
+          dataIndex: "description"
+        },
+        
+  
 
       {
         title: "Action",
-        render:item=>  <Button.Group>
-        <EditDefectStatus
-          open={this.state.open}
-          handleOpen={this.handleOpen}
-          handleClose={this.handleClose}
-        />
-        <Button onClick={this.handleOpen} secondary>
-          Edit
-        </Button>
+        render: (item, key) =>
+          <Button.Group>
+            <Button onClick={() => this.handleOpen(key)} secondary>
+              Edit
+            </Button>
 
-        <Button.Or />
-        <Button negative>Delete</Button>
-      </Button.Group>    }
+            <Button.Or />
+            <Popconfirm
+              placement="bottomRight"
+              title="Are you sure to delete this Status?"
+              onConfirm={() => this.confirm(key.statusId)}
+              okText="Yes"
+              cancelText="No"
+            >
+              <Button negative>Delete</Button>
+            </Popconfirm>
+          </Button.Group>
+      }
     ];
-    // const data = [
-    //   {
-    //     key: "1",
-    //     defecttype: "Arithmetic Defects",
-    //     description: "High",
-    //     action: (
-    //       <Button.Group>
-    //         <EditDefectType
-    //           open={this.state.open}
-    //           handleOpen={this.handleOpen}
-    //           handleClose={this.handleClose}
-    //         />
-    //         <Button onClick={this.handleOpen} secondary>
-    //           Edit
-    //         </Button>
+     const data = [
+      {
+        key: "1",
+        name: "Arithmetic Defects",
+        description: "High",
+        action: (
+          <Button.Group>
+            <EditDefect
+              open={this.state.open}
+              handleOpen={this.handleOpen}
+              handleClose={this.handleClose}
+            />
+            <Button onClick={this.handleOpen} secondary>
+              Edit
+            </Button>
 
-    //         <Button.Or />
-    //         <Button negative>Delete</Button>
-    //       </Button.Group>
-    //     )
-    //   }
-    // ];
-    console.log("hg"+this.props.data);
+            <Button.Or />
+            <Button negative>Delete</Button>
+          </Button.Group>
+        )
+      }
+    ];
+
+
     return (
       <div>
         <Grid direction="row" container>
           <Grid item xs={11} style={{ marginTop: "2%" }}>
             <Segment>
-              <BreadCrumbs />
-              <AddButton changeDataValues={this.props.changeDataValues}/>
+              <IconBreadcrumbs />
+              <AddDefectStatus
+                open={this.state.openAddStatus}
+                handleOpen={this.handleOpenAddStatus}
+                handleClose={this.handleCloseAddStatus}
+                changeDataValuesStatus={this.props.changeDataValuesStatus}
+              />
+              <Button primary onClick={this.handleOpenAddStatus}>
+                Add Status
+              </Button>
               <Table column={columns} data={this.props.data} />
+              <EditDefect
+                open={this.state.open}
+                handleOpen={this.handleOpen}
+                handleClose={this.handleClose}
+                selectedID={this.state.selectedID}
+                // selectedData={this.state.selectedData}
+                upateDefectStatus={this.props.upateDefectStatus}
+              />
             </Segment>
           </Grid>
         </Grid>

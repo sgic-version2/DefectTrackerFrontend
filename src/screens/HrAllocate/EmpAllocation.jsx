@@ -9,7 +9,7 @@ import EditRole from './EditRole';
 var originTargetKeys;
 export default class EmpAllocation extends Component {
   state = {
-    targetKeys: originTargetKeys,
+    targetKeys: ["5","10"],
     disabled: false,
     showSearch: true,
     open: false

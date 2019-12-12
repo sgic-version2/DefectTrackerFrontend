@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "semantic-ui-react";
 
-import AddProject from "./AddProject";
+import AddRole from "./AddRole";
 
 const AddButton = ({ changeDataValues }) => {
   const [open, setOpen] = useState(false);
@@ -16,14 +16,14 @@ const AddButton = ({ changeDataValues }) => {
 
   return (
     <div>
-      <AddProject
+      <AddRole
         open={open}
         handleOpen={handleOpen}
         handleClose={handleClose}
         changeDataValues={changeDataValues}
       />
       <Button onClick={handleOpen} color="primary">
-        Add Project
+        Add DefectType
       </Button>
     </div>
   );

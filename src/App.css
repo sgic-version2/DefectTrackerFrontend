@@ -108,7 +108,7 @@
   height: 10px; */
   border-radius: 40px;
 }
-input[type='checkbox'] {
+input[type="checkbox"] {
   position: relative;
   width: 100px;
   height: 30px;
@@ -140,7 +140,7 @@ input[type='checkbox'] {
   background: #07943b;
 }
 .span:nth-child(2)::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   right: 0;
@@ -153,7 +153,7 @@ input[type='checkbox'] {
   transition: 1s;
   backface-visibility: hidden;
 }
-input[type='checkbox']:checked ~ .span:nth-child(2)::before {
+input[type="checkbox"]:checked ~ .span:nth-child(2)::before {
   transform: rotateY(180deg);
 }
 .span:nth-child(3) {
@@ -163,7 +163,7 @@ input[type='checkbox']:checked ~ .span:nth-child(2)::before {
   background: #545454;
 }
 .span:nth-child(3)::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -177,7 +177,7 @@ input[type='checkbox']:checked ~ .span:nth-child(2)::before {
   backface-visibility: hidden;
   transform: rotateY(180deg);
 }
-input[type='checkbox']:checked ~ .span:nth-child(3)::before {
+input[type="checkbox"]:checked ~ .span:nth-child(3)::before {
   transform: rotateY(360deg);
 }
 
@@ -200,9 +200,9 @@ width : 50% !important;
 /* .ant-btn, .ant-btn:active, .ant-btn:focus{
   display: none !important;
 } */
-.iconposition {
+/* .iconposition {
   position: relative !important;
-}
+} */
 .techLeadPrivilage {
   padding: 10px 10px !important;
   width: 50% !important;
@@ -210,4 +210,7 @@ width : 50% !important;
 .QaLeadPrivilage {
   padding: 10px 10px !important;
   width: 50% !important;
+}
+.iconposition {
+  position: relative !important;
 }

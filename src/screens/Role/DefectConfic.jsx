@@ -1,15 +1,13 @@
 import React, { Component } from "react";
 import { Segment } from "semantic-ui-react";
 import { Grid } from "@material-ui/core";
-// import BreadCrumbs from "../../../components/breadCrumbs/breadCrumbs";
-
+import BreadCrumbs from "../../../components/breadCrumbs/breadCrumbs";
+import Table from "../../../components/tables/table";
 import { Button } from "semantic-ui-react";
 import AddButton from "./AddButton";
-import EditProject from "./EditProject";
+import EditDefectType from "./EditDefectType";
 import { connect } from "react-redux";
-import { changeDataValues } from './../../fileAction/defectTypeAction';
-import IconBreadcrumbs from "../../components/breadCrumbs/breadCrumbs";
-import Table from './../../components/tables/table';
+import { changeDataValues } from './../../../fileAction/defectTypeAction';
 
 
 const mapStateToProps = (state) => ({
@@ -21,7 +19,7 @@ const mapDispatchToProps = {
   changeDataValues
 };
 
-class ProjectDetails extends Component {
+class DefectConfic extends Component {
   state = {
     open: false
   };
@@ -55,7 +53,7 @@ class ProjectDetails extends Component {
       {
         title: "Action",
         render:item=>  <Button.Group>
-        <EditProject
+        <EditDefectType
           open={this.state.open}
           handleOpen={this.handleOpen}
           handleClose={this.handleClose}
@@ -63,7 +61,6 @@ class ProjectDetails extends Component {
         <Button onClick={this.handleOpen} secondary>
           Edit
         </Button>
-
         <Button.Or />
         <Button negative>Delete</Button>
       </Button.Group>    }
@@ -96,7 +93,7 @@ class ProjectDetails extends Component {
         <Grid direction="row" container>
           <Grid item xs={11} style={{ marginTop: "2%" }}>
             <Segment>
-              <IconBreadcrumbs/>
+              <BreadCrumbs />
               <AddButton changeDataValues={this.props.changeDataValues}/>
               <Table column={columns} data={this.props.data} />
             </Segment>
@@ -106,4 +103,4 @@ class ProjectDetails extends Component {
     );
   }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(ProjectDetails);
+export default connect(mapStateToProps, mapDispatchToProps)(DefectConfic);

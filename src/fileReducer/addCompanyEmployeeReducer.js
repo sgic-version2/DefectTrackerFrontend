@@ -6,7 +6,7 @@ const InitialState = {
 
 export const addCompanyEmployeeReducer = (state = InitialState, action) => {
     switch (action.type) {
-        case actionType.CREATENEWCOMPANYEMPLOYEE:
+        case actionType.CREATECOMPANYEMPLOYEE:
             return {
                 companyemployeeDetailsFromState: [...state.companyemployeeDetailsFromState, action.payload]
             }

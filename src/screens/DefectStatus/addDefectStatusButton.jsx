@@ -1,31 +1,14 @@
-import React, { useState } from "react";
-import { Button } from "semantic-ui-react";
+import React from "react";
+import Forms from './addDefectStatus'
+import Model from '../../components/model/submitModel'
 
 
-import AddDefectStatus from './addDefectStatus';
 
-const AddButton = ({ changeDataValues }) => {
-  const [open, setOpen] = useState(false);
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
+  
+const AddButton = ({ changeDataValuesStatus, handleOpen, handleClose, open }) => {
   return (
-    <div>
-      <AddDefectStatus
-        open={open}
-        handleOpen={handleOpen}
-        handleClose={handleClose}
-        changeDataValues={changeDataValues}
-      />
-      <Button onClick={handleOpen} color="primary">
-        Add Defect Status
-      </Button>
+    <div style={{marginBottom:40}}>
+      <Model handleOpen={handleOpen} handleClose={handleClose} open={open} form={<Forms changeDataValuesStatus={changeDataValuesStatus}handleClose={handleClose}/>} />
     </div>
   );
 };

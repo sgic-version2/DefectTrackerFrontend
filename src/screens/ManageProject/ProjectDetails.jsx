@@ -1,35 +1,35 @@
 import React, { Component } from "react";
 import { Segment } from "semantic-ui-react";
 import { Grid } from "@material-ui/core";
-import IconBreadcrumbs from "../../../components/breadCrumbs/breadCrumbs";
-import Table from "../../../components/tables/table";
 import { Button } from "semantic-ui-react";
-import AddButton from "./AddButton";
-import EditDefectType from "./EditDefectType";
 import { connect } from "react-redux";
+import IconBreadcrumbs from "../../components/breadCrumbs/breadCrumbs";
+import Table from "../../components/tables/table";
+import {
+  postProject,
+  getProjectDetails,
+  upateProject,
+  deleteProject
+} from "../../fileAction/projectDetailsAction";
+import EditDefect from "./SubmitModel";
 import { Popconfirm, message } from "antd";
-import { changeDataValuesType,getDefectType,getDefectTypeByID,upateDefectType,deleteDefectType } from './../../../fileAction/defectTypeAction';
+import AddProject from "./AddButton";
 
-
-const mapStateToProps = (state) => ({
-  data: state.defectTypeData.defectTypeDetailsFromState
- 
-
-})
+const mapStateToProps = state => ({
+  data: state.projectDetailsData.projectDetailsFromState
+});
 const mapDispatchToProps = {
-  changeDataValuesType,
-  getDefectType,
-  getDefectTypeByID,
-  upateDefectType,
-  deleteDefectType 
-
+  postProject,
+  getProjectDetails,
+  upateProject,
+  deleteProject
 };
 
-class DefectConfic extends Component {
+class ProjectDetails extends Component {
   state = {
     open: false,
-    openAddType:false,
-    selectedID:""
+    openAddProject: false,
+    selectedID: ""
   };
   handleOpen = id => {
     this.setState({
@@ -37,43 +37,55 @@ class DefectConfic extends Component {
       selectedID: id
     });
   };
-  handleOpenAddType = () => {
+  handleOpenAddProject = () => {
     this.setState({
-      openAddType: true
+      openAddProject: true
     });
   };
-  handleCloseAddType = () => {
+  handleCloseAddProject = () => {
     this.setState({
-      openAddType: false
+      openAddProject: false
     });
   };
-
   handleClose = () => {
     this.setState({
       open: false
     });
   };
-
   componentDidMount() {
-    this.props.getDefectType();
+    this.props.getProjectDetails();
   }
   confirm = id => {
-    this.props.deleteDefectType(id);
+    this.props.deleteProject(id);
     message.error("Deleted SuccessFully");
   };
-
-
   render() {
     const columns = [
       {
-        title: "Defect Type",
-        dataIndex: "name"
+        title: "Project Name",
+        dataIndex: "project_name"
       },
       {
-        title: " Description",
-        dataIndex: "description"
+        title: " Type",
+        dataIndex: "project_type"
       },
-      
+      // {
+      //   title: " Duration",
+      //   dataIndex: "duration"
+      // },
+      {
+        title: " Duration",
+        dataIndex: "start_date"
+      },
+      {
+        title: " Duration",
+        dataIndex: "end_date"
+      },
+      {
+        title: " status",
+        dataIndex: "status"
+      },
+
       {
         title: "Action",
         render: (item, key) =>
@@ -85,8 +97,8 @@ class DefectConfic extends Component {
             <Button.Or />
             <Popconfirm
               placement="bottomRight"
-              title="Are you sure to delete this Defect Type?"
-              onConfirm={() => this.confirm(key.typeId)}
+              title="Are you sure to delete this Project?"
+              onConfirm={() => this.confirm(key.project_id)}
               okText="Yes"
               cancelText="No"
             >
@@ -95,8 +107,6 @@ class DefectConfic extends Component {
           </Button.Group>
       }
     ];
-    
- 
 
 
     return (
@@ -105,23 +115,23 @@ class DefectConfic extends Component {
           <Grid item xs={11} style={{ marginTop: "2%" }}>
             <Segment>
               <IconBreadcrumbs />
-              <AddButton
-                open={this.state.openAddType}
-                handleOpen={this.handleOpenAddType}
-                handleClose={this.handleCloseAddType}
-                changeDataValuesType={this.props.changeDataValuesType}
+              <AddProject
+                open={this.state.openAddProject}
+                handleOpen={this.handleOpenAddProject}
+                handleClose={this.handleCloseAddProject}
+                postProject={this.props.postProject}
               />
-              <Button primary onClick={this.handleOpenAddType}>
-                Add Status
+              <Button primary onClick={this.handleOpenAddProject}>
+                Add Project
               </Button>
               <Table column={columns} data={this.props.data} />
-              <EditDefectType
+              <EditDefect
                 open={this.state.open}
                 handleOpen={this.handleOpen}
                 handleClose={this.handleClose}
                 selectedID={this.state.selectedID}
                 // selectedData={this.state.selectedData}
-                upateDefectType={this.props.upateDefectType}
+                upateProject={this.props.upateProject}
               />
             </Segment>
           </Grid>
@@ -130,4 +140,4 @@ class DefectConfic extends Component {
     );
   }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(DefectConfic);
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectDetails);

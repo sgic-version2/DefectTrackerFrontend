@@ -3,13 +3,13 @@ import { Modal, Button } from "antd";
 import { Form, Input } from "antd";
 import { Divider } from "@material-ui/core";
 
-const { TextArea } = Input;
+// const { TextArea } = Input;
 const formItemLayout = {
   labelCol: { span: 4 },
   wrapperCol: { span: 8 }
 };
 
-class AddDefectType extends Component {
+class AddRole extends Component {
   state = {
     typeId: "1",
     name: "",
@@ -53,32 +53,32 @@ class AddDefectType extends Component {
             ]}
           >
             <Form>
-              <p>Add Defect Type</p>
+              <p>Add Role</p>
               <Divider></Divider>
-              <Form.Item {...formItemLayout} label="Type Name">
+              <Form.Item {...formItemLayout} label="Role">
                 <Input
                   value={this.state.name}
-                  name="name"
+                  name="role"
                   placeholder="Please input Defect Type "
                   onChange={this.handleOnChange}
                 />
               </Form.Item>
-              <Form.Item {...formItemLayout} label="Type Value">
+              <Form.Item {...formItemLayout} label="ID">
                 <Input
                   value={this.state.defectValue}
-                  name="defectValue"
-                  placeholder="Please input Defect Type value "
+                  name="id"
+                  placeholder="ID"
                   onChange={this.handleOnChange}
                 />
               </Form.Item>
-              <Form.Item {...formItemLayout} label="Description">
+              {/* <Form.Item {...formItemLayout} label="Description">
                 <TextArea
                   value={this.state.description}
                   name="description"
                   placeholder="Please input Description"
                   onChange={this.handleOnChange}
                 />
-              </Form.Item>
+              </Form.Item> */}
               {/* <button type="submit" onClick={handleClose}>
                 submit
               </button> */}
@@ -90,4 +90,4 @@ class AddDefectType extends Component {
   }
 }
 
-export default AddDefectType;
+export default AddRole;
