@@ -281,10 +281,17 @@ class Form extends React.Component {
               <option value={3}>User 3</option>
             </select>
           </div>
+<<<<<<< HEAD
           <Button positive type="submit" onClick={this.props.handleClose}>Save</Button>
           {/* <button type="submit" onClick={this.props.handleClose}>
             Submit
           </button> */}
+=======
+          {/* <Button positive >Save Data</Button> */}
+          <button type="submit" onClick={this.props.handleClose}>
+           Submit
+          </button>
+>>>>>>> 0c8a64d6829c0595f069cc50b641ae2e93b0d85b
         </form>
       </div>
     );
