@@ -34,17 +34,20 @@ class DefectStatus extends Component {
   state = {
     open: false,
     openAddStatus: false,
-    selectedID: ""
+    selectedID: "",
+    test:false
   };
   handleOpen = id => {
     this.setState({
       open: true,
-      selectedID: id
+      selectedID: id,
+      test:true
     });
   };
   handleOpenAddStatus = () => {
     this.setState({
-      openAddStatus: true
+      openAddStatus: true,
+      test:false
     });
   };
   handleCloseAddStatus = () => {

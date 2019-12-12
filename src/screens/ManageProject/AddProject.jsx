@@ -18,7 +18,8 @@ class AddProject extends Component {
     duration: "",
     status: "",
     start_date: "",
-    end_date: ""
+    end_date: "",
+   
   };
   handleOnChange = e => {
     this.setState({
@@ -52,8 +53,8 @@ class AddProject extends Component {
 
   datePick = (date, dateString, e) => {
     this.setState({
-      license_start_date: dateString,
-      license_end_date: dateString
+      start_date: dateString,
+      end_date: dateString
     });
   };
   render() {
@@ -128,6 +129,7 @@ class AddProject extends Component {
                     name="start_date"
                     // value={this.state.start_date}
                     onChange={this.datePick}
+                    disabled={this.props.test}
                   />
                 </Form.Item>
               </Col>
@@ -141,16 +143,18 @@ class AddProject extends Component {
                     name="end_date"
                     //  value={this.state.end_date}
                     onChange={this.datePick}
+                    disabled={this.props.test}
                   />
                 </Form.Item>
               </Col>
             
             </Row>
           
-
+            
             <button type="submit" onClick={handleClose}>
-              submit
+              Submit
             </button>
+            
           </form>
       </div>
     );
