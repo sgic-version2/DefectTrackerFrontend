@@ -12,7 +12,7 @@ export const getDefectData = () => dispatch => {
 };
 export const changeDataValues = data => dispatch => {
   axios
-    .post(`${defectApi}`, data)
+    .post(`${defectApi}/${data.projectId}/module/${data.moduleId}/subModule/${data.subModuleId}`, data)
     .then(response =>
       dispatch({
         type: actionTypes.ADDDEFECT,
@@ -44,12 +44,12 @@ export const upateDefect = data => dispatch => {
     );
 
 
-    // api(method, service, endpoint, token, body, params)
-    // .then(response => {
+  // api(method, service, endpoint, token, body, params)
+  // .then(response => {
 
-    // }).catch(err => {
+  // }).catch(err => {
 
-    // })
+  // })
 };
 export const deleteDefect = id => dispatch => {
   axios.delete(`${defectApi}/${id}`).then(response =>

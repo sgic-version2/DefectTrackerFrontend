@@ -1,8 +1,5 @@
 import React from "react";
-import { DatePicker } from "antd";
-import moment from "moment";
-
-const dateFormatList = ["DD/MM/YYYY", "DD/MM/YY"];
+import { Button } from "semantic-ui-react";
 class Form extends React.Component {
   state = {
     projectId: "",
@@ -11,55 +8,29 @@ class Form extends React.Component {
     severity: "",
     priority: "",
     description: '',
+    subModuleId: '',
     // created_date: '',
-    // assignto: '',
-    // assignby:''
+    assignto: '',
+    assignby: ''
   };
+
   handleChange = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
+    
   };
   handleSubmit = e => {
     e.preventDefault();
-    const stateDataInsert = {
-      projectId: this.state.projectId,
-      moduleId: this.state.moduleId,
-      defectType: {
-        typeId: this.state.defectType
-      },
-      description:this.state.description,
-      // severity: {
-      //   serverityId: this.state.severity
-      // },
-      // priority: {
-      //   priorityId: this.state.priority
-      // }
-    };
-    const stateDataUpdate = {
-      projectId: this.state.projectId,
-      moduleId: this.state.moduleId,
-      defectType: {
-        typeId: this.state.defectType.typeId
-      },
-      description:this.state.description,
-      defectId:this.state.defectId
-      // severity: {
-      //   serverityId: this.state.severity.serverityId
-      // },
-      // priority: {
-      //   priorityId: this.state.priority.priorityId
-      // }
-    };
     if (this.state.defectId) {
-      this.props.upateDefect(stateDataUpdate); 
+      this.props.upateDefect(this.state);
     } else {
-      this.props.changeDataValues(stateDataInsert);
+      this.props.changeDataValues(this.state);
     }
   };
   componentWillReceiveProps() {
     setTimeout(
-      function() {
+      function () {
         this.componentDidMount();
       }.bind(this),
       10
@@ -74,8 +45,8 @@ class Form extends React.Component {
   }
 
   render() {
-    console.log("checking",this.props);
-    
+    console.log("checking", this.props);
+
     const {
       projectId,
       moduleId,
@@ -87,11 +58,10 @@ class Form extends React.Component {
       fixedIn,
       attachmentId,
       defectStatus,
-      createdDate,
-      udatedDate,
       description,
       assignto,
-      assignby
+      assignby,
+      subModuleId
     } = this.state;
     return (
       <div>
@@ -132,6 +102,49 @@ class Form extends React.Component {
                   <option value={1}>module 1</option>
                   <option value={2}>module 2</option>
                   <option value={3}>module 3</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <div class="two fields">
+              <div class="field">
+                <label>Sub Module :</label>
+                <select
+                  class="ui fluid dropdown"
+                  name="subModuleId"
+                  placeholder="Sub Module"
+                  value={subModuleId}
+                  onChange={this.handleChange}
+                >
+                  <option selected disabled>
+                    Select
+                  </option>
+                  <option value={1}>Sub Module 1</option>
+                  <option value={2}>Sub Module 2</option>
+                  <option value={3}>Sub Module 3</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>Defect Status:</label>
+                <select
+                  class="ui fluid dropdown"
+                  name="defectStatus"
+                  placeholder="defectSta"
+                  value={defectStatus}
+                  onChange={this.handleChange}
+                >
+                  <option selected disabled>
+                    Select
+                  </option>
+                  <option value={1}>Open</option>
+                  <option value={2}>Close</option>
+                  <option value={3}>InProgress </option>,,,,
+                  <option value={4}>Resolved </option>
+                  <option value={5}>ReOpen </option>
+                  <option value={6}>Rejected </option>
+                  <option value={7}>ReadyForTesting </option>
+                  <option value={8}>OnHold </option>
                 </select>
               </div>
             </div>
@@ -229,43 +242,6 @@ class Form extends React.Component {
             </div>
           </div>
           <div class="field">
-            <div class="two fields">
-              <div class="field">
-                <label>Attachment :</label>
-                <textarea
-                  rows="1"
-                  name="attachmentId"
-                  placeholder="attachment"
-                  value={attachmentId}
-                  onChange={this.handleChange}
-                />
-              </div>
-              <div class="field">
-                <label>Defect Status:</label>
-                <select
-                  class="ui fluid dropdown"
-                  name="defectStatus"
-                  placeholder="defectSta"
-                  value={defectStatus}
-                  onChange={this.handleChange}
-                >
-                  <option selected disabled>
-                    Select
-                  </option>
-                  <option value={1}>Open</option>
-                  <option value={2}>Close</option>
-                  <option value={3}>InProgress </option>,,,,
-                  <option value={4}>Resolved </option>
-                  <option value={5}>ReOpen </option>
-                  <option value={6}>Rejected </option>
-                  <option value={7}>ReadyForTesting </option>
-                  <option value={8}>OnHold </option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="field">
             <label>Description</label>
             <textarea
               rows="1"
@@ -305,10 +281,10 @@ class Form extends React.Component {
               <option value={3}>User 3</option>
             </select>
           </div>
-          {/* <Button positive >Save Data</Button> */}
-          <button type="submit" onClick={this.props.handleClose}>
-            {" "}Submit{" "}
-          </button>
+          <Button positive type="submit" onClick={this.props.handleClose}>Save</Button>
+          {/* <button type="submit" onClick={this.props.handleClose}>
+            Submit
+          </button> */}
         </form>
       </div>
     );

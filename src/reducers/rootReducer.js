@@ -38,7 +38,6 @@ const rootReducer = combineReducers({
   addDefectStatusReducer: addDefectStatusReducer,
   defectState: defectReducer,
   emplyeeState: employeeReducer,
-
   addCompanyEmployeeData: addCompanyEmployeeReducer,
   exportAudit: auditReducer,
   priorityState: priorityConfigReducer
