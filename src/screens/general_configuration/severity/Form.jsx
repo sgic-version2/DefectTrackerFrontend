@@ -1,16 +1,16 @@
 import React from "react";
 import "./Form.css";
-import { SketchPicker } from "react-color";
-import Button from "@material-ui/core/Button";
-import { Divider, Dialog, DialogActions } from "@material-ui/core";
+
+
 import Picker from "./Picker";
+import { updateServerity } from './../../../fileAction/severityConfigAction';
 class Form extends React.Component {
   state = {
-    severityID: "",
-    severityName: "",
-    severityDescription: "",
+   // severityID: "",
+    name: "",
+    description: "",
     displayColorPicker: false,
-    selectedColor: "",
+    color: "",
     open: true,
     tempColor: ""
   };
@@ -26,7 +26,7 @@ class Form extends React.Component {
   };
   handleChangeColor = color => {
     this.setState({
-      selectedColor: color.hex,
+      color: color.hex,
       tempColor: (
         <span
           style={{
@@ -47,12 +47,32 @@ class Form extends React.Component {
   };
   handleSubmit = e => {
     e.preventDefault();
-    this.props.changeDataValues(this.state);
-    console.log("test" + e);
+    if (this.state.serverityId) {
+      this.props.updateServerity(this.state);
+    } else {
+      this.props.changeDataValues(this.state);
+    }
   };
 
+
+  componentDidMount() {
+    if (this.props.selectedData !== null) {
+      this.setState({
+        ...this.props.selectedData
+      });
+    }
+  }
+  componentWillReceiveProps() {
+    setTimeout(
+      function() {
+        this.componentDidMount();
+      }.bind(this),
+      10
+    );
+  }
+
   render() {
-    const { displayColorPicker, tempColor } = this.state;
+    const { displayColorPicker, selectedColor } = this.state;
     console.log("jj" + this.state);
 
     return (
@@ -64,8 +84,8 @@ class Form extends React.Component {
             id=""
             className=""
             placeholder="Name"
-            name="severityName"
-            value={this.state.priorityName}
+            name="name"
+            value={this.state.name}
             onChange={this.handleOnChange}
           ></input>
           <br />
@@ -76,8 +96,8 @@ class Form extends React.Component {
             id=""
             className=""
             placeholder="Description"
-            name="severityDescription"
-            value={this.state.priorityDescription}
+            name="description"
+            value={this.state.description}
             onChange={this.handleOnChange}
           ></input>
           <br />
@@ -86,7 +106,7 @@ class Form extends React.Component {
 
           <Picker
             handleChangeColor={this.handleChangeColor}
-            selectedColor={this.state.selectedColor}
+            color={this.state.color}
           />
 
           {/* <label>Colour:</label>
@@ -113,13 +133,14 @@ class Form extends React.Component {
           <div>
             <br />
 
-            <button color="primary" type="submit"  onClick={this.props.openFormClose}>
+            <button  type="submit"  onClick={this.props.openFormClose}>
               Submit
             </button>
           </div>
         </form>
       </div>
     );
+        }
   }
-}
+
 export default Form;

@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function SideBarColorSettings({
   handleChangeColor,
-  selectedColor
+color
 }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
@@ -71,7 +71,7 @@ export default function SideBarColorSettings({
           
           <button
             onClick={handleClickOpen}
-            style={{ backgroundColor: selectedColor }}
+            style={{ backgroundColor: color }}
             className="colorbox"
           ></button>
         </Grid>
@@ -91,7 +91,7 @@ export default function SideBarColorSettings({
               aria-describedby="alert-dialog-description"
             >
               {/* <DialogTitle id="alert-dialog-title">"Pick Color"</DialogTitle> */}
-              <SketchPicker color={selectedColor} onChange={handleChangeColor} />
+              <SketchPicker color={color} onChange={handleChangeColor} />
               <DialogActions>
                 <Button onClick={handleClose} color="primary">
                   Cancel

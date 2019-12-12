@@ -2,7 +2,7 @@ import React from "react";
 import "./Form.css";
 
 import Picker from "./Picker";
-import { changeDataValues } from "./../../../fileAction/addCompanyEmployeeAction";
+
 
 class Form extends React.Component {
   state = {

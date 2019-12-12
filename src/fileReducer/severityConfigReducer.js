@@ -53,7 +53,7 @@ const InitialState = {
         return {
           ...state,
           serverityState: state.serverityState.filter(
-            data => data.priorityId !== action.payload
+            data => data.serverityId !== action.payload
           )
         };
       default:

@@ -10,6 +10,7 @@ import { defectTypeReducer } from './../fileReducer/defectTypeReducer';
 import { projectDetailsReducer } from './../fileReducer/projectDeatilsReducer'
 import { addDefectStatusReducer } from './../fileReducer/addDefectStatusReducer';
 import { defectReducer } from '../fileReducer/defectReducer'
+
 import {
   showOnDashboardReducer,
   faviconReducer,
@@ -22,7 +23,7 @@ const rootReducer = combineReducers({
   modelOpen: modelReducer,
   roleAllocationData: projectReducer,
   moduleAllocationData: moduleReducer,
-  severityState:serverityConfigReducer,
+  serverityState:serverityConfigReducer,
   lookAndFeelData: systemLogoReducer,
   showOnDashboard: showOnDashboardReducer,
   favicon: faviconReducer,

@@ -2,7 +2,7 @@ import * as actionTypes from '../constant/severityConfigConstant';
 import { serverityApi } from "../Api/index";
 import axios from "axios";
 
-export const getprioityData = () => dispatch => {
+export const getserverityData = () => dispatch => {
     axios.get(`${serverityApi}`).then(response =>
       dispatch({
         type: actionTypes.GETSERVERITY,
@@ -31,7 +31,7 @@ export const getprioityData = () => dispatch => {
   
   export const updateServerity  = data => dispatch => {
     axios
-      .put(`${serverityApi}/${data.serverityApi}`, data)
+      .put(`${serverityApi}/${data.serverityId}`, data)
       .then(response =>
         dispatch({
           type: actionTypes.EDITSERVERITY,
