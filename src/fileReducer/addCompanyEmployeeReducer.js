@@ -1,0 +1,16 @@
+import * as actionType from '../constant/addCompanyEmployeeConstant'
+
+const InitialState = {
+    companyemployeeDetailsFromState: []
+}
+
+export const addCompanyEmployeeReducer = (state = InitialState, action) => {
+    switch (action.type) {
+        case actionType.CREATECOMPANYEMPLOYEE:
+            return {
+                companyemployeeDetailsFromState: [...state.companyemployeeDetailsFromState, action.payload]
+            }
+        default:
+            return state
+    }
+}

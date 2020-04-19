@@ -1,48 +1,109 @@
-import React, { useState } from 'react'
-import { Button } from 'semantic-ui-react'
-import Model from '../../../components/model/submitModel'
-import RoleAllocation from './RoleAllocation'
-import Deallocation from '../deallocation/Deallocation'
+import React, { useState } from 'react';
+import { Button } from 'semantic-ui-react';
+import Model from '../../../components/model/submitModel';
+import RoleAllocation from './RoleAllocation';
+import Deallocation from '../deallocation/Deallocation';
+import ModuleAllocation from '../allocation/moduleAllocation/ModuleAllocate';
 
+const AllocationButton = ({
+  roleAllocation,
+  deAllocation,
+  employeeData,
+  allocationData,
+  editRole,
+  moduleAllocationData,
+  moduleAllocation
+}) => {
+  const [modelopen, setOpen] = useState({
+    moduleAllocation: false,
+    deallocation: false,
+    roleAllocation: false
+  });
 
-const AllocationButton = () => {
-    const [open, setOpen] = useState({
-        open: false,
-        value: false
+  const modulehandleOpen = () => {
+    setOpen({
+      moduleAllocation: true
     });
+  };
 
-    const handleOpen = () => {
-        setOpen({
-            open: true
-        });
-    };
+  const modulehandleClose = () => {
+    setOpen({
+      moduleAllocation: false
+    });
+  };
+  const handleOpenDeallocation = () => {
+    setOpen({
+      deallocation: true
+    });
+  };
 
-    const handleClose = () => {
-        setOpen({
-            open: false
-        });
-    };
-    const handleOpenDeallocation = () => {
-        setOpen({
-            value: true
-        });
-    };
+  const handleCloseDeallocation = () => {
+    setOpen({
+      deallocation: false
+    });
+  };
+  const handleOpenRole = () => {
+    setOpen({
+      roleAllocation: true
+    });
+  };
 
-    const handleCloseDeallocation = () => {
-        setOpen({
-            value: false
-        });
-    };
-    return (
-        <div>
-            <Button color="primary" onClick={handleOpen}>Roll Allocation</Button>
-            <Button color="red" onClick={handleOpenDeallocation}>Deallocation</Button>
-            <Button primary>Module Allocation</Button>
-            <Model open={open.open} handleOpen={handleOpen} handleClose={handleClose} width={90} form={<RoleAllocation />} title='Roll Allocation' />
-            <Model open={open.value} handleOpen={handleOpenDeallocation} handleClose={handleCloseDeallocation} width={90} form={<Deallocation />} title='Deallocation' />
+  const handleCloseRole = () => {
+    setOpen({
+      roleAllocation: false
+    });
+  };
+  console.log('poda punda', moduleAllocationData);
+  return (
+    <div>
+      <Button primary onClick={handleOpenRole}>
+        Role Allocation
+      </Button>
+      <Button color='red' onClick={handleOpenDeallocation}>
+        Deallocation
+      </Button>
+      <Button primary onClick={modulehandleOpen}>
+        Module Allocation
+      </Button>
+      <Model
+        open={modelopen.moduleAllocation}
+        handleOpen={modulehandleOpen}
+        handleClose={modulehandleClose}
+        width={90}
+        form={
+          <ModuleAllocation
+            moduleAllocationData={moduleAllocationData}
+            moduleAllocation={moduleAllocation}
+          />
+        }
+        title='Module Allocation'
+      />
+      <Model
+        open={modelopen.roleAllocation}
+        handleOpen={handleOpenRole}
+        handleClose={handleCloseRole}
+        width={90}
+        form={
+          <RoleAllocation
+            roleAllocation={roleAllocation}
+            deAllocation={deAllocation}
+            employeeData={employeeData}
+            allocationData={allocationData}
+            editRole={editRole}
+          />
+        }
+        title='Role Allocation'
+      />
+      <Model
+        open={modelopen.deallocation}
+        handleOpen={handleOpenDeallocation}
+        handleClose={handleCloseDeallocation}
+        width={90}
+        form={<Deallocation />}
+        title='Deallocation'
+      />
+    </div>
+  );
+};
 
-        </div>
-    )
-}
-
-export default AllocationButton
+export default AllocationButton;

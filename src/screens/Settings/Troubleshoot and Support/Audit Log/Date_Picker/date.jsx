@@ -42,7 +42,7 @@ class Date extends Component {
     
     render() { 
         return ( 
-<div className={'style1'}>
+<div  style={{ marginLeft:'320px',marginBottom:' 10px'}}>
     {/* <DatePicker
       format="YYYY-MM-DD HH:mm:ss"
       disabledDate={disabledDate}

@@ -1,65 +1,122 @@
-import React from 'react';
-import './Form.css'
-import { ChromePicker } from 'react-color' //color picker
+import React from "react";
+import "./Form.css";
+
+import Picker from "./Picker";
+import { changeDataValues } from "./../../../fileAction/addCompanyEmployeeAction";
+
 class Form extends React.Component {
   state = {
+    // priorityID: "",
+    name: "",
+    description: "",
     displayColorPicker: false,
-    selectedColor: null
+    color: "",
+    open: true,
+    tempColor: ""
   };
 
-  handleColor = (e) => {
-    this.setState({ selectedColor: e.hex });
-    console.log(e.hex)
-  }
+  handleColor = e => {};
 
   handleClick = () => {
-    this.setState({ displayColorPicker: !this.state.displayColorPicker })
+    this.setState({ displayColorPicker: !this.state.displayColorPicker });
   };
 
   handleClose = () => {
-    this.setState({ displayColorPicker: false })
+    this.setState({ displayColorPicker: false });
+  };
+  handleChangeColor = color => {
+    this.setState({
+      color: color.hex,
+      tempColor: (
+        <span
+          style={{
+            backgroundColor: color.hex,
+            borderRadius: 20,
+            width: 10
+          }}
+        >
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+      )
+    });
+  };
+  handleOnChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+  handleSubmit = e => {
+    e.preventDefault();
+    if (this.state.priorityId) {
+      this.props.updatePriority(this.state);
+    } else {
+      this.props.changeDataValues(this.state);
+    }
   };
 
-  render() {
+  componentDidMount() {
+    if (this.props.selectedData !== null) {
+      this.setState({
+        ...this.props.selectedData
+      });
+    }
+  }
+  componentWillReceiveProps() {
+    setTimeout(
+      function() {
+        this.componentDidMount();
+      }.bind(this),
+      10
+    );
+  }
 
+  render() {
+    // const {
+    //   form,
+    // } = this.props;
+    console.log(this.props);
     const { selectedColor, displayColorPicker } = this.state;
     return (
       <div>
-        <div >
+        <form onSubmit={this.handleSubmit}>
           <label>Name:</label>
-          <input type="text" id="" className="" placeholder="Name"></input>
+          <input
+            type="text"
+            id=""
+            className=""
+            placeholder="Name"
+            name="name"
+            value={this.state.name}
+            onChange={this.handleOnChange}
+          ></input>
           <br />
 
           <label>Description:</label>
-          <input type="text" id="" className="" placeholder="Description"></input>
-          <br />
-
-          <label>Icon:</label>
-          <br />
-          <br />
           <input
-            accept="image/*"
-            id="contained-button-file"
-            multiple
-            type="file"
+            type="text"
+            id=""
+            className=""
+            placeholder="Description"
+            name="description"
+            value={this.state.description}
+            onChange={this.handleOnChange}
+          ></input>
+          <br />
+
+          <Picker
+            handleChangeColor={this.handleChangeColor}
+            color={this.state.color}
           />
-          <br />
-          <br />
-          <label>Colour:</label>
           <div>
-            <div onClick={this.handleClick} style={{ backgroundColor: selectedColor }} className='colorbox'></div>
-            <div onClick={this.handleClose} />
-            {displayColorPicker && <ChromePicker onChange={this.handleColor} />}
+            <br />
+
+            <button type='submit' onClick={this.props.openFormClose}>
+              Submit
+            </button>
           </div>
-
-
-
-
-
-          {/* </form> */}
-        </div>
+        </form>
       </div>
-    )
+    );
   }
 }
-export default Form
+export default Form;
